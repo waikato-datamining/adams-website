@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Peter 'fracpete' Reutemann">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>ADAMS - The Advanced Data mining And Machine learning System</title>
+
+    <!-- load jquery at start for imports -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/adams.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <span id="gaimport"></span>
+    <script>$("#gaimport").load("ga.html");</script>
+
+    <span id="navbarimport"></span>
+    <script>$("#navbarimport").load("navbar.html");</script>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Examples</h1>
+      </div>
+
+      <p>Choose a category of annotated examples:</p>
+
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-basic">
+                Basic
+              </a>
+            </h4>
+          </div>
+          <div id="collapse-basic" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>Workflows don't have to be complex to get the job done. But even flows with only 10 actors already help documenting your work, preserving all steps in volved in generating the results. These flows are a good introduction into the many actors that ADAMS already has on offer.</p>
+              <div class="panel-group" id="accordion-basic">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-basic" href="#collapse-basic-1">
+                        Hello world flow
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-basic-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Absolute simple flow that merely displays the <strong>Hello World</strong> string.</p>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/FRNQhPSHJ1I&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/FRNQhPSHJ1I&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-basic" href="#collapse-basic-2">
+                        Cross-validating a single classifier on one dataset
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-basic-2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Cross-validates a classifier (J48) on a single UCI dataset.</p>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/56Y97zIWsow&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/56Y97zIWsow&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-basic" href="#collapse-basic-3">
+                        Dynamic evaluation of multiple classifiers on multiple datasets
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-basic-3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Reads in set ups of WEKA classifiers stored in a text file and evaluates each against all datasets in a directory.</p>
+
+                      <img src="img/examples/multiple_classifiers_on_multiple_datasets.png"/>
+                      <ol>
+                        <li>Read in text file with classifier set ups, line by line, and store set up in in variable attached to the global actor (see 5)</li>
+                        <li>Iterate over all datasets in directory and load them, one after the other</li>
+                        <li>Drop datasets that don't meet required capabilities</li>
+                        <li>Cross-validate classifier defined in 5 on datasets and output results</li>
+                        <li>The classifier definition used in cross-validation, with variable attached to set up (gets updated when the variable changes its value)</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-basic" href="#collapse-basic-4">
+                        Experiment on arbitrary datasets
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-basic-4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Adds datasets located in a directory to a pre-defined WEKA experiment, runs the experiment and displays the evaluation.</p>
+                      <img src="img/examples/weka_experiment.png"/>
+                      <ol>
+                        <li>Lists datasets in specified directory</li>
+                        <li>Executes the pre-defined WEKA experiment (containing only classifier set ups, no datasets) using the datasets arriving at its input</li>
+                        <li>Performs the evaluation of the experiment</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-basic" href="#collapse-basic-5">
+                        Classifier ranking of parameter sweep
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-basic-5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Generates a parameter sweep for multiple parameters of WEKA classifiers, ranks these using 2-fold cross-validation and subjects the top 3 to a proper evaluation.</p>
+                      <img src="img/examples/classifier_ranking.png"/>
+                      <ol>
+                        <li>Generates the parameter sweep of 3 parameters: ridge of LinearRegression, # of components of PLS filter and type of PLS algorithm</li>
+                        <li>Outputs all the generated setups</li>
+                        <li>Ranks the performance of the classifiers using 2-fold cross-validation, outputs the top 3</li>
+                        <li>Displays the set ups of the top 3 classifiers</li>
+                        <li>The global training data</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-visualization">
+                Visualization
+              </a>
+            </h4>
+          </div>
+          <div id="collapse-visualization" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>A picture says more than a thousand words. This is even more so true for statistics. Visualizing results, generating plots from data is an integral part of ADAMS. Check out what ADAMS can do in the visual department.</p>
+              <div class="panel-group" id="accordion-visualization">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-visualization" href="#collapse-visualization-1">
+                        Learning curve for a WEKA classifier
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-visualization-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Generates and visualizes a learning curve for J48, a non-incremental WEKA classifier. The classifier gets trained every 25 instances and evaluated against test set and Accuracy, RMSE and AUC gets plotted in one plot.</p>
+                      <img src="img/examples/learning_curve.png"/>
+                      <ol>
+                        <li>Read in dataset incrementally and buffer incoming data</li>
+                        <li>Every 25 instances, build classifier and evaluate against test set (defined as global actor, see 6)</li>
+                        <li>Obtain accuracy and create a plot container for Accuracy plot sequence</li>
+                        <li>Get root mean squared error and turn it into a plot container as well, this time for the RMSE sequence</li>
+                        <li>Retrieve AUC (area under curve) statistics and generate plot container for AUC sequence.</li>
+                        <li>Sequence of actors for reading in a test set</li>
+                        <li>The plot for all three statistics</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/Bq2oAhD3qL8&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/Bq2oAhD3qL8&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-visualization" href="#collapse-visualization-2">
+                        Visualization of seismic data
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-visualization-2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Seismic data was retrieved using the <a href="http://www.geonet.org.nz/resources/basic-data/waveform-data/" target="_blank">Geonet client</a>.</p>
+                      <img src="img/examples/geonet1.png"/>
+                      <ol>
+                        <li>Read text file, line by line</li>
+                        <li>Extract Unix timestamp, convert into double and store as variable</li>
+                        <li>Extract amplitude, convert into double and store as variable</li>
+                        <li>Turn timestamp and amplitude into a double array</li>
+                        <li>Generate data structure for plot</li>
+                        <li>The global plot</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/HP4wvUnUPCY&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/HP4wvUnUPCY&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-visualization" href="#collapse-visualization-3">
+                        Email alerts for seismic events
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-visualization-3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Seismic data was retrieved using the <a href="http://www.geonet.org.nz/resources/basic-data/waveform-data/" target="_blank">Geonet client</a>. Apart from visualizing the data, this flow also sends out an email alert if a tremor exceeds a certain strength.</p>
+                      <img src="img/examples/geonet2.png"/>
+                      <ol>
+                        <li>Read text file, line by line</li>
+                        <li>Extract Unix timestamp, convert into double and store as variable</li>
+                        <li>Convert timestamp into human-readable representation for email</li>
+                        <li>Extract amplitude, convert into double and store as variable</li>
+                        <li>Check whether incoming token (amplitude) is larger than threshold and email hasn't been sent yet</li>
+                        <li>Note that email was sent and send email with information about event (time/date and amplitude)</li>
+                        <li>Turn timestamp and amplitude into a double array</li>
+                        <li>Generate data structure for plot</li>
+                        <li>The global plot</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/vdN9Uxson5o&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/vdN9Uxson5o&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-visualization" href="#collapse-visualization-4">
+                        LEIA - visualizing bridge sensor data
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-visualization-4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Visualizing sensor data of the InfraWatch project using the LEIA/ADAMS framework:</p>
+                      <div class="panel-group" id="accordion-leia">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion-leia" href="#collapse-leia-1">
+                                Bridge vibration
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapse-leia-1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <p>Illustration of sensor data processing with the ADAMS/LEIA workflow engine.</p>
+                              <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/zxReYlFjTbc&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/zxReYlFjTbc&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion-leia" href="#collapse-leia-2">
+                                Vehicle detection
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapse-leia-2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <p>Demonstration of the ADAMS/LEIA workflow engine on traffic sensor data.</p>
+                              <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/C32npFLSaug&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/C32npFLSaug&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <p><strong>Publication</strong></p>
+                      <p>Knobbe, A., Blockeel, H., Koopman, A., Calders, T., Obladen, B., Bosma, C., Galenkamp, H., Koenders, E., and Kok, J.: <em>InfraWatch: Data Management of Large Systems for Monitoring Infrastructural Performance.</em> IDA Proceedings (2010). [<a href="http://infrawatch.liacs.nl/pubs/IDA2010-knobbe.pdf" target="_blank">pdf</a>]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-timeseries">
+                Time series
+              </a>
+            </h4>
+          </div>
+          <div id="collapse-timeseries" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>ADAMS' efficient token-passing architecture makes it ideal to handle streams of data. It is also very easy to extend. In these examples, we introduce new actors for several signal analysis techniques, and show how we can quickly build and test workflows to analyse time series data.</p>
+
+              <p><strong>Convolution - Finding the signal in the noise</strong></p>
+              <p>Sensor data is often noisy and complex. Here, we introduce an actor for <a href="http://en.wikipedia.org/wiki/Convolution" target="_blank">convolution</a>, an operation that transforms the data into something more useful.</p>
+              <div class="panel-group" id="accordion-timeseries-convolution">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-timeseries-convolution" href="#collapse-timeseries-convolution-1">
+                        Smoothing
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-timeseries-convolution-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>First, we convolute the signal with a Gaussian response function (or kernel) to obtain a much cleaner signal.</p>
+                      <img src="img/examples/gaussian.png"/>
+                      <ol>
+                        <li>Retrieve data files from the given folder. Emits the files as tokens.</li>
+                        <li>Load and interpret the files and emit [timestamp,sensorvalue] tokens for every new timestamp.</li>
+                        <li>Branch actor: each token is sent to three subflows for further processing.</li>
+                        <li>This branch simply plots the data. Timestamp and sensor value are mapped straight to an X and Y coordinate, [X:timestamp,Y:sensorvalue], then sent to the plotter.</li>
+                        <li>Visualize the used kernel (here, a Gaussian kernel). Emits values to plot the kernel, centered on the received timestamp.</li>
+                        <li>Convolute the received data with the kernel. The agent buffers the last N tokens (N=kernel width), and emits the convoluted data points.</li>
+                        <li>Global plotter for all data. Receives tokens sent to all GlobalSink actors linked to it.</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/D0F-NPerCIE&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/D0F-NPerCIE&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-timeseries-convolution" href="#collapse-timeseries-convolution-2">
+                        Smoothing at different levels
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-timeseries-convolution-2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Changing the width of the kernel allows us to focus on events occurring on different time scales. Simply copy-paste the last two branches and change the kernel widths.</p>
+                      <img src="img/examples/gaussiandouble.png"/>
+                      <ol>
+                        <li></li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/9QYYzh-VLeQ&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/9QYYzh-VLeQ&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-timeseries-convolution" href="#collapse-timeseries-convolution-4">
+                        Scale-space composition
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-timeseries-convolution-4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Convoluting the same signal with a whole range of different kernel widths creates a so-called scale space, a space of signals sensitive to events at different time scales.</p>
+                      <img src="img/examples/scalespace.png"/>
+                      <ol>
+                        <li>Copy-paste the convolution branches</li>
+                        <li>Increase the kernel width. Here, we double it each time</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/-sIgbedKxVo&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/-sIgbedKxVo&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-timeseries-convolution" href="#collapse-timeseries-convolution-5">
+                        Scale-space decomposition
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-timeseries-convolution-5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Decomposition of a sensor signal into components displaying events occurring on different time scales. Detecting transient events when these events occur on different timescales in data prone to baseline shifts can be very tricky. Through scale-space decomposition, we decompose the raw signal into its natural components, and use those to detect events. This is done by taking the scale space and establishing 'regions' of the scale space where events of a certain time scale take place. Each region will be represented by a component, calculated by substracting the convolutions at either end of the region. The latter is also known as a `difference of Gaussians' filter, or band-pass filter. The sum of the components recreates the original signal.</p>
+                      <img src="img/examples/decomposition.png"/>
+                      <ol>
+                        <li>Sensor data is read and split into individual tokens as before</li>
+                        <li>The data is subsampled: only every 100th token is passed on</li>
+                        <li>The baseline of the data is created through convolution with a large Gaussian, only sensitive to large-scale events</li>
+                        <li>The first band-pass filter is applied. It takes the difference of the Gaussians of width 64 and 16. The result is sent to the plotter</li>
+                        <li>Second band-pass filter, for signals in the range sigma=[4,16]</li>
+                        <li>Third band-pass filter, for signals in the range sigma=[0,4]</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/7eEjwX_5K8k&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/7eEjwX_5K8k&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p><strong>Segmentation of time series data</strong></p>
+              <p>A time series can be approximated by a piecewise linear function. This will result in a time series that is significantly smaller in size (disk space), and thus easier to store and process.</p>
+              <div class="panel-group" id="accordion-timeseries-segmentation">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-timeseries-segmentation" href="#collapse-timeseries-segmentation-1">
+                        Segmentation through convolution
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-timeseries-segmentation-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>One way of approximating the signal is to begin a new line segment if the signal changes it's slope drastically. These points can be found by taking the 1st, 2nd, 3rd,... order derivative of the signal and start a new line segment for every zero-crossing of these derivatives. Instead of first calculating the convolution of a signal and then taking its derivative, we can achieve the same result by convoluting the signal with the derivative of the kernel used for convolution! Thus, we take the 1st, 2nd, 3rd,... order derivative of the Gaussian kernel, do their convolutions, and start a new line segment at any zero-crossings.</p>
+                      <img src="img/examples/segmentation.png"/>
+                      <ol>
+                        <li>Load and split the data into tokens as before</li>
+                        <li>Plot the raw sensor data</li>
+                        <li>Compute the third order derivative of the convolution and normalize it between -1 and 1 (for nicer plotting)</li>
+                        <li>Compute the second order derivative of the convolution and normalize it between -1 and 1</li>
+                        <li>Compute the first order derivative of the convolution and normalize it between -1 and 1</li>
+                        <li>The segmentation agent does the same as the above three branches, but only lets through a token (unaltered) if one of the derivates crosses zero</li>
+                        <li>Compute and plot the convolution with the base Gaussion kernel</li>
+                        <li>The plotter collects and plots all received tokens</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/Px82ohXmJO4&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/Px82ohXmJO4&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p><strong>Discrete Fourier Transform of sensor data</strong></p>
+              <div class="panel-group" id="accordion-timeseries-dft">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-timeseries-dft" href="#collapse-timeseries-dft-1">
+                        Applying DFT
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-timeseries-dft-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Applying discrete fourier transformation to the sensor data and displaying the frequency domain.</p>
+                      <img src="img/examples/fft.png"/>
+                      <ol>
+                        <li>Select the FFT Conversion in the Convert actor.</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/9QYYzh-VLeQ&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/9QYYzh-VLeQ&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-advanced">
+                Advanced
+              </a>
+            </h4>
+          </div>
+          <div id="collapse-advanced" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>Large, complex flows that's where ADAMS' strength really lies. Its compact layout helps you not to lose the overview. Use loops, internal storage and much more to create solutions to your problems.</p>
+              <div class="panel-group" id="accordion-advanced">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-advanced" href="#collapse-advanced-1">
+                        Pixel classification
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-advanced-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Performs pixel area classification (background or object) with a WEKA classifier trained on regions selected by the user.</p>
+                      <img src="img/examples/pixel-selector.png"/>
+                      <ol>
+                        <li>Parameter initialization</li>
+                        <li>Loading and pre-processing of image, storing in internal storage for future retrieval</li>
+                        <li>Extract image height and store it in a variable</li>
+                        <li>Extract and store image width in variable as well</li>
+                        <li>Interacting with the user, choosing pixel regions used as traingin data</li>
+                        <li>Generate training data for WEKA classifier</li>
+                        <li>Keep track of number of training instances</li>
+                        <li>Cross-validate (and output results) on training data only if there are at least 10 instances in the data</li>
+                        <li>Train the classifier, stored model on disk for future use and in the internal storage as well for performing the classification task</li>
+                        <li>Outer loop for traversing X (every 3rd pixel)</li>
+                        <li>Inner loop for traversing Y (every 3rd pixel as well)</li>
+                        <li>Extract pixel region around current X and Y, turn into a WEKA instance and make prediction</li>
+                        <li>Choose the color for background or object classification</li>
+                        <li>Update the pixel at the current position</li>
+                        <li>Display the modified image</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/cuop0RAG35w&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/cuop0RAG35w&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-advanced" href="#collapse-advanced-2">
+                        Sample type checker
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-advanced-2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Using the GC-MS extension modules, this flow performs a check on the sample type of GC-MS spectra and can send the analyst an email with the results. The spectra themselves are obtained from fruit and vegetable samples.</p>
+                      <img src="img/examples/sampletypechecker.png"/>
+                      <ol>
+                        <li>Retrieve classification available classification labels</li>
+                        <li>List all chromatogram files</li>
+                        <li>Load and pre-process chromatograms one-by-one</li>
+                        <li>Show Total-ion-count and take a screenshot for report</li>
+                        <li>The same with the Baseline-ion-count</li>
+                        <li>Turn chromatogram into WEKA instance and predict the class label</li>
+                        <li>Determine the fruit/vegetable picture associated with the label</li>
+                        <li>Create a spreadsheet from the class distribution (top 5)</li>
+                        <li>Generate various output for the PDF report</li>
+                        <li>Generate PDF report</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/UWS7cBerBT8&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/UWS7cBerBT8&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                      <p><strong>An application of data mining to fruit and vegetable sample identification using Gas Chromatography-Mass Spectrometry</strong></p>
+                      <p>Geoffrey Holmes, Dale Fletcher, and Peter Reutemann (2012). An application of data mining to fruit and vegetable sample identification using Gas Chromatography-Mass Spectrometry. Proceedings of the International Congress on Environmental Modelling and Software (IEMSS), Leizpig, Germany, 2012. [<a href="http://www.cms.waikato.ac.nz/~fracpete/publications/2012/iemss2012.pdf" target="_blank">pdf</a>]</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-advanced" href="#collapse-advanced-3">
+                        Spectral analysis
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-advanced-3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Using GC-MS extension modules, this flow processes spectral data generating predictions for compounds. The user can correct the guessed peaks interactively, before the concentrations are calculated.</p>
+                      <img src="img/examples/spectralanalysis.png"/>
+                      <ol>
+                        <li>Set up external flows, relative to current one</li>
+                        <li>Set up variables for serialized regression model files</li>
+                        <li>Prompt user to select spectra</li>
+                        <li>Determine extension of currently processed spectrum</li>
+                        <li>Prompt user to enter additional parameters</li>
+                        <li>Load file, executing subflow depending on file extensions</li>
+                        <li>Guess type of compound based on filename and prompt with pre-selected choice</li>
+                        <li>Process spectrum, guessing peaks using external flow</li>
+                        <li>Prompt user to inspect selected peaks, allow user to correct them</li>
+                        <li>Turn spectrum into WEKA data structure and make prediction on peak area for all compounds</li>
+                        <li>Assemble predictions, display them and copy them to the clipboard as well before proceeding with the next data file</li>
+                      </ol>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/P6KceexcfZo&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/P6KceexcfZo&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-others">
+                Others
+              </a>
+            </h4>
+          </div>
+          <div id="collapse-others" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>Miscellaneous videos of various flows.</p>
+              <div class="panel-group" id="accordion-others">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-others" href="#collapse-others-1">
+                        WEKA webservice
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-others-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Using this webservice, any programming language can take advantage of WEKA as long as it supports SOAP</p>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/90zhhvfzkWI&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/90zhhvfzkWI&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-others" href="#collapse-others-2">
+                        Processing data with R
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-others-2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Shows how to utilize <a href="http://www.r-project.org/" target="_blank">R</a> from within ADAMS</p>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/E9m1So70fco&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/E9m1So70fco&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-others" href="#collapse-others-3">
+                        Classifier evaluation: from simple to complex 
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-others-3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Demonstrates how a flow can evolve from simple to complex</p>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/bZ85knCw30s&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/bZ85knCw30s&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion-others" href="#collapse-others-4">
+                        Flow execution listeners
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-others-4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>With these listeners you can <em>eavesdrop</em> on your flow, check out for instance where most of the CPU time is used or how often actors are executed</p>
+                      <object width="560" height="446"><param name="movie" value="https://www.youtube.com/v/PpEEdn_vcOs&hl=en&fs=1&showinfo=0"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/PpEEdn_vcOs&hl=en&fs=1&showinfo=0" type="application/x-shockwave-flash" allowfullscreen="true" width="560" height="446"></embed></object>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Note:</strong> the videos should only be considered educational, as some of the concepts in ADAMS have changed over time. E.g., <em>global</em> actors are now called <em>callable</em>, since they can appear in different scopes within the flow. Also, <em>SingleFileSupplier</em> and <em>MultiFileSupplier</em> got merged into the <em>FileSupplier</em> actor.</p>
+
+      <div id="footer-simple">
+      </div>
+      <script>$("#footer-simple").load("footer.html");</script>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+  
+
+</body></html>

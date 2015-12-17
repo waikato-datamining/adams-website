@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /snapshots
+Disallow: /releases
+Disallow: /jenkins
+Disallow: /nexus
+Disallow: /bugs
+

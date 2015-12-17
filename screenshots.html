@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Peter 'fracpete' Reutemann">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>ADAMS - The Advanced Data mining And Machine learning System</title>
+
+    <!-- load jquery at start for imports -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/adams.css" rel="stylesheet">
+
+    <!-- image gallery -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <span id="gaimport"></span>
+    <script>$("#gaimport").load("ga.html");</script>
+
+    <span id="navbarimport"></span>
+    <script>$("#navbarimport").load("navbar.html");</script>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Screenshots</h1>
+      </div>
+
+      <div id="blueimp-gallery" class="blueimp-gallery">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+              </div>
+              <div class="modal-body next"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left prev">
+                  <i class="glyphicon glyphicon-chevron-left"></i>
+                  Previous
+                </button>
+                <button type="button" class="btn btn-primary next">
+                  Next
+                  <i class="glyphicon glyphicon-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="links">
+        <a href="img/screenshots/moa-stream-filtering_output.png" title="Filtered MOA streams" data-gallery>
+          <img src="img/thumbnails/moa-stream-filtering_output.png" alt="Filtered MOA streams"/>
+        </a>
+        <a href="img/screenshots/advanced-learning_curve-incremental-flow.png" title="Classifier learning flow" data-gallery>
+          <img src="img/thumbnails/advanced-learning_curve-incremental-flow.png" alt="Classifier learning flow"/>
+        </a>
+        <a href="img/screenshots/advanced-learning_curve-incremental-output.png" title="Learning curve of incremental classifier" data-gallery>
+          <img src="img/thumbnails/advanced-learning_curve-incremental-output.png" alt="Learning curve of incremental classifier"/>
+        </a>
+        <a href="img/screenshots/dataset-compatibility.png" title="Dataset compatibility" data-gallery>
+          <img src="img/thumbnails/dataset-compatibility.png" alt="Dataset compatibility"/>
+        </a>
+        <a href="img/screenshots/imagej-arff-generation-dataset.png" title="ARFF generation with ImageJ" data-gallery>
+          <img src="img/thumbnails/imagej-arff-generation-dataset.png" alt="ARFF generation with ImageJ"/>
+        </a>
+        <a href="img/screenshots/imageviewer1.png" title="ImageViewerDownload" data-gallery>
+          <img src="img/thumbnails/imageviewer1.png" alt="ImageViewerDownload"/>
+        </a>
+        <a href="img/screenshots/instance-compare.png" title="Instance Compare" data-gallery>
+          <img src="img/thumbnails/instance-compare.png" alt="Instance Compare"/>
+        </a>
+        <a href="img/screenshots/instance-explorer_view.png" title="Instance Explorer" data-gallery>
+          <img src="img/thumbnails/instance-explorer_view.png" alt="Instance Explorer"/>
+        </a>
+        <a href="img/screenshots/jai-blur-output-blurred.png" title="Blurred image using JAI" data-gallery>
+          <img src="img/thumbnails/jai-blur-output-blurred.png" alt="Blurred image using JAI"/>
+        </a>
+        <a href="img/screenshots/previewbrowser-default.png" title="Previewbrowser - learned model" data-gallery>
+          <img src="img/thumbnails/previewbrowser-default.png" alt="Previewbrowser - learned model"/>
+        </a>
+        <a href="img/screenshots/previewbrowser-graph.png" title="Previewbrowser - classifier graph" data-gallery>
+          <img src="img/thumbnails/previewbrowser-graph.png" alt="Previewbrowser - classifier graph"/>
+        </a>
+        <a href="img/screenshots/previewbrowser-tree.png" title="Previewbrowser - classifier tree" data-gallery>
+          <img src="img/thumbnails/previewbrowser-tree.png" alt="Previewbrowser - classifier tree"/>
+        </a>
+        <a href="img/screenshots/diff-files.png" title="Diffing files" data-gallery>
+          <img src="img/thumbnails/diff-files.png" alt="Diffing files"/>
+        </a>
+        <a href="img/screenshots/timeseries-setup.png" title="Timeseries - Setup" data-gallery>
+          <img src="img/thumbnails/timeseries-setup.png" alt="Timeseries - Setup"/>
+        </a>
+        <a href="img/screenshots/timeseries-input.png" title="Timeseries - Input" data-gallery>
+          <img src="img/thumbnails/timeseries-input.png" alt="Timeseries - Input"/>
+        </a>
+        <a href="img/screenshots/timeseries-forecast.png" title="Timeseries - Forecast" data-gallery>
+          <img src="img/thumbnails/timeseries-forecast.png" alt="Timeseries - Forecast"/>
+        </a>
+        <a href="img/screenshots/4in1-output.png" title="4 in 1 plot" data-gallery>
+          <img src="img/thumbnails/4in1-output.png" alt="4 in 1 plot"/>
+        </a>
+        <a href="img/screenshots/explorerext-workspaces.png" title="Explorer workspaces" data-gallery>
+          <img src="img/thumbnails/explorerext-workspaces.png" alt="Explorer workspaces"/>
+        </a>
+        <!--a href="img/screenshots/" title="" data-gallery>
+          <img src="img/thumbnails/" alt=""/>
+        </a-->
+      </div>
+
+      <div id="footer-simple">
+      </div>
+      <script>$("#footer-simple").load("footer.html");</script>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- image gallery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.min.js"></script>
+  
+
+</body></html>
