@@ -1,0 +1,41 @@
+.. title: 0.4.11
+.. slug: 0-4-11
+.. date: 2015-11-18 16:39:29 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+Downloads
+=========
+
+* base (all platforms): `zip <0-4-11-base-zip_>`_
+* base + addons (all platforms): `zip <0-4-11-addons-zip_>`_
+
+.. _0-4-11-base-zip: http://sourceforge.net/projects/theadamsflow/files/0.4.11/adams-base-all-0.4.11-bin.zip/download
+.. _0-4-11-addons-zip: http://sourceforge.net/projects/theadamsflow/files/0.4.11/adams-addons-all-0.4.11-bin.zip/download
+
+
+Highlights
+==========
+
+* switch to Java 8
+* preferred IDE is now IntelliJ IDEA
+* removed OSX builds
+* 43 new actors
+* 13 new conversions
+* removed obsolete actors and conversions
+* added video support (video files and webcams)
+* added object detection and tracking (incl recording of object trails)
+* proof-of-concept remote-execution of jobs
+* SSH console
+* support for webscraping using JSoup
+* MEKA upgraded to 1.9.0
+* MOA regressor support added
+* better syntax highlighting for Groovy/Jython
+* several new Weka classifiers (eg Veto, LeanMultiScheme, ThresholdedBinaryClassification, InputSmearing)
+* new genetic algorithm: Hermione
+* extended the abstaining classifier framework (integrates with Weka)
+* adams-imaging split into: adams-imaging, adams-boofcv, adams-imagemagick, adams-imagej, adams-openimaj (newly added)
+
