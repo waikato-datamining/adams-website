@@ -1,10 +1,52 @@
 .. title: 0.4.10
 .. slug: 0-4-10
 .. date: 2015-06-22 16:39:33 UTC+13:00
-.. tags: 
+.. tags: release
 .. category: 
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
-Write your page here.
+Downloads
+=========
+
+* **base**
+
+  * Linux/Unix/Windows: `zip <0-4-10-base-bin>`__
+  * Mac OSX: `app <0-4-10-base-app>`__, `doc <0-4-10-base-doc>`__, `flows <0-4-10-base-flows>`__
+
+* **base + addons**
+
+  * Linux/Unix/Windows: `zip <0-4-10-addons-bin>`__
+  * Mac OSX: `app <0-4-10-addons-app>`__, `doc <0-4-10-addons-doc>`__, `flows <0-4-10-addons-flows>`__
+
+.. _0-4-10-base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-bin.zip/download
+.. _0-4-10-base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-app.zip/download
+.. _0-4-10-base-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-doc.zip/download
+.. _0-4-10-base-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-flows.jar/download
+.. _0-4-10-addons-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-bin.zip/download
+.. _0-4-10-addons-app: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-app.zip/download
+.. _0-4-10-addons-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-doc.zip/download
+.. _0-4-10-addons-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-flows.jar/download
+
+
+Highlights
+==========
+
+* fixes a glitch in the debugging functionality, when using the *Breakpoint* control actor
+
+
+Launching ADAMS
+===============
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+* OSX: open the app archive
+
+**Mac users** using the app archive need to tell ADAMS where to find the
+example flows (see above for download). The **Placeholders.props** file needs to be
+`downloaded <https://adams.cms.waikato.ac.nz/resources/Placeholders.props>`_ to
+``$HOME/.adams`` and the ``EXAMPLE_FLOWS`` directory in the props file
+pointed to the actual directory with the example flows.
+

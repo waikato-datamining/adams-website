@@ -1,7 +1,7 @@
 .. title: 0.4.11 released
 .. slug: 0-4-11-released
 .. date: 2015-11-18 16:29:52 UTC+13:00
-.. tags: 
+.. tags: release
 .. category: 
 .. link: 
 .. description: 

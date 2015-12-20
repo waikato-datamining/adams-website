@@ -1,7 +1,7 @@
 .. title: New Website launched
 .. slug: new-website-launched
 .. date: 2015-12-18 14:34:43 UTC+13:00
-.. tags: 
+.. tags: website
 .. category: 
 .. link: 
 .. description: 
