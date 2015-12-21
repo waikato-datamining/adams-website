@@ -22,6 +22,7 @@ adams-meta
 adams-ml
 adams-moa
 adams-net
+adams-nlp
 adams-odf
 adams-osm
 adams-pdf
