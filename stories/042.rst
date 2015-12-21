@@ -6,5 +6,42 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
-Write your page here.
+Downloads
+=========
+
+* Linux/Unix/Windows: `zip <bin>`__
+* Mac OSX: `app <app>`__, `doc <doc>`__, `flows <flows>`__
+
+.. _bin: http://sourceforge.net/projects/theadamsflow/files/0.4.2/adams-all-0.4.2-bin.zip/download
+.. _app: http://sourceforge.net/projects/theadamsflow/files/0.4.2/adams-all-0.4.2-app.zip/download
+.. _doc: http://sourceforge.net/projects/theadamsflow/files/0.4.2/adams-all-0.4.2-doc.zip/download
+.. _flows: http://sourceforge.net/projects/theadamsflow/files/0.4.2/adams-all-0.4.2-flows.jar/download
+
+
+Highlights
+==========
+
+* Added almost 20 more conversions and 20 new actors
+* R-Project integration using Rserve
+* WEKA webservice allows for programming language agnostic training, evaluation and use of WEKA models (classifiers, clusterers) and data processing using filters
+* Spreadsheets now come with basic formula support
+* Spreadsheets can be used for lookup tables in the flow
+* Support for "chunked" reading/writing of spreadsheets to process millions of rows
+
+Launching ADAMS
+===============
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+* OSX: open the app archive
+
+**Mac users** using the app archive need to tell ADAMS where to find the
+example flows (see above for download). The **Placeholders.props** file needs to be
+`downloaded <https://adams.cms.waikato.ac.nz/resources/Placeholders.props>`_ to
+``$HOME/.adams`` and the ``EXAMPLE_FLOWS`` directory in the props file
+pointed to the actual directory with the example flows.
+
+
+

@@ -13,22 +13,22 @@ Downloads
 
 * **base**
 
-  * Linux/Unix/Windows: `zip <0-4-10-base-bin>`__
-  * Mac OSX: `app <0-4-10-base-app>`__, `doc <0-4-10-base-doc>`__, `flows <0-4-10-base-flows>`__
+  * Linux/Unix/Windows: `zip <base-bin>`__
+  * Mac OSX: `app <base-app>`__, `doc <base-doc>`__, `flows <base-flows>`__
 
 * **base + addons**
 
-  * Linux/Unix/Windows: `zip <0-4-10-addons-bin>`__
-  * Mac OSX: `app <0-4-10-addons-app>`__, `doc <0-4-10-addons-doc>`__, `flows <0-4-10-addons-flows>`__
+  * Linux/Unix/Windows: `zip <addons-bin>`__
+  * Mac OSX: `app <addons-app>`__, `doc <addons-doc>`__, `flows <addons-flows>`__
 
-.. _0-4-10-base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-bin.zip/download
-.. _0-4-10-base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-app.zip/download
-.. _0-4-10-base-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-doc.zip/download
-.. _0-4-10-base-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-flows.jar/download
-.. _0-4-10-addons-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-bin.zip/download
-.. _0-4-10-addons-app: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-app.zip/download
-.. _0-4-10-addons-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-doc.zip/download
-.. _0-4-10-addons-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-flows.jar/download
+.. _base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-bin.zip/download
+.. _base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-app.zip/download
+.. _base-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-doc.zip/download
+.. _base-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-base-all-0.4.10-flows.jar/download
+.. _addons-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-bin.zip/download
+.. _addons-app: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-app.zip/download
+.. _addons-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-doc.zip/download
+.. _addons-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.10/adams-addons-all-0.4.10-flows.jar/download
 
 
 Highlights

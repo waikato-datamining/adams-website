@@ -10,11 +10,11 @@
 Downloads
 =========
 
-* base (all platforms): `zip <0-4-11-base_>`_
-* base + addons (all platforms): `zip <0-4-11-addons_>`_
+* base (all platforms): `zip <base_>`_
+* base + addons (all platforms): `zip <addons_>`_
 
-.. _0-4-11-base: http://sourceforge.net/projects/theadamsflow/files/0.4.11/adams-base-all-0.4.11-bin.zip/download
-.. _0-4-11-addons: http://sourceforge.net/projects/theadamsflow/files/0.4.11/adams-addons-all-0.4.11-bin.zip/download
+.. _base: http://sourceforge.net/projects/theadamsflow/files/0.4.11/adams-base-all-0.4.11-bin.zip/download
+.. _addons: http://sourceforge.net/projects/theadamsflow/files/0.4.11/adams-addons-all-0.4.11-bin.zip/download
 
 
 Highlights

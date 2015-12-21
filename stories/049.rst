@@ -6,5 +6,64 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
-Write your page here.
+Downloads
+=========
+
+* **base**
+
+  * Linux/Unix/Windows: `zip <base-bin>`__
+  * Mac OSX: `app <base-app>`__, `doc <base-doc>`__, `flows <base-flows>`__
+
+* **base + addons**
+
+  * Linux/Unix/Windows: `zip <addons-bin>`__
+  * Mac OSX: `app <addons-app>`__, `doc <addons-doc>`__, `flows <addons-flows>`__
+
+.. _base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-base-all-0.4.9-bin.zip/download
+.. _base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-base-all-0.4.9-app.zip/download
+.. _base-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-base-all-0.4.9-doc.zip/download
+.. _base-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-base-all-0.4.9-flows.jar/download
+.. _addons-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-addons-all-0.4.9-bin.zip/download
+.. _addons-app: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-addons-all-0.4.9-app.zip/download
+.. _addons-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-addons-all-0.4.9-doc.zip/download
+.. _addons-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.9/adams-addons-all-0.4.9-flows.jar/download
+
+
+Highlights
+==========
+
+* 19 new actors
+* 1 new conversion
+* Flow editor debugging framework overhaul, allows step-by-step debugging now
+* Flow editor now offers "Find usages" of variables, storage items callable actors
+* added support for control charts
+* MEKA upgraded to 1.7.6
+* Groovy updated to 2.4.0 (fixes problems with Weka packages that rely on Groovy)
+* fixed actual/potential file locking issues on Windows (file handles didn't
+  get released till the next garbage collection call)
+* fixed "very slow" loading of flows in the Flow editor, which was due to
+  WEKA's "sophisticated" classname handling - turning it off resulted in speed
+  improvement of more than 10 times
+* added wizards for appending datasets, batch-filtering datasets, merging
+  datasets to main menu
+* added "Dark Lord" genetic attribute selection/optimization wizard to main
+  menu (EXPERT user-mode)
+* spreadsheets are now editable
+* added Cost curve, Margin curve Weka visualizations to main menu
+
+Launching ADAMS
+===============
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+* OSX: open the app archive
+
+**Mac users** using the app archive need to tell ADAMS where to find the
+example flows (see above for download). The **Placeholders.props** file needs to be
+`downloaded <https://adams.cms.waikato.ac.nz/resources/Placeholders.props>`_ to
+``$HOME/.adams`` and the ``EXAMPLE_FLOWS`` directory in the props file
+pointed to the actual directory with the example flows.
+
+

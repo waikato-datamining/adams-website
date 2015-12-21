@@ -6,5 +6,48 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
-Write your page here.
+Downloads
+=========
+
+* Linux/Unix/Windows: `zip <bin>`__
+* Mac OSX: `app <app>`__, `doc <doc>`__, `flows <flows>`__
+
+.. _bin: http://sourceforge.net/projects/theadamsflow/files/0.4.3/adams-all-0.4.3-bin.zip/download
+.. _app: http://sourceforge.net/projects/theadamsflow/files/0.4.3/adams-all-0.4.3-app.zip/download
+.. _doc: http://sourceforge.net/projects/theadamsflow/files/0.4.3/adams-all-0.4.3-doc.zip/download
+.. _flows: http://sourceforge.net/projects/theadamsflow/files/0.4.3/adams-all-0.4.3-flows.jar/download
+
+
+Highlights
+==========
+
+* Added almost 20 more conversions and more than 30 new actors
+* spreadsheet support extended: merging of spreadsheets, generic object cells, multiple sheet support for reading/writing (Excel, ODF), Gnumeric reader, SQL dump reader, WEKA data formats (read/write)
+* basic JSON processing support
+* email support extended: read/write of files, viewing, basic address book
+* extended WEKA Explorer allows saving of sessions, multiple Explorer panels in same window
+* support for WEKA cluster evaluation added
+* variables can be attached to arrays now
+* many UI improvements in flow editor
+* connection standalons can prompt for password now (eg Database, SMTP, FTP, SSH)
+* enhanced image support: EXIF/IPTC meta-data, Draw actor allows basic draw operations on images
+* JavaExec actor allows launching of new JVMs with same or enhanced classpath
+* Twitter integration fixed
+
+Launching ADAMS
+===============
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+* OSX: open the app archive
+
+**Mac users** using the app archive need to tell ADAMS where to find the
+example flows (see above for download). The **Placeholders.props** file needs to be
+`downloaded <https://adams.cms.waikato.ac.nz/resources/Placeholders.props>`_ to
+``$HOME/.adams`` and the ``EXAMPLE_FLOWS`` directory in the props file
+pointed to the actual directory with the example flows.
+
+
+

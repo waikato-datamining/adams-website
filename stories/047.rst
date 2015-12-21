@@ -6,5 +6,54 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
-Write your page here.
+Downloads
+=========
+
+* **base**
+
+  * Linux/Unix/Windows: `zip <base-bin>`__
+  * Mac OSX: `app <base-app>`__, `doc <base-doc>`__, `flows <base-flows>`__
+
+* **base + addons**
+
+  * Linux/Unix/Windows: `zip <addons-bin>`__
+  * Mac OSX: `app <addons-app>`__, `doc <addons-doc>`__, `flows <addons-flows>`__
+
+.. _base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-bin.zip/download
+.. _base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-app.zip/download
+.. _base-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-doc.zip/download
+.. _base-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-flows.jar/download
+.. _addons-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-bin.zip/download
+.. _addons-app: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-app.zip/download
+.. _addons-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-doc.zip/download
+.. _addons-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-flows.jar/download
+
+
+Highlights
+==========
+
+* 51 new actors
+* 16 new conversions
+* new module adams-jooq: code generation from JDBC databases for typed access
+* new module adams-image-webservice: allows upload of images using webservice
+* adams-timeseries module extended
+* adams-spreadsheet module extended
+* adams-random module extended
+* adams-imaging module overhaul
+
+Launching ADAMS
+===============
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+* OSX: open the app archive
+
+**Mac users** using the app archive need to tell ADAMS where to find the
+example flows (see above for download). The **Placeholders.props** file needs to be
+`downloaded <https://adams.cms.waikato.ac.nz/resources/Placeholders.props>`_ to
+``$HOME/.adams`` and the ``EXAMPLE_FLOWS`` directory in the props file
+pointed to the actual directory with the example flows.
+
+

@@ -6,5 +6,53 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
-Write your page here.
+Downloads
+=========
+
+* **base**
+
+  * Linux/Unix/Windows: `zip <base-bin>`__
+  * Mac OSX: `app <base-app>`__, `doc <base-doc>`__, `flows <base-flows>`__
+
+* **base + addons**
+
+  * Linux/Unix/Windows: `zip <addons-bin>`__
+  * Mac OSX: `app <addons-app>`__, `doc <addons-doc>`__, `flows <addons-flows>`__
+
+.. _base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-base-all-0.4.5-bin.zip/download
+.. _base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-base-all-0.4.5-app.zip/download
+.. _base-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-base-all-0.4.5-doc.zip/download
+.. _base-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-base-all-0.4.5-flows.jar/download
+.. _addons-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-addons-all-0.4.5-bin.zip/download
+.. _addons-app: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-addons-all-0.4.5-app.zip/download
+.. _addons-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-addons-all-0.4.5-doc.zip/download
+.. _addons-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.5/adams-addons-all-0.4.5-flows.jar/download
+
+
+Highlights
+==========
+
+* more than 30 new actors
+* more than 20 new conversions
+* new GIS module using OpenStreetMap (OSM)
+* new event-based module for receiving and transmitting data (RATS)
+* queue support
+* XML/DOM documents can be created from scratch now
+* more interactive actors
+
+Launching ADAMS
+===============
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+* OSX: open the app archive
+
+**Mac users** using the app archive need to tell ADAMS where to find the
+example flows (see above for download). The **Placeholders.props** file needs to be
+`downloaded <https://adams.cms.waikato.ac.nz/resources/Placeholders.props>`_ to
+``$HOME/.adams`` and the ``EXAMPLE_FLOWS`` directory in the props file
+pointed to the actual directory with the example flows.
+
+
