@@ -1,6 +1,6 @@
 .. title: Release
 .. slug: release
-.. date: 2015-12-18 14:46:17 UTC+13:00
+.. date: 2015-12-22 17:06:17 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -11,6 +11,7 @@
 Below are all releases of ADAMS listed. The files themselves are hosted on
 `Sourceforge.net <http://sf.net/projects/theadamsflow/files/>`_.
 
+* `0.4.12 <link://slug/0-4-12>`_ - released 2015-12-22
 * `0.4.11 <link://slug/0-4-11>`_ - released 2015-11-18
 * `0.4.10 <link://slug/0-4-10>`_ - released 2015-06-23
 * `0.4.9 <link://slug/0-4-9>`_ - released 2015-06-22
