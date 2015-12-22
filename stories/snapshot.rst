@@ -6,5 +6,14 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
-Write your page here.
+Snapshots are automatically built once a day, unless there is a test failure
+that needs addressing.
+
+.. raw:: html
+
+   <script src="/assets/js/jquery.min.js"></script>
+   <span id="snapshotimport"></span>
+   <script>$("#snapshotimport").load("snapshots/adams/snapshots.html #index");</script>
+
