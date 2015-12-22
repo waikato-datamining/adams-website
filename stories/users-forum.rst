@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 If you have trouble viewing the forum below, try going to the `theadamsflow-user <https://groups.google.com/forum/#!forum/theadamsflow-user>`_ Google Group.
 

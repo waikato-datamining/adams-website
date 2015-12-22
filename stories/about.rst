@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 The core of ADAMS is the *workflow engine*, which follows the philosophy of *less
 is more*. Instead of letting the user place operators (or actors in ADAMS terms)

@@ -6,5 +6,6 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Write your page here.

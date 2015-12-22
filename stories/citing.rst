@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 If you want to refer to ADAMS in a publication, then please use the following publication:
 

@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 ADAMS is the base platform for most of our projects, research or commercial.
 For instance, we have expertise in developing frameworks and applications for
