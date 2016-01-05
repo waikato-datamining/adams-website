@@ -8,4 +8,12 @@
 .. type: text
 .. author: FracPete
 
-Write your page here.
+Please choose one of the sections:
+
+* `Requirements <link://slug/dev-get-started-requirements>`_
+* `Source code <link://slug/dev-get-started-sourcecode>`_
+* `IntelliJ IDEA <link://slug/dev-get-started-intellij>`_
+* `Eclipse <link://slug/dev-get-started-eclipse>`_
+* `Continuous integration <link://slug/dev-get-started-ci>`_
+* `Extending <link://slug/dev-get-started-extending>`_
+
