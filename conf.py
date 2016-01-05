@@ -150,7 +150,6 @@ NAVIGATION_LINKS = {
           ), "Users"),
         ((
           ("/dev-get-started", "Get started"),
-          ("https://adams.cms.waikato.ac.nz/bugs/", "Bugs"),
           ("https://adams.cms.waikato.ac.nz/jenkins/", "Jenkins"),
           ("https://adams.cms.waikato.ac.nz/nexus/", "Nexus"),
           ("/dev-forum", "Forum"),
