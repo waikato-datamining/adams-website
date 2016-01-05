@@ -1,7 +1,7 @@
 .. title: update 13/11
 .. slug: update-1311
 .. date: 2015-11-13 17:14:35 UTC+13:00
-.. tags: 
+.. tags: updates, imaging, storage, variable
 .. category: 
 .. link: 
 .. description: 

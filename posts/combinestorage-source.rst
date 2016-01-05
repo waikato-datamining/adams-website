@@ -1,7 +1,7 @@
 .. title: CombineStorage source
 .. slug: combinestorage-source
 .. date: 2014-06-25 16:04:42 UTC+13:00
-.. tags: 
+.. tags: updates
 .. category: 
 .. link: 
 .. description: 

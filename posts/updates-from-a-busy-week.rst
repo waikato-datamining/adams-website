@@ -1,7 +1,7 @@
 .. title: updates from a busy week
 .. slug: updates-from-a-busy-week
 .. date: 2015-06-12 08:20:51 UTC+13:00
-.. tags: 
+.. tags: updates, debugging, control charts
 .. category: 
 .. link: 
 .. description: 

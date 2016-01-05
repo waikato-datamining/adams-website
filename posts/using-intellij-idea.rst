@@ -1,7 +1,7 @@
 .. title: Using IntelliJ IDEA
 .. slug: using-intellij-idea
 .. date: 2015-01-13 17:00:20 UTC+13:00
-.. tags: 
+.. tags: updates, intellij
 .. category: 
 .. link: 
 .. description: 

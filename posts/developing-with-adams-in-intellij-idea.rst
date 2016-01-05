@@ -1,7 +1,7 @@
 .. title: Developing with ADAMS in IntelliJ IDEA
 .. slug: developing-with-adams-in-intellij-idea
 .. date: 2015-07-02 15:39:05 UTC+13:00
-.. tags: 
+.. tags: video
 .. category: 
 .. link: 
 .. description: 

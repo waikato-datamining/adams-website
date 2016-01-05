@@ -1,7 +1,7 @@
 .. title: updates 8/7
 .. slug: updates-87
 .. date: 2015-07-08 11:12:12 UTC+13:00
-.. tags: 
+.. tags: updates, intellij, net
 .. category: 
 .. link: 
 .. description: 

@@ -1,7 +1,7 @@
 .. title: weekly roundup 29/5
 .. slug: weekly-roundup-295
 .. date: 2015-05-29 16:45:57 UTC+13:00
-.. tags: 
+.. tags: updates, control charts
 .. category: 
 .. link: 
 .. description: 

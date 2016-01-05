@@ -1,7 +1,7 @@
 .. title: time for updates
 .. slug: time-for-updates
 .. date: 2015-07-22 14:41:30 UTC+13:00
-.. tags: 
+.. tags: updates, osx, video
 .. category: 
 .. link: 
 .. description: 

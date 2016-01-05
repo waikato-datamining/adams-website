@@ -1,7 +1,7 @@
 .. title: bunch of changes
 .. slug: bunch-of-changes
 .. date: 2015-07-31 17:11:19 UTC+13:00
-.. tags: 
+.. tags: updates, tracking
 .. category: 
 .. link: 
 .. description: 

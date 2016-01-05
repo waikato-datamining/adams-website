@@ -1,7 +1,7 @@
 .. title: entering data
 .. slug: entering-data
 .. date: 2015-01-14 16:36:57 UTC+13:00
-.. tags: 
+.. tags: updates, interactive
 .. category: 
 .. link: 
 .. description: 

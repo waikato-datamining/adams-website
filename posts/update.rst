@@ -1,7 +1,7 @@
 .. title: update
 .. slug: update
 .. date: 2015-02-20 17:08:27 UTC+13:00
-.. tags: 
+.. tags: updates, library, heatmap
 .. category: 
 .. link: 
 .. description: 

@@ -1,7 +1,7 @@
 .. title: moving on
 .. slug: moving-on
 .. date: 2015-06-26 16:17:43 UTC+13:00
-.. tags: 
+.. tags: updates, libary, deprecated
 .. category: 
 .. link: 
 .. description: 

@@ -1,7 +1,7 @@
 .. title: jython/imaging
 .. slug: jythonimaging
 .. date: 2015-01-19 16:59:26 UTC+13:00
-.. tags: 
+.. tags: updates, jython, imaging
 .. category: 
 .. link: 
 .. description: 

@@ -1,7 +1,7 @@
 .. title: Upgraded Weka to 3.7.12
 .. slug: upgraded-weka-to-3712
 .. date: 2015-01-13 15:50:53 UTC+13:00
-.. tags: 
+.. tags: updates, weka
 .. category: 
 .. link: 
 .. description: 

@@ -1,7 +1,7 @@
 .. title: quiet week
 .. slug: quiet-week
 .. date: 2015-08-07 14:04:32 UTC+13:00
-.. tags: 
+.. tags: updates
 .. category: 
 .. link: 
 .. description: 

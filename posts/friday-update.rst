@@ -1,7 +1,7 @@
 .. title: Friday update
 .. slug: friday-update
 .. date: 2015-08-21 17:16:37 UTC+13:00
-.. tags: 
+.. tags: updates
 .. category: 
 .. link: 
 .. description: 

@@ -1,7 +1,7 @@
 .. title: final roundup before next release
 .. slug: final-roundup-before-next-release
 .. date: 2015-06-19 14:49:13 UTC+13:00
-.. tags: 
+.. tags: updates, wizard, genetic algorithm
 .. category: 
 .. link: 
 .. description: 

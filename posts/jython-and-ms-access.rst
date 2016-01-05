@@ -1,7 +1,7 @@
 .. title: Jython and MS Access
 .. slug: jython-and-ms-access
 .. date: 2015-01-23 16:39:17 UTC+13:00
-.. tags: 
+.. tags: updates, jython, access
 .. category: 
 .. link: 
 .. description: 

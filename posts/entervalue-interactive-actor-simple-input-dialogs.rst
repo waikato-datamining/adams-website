@@ -1,7 +1,7 @@
 .. title: EnterValue interactive actor, simple input dialogs
 .. slug: entervalue-interactive-actor-simple-input-dialogs
 .. date: 2014-12-04 16:56:15 UTC+13:00
-.. tags: 
+.. tags: updates, interactive
 .. category: 
 .. link: 
 .. description: 

@@ -1,7 +1,7 @@
 .. title: changes
 .. slug: changes
 .. date: 2015-05-18 12:50:37 UTC+13:00
-.. tags: 
+.. tags: updates
 .. category: 
 .. link: 
 .. description: 

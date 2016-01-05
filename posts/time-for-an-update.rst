@@ -1,7 +1,7 @@
 .. title: time for an update
 .. slug: time-for-an-update
 .. date: 2015-11-05 10:03:56 UTC+13:00
-.. tags: 
+.. tags: updates, date/time, UI
 .. category: 
 .. link: 
 .. description: 

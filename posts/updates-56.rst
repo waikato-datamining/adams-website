@@ -1,7 +1,7 @@
 .. title: updates 5/6
 .. slug: updates-56
 .. date: 2015-06-05 17:05:38 UTC+13:00
-.. tags: 
+.. tags: updates, control charts
 .. category: 
 .. link: 
 .. description: 

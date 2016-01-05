@@ -1,7 +1,7 @@
 .. title: switch to Java 8
 .. slug: switch-to-java-8
 .. date: 2015-01-09 17:00:37 UTC+13:00
-.. tags: 
+.. tags: updates, java
 .. category: 
 .. link: 
 .. description: 

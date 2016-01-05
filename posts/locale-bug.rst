@@ -1,7 +1,7 @@
 .. title: locale bug
 .. slug: locale-bug
 .. date: 2014-09-16 16:10:41 UTC+13:00
-.. tags: 
+.. tags: updates, locale
 .. category: 
 .. link: 
 .. description: 

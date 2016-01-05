@@ -1,7 +1,7 @@
 .. title: fixes and additions
 .. slug: fixes-and-additions
 .. date: 2015-02-10 12:55:28 UTC+13:00
-.. tags: 
+.. tags: updates, UI, heatmap
 .. category: 
 .. link: 
 .. description: 

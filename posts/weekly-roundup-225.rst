@@ -1,7 +1,7 @@
 .. title: weekly roundup 22/5
 .. slug: weekly-roundup-225
 .. date: 2015-05-22 17:05:01 UTC+13:00
-.. tags: 
+.. tags: updates, weka, moa, library
 .. category: 
 .. link: 
 .. description: 

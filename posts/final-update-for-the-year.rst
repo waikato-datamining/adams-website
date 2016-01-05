@@ -1,7 +1,7 @@
 .. title: Final update for the year
 .. slug: final-update-for-the-year
 .. date: 2015-12-21 08:39:26 UTC+13:00
-.. tags: update
+.. tags: update, clipboard, UI
 .. category: 
 .. link: 
 .. description: 

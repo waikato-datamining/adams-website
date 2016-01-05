@@ -1,7 +1,7 @@
 .. title: updates 4/12
 .. slug: updates-412
 .. date: 2015-12-04 17:34:30 UTC+13:00
-.. tags: 
+.. tags: updates, workshop, unicode, video
 .. category: 
 .. link: 
 .. description: 

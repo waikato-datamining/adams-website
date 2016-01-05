@@ -1,7 +1,7 @@
 .. title: round-up of changes
 .. slug: round-up-of-changes
 .. date: 2015-05-08 11:39:35 UTC+13:00
-.. tags: 
+.. tags: updates, imaging, remote
 .. category: 
 .. link: 
 .. description: 

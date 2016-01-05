@@ -1,7 +1,7 @@
 .. title: upcoming release
 .. slug: upcoming-release
 .. date: 2015-11-17 16:40:28 UTC+13:00
-.. tags: 
+.. tags: updates, UI
 .. category: 
 .. link: 
 .. description: 

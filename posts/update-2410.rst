@@ -1,7 +1,7 @@
 .. title: update 24/10
 .. slug: update-2410
 .. date: 2015-10-24 09:51:18 UTC+13:00
-.. tags: 
+.. tags: updates, weka
 .. category: 
 .. link: 
 .. description: 

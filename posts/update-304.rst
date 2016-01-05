@@ -1,7 +1,7 @@
 .. title: update 30/4
 .. slug: update-304
 .. date: 2015-04-30 09:43:55 UTC+13:00
-.. tags: 
+.. tags: updates, spreadsheet, heatmap, wizard
 .. category: 
 .. link: 
 .. description: 
