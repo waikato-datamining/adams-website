@@ -122,6 +122,10 @@ article.post-micro {
     content: " — ";
 }
 
+.listdate {
+  margin-right: 5px;
+}
+
 .metadata p:first-of-type:before {
     content: "";
 }
@@ -212,4 +216,3 @@ article.post-micro {
   border-radius: 5px;
   background-color: #eee;
 }
-
