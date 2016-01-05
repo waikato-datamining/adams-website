@@ -1,0 +1,56 @@
+<settings>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>central</mirrorOf>
+      <url>https://adams.cms.waikato.ac.nz/nexus/content/groups/public</url>
+    </mirror>
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <profile>
+      <id>adams</id>
+      <repositories>
+        <repository>
+          <id>adams-snapshots</id>
+          <url>https://adams.cms.waikato.ac.nz/nexus/content/repositories/adams-snapshots</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>adams-releases</id>
+          <url>https://adams.cms.waikato.ac.nz/nexus/content/repositories/adams-releases</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+    <activeProfile>adams</activeProfile>
+  </activeProfiles>
+</settings>
+
