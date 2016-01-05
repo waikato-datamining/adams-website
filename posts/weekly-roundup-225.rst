@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Time flies by and so do the updates... 
 

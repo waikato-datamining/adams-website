@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 
 Quite a number of changes have made their way into ADAMS since the last post... 

@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Time to let you in on the latest changes... 
 

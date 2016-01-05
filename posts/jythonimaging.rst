@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Unfortunately, the last release has a broken support for Jython inline scripts,
 with the input getting rejected. This happened due to the shift to a new editor

@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Despite being a very busy start of term last week, I managed to get in a number
 of changes. Mainly due to an upcoming collaboration with the Biology department

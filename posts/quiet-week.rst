@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 It's been a bit quieter with updates this past week, mainly because I've been
 preparing material for my presentation/demo in Sydney at the BigMine 2015

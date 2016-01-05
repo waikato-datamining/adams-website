@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 It's time to bring you up-to-date what's been happening under the hood of ADAMS lately.
 Well, for one thing, I got invited to give a `demo

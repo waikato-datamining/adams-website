@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 I can't remember exactly when I started using Eclipse as an IDE for developing Java applications, but it's been a while probably dating back to at least version 3.2 (released in 2006). However, in recent years I've become more and more annoyed by its random and sometimes outright weird behavior: sudden shutdowns, restart required for errors to go away (clean all projects didn't do it), ...
 

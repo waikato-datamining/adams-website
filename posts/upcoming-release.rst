@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Just a heads-up that I'll be making a new release tomorrow.
 

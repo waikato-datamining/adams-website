@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 I've just committed changes to the repository that affect how simple 
 input dialogs and the EnterValue source actor now operate. Instead of 

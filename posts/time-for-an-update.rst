@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 I'm running out of space on my piece of paper here, so I think it's time for an
 update. ;-)

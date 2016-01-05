@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 I just committed changes to subversion related to using the latest 
 version of Weka, namely 3.7.12. 

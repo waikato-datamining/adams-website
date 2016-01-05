@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 With the ADAMS release finally out, I was able to tackle cleaning out old stuff
 and updating libraries.

@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Last week, I gave a data mining workshop using ADAMS in Kuching, Malaysia. The
 material of the workshop is `available

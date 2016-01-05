@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 It's been a busy week and debugging support has seen quite some improvements. 
 

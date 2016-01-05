@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 
 It's been quite busy here again, with lots of things happening. Most notably,

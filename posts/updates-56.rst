@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 It's been a short, but busy week - Monday was Queen's Birthday holiday. 
 Not only lots of data mining related work, but also lots of changes 

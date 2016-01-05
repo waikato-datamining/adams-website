@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 I've compiled a video that shows you how to set up a development 
 environment using maven and IntelliJ IDEA for ADAMS (base and addons 

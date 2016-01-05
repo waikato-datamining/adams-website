@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 With the launch of the new ADAMS homepage, I also added a new feature, 
 called "roll your own". This functionality allows you to create custom 

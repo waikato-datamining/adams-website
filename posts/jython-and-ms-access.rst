@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
   This week, I submitted more fixes in relation to Jython support in 
   ADAMS. This time, the fix resolved around execution of scripts on the 

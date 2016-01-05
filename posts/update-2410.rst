@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 It's been a while since the last update on ADAMS, as I've been busy with our
 commercial projects and development mainly occurring in these frameworks.

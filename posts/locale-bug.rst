@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Last Friday, I fixed a bug in regards to how float/double are handled 
 in the GenericObjectEditor. The bug was introduced with the locale 

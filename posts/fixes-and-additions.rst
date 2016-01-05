@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Time for a little round-up of what's happened to ADAMS lately... 
 

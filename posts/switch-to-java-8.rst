@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 Just a heads up that the build system 
 (https://adams.cms.waikato.ac.nz/jenkins/) has switched to Java 8. 

@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: FracPete
 
 [One of my new years resolutions is to inform people a bit more about 
 what's happening in the development of ADAMS. So I will try to post 
