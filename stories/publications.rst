@@ -10,6 +10,21 @@
 
 .. contents::
 
+2015
+====
+
+**Big Data with ADAMS**
+
+P. Reutemann and G. Holmes (2015). Big Data with ADAMS. Proceedings of the 4th
+International Workshop on Big Data, Streams and Heterogenous Source Mining:
+Algorithms, Systems, Programming Models and Applications. Editors: Wei Fan,
+Albert Bifet, Quiang Yang, Philip S. Yu. Vol. 41:5-8. [`pdf
+<Reutemann2015_>`__] [`slides <Reutemann2015slides_>`__]
+
+.. _Reutemann2015: http://www.cms.waikato.ac.nz/~fracpete/publications/2015/reutemann15.pdf
+.. _Reutemann2015slides: https://adams.cms.waikato.ac.nz/events/bigmine2015/bigmine2015-adams-slides.pdf
+
+
 2012
 ====
 
