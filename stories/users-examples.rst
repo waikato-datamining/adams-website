@@ -8,6 +8,8 @@
 .. type: text
 .. author: FracPete
 
+.. contents::
+
 Choose a category of annotated examples:
 
 Basic

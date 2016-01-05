@@ -8,6 +8,8 @@
 .. type: text
 .. author: FracPete
 
+.. contents::
+
 First steps
 ===========
 
