@@ -10,7 +10,12 @@
 
 .. contents::
 
-Choose a category of annotated examples:
+**Note:** the videos should only be considered educational, as some of the
+concepts in ADAMS have changed over time. E.g., *global* actors are now called
+*callable*, since they can appear in different scopes within the flow. Also,
+*SingleFileSupplier* and *MultiFileSupplier* got merged into the *FileSupplier*
+actor.
+
 
 Basic
 =====
@@ -102,8 +107,3 @@ Others
 
 
 
-**Note:** the videos should only be considered educational, as some of the
-concepts in ADAMS have changed over time. E.g., *global* actors are now called
-*callable*, since they can appear in different scopes within the flow. Also,
-*SingleFileSupplier* and *MultiFileSupplier* got merged into the *FileSupplier*
-actor.
