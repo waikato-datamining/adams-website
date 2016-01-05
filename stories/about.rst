@@ -8,6 +8,8 @@
 .. type: text
 .. author: FracPete
 
+.. contents::
+
 The core of ADAMS is the *workflow engine*, which follows the philosophy of *less
 is more*. Instead of letting the user place operators (or actors in ADAMS terms)
 on a canvas and then manually connect inputs and outputs, ADAMS uses a
@@ -15,21 +17,6 @@ tree-like structure. This structure and the control actors define how the
 data is flowing in the workflow, no explicit connections necessary. The
 tree-like structure stems from the internal object representation and the
 nesting of sub-actors within actor-*handlers*.
-
-Example flow
-============
-
-.. image:: ../images/flow_snippet.png
-
-* Horizontal and vertical indicators show how the data flows
-* Each actor has its own icon, since the name can be changed arbitrarily
-* Four types of actors: standalone (red; no input, no output), source (orange;
-  only output), transformer (green; input and output) and sink (greyl; only
-  input)
-* Control actors, i.e., actors that determine the flow of data or flow execution are blue
-* Actors with parameters usually show a so-called quick info on the right-hand
-  side of the name, to give the user an idea how the actor is parametrized
-  without having to open up the dialog with the options.
 
 
 Features
@@ -78,3 +65,18 @@ Features
 .. _DocBook: http://www.docbook.org/
 .. _CXF: http://cxf.apache.org/
 
+
+Example flow
+============
+
+.. image:: ../images/flow_snippet.png
+
+* Horizontal and vertical indicators show how the data flows
+* Each actor has its own icon, since the name can be changed arbitrarily
+* Four types of actors: standalone (red; no input, no output), source (orange;
+  only output), transformer (green; input and output) and sink (greyl; only
+  input)
+* Control actors, i.e., actors that determine the flow of data or flow execution are blue
+* Actors with parameters usually show a so-called quick info on the right-hand
+  side of the name, to give the user an idea how the actor is parametrized
+  without having to open up the dialog with the options.
