@@ -77,18 +77,22 @@ lang="${lang}">
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
             <script src="/assets/js/all.js"></script>
+            <script src="/assets/js/jquery.base64.min.js"></script>
         %else:
             <script src="/assets/js/all-nocdn.js"></script>
+            <script src="/assets/js/jquery.base64.min.js"></script>
         %endif
     %else:
         %if use_cdn:
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <script src="/assets/js/jquery.base64.min.js"></script>
         %else:
             <script src="/assets/js/jquery.min.js"></script>
             <script src="/assets/js/bootstrap.min.js"></script>
             <script src="/assets/js/moment-with-locales.min.js"></script>
             <script src="/assets/js/fancydates.js"></script>
+            <script src="/assets/js/jquery.base64.min.js"></script>
         %endif
         <script src="/assets/js/jquery.colorbox-min.js"></script>
     %endif

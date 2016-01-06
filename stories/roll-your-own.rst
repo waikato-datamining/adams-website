@@ -22,8 +22,6 @@ compiling ADAMS.
 
 .. raw:: html
 
-   <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-   <script type="text/javascript" src="/assets/js/jquery.base64.min.js"></script>
    <form class="form">
 
 Project name

@@ -3,6 +3,7 @@
 <%namespace name="notes" file="annotation_helper.tmpl" import="*" />
 ${set_locale(lang)}
 ${base.html_headstart()}
+${base.late_load_js()}
 <%block name="extra_head">
 ### Leave this block alone.
 </%block>
@@ -74,7 +75,6 @@ ${template_hooks['extra_head']()}
     </div>
 </div>
 
-${base.late_load_js()}
     <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
     <!-- fancy dates -->
     <script>
