@@ -17,5 +17,5 @@ Python. As it uses plain text files as input, like `reStructured Text
 <http://docutils.sourceforge.net/docs/ref/rst/>`_ or `Markdown
 <http://daringfireball.net/projects/markdown/>`_, and converts these 
 into HTML using themes, it allows you to concentrate on the content rather 
-than having to worry about any manually crafting HTML code.
+than having to worry about manually crafting HTML code.
 
