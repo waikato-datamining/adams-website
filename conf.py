@@ -135,8 +135,8 @@ NAVIGATION_LINKS = {
           ("/rss.xml", "RSS feed"),
           ), "Blog"),
         ((
-          ("/bigmine2015", "BigMine 2015"),
-          ("/ernz2014", "eResearch 2014"),
+          ("/bigmine-2015", "BigMine 2015"),
+          ("/ernz-2014", "eResearch 2014"),
           ), "Events"),
         ((
           ("/release", "Release"),
