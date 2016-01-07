@@ -9,7 +9,7 @@
 .. author: FracPete
 
 NZ Data Mining Workshop - Monday 30 June
-========================================
+----------------------------------------
 
 Below you can find more information on the sessions.
 

@@ -9,7 +9,7 @@
 .. author: FracPete
 
 KDD 2015, August 10th, Sydney, Australia
-========================================
+----------------------------------------
 
 4th International Workshop on Big Data, Streams and Heterogeneous Source
 Mining: Algorithms, Systems, Programming Models and Applications.
