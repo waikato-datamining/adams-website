@@ -142,6 +142,7 @@ NAVIGATION_LINKS = {
         ((
           ("/release", "Release"),
           ("/snapshot", "Snapshot"),
+          ("/snapshot-apps", "Snapshot (Apps)"),
           ("/roll-your-own", "\"Roll your own\""),
           ), "Download"),
         ((
