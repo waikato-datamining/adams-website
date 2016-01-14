@@ -203,6 +203,7 @@ POSTS = (
     ("posts/*.rst", "posts", "post.tmpl"),
 )
 PAGES = (
+    ("pages/root/*.rst", "", "story.tmpl"),
     ("pages/*.rst", "", "story.tmpl"),
 )
 
@@ -545,7 +546,7 @@ INDEX_PATH = "blog"
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = [("index.html", "/blog")]
+REDIRECTIONS = []
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
@@ -798,14 +799,11 @@ LICENSE = ""
 # I recommend using the Creative Commons' wizard:
 # https://creativecommons.org/choose/
 LICENSE = """
-<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
-<img alt="Creative Commons License BY-SA"
-style="border-width:0; margin-bottom:12px;"
-src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>"""
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>"""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = '&copy; 2012 - {date} <a href="mailto:{email}">{author}</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> - {license}'
+CONTENT_FOOTER = '&copy; 2012 - {date} <a href="mailto:{email}">{author}</a> - {license} - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
