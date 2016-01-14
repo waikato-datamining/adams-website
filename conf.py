@@ -561,7 +561,7 @@ REDIRECTIONS = [("index.html", "/blog")]
 # in a `nikola deploy` command as you like.
 DEPLOY_COMMANDS = {
     'default': [
-        "rsync -rav --delete output/ --exclude mantisBT --exclude old --exclude releases --exclude snapshots fracpete@adams-web.cms.waikato.ac.nz:/var/www/html",
+        "rsync -rav --delete output/ --exclude mantisBT --exclude events --exclude old --exclude releases --exclude snapshots fracpete@adams-web.cms.waikato.ac.nz:/var/www/html",
     ]
 }
 
