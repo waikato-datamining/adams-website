@@ -1,6 +1,6 @@
 .. title: New Website launched
 .. slug: new-website-launched
-.. date: 2016-01-06 14:34:43 UTC+13:00
+.. date: 2016-01-14 14:34:43 UTC+13:00
 .. tags: website
 .. category: 
 .. link: 
