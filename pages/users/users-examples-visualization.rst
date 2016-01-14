@@ -28,7 +28,7 @@ Generates and visualizes a learning curve for J48, a non-incremental WEKA
 classifier. The classifier gets trained every 25 instances and evaluated
 against test set and Accuracy, RMSE and AUC gets plotted in one plot.
 
-.. image:: ../images/learning_curve.png
+.. image:: ../../images/learning_curve.png
 
 1. Read in dataset incrementally and buffer incoming data
 2. Every 25 instances, build classifier and evaluate against test set (defined
@@ -49,7 +49,7 @@ Visualization of seismic data
 
 Seismic data was retrieved using the Geonet client.
 
-.. image:: ../images/geonet1.png
+.. image:: ../../images/geonet1.png
 
 1. Read text file, line by line
 2. Extract Unix timestamp, convert into double and store as variable
@@ -68,7 +68,7 @@ Seismic data was retrieved using the `Geonet client <geonet_>`__. Apart from
 visualizing the data, this flow also sends out an email alert if a tremor
 exceeds a certain strength.
 
-.. image:: ../images/geonet2.png
+.. image:: ../../images/geonet2.png
 
 1. Read text file, line by line
 2. Extract Unix timestamp, convert into double and store as variable

@@ -43,7 +43,7 @@ Dynamic evaluation of multiple classifiers on multiple datasets
 Reads in set ups of WEKA classifiers stored in a text file and evaluates each
 against all datasets in a directory.
 
-.. image:: ../images/multiple_classifiers_on_multiple_datasets.png
+.. image:: ../../images/multiple_classifiers_on_multiple_datasets.png
    :scale: 100 %
 
 1. Read in text file with classifier set ups, line by line, and store set up in
@@ -61,7 +61,7 @@ Experiment on arbitrary datasets
 Adds datasets located in a directory to a pre-defined WEKA experiment, runs the
 experiment and displays the evaluation.
 
-.. image:: ../images/weka_experiment.png
+.. image:: ../../images/weka_experiment.png
 
 1. Lists datasets in specified directory
 2. Executes the pre-defined WEKA experiment (containing only classifier set
@@ -76,7 +76,7 @@ Generates a parameter sweep for multiple parameters of WEKA classifiers, ranks
 these using 2-fold cross-validation and subjects the top 3 to a proper
 evaluation.
 
-.. image:: ../images/classifier_ranking.png
+.. image:: ../../images/classifier_ranking.png
 
 1. Generates the parameter sweep of 3 parameters: ridge of LinearRegression, #
    of components of PLS filter and type of PLS algorithm

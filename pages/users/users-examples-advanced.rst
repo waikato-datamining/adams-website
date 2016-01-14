@@ -27,7 +27,7 @@ Pixel classification
 Performs pixel area classification (background or object) with a WEKA
 classifier trained on regions selected by the user.
 
-.. image:: ../images/pixel-selector.png
+.. image:: ../../images/pixel-selector.png
 
 1. Parameter initialization
 2. Loading and pre-processing of image, storing in internal storage for future retrieval
@@ -58,7 +58,7 @@ Using the GC-MS extension modules, this flow performs a check on the sample
 type of GC-MS spectra and can send the analyst an email with the results. The
 spectra themselves are obtained from fruit and vegetable samples.
 
-.. image:: ../images/sampletypechecker.png
+.. image:: ../../images/sampletypechecker.png
 
 1. Retrieve classification available classification labels
 2. List all chromatogram files
@@ -85,7 +85,7 @@ Using GC-MS extension modules, this flow processes spectral data generating
 predictions for compounds. The user can correct the guessed peaks
 interactively, before the concentrations are calculated.
 
-.. image:: ../images/spectralanalysis.png
+.. image:: ../../images/spectralanalysis.png
 
 1. Set up external flows, relative to current one
 2. Set up variables for serialized regression model files

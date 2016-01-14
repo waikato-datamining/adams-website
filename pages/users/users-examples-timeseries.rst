@@ -33,7 +33,7 @@ Smoothing
 First, we convolute the signal with a Gaussian response function (or kernel) to
 obtain a much cleaner signal.
 
-.. image:: ../images/gaussian.png
+.. image:: ../../images/gaussian.png
 
 1. Retrieve data files from the given folder. Emits the files as tokens.
 2. Load and interpret the files and emit [timestamp,sensorvalue] tokens for
@@ -59,7 +59,7 @@ Changing the width of the kernel allows us to focus on events occurring on
 different time scales. Simply copy-paste the last two branches and change the
 kernel widths.
 
-.. image:: ../images/gaussiandouble.png
+.. image:: ../../images/gaussiandouble.png
 
 .. raw:: html
 
@@ -75,7 +75,7 @@ Convoluting the same signal with a whole range of different kernel widths
 creates a so-called scale space, a space of signals sensitive to events at
 different time scales.
 
-.. image:: ../images/scalespace.png
+.. image:: ../../images/scalespace.png
 
 1. Copy-paste the convolution branches
 2. Increase the kernel width. Here, we double it each time
@@ -96,7 +96,7 @@ calculated by substracting the convolutions at either end of the region.
 The latter is also known as a 'difference of Gaussians' filter, or
 band-pass filter. The sum of the components recreates the original signal.
 
-.. image:: ../images/decomposition.png
+.. image:: ../../images/decomposition.png
 
 1. Sensor data is read and split into individual tokens as before
 2. The data is subsampled: only every 100th token is passed on
@@ -130,7 +130,7 @@ convolution! Thus, we take the 1st, 2nd, 3rd,... order derivative of the
 Gaussian kernel, do their convolutions, and start a new line segment at any
 zero-crossings.
 
-.. image:: ../images/segmentation.png
+.. image:: ../../images/segmentation.png
 
 1. Load and split the data into tokens as before
 2. Plot the raw sensor data
@@ -155,7 +155,7 @@ Applying DFT
 Applying discrete fourier transformation to the sensor data and displaying the
 frequency domain.
 
-.. image:: ../images/fft.png
+.. image:: ../../images/fft.png
 
 1. Select the FFT Conversion in the Convert actor.
 

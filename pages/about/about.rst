@@ -69,7 +69,7 @@ Features
 Example flow
 ============
 
-.. image:: ../images/flow_snippet.png
+.. image:: ../../images/flow_snippet.png
 
 * Horizontal and vertical indicators show how the data flows
 * Each actor has its own icon, since the name can be changed arbitrarily

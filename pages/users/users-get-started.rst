@@ -36,11 +36,11 @@ Drag'n'drop of actors
 
 Using drag'n'drop you can quickly assemble a flow:
 
-.. thumbnail:: ../images/dragndrop-example1.png
+.. thumbnail:: ../../images/dragndrop-example1.png
 
 Dragging the *StringConstants* source onto the flow.
 
-.. thumbnail:: ../images/dragndrop-example2.png
+.. thumbnail:: ../../images/dragndrop-example2.png
 
 Specifying how to insert the *StringConstants* source into the flow.
 
@@ -52,50 +52,50 @@ Instead of adding actors by dragging them from the library of available ones,
 you can use ADAMS' context-awareness when adding actors via right-clicking on
 an actor and adding it *beneath*, *here* or *after*:
 
-.. thumbnail:: ../images/actorsuggestions-combobox.png
+.. thumbnail:: ../../images/actorsuggestions-combobox.png
 
 You can always bring up the complete range of possible actors by clicking on
 the **class tree** button. The popup allows you to perform a search within the
 (class) names of the actors. While typing the search string the view gets
 updated and only the actors that match the search string are being displayed.
 
-.. thumbnail:: ../images/actorsuggestions-search.png
+.. thumbnail:: ../../images/actorsuggestions-search.png
 
 For now we settle on using the *FileSupplier* actor as source. Adding an
 additional actor after the FileSupplier will remove the source actors from the
 class tree and also change the suggested actors to add next:
 
-.. thumbnail:: ../images/actorsuggestions-context1.png
+.. thumbnail:: ../../images/actorsuggestions-context1.png
 
 After adding the *WekaFileReader* we get presented with another list of
 suggested actors:
 
-.. thumbnail:: ../images/actorsuggestions-context2.png
+.. thumbnail:: ../../images/actorsuggestions-context2.png
 
 With the dataset fully configured, the *WekaCrossValidationEvaluator* actor is
 the next one that we want to choose from the suggestions:
 
-.. thumbnail:: ../images/actorsuggestions-context3.png
+.. thumbnail:: ../../images/actorsuggestions-context3.png
 
 To obtain a summary of the cross-validation performed, we will add the
 *WekaEvaluationSummary* transformer which will generate textual output:
 
-.. thumbnail:: ../images/actorsuggestions-context4.png
+.. thumbnail:: ../../images/actorsuggestions-context4.png
 
 And finally, we add the *Display* sink for viewing the result of the
 cross-validation:
 
-.. thumbnail:: ../images/actorsuggestions-context5.png
+.. thumbnail:: ../../images/actorsuggestions-context5.png
 
 Before the flow can be executed, we still need to provide the cross-validation
 evaluator with a classifier setup. This is done by configuring a *callable
 source* actor below the special *CallableActors* standalone:
 
-.. thumbnail:: ../images/actorsuggestions-context6.png
+.. thumbnail:: ../../images/actorsuggestions-context6.png
 
 The *WekaClassifierSetup* source simply outputs a classifier setup:
 
-.. thumbnail:: ../images/actorsuggestions-context7.png
+.. thumbnail:: ../../images/actorsuggestions-context7.png
 
 
 Command-line execution
