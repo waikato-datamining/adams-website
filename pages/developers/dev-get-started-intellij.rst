@@ -23,11 +23,11 @@ Setting up ADAMS
 You can import ADAMS using the start screen of IntelliJ by clicking on *Import
 project*:
 
-.. image:: ../images/intellij-import_project-adams2.png
+.. image:: ../../images/intellij-import_project-adams2.png
 
 Or by selecting *File -> Import project...* from the main menu.
 
-.. image:: ../images/intellij-import_project-adams.png
+.. image:: ../../images/intellij-import_project-adams.png
 
 Then, select the top-level directory of ADAMS and import it as Maven project:
 
@@ -51,11 +51,11 @@ menu.
 Under *SDKs* you can define all the SDKs that you want to be able to use (simply
 click on **+** and select the top-level directory of your JDK):
 
-.. image:: ../images/intellij-sdks.png
+.. image:: ../../images/intellij-sdks.png
 
 And under *Project*, you can then select the SDK that you want to use for the project:
 
-.. image:: ../images/intellij-project-sdk.png
+.. image:: ../../images/intellij-project-sdk.png
 
 
 Code formatting
@@ -64,7 +64,7 @@ Code formatting
 ADAMS uses mixed spaces/tabs for indentation, with indentation being 2 spaces
 and a tab representing 8 spaces.
 
-.. image:: ../images/intellij-indentation.png
+.. image:: ../../images/intellij-indentation.png
 
 
 Automatically compile projects
@@ -73,7 +73,7 @@ Automatically compile projects
 Usually, you don't want to compile when you launch the application, but
 whenever you change the code. Hence, enable *auto make*:
 
-.. image:: ../images/intellij-make.png
+.. image:: ../../images/intellij-make.png
 
 
 Application defaults
@@ -85,7 +85,7 @@ error check*. Furthermore, you will most likely have the module's top level
 directory as the default working directory when starting up the application.
 You can set this using the ``$MODULE_DIR$`` variable.
 
-.. image:: ../images/intellij-app_defaults.png
+.. image:: ../../images/intellij-app_defaults.png
 
 
 Color themes
@@ -105,7 +105,7 @@ configurations...* from the main menu. When clicking on the **+**, use *Applicat
 as template and fill in ``adams.gui.Main`` as the main class and the amount of RAM
 that you want to use, eg 2GB:
 
-.. image:: ../images/intellij-main.png
+.. image:: ../../images/intellij-main.png
 
 
 Editor menu
@@ -117,7 +117,7 @@ bringing up the ``type hierarchy`` for a class or the ``implementations`` or
 ``declaration`` of a method, is something frequently used in a larger
 framework. Here is what the modified ``Editor Popup Menu`` looks like:
 
-.. image:: ../images/intellij-editor_menu.png
+.. image:: ../../images/intellij-editor_menu.png
 
 
 External tools
@@ -127,7 +127,7 @@ Whether you want to launch your image editing tool (e.g., Gimp_ for creating
 icons) or launching Maven to auto-generate code (e.g., when using `Apache
 CXF <CXF_>`_), then you can use IDEA's External tools facility:
 
-.. image:: ../images/intellij-external_tools.png
+.. image:: ../../images/intellij-external_tools.png
 
 
 .. _intellij: https://www.jetbrains.com/idea/
