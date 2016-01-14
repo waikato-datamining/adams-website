@@ -15,5 +15,5 @@ that needs addressing.
 
    <script src="/assets/js/jquery.min.js"></script>
    <span id="snapshotimport"></span>
-   <script>$("#snapshotimport").load("../snapshots/adams/snapshots.html #index");</script>
+   <script>$("#snapshotimport").load("../../snapshots/adams/snapshots.html #index");</script>
 
