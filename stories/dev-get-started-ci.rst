@@ -9,13 +9,13 @@
 .. author: FracPete
 
 ADAMS is being built (and tested) every night (New Zealand time) using the
-`Hudson Continuous Integration <hudson_>`_ server, to pick up code commits that
-(potentially) break the framework.
+`Jenkins Continuous Integration <jenkins_>`_ server, to pick up code commits
+that (potentially) break the framework.
 
 You can check out the current state of the ADAMS build at the following URL:
 
-https://adams.cms.waikato.ac.nz/hudson/
+https://adams.cms.waikato.ac.nz/jenkins/
 
 
-.. _hudson: http://hudson-ci.org/
+.. _jenkins: http://jenkins-ci.org/
 
