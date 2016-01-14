@@ -29,7 +29,7 @@
         <!-- News -->
         <div class="col-md-6">
           <h2>Blog</h2>
-          <p>Stay up-to-date with what is happening with ADAMS by reading our blog. Our blog covers not only events, but also updates regarding to additional functionality, bugfixes and more.</p>
+          <p>Stay up-to-date with what is happening with ADAMS by reading our blog. Our blog covers not only events, but also updates regarding new functionality, bugfixes, changes and more.</p>
           <p><a class="btn btn-default" href="/blog/" role="button">More »</a></p>
         </div>
         <!-- About -->
