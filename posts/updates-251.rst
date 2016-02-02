@@ -11,7 +11,7 @@
 
 * *adams-weka:* added note to *WekaAttributeSelection* transformer that cross-validation
   will not produce any reduced/transformed data
-* *adams-weka:* upgraded Weka to revision 12379 to fix handling of string in some filters
+* *adams-weka:* upgraded Weka to revision 12379 to fix handling of string attributes in some filters
 
 **Changes**
 
