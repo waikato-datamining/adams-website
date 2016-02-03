@@ -16,7 +16,7 @@
         <h1>Welcome to ADAMS!</h1>
         <br/>
         <p>The Advanced Data mining And Machine learning System (ADAMS) is a novel, flexible workflow engine aimed at quickly building and maintaining real-world, complex knowledge workflows, released under <a href="http://www.gnu.org/licenses/gpl-3.0.txt" target="_blank">GPLv3</a>.</p>
-        <div style="float: left; "><p>Current version: <a href="https://sourceforge.net/projects/theadamsflow/files/0.4.12/" target="_blank">0.4.12</a> (December 22, 2015)</p></div>
+        <div style="float: left; "><p>Current version: <a href="/download/0-4-12/" target="_blank">0.4.12</a> (December 22, 2015)</p></div>
         <div style="float: right; ">
           <a href="https://twitter.com/TheAdamsFlow" target="_blank"><img src="/images/twitter.png" height="32"/></a>
           <span style="padding: 15px"/>
