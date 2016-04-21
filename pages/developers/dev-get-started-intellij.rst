@@ -13,8 +13,10 @@
 `IntelliJ IDEA <intellij_>`_ is a light-weight IDE for Java, developed by JetBrains_.
 The following instructions will get you set up for developing with ADAMS.
 
-The following instructions are for IntelliJ IDEA 14.x. Version 15.x changed how
-multiple Maven projects get imported and is not recommended to be use.
+The following instructions are for IntelliJ IDEA 14.x. Later versions changed
+how multi-module Maven projects get imported: it imports them in a flat
+structure rather than grouped per top-level project, which means that you have
+to group them yourself again in the *Project structure* dialog.
 
 
 Setting up ADAMS
@@ -130,8 +132,19 @@ CXF <CXF_>`_), then you can use IDEA's External tools facility:
 .. image:: ../../images/intellij-external_tools.png
 
 
+Troubleshooting
+---------------
+
+* Starting with version 2016.1, IntelliJ bundles its own JRE (based on OpenJDK).
+  However, the font rendering can some times leave much to be desired. The 
+  Oracle JDK/JRE performs better font rendering (e.g., on Linux) and you can 
+  point IntelliJ to the JDK/JRE it should use by simply setting the ``IDEA_JDK``
+  environment variable (`source <ideasdk_>`_).
+
+
 .. _intellij: https://www.jetbrains.com/idea/
 .. _JetBrains: https://www.jetbrains.com/
 .. _Gimp: http://www.gimp.org/
 .. _CXF: http://cxf.apache.org/
+.. _ideasdk: https://intellij-support.jetbrains.com/hc/en-us/articles/206544879
 
