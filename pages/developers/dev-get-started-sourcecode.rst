@@ -63,6 +63,14 @@ Further modules are available:
 
   `https://svn.cms.waikato.ac.nz/svn/adams/incubator/trunk/ <incubator_>`_
 
+* **spectral-base** (spectral data processing):
+
+  `https://svn.cms.waikato.ac.nz/svn/adams/spectral-base/trunk/ <spectral-base_>`_
+
+* **applications** (domain-specific applications):
+
+  `https://svn.cms.waikato.ac.nz/svn/adams/applications/trunk/ <applications_>`_
+
 
 Compiling the source code
 =========================
@@ -149,6 +157,8 @@ tag to your ``settings.xml`` file and replace the ``USER`` and
 .. _base: https://svn.cms.waikato.ac.nz/svn/adams/base/trunk/
 .. _addons: https://svn.cms.waikato.ac.nz/svn/adams/addons/trunk/
 .. _incubator: https://svn.cms.waikato.ac.nz/svn/adams/incubator/trunk/
+.. _spectral-base: https://svn.cms.waikato.ac.nz/svn/adams/spectral-base/trunk/
+.. _applications: https://svn.cms.waikato.ac.nz/svn/adams/applications/trunk/
 .. _Maven: http://maven.apache.org/
 .. _settings.xml: https://adams.cms.waikato.ac.nz/resources/settings.xml
 .. _encryption: http://maven.apache.org/guides/mini/guide-encryption.html
