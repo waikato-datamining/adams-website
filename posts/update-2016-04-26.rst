@@ -1,0 +1,120 @@
+.. title: Update 2016/04/26
+.. slug: update-2016-04-26
+.. date: 2016-04-25 17:01:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+It's been a while with a post regarding updates as I've been for once away from
+work for a while and the rather busy (because of being away). I just never
+seemed to get around posting any updates. Anyhow, here you go! :-)
+
+**Fixes**
+
+* Turning actor into callable actor didn't refresh the tree properly when
+  there wasn't a *CallableActors* standalone yet present
+* Main window now shows the currently connected databases again
+* *CsvSpreadSheetWriter*
+  
+  * fixed *enncoding* typo in command-line flag
+  * added *no-header* flag to output only data cells
+  * added *check-file-exists* flag to reset the writer (ie the stored header),
+    if the file no longer exists (eg got deleted elsewhere in flow)
+
+* *spreadsheet's* DoubleCell used wrong format for DateTimeMSec types,
+  DateTimeFormat instead of DateTimeMSecFormat 
+* *FlowRunner* now no longer generates a NullPointerException when using
+  the SpreadSheetVariableRowIterator transformer. Flow Runner and Editor 
+  now use the same code base for executing flows.
+* Image viewer's meta-data extraction using Sanselan no longer chokes on
+  placeholder files (eg ${HOME}/some/where/image.jpg)
+* fixed handling of variables within remote command created
+  by *NewRemoteCommand* source
+* loading flows with just a single actor no longer fails
+  (erroneously got identified as non-compact format)
+* Object editors now display empty strings as `[empty]` rather than 
+  invisible.
+* *adams-rats:* the *Rat* standalone now outputs flow errors with the logger
+  of the actor that generated the error, instead of quietly discarding the
+  error messages.
+
+
+**Changes**
+
+* *adams-spreadsheet:* 
+
+  * *NewSpreadSheet* source now allows initialization of
+    comments
+  * *FixedTabularSpreadSheetWriter* now allows specification of column
+    width per column and the omission of the headers and borders
+
+* Spreadsheet readers that handle missing values now use a regular
+  expression for the missing value, rather than just a simple string.
+* The flow editor now warns when the user tries to externalize a range of
+  actors that contain actors that reference a callable actor.
+* Renamed control actor *TriggerRemoteExecution* to *RemoteExecutionTrigger*.
+* *DownloadFile* sink in *adams-net* now shows the output file in the
+  quick info as well.
+* *adams-rats:* the *Rat* actor now allows to forward flow execution errors
+  to an error queue as well (incl the associated incoming data that was 
+  processed at the time).
+* *TryCatch* control actor now offers custom error
+  post-processors to be specified, e.g., reacting to a *OutOfMemory*
+  exception.
+* *Swapping* actors in the flow editor transfers now more options
+  (however, there is no guarantee that all of them get transferred)
+* *adams-maps:* finally received some documentation on PostgreSQL/PostGIS
+  handling.
+* *adams-spectral-core:* the *SpectrumExplorer* now sports a *recent files*
+  sub-menu
+
+
+**Additions**
+
+* *adams-spreadsheet:* 
+
+  * *SpreadSheetAppendComments* transformer allows the 
+    modification of spreadsheet comments
+  * *FixedTabularSpreadSheetReader* for tabular data that uses fixed 
+    column-widths
+
+* *adams-imaging:* the BufferedImage transformer *ThresholdReplacement*
+  allows the replacement of pixels that fall below/above a threshold
+  in the grayscale space with a specified replacement color
+* *adams-core:* 
+  
+  * conversion *SimpleUnicodeToAscii* and *SimpleAsciiToUnicode*
+    allow conversion of unicode characters into ASCII counterparts like
+    '\xABCD' and vice versa.
+  * added *FileBasedScriptingEngine* that monitors a directory for remote 
+    commands to execute, rather than on a port (eg scp-ing files into a server)
+  * added *SendFile* remote command to transfer a binary file
+  * using the *FTPConnection* scripting connection, it is possible to 
+    transmit remote commands using FTP
+  * the *Multicast* scripting connection allows you to send the same 
+    remote command to multiple hosts
+  * *multi handlers* for request/response handling are now available
+    for the remote command framework
+  * *NewTempFile* source generates a unique, temp file name.
+  * added class hierarchy of error post-processors to be used in
+    conjunction with error handlers (see *TryCatch*).
+
+* *adams-rats:* rat output scheme *QueueDistribute* allows load-balancing
+  among the define queues
+* *adams-weka:*
+
+  * *command-to-code* dependency for turning Weka command-lines
+    into code (*WekaCommandToCode* conversion). *WEKA Command to code* tool
+    (user-mode: developer) supercedes *WEKA Options conversion*
+  * added copy of *LinearRegression* classifier as *LinearRegressionJ* since
+    the upcoming release of Weka will feature a modified version
+  * added new classifier for numeric classes that uses a predefined formula, 
+    MathExpressionClassifier, with the attribute values being available in
+    the formula via their names.
+
+* *adams-spectral-core*: added new reader for Opus files, called
+  OpusSpectrumReaderExt
+

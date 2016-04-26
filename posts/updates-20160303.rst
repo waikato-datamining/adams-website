@@ -1,0 +1,112 @@
+.. title: Updates 03/03
+.. slug: updates-20160303
+.. date: 2016-03-03 16:55:16 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A bit of a bigger post regarding changes, as I've been busy finalizing my `MOOC
+<https://weka.waikato.ac.nz/>`__ material - the first two MOOCs are available
+again and the third one is slated for end of April (at the earliest). And also
+been quite busy with some of my commercial projects. Hence the accumulation
+of changes...
+
+**Fixes**
+
+* *adams-core:* it is now possible to turn off parsing of formulas for the 
+  *CsvSpreadSheetReader*, useful when replaying twitter archives.
+* *adams-spreadsheet:* 
+  
+  * The conversion *SpreadSheetJoinColumns* now keeps the
+    cell types intact.
+  * *SpreadSheetAppend* transformer keeps cell types intact, too 
+    (SpreadSheetHelper class fixed).
+  * added *SpreadSheetView* class that allows to wrap another spreadsheet with
+    a subset of rows and columns
+  * introduced *SpreadSheetViewCreator* interface, implemented by
+    SpreadSheetColumnFilter, SpreadSheetRowFilter and SpreadSheetSubset
+    (experimental)
+
+* *adams-twitter:* reading of CSV archives now avoids parsing of formulas
+  (a lot of tweets contain ``=``)
+* *adams-video:* added a handler for videos to the Preview Browser, using
+  the VLCj Video Player component
+* fixed saving of *font preferences* 
+* *expanded* external flows no longer get saved alongside the actual flow
+  with the new flow format
+* option handling: *OptionManager* now correctly removes (= hides) options
+* *adams-weka:* the *Append datasets* wizard now handles string and
+  relational attributes correctly
+
+**Changes**
+
+* Flows are now stored by default in a compact format, which also allows
+  the storage of *invalid* flows. By allowing this, you won't lose any
+  data when saving and reopening a flow, with the *check flow* turned off.
+  Another trade-off is for large flows, that they load faster - but you
+  have to have 1000s of actors to notice that.
+* The annoying tool tip in Weka's GOE class tree is now disabled by default.
+  You can enable it again by changing the *ShowGlobalInfoToolTip* property
+  in the *GUIEditors.props* file. This file should be in the in the root
+  directory of your binary ADAMS installation.
+* Tables displaying spreadsheets now allow to change the number of decimals
+  being displayed via the tabel cell popup menu and the calculation of the
+  optimal column width(s) via the table header popup menu.
+* The *Text* operation for the *Draw* transformer in the *adams-imaging*
+  module now supports multi-line text as well.
+* *Comparing text* tool now allows copy/pasting of files by right-clicking
+  on the filename display above the diff view
+* *adams-weka:* 
+
+  * *WekaInstancesInfo* transformer can generate info also from 
+    *weka.core.Instance* objects.
+  * *WekaFilter* now allows output of built filter alongside filtered data
+    in a container (allows filter serialization); serialized filters can
+    be loaded from disk now as well (pre-built filters, for instance)
+
+* The *SpreadSheet* class has been refactored into the *SpreadSheet* interface
+  and the *DefaultSpreadSheet* class. This will allow for more memory efficient
+  wrappers for spreadsheet-like objects (eg database tables, Weka Instances)
+  in the future, instead of having to convert the data in a CPU and memory
+  intensive step.
+
+**Additions**
+
+* *adams-core:* With the *HexReplace* transformer you can replace byte
+  sequences (find and replace entered in hex notation).
+* *adams-spreadsheet:* added simplified version of the CsvSpreadSheetReader
+  called *SimpleCsvSpreadSheetReader* (uses CsvSpreadSheetReader behind
+  the scenes).
+* generic framework for remote commands (see below for details)
+* *adams-heatmap:* added support for selection processors in the heatmap
+  viewer, currently implemented is *Crop*
+
+**Remote commands**
+
+Below, a short overview of new functionality around the remote command
+framework. Ultimately, this framework will be used to send sub-flows 
+for execution off into the cloud. It is already possible to send worker
+flows to remote servers, e.g., for performing computational expensive
+modeling. But with the planned cloud integration, you will be able to
+send such jobs into, for instance, `OpenStack <http://www.openstack.org/>`__ 
+clouds.
+
+* *adams-core:* 
+
+  * *NewRemoteCommand* instantiates a new command
+  * *RemoteCommandReader* loads a command from disk
+  * *RemoteCommandWriter* saves a command to disk
+  * *GetRemoteCommandPayload* retrieves the payload objects from
+    a command
+  * *SendRemoteCommand* sends a command to remote ADAMS instance for
+    execution (eg executing worker flow)
+
+* *adams-net:* added connection schemes for the remote command framework
+  that uses SSH tunnelling, sending commands through the SSH port or
+  via scp (secure copy)
+
+That's it with ADAMS development for the time being, as I'll be enjoying time
+away from work. :-)
