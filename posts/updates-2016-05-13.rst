@@ -1,0 +1,119 @@
+.. title: Friday 13th (2016/05)
+.. slug: updates-2016-05-13
+.. date: 2016-05-13 13:59:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A whole bunch of changes, just in time for Friday the 13th. :-)
+
+**Fixes**
+
+* The *new from clipboard* menu item in the Flow editor now no longer
+  requires an editable flow.
+* *adams-rats:* the *Rat* standalone and derived actors now handle stopping of
+  flow better, no more NullPointerException when calling *stopIfNecessary*.
+* *adams-spreadsheet:* SpreadSheetFileReader's *getItemClass()* method 
+  now checks whether the reader returns a spreadsheet class or not to 
+  avoid NullPointerException.
+* *SetVariable* transformer no longer uses content passing through as value if
+  variable attached to ``variableValue`` has an empty value.
+* Upgraded some libraries and barred other, duplicate ones from being added to
+  the build process to avoid duplicate jars. This was triggered by ADAMS no
+  longer starting at one of our customers due to
+  ``java.lang.IncompatibleClassChangeError`` exceptions.
+
+
+**Changes**
+
+* The *Breakpoint* control actor now sports *copy to clipboard* and *paste as
+  new flow* buttons on the *Source* tab.
+* It is now possible to have platform-specific properties files. The default
+  one with extension ``.props`` is always read first and an existing 
+  platform-specific one can override its values. Extensions for the platforms
+  are as follows:
+
+  * Linux: ``.linux``
+  * Android: ``.android``
+  * Mac: ``.mac``
+  * Windows: ``.windows``
+
+* The *Flow editor* now has Mac-specific shortcuts (feedback welcome, whether
+  these make sense or need adapting). Other standard keystrokes in the GUI
+  get replaced with Mac-specific ones as well. The actor tree popup has 
+  improved search and display: empty search displays all actors again, search
+  starts with first character, clicking on filter/strict checkboxes expands
+  the tree fully.
+* The *Edit external flow* menu item in the flow editor's tree popup menu now
+  opens flow in new tab rather than dialog.
+* Upgraded the *jfilechooser-bookmarks* dependency, with the filechoosers
+  now sporting a *copy* and a *paste* button for the current directory.
+* Switched to [jclipboardhelper library](https://github.com/fracpete/jclipboardhelper) for clipboard-related operations.
+* The *CombineVariables* source now shortens its quickinfo display to 40
+  characters to avoid overly long displays.
+* *adams-spreadsheet:* The *SpreadSheetDbWriter* sink now supports batch
+  import, which can speed up data import dramatically.
+* Boolean conditions in the flow now use the actor's logger to allow
+  locating of offending conditions.
+* *adams-visualstats:* refactored the module to be SpreadSheet-based and
+  removed the *adams-weka* dependency.
+* *adams-video:* the *TrailDisplay* sink now allows you to save the trail
+  in the simple trail format (*Save text as...*).
+* *adams-weka:* the *WekaInstancesToSpreadSheet* conversion now creates a
+  lightweight view if the *InstancesView* spreadsheet type is selected.
+  Of course, the view doesn't support all the features of a spreadsheet
+  object, but avoids costly conversion if only ever read operations are
+  performed. Adding and removing rows is possible, but not changing
+  column names, inserting/deleting columns.
+* Internally, the filter class hierarchy got refactored and now uses
+  the new *adams.data.filter.Filter* interface instead of the abstract
+  superclass *adams.data.filter.AbstractFilter*. This was necessary in
+  order to introduce the new *adams.data.filter.BatchFilter* interface.
+  This new interface is for filters that can operate on a number of
+  data containers at a time. The interface does not require to return
+  the same number of data containers after the filtering.
+  Currently, only the *PassThrough* implements this new interface
+  (as educational example).
+* Using now Groovy 2.4.5 in order to align with Weka's *kfGroovy* package.
+
+
+**Additions**
+
+* *adams-rats:* the *RatPlague* rat simply duplicates itself to enable
+  parallel execution of the same code, but working off different queues
+  (e.g., load balanced queues)
+* *adams-core*
+
+  * The *ForwardingScriptingEngine* for the remote command framework forwards
+    commands obtained via a base scripting engine and forwards them to a
+    defined forwarding connection. This can be used for performing 
+    load-balancing.
+  * *DefaultMasterScriptingEngine* and *DefaultSlaveScriptingEngine* allow
+    for distributed computation. The slave engines simply register with 
+    the master and then wait for jobs to execute. The master performs
+    load-balancing on the registered slaves. This allows sending of sub-flows
+    (incl storage items and variables) to be executed on remote machines.
+  * The *ManualFeedScriptingEngine* is for internal use only, as it requires
+    the remote commands to be added programmatically.
+  * The *ExecuteRemoteCommand* executes the remote command coming through,
+    making use of the *ManualFeedScriptingEngine*.
+  * *ContainerToVariables* and *ContainerToStorage* allow easy transferral
+    of container values into variables/internal storage that match the
+    regular expression.
+
+* *adams-maps:* added a spreadsheet reader for Arc/Info ASCII Grid
+  (or Esri Grid) files.
+* *adams-weka:* added *GaussianProcessesNoWeights* classifier, which is
+  just a copy of GP before it could natively handle instance weights
+  (merely uses resampling).
+* *adams-ml:* simple actual vs predicted plots can be generated with
+  the (aptly named) *ActualVsPredictedPlot* sink, which uses a spreadsheet
+  as input.
+* *adams-imaging:* added handlers for displaying image metadata in the
+  preview browser.
+* started incubating the *adams-jclouds* and *adams-openstack* modules
+  for cloud integration.
+
