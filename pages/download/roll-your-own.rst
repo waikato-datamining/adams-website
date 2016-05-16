@@ -123,7 +123,7 @@ Build setup
        e.preventDefault();
        $.get('/resources/rollyourown/source/pom.xml', function(data) {
          // version
-         var version = document.getElementById("version");
+         var version = document.getElementById("selversion");
          var result = data.toString();
          result = result.replace(/{VERSION}/g, version.value);
          // project
