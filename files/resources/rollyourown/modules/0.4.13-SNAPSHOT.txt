@@ -2,6 +2,7 @@ adams-access
 adams-addons-all
 adams-base-all
 adams-compress
+adams-dl4j
 adams-event
 adams-excel
 adams-gnuplot
