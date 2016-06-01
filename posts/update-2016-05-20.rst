@@ -1,0 +1,57 @@
+.. title: Update 2016/05/20
+.. slug: update-2016-05-20
+.. date: 2016-05-20 17:18:07 UTC+13:00
+.. tags: update
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A major change in versioning of the artifacts has occurred: from now on, 
+artifacts will have *YY.MM.x* as version, with *YY* being the year, 
+*MM* the month and *x* the release in that month, starting with 0. This
+makes it a bit easier tracking down from what time period a snapshot is.
+
+
+**Fixes**
+
+* *adams-weka:* The *WekaExtractArray* transformer now uses the correct
+  maximum for columns/rows in case of spreadsheets (was accidentally swapped).
+* *Default* timezone no longer results in using GMT but the system-defined
+  one. Java's timezone uses GMT if a timezone string cannot be parsed.
+
+
+**Changes**
+
+* *adams-core:* 
+
+  * The *Injector* control actor can replace tokens passing through
+    now, not just adding them before or after. Furthermore, it can also inject
+    data from storage now.
+  * The *TrainableBatchFilter* interface is used by transformers derived
+    from *AbstractFilter* to train them if necessary with the first batch
+    of data. Such filters can be reset with the monitor variable of the
+    transformer.
+
+* *adams-weka:* upgraded multisearch-weka-package to 2016.5.15, which fixes
+  a multithreading bug
+* Moved the following modules from *base* to *addons*:
+
+  * gnuplot
+  * latex
+  * maps
+  * moa
+  * osm
+  * r
+  * random
+  * twitter
+
+
+**Additions**
+
+* *adams-spreadsheet:* It is now possible to extract columns or rows from
+  a spreadsheet by using the *SpreadSheetExtractArray* transformer.
+* Added new addons module *adams-dl4j*, which makes the deeplearning4j
+  library available within ADAMS.
+
