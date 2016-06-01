@@ -141,6 +141,12 @@ Troubleshooting
   point IntelliJ to the JDK/JRE it should use by simply setting the ``IDEA_JDK``
   environment variable (`source <ideasdk_>`_).
 
+* For large projects like ADAMS you may have to increase the heapsize for the
+  Maven Importer in your settings, as 512MB might not be enough, and despite
+  the code compiling on the command-line, IntelliJ IDEA listing lots of failed
+  imports from other modules. Use something like ``-Xmx1024m`` in 
+  *Build Tools -> Maven -> Maven -> VM Options for importer*.
+
 
 .. _intellij: https://www.jetbrains.com/idea/
 .. _JetBrains: https://www.jetbrains.com/
