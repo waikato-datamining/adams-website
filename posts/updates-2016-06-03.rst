@@ -1,0 +1,89 @@
+.. title: Updates 03/06/2016
+.. slug: updates-2016-06-03
+.. date: 2016-06-03 16:27:07 UTC+13:00
+.. tags: update
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+
+A major change affecting everyone using snapshots: I incremented the 
+snapshot version to **16.6.0-SNAPSHOT**.
+
+**Fixes**
+
+* The *Locate actor* menu item in the flow editor now parses output 
+  from the console properly again (also handles the new flow ID).
+* *adams-spreadsheet:* 
+
+  * *SpreadSheetDifference* with no key columns set computed the 
+    difference between the same cell, instead of between the cells 
+    from sheet 1 and 2.
+  * *SpreadSheetDbReader* handles timezones now correctly.
+  * The conversions *SpreadSheetStringColumnToTime* and *SpreadSheetStringColumnToTimeMsec*
+    now have a sensible default format.
+
+
+**Changes**
+
+* The logging output of actors now also includes the (at runtime) unique 
+  ID of the flow to make it easier to distinguish output when running
+  multiple flows in parallel.
+* The following spreadsheet readers now implement *WindowedSpreadSheetReader*
+  as well (offering options *firstRow* and *numRows*):
+
+  * FixedTabularSpreadSheetReader
+  * ODFSpreadSheetReader
+  * GnumericSpreadSheetReader
+  * ExcelSpreadSheetReader
+  * ExcelStreamingSpreadSheetReader
+
+* *adams-spectral:* 
+
+  * batch filters are now handled in the spectrum explorer automatically when 
+    filtering spectra with a batch filter.
+  * the *SpectrumPaintlet* now always paints the markers, not just when zoomed in.
+
+* The *search* text field in the GenericObjectEditor's class tree now gets
+  the focus automatically when being displayed.
+* The *EnterManyValues* source now allows date/time expressions
+  for the time/date/datetime types, as supported by BaseTime/BaseDate/BaseDateTime.
+  (eg ``NOW -1 DAY`` for an initial date value).
+* *SequenceToArray* and *SequenceToCollection* can now generate bundled outputs 
+  with overlaps. E.g. 1,2,3,4 with overlap=1 will get packaged as (1,2),(2,3),(3,4).
+* *adams-weka:* 
+
+  * upgraded multisearch Weka package to 2016.5.31.
+  * *WekaInstanceViewer* sink now has options for color-provider and paintlet, as 
+    well as an updater (to speed up the visualization).
+
+* The *EnterManyValues* source actor now offers the ability to enter strings
+  that are constrained by a regular expression (eg for entering an email address).
+  This is done via the *RegExpConstrainedStringDefinition*.
+
+
+**Additions**
+
+* *adams-net:* added *Send error report* menu item (under *Program*), which 
+  allows the user to send an error report to a support email address.
+  Email support needs to be configured and a support email address supplied
+  to make this feature available. 
+* *adams-spectral-core:*
+
+  * *SpectrumDisplay* sink now allows specifying a paintlet and color provider.
+  * New *SimpleSpectrumPaintlet* comes without any markers, in contrast to
+    *SpectrumPaintlet*.
+
+* *adams-weka:* added the *SimpleInstanceLinePaintlet* paintlet to be used in
+  conjunction with the *WekaInstanceViewer* sink.
+* *adams-spreadsheet:*
+
+  * The *Spreadsheet Explorer* offers similar functionality for viewing 
+    spreadsheets as the *Weka Instance Explorer*, but without any
+    dependencies on Weka.
+  * The *SpreadSheetRowViewer* sink displays rows from a spreadsheet as line
+    plots.
+
+Have a nice long Queen's Birthday weekend - if it applies to you!
