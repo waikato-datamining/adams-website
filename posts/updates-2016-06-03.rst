@@ -1,4 +1,4 @@
-.. title: Updates 03/06/2016
+.. title: Updates 2016/06/03
 .. slug: updates-2016-06-03
 .. date: 2016-06-03 16:27:07 UTC+13:00
 .. tags: update
