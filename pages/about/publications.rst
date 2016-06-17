@@ -21,8 +21,8 @@ Algorithms, Systems, Programming Models and Applications. Editors: Wei Fan,
 Albert Bifet, Quiang Yang, Philip S. Yu. Vol. 41:5-8. 
 [`pdf <Reutemann2015_>`__] [`slides <Reutemann2015slides_>`__]
 
-.. _Reutemann2015: http://www.cms.waikato.ac.nz/~fracpete/publications/2015/reutemann15.pdf
-.. _Reutemann2015slides: https://adams.cms.waikato.ac.nz/events/bigmine2015/bigmine2015-adams-slides.pdf
+.. _Reutemann2015: http://www.cms.waikato.ac.nz/~fracpete/pubs/2015/reutemann15.pdf
+.. _Reutemann2015slides: https://adams.cms.waikato.ac.nz/events-data/bigmine2015/bigmine2015-adams-slides.pdf
 
 
 2014
@@ -31,9 +31,9 @@ Albert Bifet, Quiang Yang, Philip S. Yu. Vol. 41:5-8.
 **Scientific workflow management with ADAMS: building and data mining a database of crop protection and related data**
 
 Reutemann PM, Holmes G 2014. Scientific workflow management with ADAMS: building and data mining a database of crop protection and related data. In: Beresford RM, Froud KJ, Kean JM, Worner SP ed. The plant protection data tool box. New Zealand Plant Protection Society. pp 167-174. 
-[`pdf <Reutemann2014>`__]
+[`pdf <Reutemann2014_>`__]
 
-.. _Reutemann2014: http://www.cms.waikato.ac.nz/%7Efracpete/pubs/2014/Reutemann2014.pdf
+.. _Reutemann2014: http://www.cms.waikato.ac.nz/~fracpete/pubs/2014/Reutemann2014.pdf
 
 
 2012
@@ -57,7 +57,7 @@ Chromatography-Mass Spectrometry. Proceedings of the International Congress on
 Environmental Modelling and Software (IEMSS), Leizpig, Germany, 2012. 
 [`pdf <Holmes2012_>`__]
 
-.. _Holmes2012: http://www.cms.waikato.ac.nz/~fracpete/publications/2012/iemss2012.pdf
+.. _Holmes2012: http://www.cms.waikato.ac.nz/~fracpete/pubs/2012/iemss2012.pdf
 
 
 2010
@@ -71,7 +71,7 @@ Proceedings of the International Congress on Environmental Modelling and
 Software (IEMSS), Ottawa, Canada, 2010. 
 [`pdf <Holmes2010_>`__]
 
-.. _Holmes2010: http://www.cms.waikato.ac.nz/~fracpete/publications/2010/HolmesIEMSS2010.pdf
+.. _Holmes2010: http://www.cms.waikato.ac.nz/~fracpete/pubs/2010/HolmesIEMSS2010.pdf
 
 
 **InfraWatch: Data Management of Large Systems for Monitoring Infrastructural Performance**
@@ -95,5 +95,5 @@ in water. Proceedings of the 4th International ICSC Symposium, Thessaloniki,
 Greece, 2009, 278-290. 
 [`pdf <Holmes2009_>`__]
 
-.. _Holmes2009: http://www.cms.waikato.ac.nz/~fracpete/publications/2009/HolmesITEE2009.pdf
+.. _Holmes2009: http://www.cms.waikato.ac.nz/~fracpete/pubs/2009/HolmesITEE2009.pdf
 
