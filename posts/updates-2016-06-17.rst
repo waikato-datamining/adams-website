@@ -1,0 +1,93 @@
+.. title: Updates 2016/06/17
+.. slug: updates-2016-06-17
+.. date: 2016-06-17 15:07:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Many little fixes and improvements again. The PDF generation got overhauled to make
+it easier generating PDFs from files.
+
+
+**Fixes**
+
+* *adams-weka:* The *Weka Instance Explorer* now correctly shows the options
+  dialog of the loader (modal issue).
+* *adams-spreadsheet:* The *Spreadsheet Explorer* now correctly shows the options
+  dialog of the reader (modal issue).
+* The *Help -> Memory* visualization works again.
+* The default flow format now uses the user-specified encoding now correctly.
+* *adams-spectral-core:* filtering the spectral table in the Spectrum Explorer now
+  uses the correct colors in the reduced view.
+
+
+**Changes**
+
+* *adams-pdf:* 
+
+  * Upgraded PDFBox dependency to 2.0.1
+  * *PDFExtractImages* transformer now outputs BufferedImageContainer objects 
+    instead of just BufferedImage objects.
+  * PDF proclets (used by PDFCreate transformer) now can use a regular expression
+    on the filename to further limit the matching (not just the file extension).
+  * The following PDF proclets now offer absolute positioning: 
+    Image, PlainText, SpreadSheet.
+
+* Scripting (general/Groovy/Jython): pushed initialization of scripts from setUp() 
+  into preExecute() method to allow use of variables.
+* The *Swap* operation in the Flow editor now transfers variables as well.
+* *adams-weka:* upgraded multisearch package to 2016.6.6.
+* *FileUtils.loadFromFile* now removes byte order marks (BOMs) from UTF-16/UTF-32 
+  encoded files.
+* The Flow editor now keeps track of flow reader/writer setups and stores the flow 
+  reader setups in "recent files" now as well. This now allows a simple  *save* 
+  action for different file encodings instead of requiring a *save as* action.
+* The *OptionUtils.shallowCopy* method (when expand=false) now transfers the 
+  Variables instance and ensures that current variable values are set. Useful
+  when creating instances inside actors (or further nested classes) that have
+  variables attached.
+* *adams-spectral-core:* the *Evaluator* transformer now can obtain the actual
+  evaluator from a callable actor as well, not just from a file with the
+  serialized setup.
+* *adams-twitter:* upgraded twitter4j library to 4.0.4. I noted that they newer
+  version of the library may not be as stable as the old one. However, there
+  were other problems with the old version. You win some, you lose some.
+* *adams-excel:* upgraded Apache POI to 3.14.
+
+
+**Additions**
+
+* It is now possible to print the content of a flow's notification area as well, not
+  just copy to clipboard or save it.
+* *adams-pdf:*
+
+  * Added *PDFRenderPages* transformer, which renders pages from a PDF as images.
+  * added PDF proclets (used by PDFCreate transformer): Circle, Line, NewPage, Rectangle
+  * Using *PDFNewDocument*, *PDFAppendDocument* and *PDFCloseDocument* it is now possible
+    to use the PDF proclets in a more targeted fashion, as PDFAppendDocument allows
+    to specify a specific file.
+  * Added *PDFInfo* transformer for outputting information on PDF files.
+
+* *adams-spectral-core:* 
+
+  * added reader/writer for ASCII XY data format (wavenumber <SEP> amplitude).
+  * added more instance evaluators: CrossValidatedNeighborHood, DistanceToClosest, 
+    DistanceToCenter, SavitzkyGolayRange
+
+* actors for handling *java.util.Map* objects: NewMap, GetMapValue, SetMapValue
+* boolean condition for dealing with *java.util.Map* objects: HasMapValue
+* *adams-spreadsheet:* conversions for converting to and fro *java.util.Map*
+  objects: MapToSpreadSheet, SpreadSheetToMap
+
+
+**Note for developers**
+
+If you want to have the fastest possible build, use the following command-line (does not generate any PDF manuals, skips the unit tests and does not generate license files):
+
+``
+mvn clean install -DskipTests=true -Dlicense.skipAddThirdParty=true -Dlatex.dummyBuild=true
+``
+
