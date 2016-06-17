@@ -87,7 +87,5 @@ it easier generating PDFs from files.
 
 If you want to have the fastest possible build, use the following command-line (does not generate any PDF manuals, skips the unit tests and does not generate license files):
 
-``
-mvn clean install -DskipTests=true -Dlicense.skipAddThirdParty=true -Dlatex.dummyBuild=true
-``
+``mvn clean install -DskipTests=true -Dlicense.skipAddThirdParty=true -Dlatex.dummyBuild=true``
 
