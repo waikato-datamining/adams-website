@@ -1,0 +1,60 @@
+.. title: new
+.. slug: new
+.. date: 2016-06-25 14:27:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+This week was mostly focused on *external actors*, fixing a bug of disappearing tokens
+which has been around for a while.
+
+**Fixes**
+
+* Fixed *disappearing tokens* when using external actors in conjunction with variables.
+* *adams-spreadsheet:* The *TransposeSpreadSheet* conversion now keeps the cell types
+  and no longer re-parses the content, making it also more efficient.
+* *adams-meta:* The *include external actors* now can be edited in the Flow editor
+  through the "External actor -> Edit" action.
+
+
+**Changes**
+
+* Conversion *AnyToString* now accepts arrays as well (actually, *Unknown* which can 
+  be arrays).
+* *adams-spreadsheet:* The *SpreadSheetCellFinderToPositions* conversion has been 
+  deprecated. Instead, use the *SpreadSheetCellFinder* transformer in conjunction
+  with the *SpreadSheetCellLocationToPosition* conversion.
+* The *find* option of the *StringIndexOf* transformer now accepts backquoted strings, 
+  enabling the user to search for tab or new line using \t or \n.
+* *adams-imaging:* metadata-extractor library upgraded to 2.9.1.
+* Made the *Swap* action in the Flow editor more flexible by introducing a class
+  hierarchy for suggesting actors to swap with 
+  (``adams.gui.flow.tree.actorswap.AbstractActorSwapSuggestion``).
+* *adams-rats:* The rat input *FileLister* now has an option to skip files that are
+  currently in use, e.g., large files that are still being written.
+* *adams-imaging-boofcv:* the *connect rule* is now an option for the BinaryContours
+  and CannyBinary object location algorithms, as well as for the BinaryContours and
+  CannyEdgeDetection image transformers.
+
+
+**Additions**
+
+* The *PropertiesToVariables* allows you to turn properties, that match a regular
+  expression, into variables (the property value becomes the variable value).
+* *adams-spreadsheet:* 
+
+  * With the *SpreadSheetCellFinder* transformer you can locate
+    cells (and output the row/column pairs) that match certain criteria defined by
+    the supplied CellFinder. Allows you to locate the row in a spreadsheet with a certain
+    value of a specific column, like finding the row with a certain ID.
+  * Conversions for *CellLocation* objects: SpreadSheetCellLocationToPosition, 
+    SpreadSheetCellLocationToCoordinates
+  * New spreadsheet reader/writer for Java props files: PropertiesSpreadSheetReader,
+    PropertiesSpreadSheetWriter
+
+* *adams-meta:* added option transfer schemes between *external* and *include external*
+  actor pairs (and vice versa).
+
