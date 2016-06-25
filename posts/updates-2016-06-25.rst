@@ -1,5 +1,5 @@
-.. title: new
-.. slug: new
+.. title: Updates 2016/06/25
+.. slug: updates-2016-06-25
 .. date: 2016-06-25 14:27:07 UTC+13:00
 .. tags: updates
 .. category: 
