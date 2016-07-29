@@ -1,0 +1,68 @@
+.. title: Critical memory leak fixed!
+.. slug: critical-memory-leak-fixed
+.. date: 2016-07-29 16:21:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Well, this week saw some important bug fixes, notably a critical memory
+leak in logging and deeplearning4j now working on Windows. See below for details.
+
+**Fixes**
+
+* Fixed **memory leak** in the logging framework: Java's logging facility
+  doesn't garbage collected ``Logger`` instances and slowly gobbles up
+  memory. Reimplemented the functionality to avoid this issue.
+  Thanks to Sam for uncovering that!
+* Fixed passing on of data for control actors *CallableActorScreenshot* and
+  *ClearCallableDisplay*.
+* *adams-spreadsheet:*
+
+  * *NewSpreadSheet* now accepts an empty initial column list.
+  * *SpreadSheetInsertColumn* and *SpreadSheetInsertRow* now ignore the position
+    if the spreadsheet coming through is empty (they simply add a row).
+
+* *adams-dl4j:* Fixed the ``java.lang.UnsatisfiedLinkError: no jnind4j in java.library.path``
+  exception on Windows - correct inclusion of native artifacts.
+
+
+**Changes**
+
+* Data container reader/writer classes now state the supported file extensions and the 
+  default file extension under "additional information" in the help.
+* Spreadsheet reader/writer classes now state the supported file extensions and the 
+  default file extension under "additional information" in the help.
+* Added *Open in file browser* to directory panel of the Preview Browser.
+* *adams-spreadsheet:*  The SpreadSheetFileViewer now allows the user to paste a spreadsheet
+  from the system clipboard (gets prompted how to read in the data).
+* Added *Copy ID(s)* to popup menu of container lists.
+* Centralized shortening of strings in ``adams.core.Shortening`` and ``adams.core.ShorteningType``.
+* Spectrum Explorer now allows reloading of spectral files, not just from database.
+* The *adams.core.management.Launcher* class now allows the collapse of the classpath when launching
+  the actual process, i.e., instead of listing every single jar explicitly, only the directory with
+  ``/*`` appended is used. This dramatically reduces the length of the commandline string. Should
+  also help with Windows' restriction of only allowing 260 characters in a classpath (Linux filesystems
+  usually handle 4096 characters). The startup scripts, ``run`` and ``run.bat``, got updated
+  accordingly.
+* *AppendName*, *DirName* and *PrependDir* can output paths with forward slashes now as well,
+  when processing strings.
+* *adams-dl4j:* upgraded deeplearning4j/nd4j to 0.4.0 and canova to 0.0.0.17.
+
+
+**Additions**
+
+* Added global switch for anti-aliasing (enable/disable), available from the *Visualization* menu.
+* Added preview handler to the Preview browser for basic file information: *FileInfoHandler*
+* *MapToVariables* transformer turns the key-value pairs into variables and associated values, 
+  useful when loading in YAML config files.
+* *adams-nlp:* 
+
+  * added *EditDistance* transformer for computing the edit distance
+    between strings (supplied base and ones received).
+  * added *Stemmer* transformer for performing word stemming, single words
+    or arrays of words.
+
+Have a good weekend!

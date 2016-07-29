@@ -1,0 +1,102 @@
+.. title: Updates 2016/07/15
+.. slug: updates-2016-07-15
+.. date: 2016-07-15 17:17:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Many changes and fixes regarding data processing and improvements in the GUI this time round.
+
+
+**Fixes**
+
+* *adams-twitter:* update the link to the link search API used by the *TwitterQuery*
+  source actor.
+* Adding large number of objects in the *GenericArrayEditor* is now much faster.
+* *Preview browser:* using a split pane now for local/archive files to better utilize the 
+  vertical space, also fixed the display of search box for archive files.
+* *adams-compress:* the *listFiles* methods of *ZipUtils* and *TarUtils* now skip 
+  directories in archives when specified.
+
+
+**Changes**
+
+* Debugging is now also possible when using external actors, include external actors
+  and internal actor handlers. An *expanded* version of the flow is then
+  used in a new tab for debugging. However, this does not work in case of
+  external actors having a variable attached to the actor file.
+* Pushes dimensions of dialogs into ``GUIHelper.props`` file, using defaults for
+  normal, small, tiny and large ones (``Default[(Small|Tiny|Large)]Dialog.(Width|Height)``).
+* *ConditionalTee/Trigger* now use *Expression* as the default boolean condition, to align 
+  with *ConditionalSubProcess* (and you simply use *Expression* more often then *Counting*)
+* *RaiseError*'s message can contain backquoted characters (``\\t`` and ``\\n``) and variables now.
+* Added ability to add a scope restriction to *Breakpoint* actors. This is useful when
+  debugging multi-threaded flows (e.g., when using *Rats*), restricting the scope - and
+  therefore the stepping through the flow - to a sub-flow. With the new automatic *suggestions*
+  for breakpoints, the scope is automatically set for breakpoints within *Rat* actors.
+* Added support for *custom* actions for enclosing actors: ``adams.gui.flow.tree.enclose.AbstractEncloseActors``.
+  Migrated code for *DisplayPanelManager* and added action for *TryCatch*.
+* Removed the *Open remote flow* functionality from Flow editor, as it will get replaced
+  in the future by the more powerful/flexible remote command functionality.
+* The *XMLFileWriter* sink and the *DOMToString* conversion now support pretty printing.
+* *adams-rats:* 
+
+  * added proper event-driven support in Rats. 
+  * *AbstractBufferedRatInput* uses blocking poll. 
+  * (most) webservices are now buffered rat inputs to immediately react to data
+    being received, making it unnecessary to wrap them in an InputPolling "meta"
+    rat input 
+
+* *adams-ml:* it is now possible to restrict the axes of the *ActualVsPredictedPlot*, as well
+  as placing the plot on the screen like with other graphical ones and use it within the
+  *DisplayPanelManager* sink.
+
+
+**Additions**
+
+* Added basic YAML support, using ``java.util.List`` and 
+  ``java.util.Map`` objects:
+
+  * actors: YamlFileReader transformer, YamlFileWriter sink
+  * conversions: YamlStringToList, YamlStringToMap, ArrayToYamlString, 
+    ListToYamlString, MapToYamlString
+
+* Added more JSON conversions:
+  
+  * *ListToJson* converts a ``java.util.List``.
+  * *MapToJson* converts a ``java.util.Map``.
+
+* Added support for pretty-printing of JSON: 
+  JsonFileWriter sink, JsonToString conversion
+* Added JSON handler to preview browser that displays data as pretty-print text:
+  JsonPrettyPrintHandler
+* Added menu item to the Flow editor's tree popup menu that allows you
+  to compare two selected actors, displauing a diff view (you may have
+  to remove the ``$HOME/.adams/FlowEditor.props`` file).
+* Made it possible to swap between *SetVariable* standalone and transformer
+  (and vice versa).
+* Added notification actions for running/debugging the current flow.
+* New transformer for indentating strings (even multi-line strings): *StringIndent*                     
+* *GetMapKeys* transformer retrieves all the (string) keys from a ``java.util.Map``
+  object.
+* *HasQueue* flow condition checks whether the specified queue is present.
+* Added ability to list TODOs in flow (search actor name and annotation),
+  using a user-supplied regular expression (*ListTODOs* processor).
+* Added the *Class help* menu to the *Help* menu of the main menu, to allow 
+  displaying the help for class.
+* Added dialogs to the main menu for pretty printing XML and JSON (only developer mode).
+* Added ``adams/flow/control/Flow.props`` properties file. The boolean *AutoRegister* 
+  property allows system-wide registering of flows with RunningFlowsRegistry (which can 
+  be queried by remote commands), default is ``false``.
+* *adams-meta:* Added actor swap and option transfer for *Callable/CopyCallable*
+  actor pairs.
+* *adams-ml:* Added simple spreadsheet reader/writer for ARFF format for
+  ARFF support without *adams-weka* dependency.
+* *adams-webservice:* added interceptors for logging of SOAP envelopes,
+  XMLLoggingGenerator and XMLLoggingGenerator.
+* *adams-spectral-core:* added reader/writer for spectra in JSON format.
+
+Have a good weekend!
