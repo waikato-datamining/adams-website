@@ -46,11 +46,25 @@
         </repository>
       </repositories>
     </profile>
+
+    <profile>
+      <id>latex</id>
+      <properties>
+        <!-- If the latex binaries (eg pdflatex) aren't on the system's path -->
+        <!-- you need to specify the directory. Below are some examples: -->
+
+        <!-- windows -->
+        <!--latex.binariesPath>C:/texlive/2016/bin/win32/</latex.binariesPath-->
+        
+        <!-- linux/mac -->
+        <!--latex.binariesPath>/some/where/texlive/2016/bin/x86_64-linux/</latex.binariesPath-->
+      </properties>
+    </profile>
   </profiles>
 
   <activeProfiles>
     <activeProfile>nexus</activeProfile>
     <activeProfile>adams</activeProfile>
+    <activeProfile>latex</activeProfile>
   </activeProfiles>
 </settings>
-

@@ -114,6 +114,25 @@ module that contains all the jars and scripts to start ADAMS and the generated
 documentation.
 
 
+LaTeX
+=====
+
+If your LaTeX binaries (e.g., ``pdflatex``) aren't on the system's path, you
+need to modify the ``latex.binariesPath`` property of the ``latex`` profile in
+the ``settings.xml`` file. For instance, if your LaTeX binaries are located in:
+
+.. code:: bat
+
+   C:\texlive\2016\bin\win32
+
+Then adapt the ``latex.binariesPath`` as follows:
+
+.. code:: xml
+
+   <latex.binariesPath>C:/texlive/2016/bin/win32/</latex.binariesPath>
+
+
+
 Proxy
 =====
 
