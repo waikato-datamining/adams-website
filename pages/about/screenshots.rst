@@ -16,6 +16,8 @@
    /galleries/screenshots/dataset-compatibility.png
    /galleries/screenshots/diff-files.png
    /galleries/screenshots/explorerext-workspaces.png
+   /galleries/screenshots/filecommander.png
+   /galleries/screenshots/lanterna-terminal.png
    /galleries/screenshots/imagej-arff-generation-dataset.png
    /galleries/screenshots/imageviewer1.png
    /galleries/screenshots/instance-compare.png
