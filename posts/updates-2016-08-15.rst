@@ -1,0 +1,83 @@
+.. title: Updates 2016/08/15
+.. slug: updates-2016-08-15
+.. date: 2016-08-15 09:00:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+ADAMS has been in the German news again: `JAXenter <https://jaxenter.de/adams-machine-learning-fuer-besseren-workflow-44924>`__ (`Google translation <https://translate.google.com/translate?sl=nl&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=https%3A%2F%2Fjaxenter.de%2Fadams-machine-learning-fuer-besseren-workflow-44924&edit-text=&act=url>`__)
+
+**Fixes**
+
+* Data loaded in the *SpectrumExplorer*, *InstanceExplorer*, etc now keeps its 
+  associated color, even when being filtered or transformed.
+* Fixed *StackOverflow* error caused by ``AbstractActor.isHeadless()`` method 
+  when using a graphical actor by itself outside a flow.
+* Fixed a headless environment exception ``adams.gui.application.DatabaseConnections``.
+* *adams-imaging:* the *ChangeCanvasSize* BufferedImage transformer no longer
+  loses the meta-data.
+* *adams-weka:* fixed a cast exception in the *WekaInstanceViewer* sink.
+
+
+**Changes**
+
+* Added support for trainable outlier detectors.
+* *DirectoryLister*, *FileSupplier* and *FileSystemSearch* sources now offer
+  output of files with forward slashes (to avoid ``\t`` problems with variables).
+* *ReplaceFileExtension* and *StringToValidFileName* conversion can output
+  forwards slashes now as well.
+* The *Placeholder management* dialog now has two tabs, one for the user-defined
+  placeholders and one listing the system ones (CWD/HOME/TMP).
+* The *SetReportFromFile* and *SetReportFromSource* transformers now allow merging 
+  as well, instead of just replacing the existing report
+* Centralized headless environment checks in ``GUIHelper.isHeadless()``.
+* The ``run/run.bat`` files have been trimmed down and the actual logic is now
+  handled by the ``launcher.sh/launcher.bat`` scripts in the new *adams-scripts*
+  module. Reduces duplication to a bare minimum.
+* *adams-meta:* *CopyCallableX* actors now replace themselves in the flow with 
+  the copy of the callable actor rather than being kept internally. The callable
+  actor can be marked as optional now as well. In case of the callable actor not
+  being available, a dummy acctor is used instead.
+* *adams-net:* Upgraded tika-core to 1.13.
+* *adams-rats:* 
+
+  * The *Rat* actor can be started in paused mode now.
+  * Fixed a problem with the *RatPlague* actor that variables were not being propagated 
+    correctly; the output queue is now optional as well.
+
+* *adams-spreadsheet:* added support for custom type mappers (spreadsheet cell type <-> SQL type).
+* *adams-weka:* the *WekaInstancesDisplay* sink now uses the improved table/model from 
+  the Weka Investigator, which includes a search panel now.
+
+
+**Additions**
+
+* Added *PropertiesToMap* and *ReportToMap* conversions.
+* Added *Null* dummy standalone and source actors.
+* Added class hierarchy for checking whether files are in use: 
+  ``adams.core.io.fileuse.AbstractFileUseCheck``
+* *adams-imaging:* 
+
+  * The JAI transformer *ChangeOrientation* ensures that images have
+    the specified orientation (landscape or portrait).
+  * With the *ImageAnnotator*, the user can interactively label objects
+    in an image that an object locator determined.
+
+* *adams-net:* The *Socket* sink and source actors allow you to send and receive
+  strings and byte arrays via sockets.
+* *adams-rats:* The *ChangeRatState* control actor pauses/resumes the specified
+  Rat actors from within the flow. Allows to initially start up a *Rat* actor in
+  paused mode and then activate it later on (for instance, after user feedback).
+* *adams-spectral-core:* added *AmplitudeRange* outlier detector, which determines
+  its accepted range based on the training spectra. Flags any spectrum that falls
+  outside the ranges.
+* *adams-weka:* The new *Weka Investigator* tool is aimed at providing a more
+  versatile alternative to the *Weka Explorer*. Being able to handle multiple
+  sessions in parallel, multiple datasets per session (e.g., train and test set),
+  using tabs instead of windows, pre-defined outputs to be generated from 
+  evaluations, and lots more. At this stage, only classification is available 
+  (apart from Data and Preprocessing tabs), with more functionality coming bit by bit.
+

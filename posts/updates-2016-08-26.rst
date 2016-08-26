@@ -1,0 +1,60 @@
+.. title: Updates 2016/08/26
+.. slug: updates-2016-08-26
+.. date: 2016-08-26 15:27:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+All lot of works has gone into making ADAMS work in a headless environment,
+like on a Linux server in the cloud. Thanks to `Lanterna <https://github.com/mabe02/lanterna>`__,
+there is now simple, terminal-based interface available for such environments. 
+A number of interactive actors can be used in headless environments now as well.
+
+**Fixes**
+
+* The *ManageInteractiveActors* now enables/disables interactive actors correctly.
+
+
+**Changes**
+
+* Added support for interactive actors to be used in a headless environment
+  (e.g., in a terminal on a server), with the following actors supporting this
+  now: EnterValue, SelectCharset, SelectDateTime, SelectDirectory, SelectFile,
+  WekaSelectDataset, ConfirmationDialog, PasteFromClipboard.
+  The following actors can now ask for the password in the console as well:
+  DatabaseConnection, FTPConnection, SMTPConnection, SSHConnection.
+* The *adams.flow.FlowRunner* class now offers a ``-non-interactive`` flag,
+  that ensures that all interactive actors avoid interaction with the user.
+  Useful for flows that can be run with user interaction through GUI or command-line
+  and also as background process.
+* Added support for gzip-compressed Properties files: ``.props.gz``
+* *adams-weka:* The *Weka Investigator* now has a *Cluster* tab as well as a tab
+  in the system-wide *Preferences* (Program -> Preferences).
+
+
+**Additions**
+
+* Added support for customizable enumerations: ``adams.core.ConfigurableEnumeration``.
+* The *adams.terminal.Main* class allows you to run flows in a terminal, i.e., without
+  a graphical user interface. Useful when working in a headless environment, like
+  remotely on Linux servers.
+* Introduced a simple file manager called *File commander* inspired by th the
+  `Midnight Commander <http://www.midnight-commander.org/>`__.
+* *adams-imaging:* added *JpegIsComplete* file-use check algorithm, which determines
+  whether a JPEG is fully written to disk.
+* *adams-spreadsheet:* 
+
+  * With the *SpreadSheetMatrixStatistic* you can now calculate statistics for a whole 
+    spreadsheet (or a defined subset).
+  * The *SimpleStreamSpreadSheetReader/Writer* pair allows you to store spreadsheet
+    data alongside their types. Sparse format and chunking is supported as well.
+  * With the *SpreadSheetToCreateTableStatement* conversion it is easy to create
+    a SQL *CREATE TABLE* statement.
+
+* *adams-weka:* With *WekaClusterAssignments* you can output the cluster assignments
+  (i.e., which instance got assigned to what cluster) from the last evaluation as
+  spreadsheet.
+
