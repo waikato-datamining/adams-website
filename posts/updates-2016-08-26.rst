@@ -10,7 +10,7 @@
 
 All lot of works has gone into making ADAMS work in a headless environment,
 like on a Linux server in the cloud. Thanks to `Lanterna <https://github.com/mabe02/lanterna>`__,
-there is now simple, terminal-based interface available for such environments. 
+there is now a simple, terminal-based interface available for such environments. 
 A number of interactive actors can be used in headless environments now as well.
 
 **Fixes**
