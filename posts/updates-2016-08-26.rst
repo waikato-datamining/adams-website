@@ -41,7 +41,7 @@ A number of interactive actors can be used in headless environments now as well.
 * The *adams.terminal.Main* class allows you to run flows in a terminal, i.e., without
   a graphical user interface. Useful when working in a headless environment, like
   remotely on Linux servers.
-* Introduced a simple file manager called *File commander* inspired by th the
+* Introduced a simple file manager called *File commander* inspired by the
   `Midnight Commander <http://www.midnight-commander.org/>`__.
 * *adams-imaging:* added *JpegIsComplete* file-use check algorithm, which determines
   whether a JPEG is fully written to disk.
