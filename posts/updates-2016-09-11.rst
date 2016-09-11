@@ -65,3 +65,6 @@ of the *Multi-Experimenter* (see below).
     of the latter is support for multi-threading and (in theory) also distributed 
     computation.
 
+* There is a new snapshot available: *adams-ml-app*. This collection of modules
+  combines all machine learning modules.
+
