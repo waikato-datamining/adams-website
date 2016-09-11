@@ -1,0 +1,67 @@
+.. title: Updates 2016/09/11
+.. slug: updates-2016-09-11
+.. date: 2016-09-11 12:03:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The replacement of the default Weka interfaces (Explorer, Experimenter) with more
+user-friendly and efficient interfaces is more or less finished, with the introduction
+of the *Multi-Experimenter* (see below).
+
+
+**Fixes**
+
+* *adams.core.discovery.DefaultPropertyDiscovery* now uses the regular expressions 
+  on the property paths.
+* *adams-twitter:* The extraction of hashtags from tweet archives incorrectly cut off
+  the last character from tags (*Retwee* instead of *Retweet*).
+* *adams-rats:* Fixed the incomplete full names of *Rat* actors.
+
+
+**Changes**
+
+* The *Find next* menu item has been removed from the Flow Editor's menu, as the
+  updated *Find* menu item now lists all occurrences in a dialog.
+* The *File commander* now offers action plugins, with the *adams-compress* module
+  offering GZIP and ZIP actions.
+* The *RegExp Test* maintenance tool now offers *Replace* and *Match* tabs.
+* The *FileSystemSearch* source is now stoppable.
+* *adams-net:* upgraded jsch to 0.1.54.
+* *adams-weka:* The *Weka Investigator* received a few changes:
+
+  * Supports now leave-one-out cross-validation (LOO-CV) and multi-threaded evaluation 
+    in the *Classify* tab. 
+  * Sports the *4-in-1 plot* available from the adams-visualstats module as output for the 
+    classify tab.
+  * In the data tab, you can now display histograms and simple plots for rows/columns.
+  * Undo is now available as well - per dataset level.
+
+* Modules have been rearranged: adams-base-all, adams-addons-all annd adams-incubator-all
+  have been moved to adams-applications. The *Snapshot (Apps)* page on the ADAMS website 
+  got removed, as the application snapshots have been folded into the regular snapshots.
+
+
+**Additions**
+
+* Added object reader/write using a nested command-line format, which is easier to edit
+  manually than the default command-line format.
+* Added *FindText* flow processor that allows searching for text in the actors' options
+  (String and BaseObject-derived ones).
+* *adams-net:* additional searchlets for the *FileSystemSearch* source that allow 
+  searching on remote servers using SFTP channels. A *SSHConnection* standalone actor
+  must be present in the flow for this to work.
+* *adams-rats:* added *Exec* rat input and output schemes which execute an external
+  program.
+* *adams-weka:* 
+
+  * Added *Attribute selection* panel to the *Weka Investigator*.
+  * Added *Weka Multi-Experimenter* tool, which offers a user interface that utilizes
+    the Weka experiment framework mainly for analyzing experimental results. Weka's
+    simple setup is available, as well as one for ADAMS-based experiments. The advantage
+    of the latter is support for multi-threading and (in theory) also distributed 
+    computation.
+
