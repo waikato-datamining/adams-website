@@ -142,7 +142,6 @@ NAVIGATION_LINKS = {
         ((
           ("/download/release", "Release"),
           ("/download/snapshot", "Snapshot"),
-          ("/download/snapshot-apps", "Snapshot (Apps)"),
           ("/download/roll-your-own", "\"Roll your own\""),
           ), "Download"),
         ((
@@ -546,7 +545,8 @@ INDEX_PATH = "blog"
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = []
+REDIRECTIONS = [
+]
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
