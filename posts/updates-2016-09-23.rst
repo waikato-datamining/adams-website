@@ -1,0 +1,89 @@
+.. title: new
+.. slug: new
+.. date: 2016-09-23 17:20:07 UTC+13:00
+.. tags: updates
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The *Weka Investigator* is maturing quite nicely. Going back to the 
+*Weka Explorer* feels quite weird now... Handling of multi-core processing
+has slightly changed, as explained below.
+
+**Fixes**
+
+* Fixed layout issues with the *Class help* menu item from the *Help* menu.
+* fixed *PlaceholderFile.expand* method, which accidentally used *getPath()* 
+  instead of provided path, resulting in *renameTo* method not working as 
+  expected (old and new name were the same).
+* *adams-ml:* The *ActualVsPredictedPlot* sink no longer drops points with 
+  the same X, now compares X and Y to make that decision.
+* *adams-spreadsheet:* The COUNT aggregation of the *SpreadSheetAggregate* 
+  transformer now works if no numeric columns have been specified. This allows
+  the *SpreadSheetQuery* transformer to process a query like 
+  `SELECT COUNT GROUP BY class`.
+
+
+**Changes**
+
+* Upgraded *EnterManyValues* source to work in headless environment as well.
+* History of GenericObjectEditor panels is now persistent; stored as simple 
+  list of commandlines in project's home directory. Affects ADAMS and Weka
+  GOE panels.
+* *File Commander* allows you now to connect to remote servers using
+  FTP, SFTP and SMB (if *adams-net* module present). Viewing of remote files
+  is supported as well (remote file gets downloaded as temporary file first).
+* The *Preview browser* now carries over search settings from one file to
+  the next, as long as the content handler stays the same.
+* The *number of threads* option for multi-threading has changed its meaning
+  slightly. Previously, anything below **1** was considered to use all available
+  cores. The new interpretation is that only **0** is considered to use all
+  available cores. Negative numbers represent the number of cores to reserve
+  for other processes, e.g., **-1** means all cores minus one are used, 
+  reserving one core for other operations.
+* The *WhileLoop* control actor now allows standalone actors to be added.
+* *adams-rats:* Added *guards* class hierarchy to the *EnQueue* rats output scheme,
+  e.g., *MaxQueueSize* which ensures that the queue doesn't become too full.
+* *adams-visualstats:* The following sinks can be enclosed in a *DisplayPanelManager*
+  now: BoxPlot, FourInOneDisplay, Histogram, MatrixPlot, ProbabilityPlotDisplay,
+  ScatterDisplay.
+* *adams-weka:* The *Weka Investigator* now allows you to store additional
+  columns from the data alongside the evaluation. The *Classifier Errors*
+  plot (not the Weka legacy one) displays that then when clicking on data
+  points in the plot. The *Predictions* output of the Classify tab shows these
+  additional attributes, too.
+
+
+**Additions**
+
+* Added stopping criterion *MaxIterationsWithoutImprovement* for the genetic optimization
+  algorithms.
+* Searchlets for the *FileSystemSearch* source actor that operate on the local file 
+  system have been prefixed with *Local*, to distinguish them better from others offered
+  through other modules.
+* *adams-net:* 
+
+  * added support for listing files via SMB (i.e., Windows shares) and FTP to the 
+    *FileSystemSearch* source actor. 
+  * *FTPLister* source has been deprecated and will get removed in the future.
+    Use *FileSystemSearch* in conjunction with FTP searchlets instead.
+  * *FTPGet*, *ScpFrom* and *SFTPGet* now have an empty directory as default they
+    no longer prefix the remote directory if empty.
+  * The *SMBGet* and *SMBSend* transformers in conjunction with the *SMBConnection* 
+    standalone allow you to retrieve/send files from a Windows host.
+
+* *adams-spectral-core:* The *Update Sample data* maintenance interface allows you to 
+  update a single field for all the checked spectra. Useful when setting a particular flag.
+* *adams-spreadsheet:* Row and column statistics can be calculated now for instances
+  of the *SpreadSheetTable* class, e.g., used by the *Spreadsheet file viewer*.
+* *adams-weka:* 
+
+  * Added an *Instance Explorer*-like tab and a *Box plot* tab to the 
+    *Weka Investigator*.
+  * Row and column statistics can be calculated now for *InstancesTable* instances, as
+    used by the *Weka Investigator*.
+
+Have a good weekend!
+
