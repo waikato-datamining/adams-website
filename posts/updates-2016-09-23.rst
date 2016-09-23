@@ -1,4 +1,4 @@
-.. title: new
+.. title: updates-2016-09-23
 .. slug: new
 .. date: 2016-09-23 17:20:07 UTC+13:00
 .. tags: updates
