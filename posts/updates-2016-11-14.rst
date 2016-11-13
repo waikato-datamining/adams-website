@@ -1,0 +1,92 @@
+.. title: Updates 2016/11/14
+.. slug: updates-2016-11-14
+.. date: 2016-11-14 11:17:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Didn't manage to get this one out on Friday, been way too busy with preparations for
+`ACML 2016 <http://acml-conf.org/2016/>`__, which we're hosting this week here at 
+Waikato.
+
+Oh, in regards to last night's earthquake here in NZ: everyone at Waikato
+is safe. Our thoughts go out to the people around NZ that suffered from this quake.
+
+**Fixes**
+
+* The *directory chooser* dialog now reloads the bookmarks before showing the dialog
+  (in case they got modified in another dialog).
+* The table model for reports now performs searches in the values of the fields as
+  well, not just the names of the fields.
+* ``AdamsCommandLineHandler.setOptions`` method now correctly resets the options to
+  default ones before applying the supplied options.
+* *adams-weka:* 
+  
+  * *Weka Investigator*
+  
+    * The *Stop* buttons in the Preprocess/Classify tab now work as expected 
+      (stopping worked, but didn't update the buttons).
+    * deleting attributes or instances in the data tab now updates the preprocess
+      panel accordingly.
+    * Moving datasets up or down now correctly updates the comboboxes listing the
+      available datasets (e.g., in the Classify tab).
+    * Moving tabs no longer clears their result history.
+
+
+**Changes**
+
+* The *SequencePlotter* now allows you to save only the *visible* data to a spreadsheet 
+  as well.
+* window titles are now getting prefixed with the hostname (if available), to make it 
+  easier locating windows when logged in multiple remote machines.
+* Plots now allow the modification of their paintlets through the right-click menu.
+* Added ``-minimal-window`` option to the ``AbstractApplicationFrame`` class to avoid 
+  main frame being extended to full screensize.
+* *adams-imaging:* upgraded zxing barcode library to 3.3.0.
+* *adams-pdf:* The PdfProclets have been extended to allow processing of objects rather 
+  than just files; The *PDFAppendDocument* transformer now can process objects from 
+  storage as well.
+* *adams-spectral-core:* JCampDX2SpectrumReader now handles files with multiple pages.
+* *adams-spreadsheet:* The *ScatterPlot* chart of the Spreadsheet file viewer can now 
+  plot circles or crosses with specified diameter and overlays.
+* *adams-visualstats:* The *ScatterPlot* now allows you to save the data and the 
+  visible data to a spreadsheet.
+* *adams-weka:* 
+  
+  * *Weka Investigator* 
+  
+    * Now allows you to export all currently displayed outputs (attribute selection, 
+      classification, clustering): to a directory, to a ZIP file (requires ``adams-compress``), 
+      to a PDF file (requires ``adams-pdf``), or via email (requires ``adams-net``).
+    * Whole tabs like Classify can be copied now as well, including their current history.
+    * The *Export* action of the data table has been renamed to *Save*.
+    * The data tab now caches tables for faster display (and keeping any custom column sizes).
+    * Operations in investigator (loading files, copying tabs, obtaining data from sources) 
+      can be stopped now.
+
+  * Weka classes are now using the ADAMS GenericObjectEditor in the GUI.
+  * Weka classes now display their full help in the *Class help* tool (available from the 
+    *Help* menu).
+
+
+**Additions**
+
+* *adams-nlp:* added ptstemmer 2.0.0 weka package dependency.
+* *adams-spectral-core:* added Weka file loader for FOSS CAL files called *CALSpectrumLoader*.
+* *adams-spreadsheet:* added convenience reader/writer for tab-separated values (TSV) files.
+* *adams-weka:* 
+
+  * *Weka Investigator*:
+
+    * The output tabs in the *Weka Investigator* (attribute selection, classify, cluster)
+      now support copying the content to the clipboard as well.
+    * A new class hierarchy for updating the relation name of files being loaded is now 
+      available (e.g., based on file name or attribute name).
+    * Added (optional) model size to investigator's run information (classify/cluster tabs).
+
+  * Added new *PLS* filter that uses class hierarchy of PLS implementations, with PLS1 and 
+    SIMPLS as the currently available implementations.
+
