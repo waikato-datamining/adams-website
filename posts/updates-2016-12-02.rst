@@ -93,6 +93,8 @@ this plan. Hopefully, this will eventuate next week instead.
     Evaluation object simply from predictions of a model (actual/predicted).
   * *weka.filters.FilteredFilter* is a filter for applying a pre-filter to the data before 
     using the main filter (eg for selecting a subset).
+  * The *Weka Investigator* now offers an output generator for displaying/calculating
+    the *Prediction Eccentricity* of the predictions (*Classify* tab, numeric classes only).
   * It is now possible to compare the predictions of two models evaluated in the same way 
     on the same dataset (with a numeric class) through the *Compare models* menu item in
     the result history of the *Classify* tab of the *Weka Investigator*.
