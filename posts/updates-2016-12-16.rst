@@ -1,0 +1,101 @@
+.. title: Updates 2016/12/16
+.. slug: updates-2016-12-16
+.. date: 2016-12-16 17:31:07 UTC+13:00
+.. tags: 
+.. category: updates
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Alright, this is the final update before I'll be making a release.
+Definitely going to happen now next week! :-)
+
+**Fixes**
+
+* Clearing the history of a GenericObjectEditor panel now correctly clears also
+  the list of commandlines (and no longer generates exceptions).
+* The *SimplePlot* and *SequencePlotter* sinks allow you to turn off the tool 
+  tips for the plot.
+* The *SerializationHelper* class now always closes all streams to avoid any
+  race conditions between JVM and OS.
+* Marker data in *SequencePlotter* is now correctly colored and only displayed 
+  if corresponding sequence is visible.
+* Plot plugins *SimplePlot* and *JFreeChart* for spreadsheet and Instances tables
+  now respect the sorting of the column when using subsets.
+* *adams-ml:*
+
+  * The *ActualVsPredicted* sink now suppresses the plot tool tips as they
+    distract and annoy.
+
+* *adams-spreadsheet:*
+
+  * The *DefaultTypeMapper* now maps ``Types.DECIMAL`` to ``DOUBLE`` instead 
+    of ``STRING`` (returned e.g., when using SQL calculations).
+
+* *adams-weka:*
+
+  * Weka Investigator:
+
+    * All textual output, like run information or models, is now read-only.
+    * *Save* action now adds the new file to the *recent files* menu.
+    * Fixed the notifications when attributes get checked/unchecked in the
+      Proprocess tab. Also fixed the *None* button, as it behaved like the 
+      *All* one.
+
+  * Added *fastrandomforest* dependency.
+  * The *WekaInstanceDumper* did not delete an existing file if buffer size 
+    larger than 1 (and *keepExisting* not checked).
+
+* *adams-spectral-dim*: JCampDX readers now have an option to use the filename
+  (without extension) as the ID for the spectrum.
+
+
+**Changes**
+
+* The *GridView* standalone now has an option for adding headers to the grid,
+  to better distinguish the individual cells in the grid (uses the names of 
+  the actors).
+* The *SequencePlotter* received two more options:
+  -adjust-to-visible-data, -side-panel-width
+* When *checking before saving* is enabled in the *Flow editor*, any error 
+  message gets output in the notification area now as well in order to be 
+  able to jump to problematic actors.
+* The *IntToString* conversion now supports optional byte format strings,
+  e.g., to generate strings like ``3,456.89KB``.
+* *adams-spreadsheet:*
+
+  * *SpreadSheetMerge* how has a flag to only keep a single instance of the 
+    unique ID column in the output: ``-keep-only-single-unique-id``
+
+* *adams-weka:*
+
+  * *WekaInstancesMerge* how has a flag to only keep a single instance of the 
+    unique ID attribute in the output: ``-keep-only-single-unique-id``
+  * *VotedImbalance* now supports manual list of thresholds (prob of minority 
+    class = # of resampled models) for more targeted resampling based on data.
+  * Weka Investigator:
+  
+    * It is now optional whether to sort the attribute names in the dropdown list 
+      for the class attribute in the data/preprocess table.
+    * The run information can be used as tooltip for result history entries now 
+      (classify, cluster, attsel tab).
+    * The Classify/Cluster/Attribute Selection tabs now allow you to *Compare output*
+      of several results side-by-side.
+
+
+**Additions**
+
+* The *LongToString* conversion works like the *IntToString* one, but on 
+  ``Long`` objects instead.
+* *adams-weka:*
+  
+  * The *MultiPLS* filter operates on multiple Y values for the same range of 
+    X attributes and places the results side-by-side. Applies the same PLS
+    algorithm to each Xs/Y combination.
+
+* Added the *adams-groovy-webservice* module to *adams-addons*, which uses
+  the `groovy-wslite <https://github.com/jwagenleitner/groovy-wslite>`__ library
+  for making SOAP and REST webservices easily accessible within Groovy
+  (NB: only client-side).
+
