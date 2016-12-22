@@ -13,6 +13,11 @@
 Below are all releases of ADAMS listed. The files themselves are hosted on
 `Sourceforge.net <http://sf.net/projects/theadamsflow/files/>`_.
 
+2016
+====
+
+* `16.12.1 <link://slug/16-12-1>`_ - released 2016-12-22
+
 2015
 ====
 

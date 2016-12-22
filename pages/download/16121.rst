@@ -1,0 +1,60 @@
+.. title: 16.12.1
+.. slug: 16-12-1
+.. date: 2016-12-22 16:33:29 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+Downloads
+=========
+
+* **adams-base-all** -- contains all basic modules (`zip <base_>`__)
+* **adams-addons-all** -- contains all basic modules and addons modules 
+  (`zip <addons_>`__)
+* **adams-ml-app** -- contains machine learning, scripting and spreadsheet 
+  modules (`zip <mlapp_>`__)
+* **adams-spectral-app** -- contains module for handling spectra (2-dimensional spectra
+  like NIR, MIR, XRF), spreadsheet modules and Weka module (`zip <spectralapp_>`__)
+* **adams-annotator** -- application for annotating videos with meta-data, e.g., for
+  monitoring rodent behavior in lab environments (`zip <annotator_>`__)
+
+.. _base: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-base-all-16.12.1-bin.zip/download
+.. _addons: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-addons-all-16.12.1-bin.zip/download
+.. _mlapp: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-ml-app-16.12.1-bin.zip/download
+.. _spectralapp: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-spectral-app-16.12.1-bin.zip/download
+.. _annotator: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-annotator-16.12.1-bin.zip/download
+
+
+Highlights
+==========
+
+* Over 80 new actors, nearly 30 new conversions
+* **Weka Investigator** -- the big brother of the Weka Explorer, or how to be 
+  more efficient with less clicks using multiple datasets in multiple sessions
+  and multiple predefined outputs per evaluation run
+* **Weka Multi-Experimenter** -- simple interface for running Weka and ADAMS
+  experiments.
+* **File commander** -- dual-pane file manager (inspired by Norton/Midnight commander)
+  that allows you to manage local and remote files (ftp, sftp, smb); usually faster
+  than native file managers (like Windows Explorer, Nautilus, Caja) in terms of 
+  handling 10s of thousand of files in a single directory
+* experimental **deeplearning4j** module
+* module for querying/consuming webservices using Groovy
+* basic terminal-based GUI for remote machines (eg cloud)
+* many interactive actors can be used in headless environment now as well
+* Fixed a memory leak introduced by Java's logging framework
+* Flow editor now has predefined rules for swapping actors, e.g. *Trigger*
+  with *Tee* or *ConditionalTrigger*, maintaining as many options as possible
+  (including any sub-actors).
+* improved imaging and PDF support
+
+Launching ADAMS
+===============
+
+Unzip the archive and execute the appropriate shell/batch script from a terminal:
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+

@@ -13,13 +13,13 @@ Downloads
 
 * **base**
 
-  * Linux/Unix/Windows: `zip <base-bin>`__
-  * Mac OSX: `app <base-app>`__, `doc <base-doc>`__, `flows <base-flows>`__
+  * Linux/Unix/Windows: `zip <base-bin_>`__
+  * Mac OSX: `app <base-app_>`__, `doc <base-doc_>`__, `flows <base-flows_>`__
 
 * **base + addons**
 
-  * Linux/Unix/Windows: `zip <addons-bin>`__
-  * Mac OSX: `app <addons-app>`__, `doc <addons-doc>`__, `flows <addons-flows>`__
+  * Linux/Unix/Windows: `zip <addons-bin_>`__
+  * Mac OSX: `app <addons-app_>`__, `doc <addons-doc_>`__, `flows <addons-flows_>`__
 
 .. _base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.6/adams-base-all-0.4.6-bin.zip/download
 .. _base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.6/adams-base-all-0.4.6-app.zip/download

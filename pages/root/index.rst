@@ -1,6 +1,6 @@
 .. title: The Advanced Data mining and Machine learning System
 .. slug: index
-.. date: 2016-01-15 10:18:51 UTC+13:00
+.. date: 2016-12-22 16:35:51 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -16,7 +16,7 @@
         <h1>Welcome to ADAMS!</h1>
         <br/>
         <p>The Advanced Data mining And Machine learning System (ADAMS) is a novel, flexible workflow engine aimed at quickly building and maintaining real-world, complex knowledge workflows, released under <a href="http://www.gnu.org/licenses/gpl-3.0.txt" target="_blank">GPLv3</a>.</p>
-        <div style="float: left; "><p>Current version: <a href="/download/0-4-12/">0.4.12</a> (December 22, 2015)</p></div>
+        <div style="float: left; "><p>Current version: <a href="/download/16-12-1/">16.12.1</a> (December 22, 2016)</p></div>
         <div style="float: right; ">
           <a href="https://twitter.com/TheAdamsFlow" target="_blank"><img src="/images/twitter.png" height="32"/></a>
           <span style="padding: 15px"/>
@@ -43,7 +43,7 @@
         <!-- Download -->
         <div class="col-md-6">
           <h2>Download</h2>
-          <p>Written in Java, ADAMS runs on any platform that supports <a href="http://www.oracle.com/technetwork/java/javase/" target="_blank">Java 1.8+</a>, 64-bit is recommended. Download, unzip and off you go! You can either download a <strong>release</strong> (usually considered stable) or a <strong>snapshot</strong> (if you want to get the latest updates).</p>
+          <p>Written in Java, ADAMS runs on any platform that supports <a href="http://www.oracle.com/technetwork/java/javase/" target="_blank">Java 1.8+</a> 64-bit. Download, unzip and off you go! You can either download a <strong>release</strong> (usually considered stable) or a <strong>snapshot</strong> (if you want to get the latest updates).</p>
           <p><a class="btn btn-default" href="/download/release" role="button">Release »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/snapshot" role="button">Snapshot »</a></p>
         </div>
         <!-- Get started -->

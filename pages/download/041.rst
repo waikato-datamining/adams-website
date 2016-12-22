@@ -11,8 +11,8 @@
 Downloads
 =========
 
-* Linux/Unix/Windows: `zip <bin>`__
-* Mac OSX: `app <app>`__, `doc <doc>`__, `flows <flows>`__
+* Linux/Unix/Windows: `zip <bin_>`__
+* Mac OSX: `app <app_>`__, `doc <doc_>`__, `flows <flows_>`__
 
 .. _bin: http://sourceforge.net/projects/theadamsflow/files/0.4.1/adams-all-0.4.1-bin.zip/download
 .. _app: http://sourceforge.net/projects/theadamsflow/files/0.4.1/adams-all-0.4.1-app.zip/download

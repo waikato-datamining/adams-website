@@ -7,6 +7,7 @@ adams-event
 adams-excel
 adams-gnuplot
 adams-groovy
+adams-groovy-webservice
 adams-heatmap
 adams-imaging
 adams-imaging-boofcv
@@ -32,6 +33,7 @@ adams-r
 adams-random
 adams-rats
 adams-spreadsheet
+adams-spectral-2dim
 adams-timeseries
 adams-twitter
 adams-video
