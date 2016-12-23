@@ -19,12 +19,16 @@ Downloads
   like NIR, MIR, XRF), spreadsheet modules and Weka module (`zip <spectralapp_>`__)
 * **adams-annotator** -- application for annotating videos with meta-data, e.g., for
   monitoring rodent behavior in lab environments (`zip <annotator_>`__)
+* additional libraries
+  
+  * CUDA support for deeplearning4j (`zip <dl4jcuda75_>`__)
 
 .. _base: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-base-all-16.12.1-bin.zip/download
 .. _addons: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-addons-all-16.12.1-bin.zip/download
 .. _mlapp: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-ml-app-16.12.1-bin.zip/download
 .. _spectralapp: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-spectral-app-16.12.1-bin.zip/download
 .. _annotator: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-annotator-16.12.1-bin.zip/download
+.. _dl4jcuda75: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-dl4j-cuda-7.5-libs-16.12.1-bin.zip/download
 
 
 Highlights
