@@ -1,0 +1,117 @@
+.. title: Updates 2017/01/27
+.. slug: updates-2017-01-27
+.. date: 2017-01-27 15:47:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The new year started mainly with a lot of work and, whenever I had time, with the
+upgrade of some libraries, like Weka and deeplearning4j.
+
+**Fixes**
+
+* The *Utils.doubleToStringFixed* method now handles ``NaN`` and ``Inf`` values correctly.
+* Fixed flushing/closing of compressed serialized models (*SerializationHelper* class).
+* The *CheckVariableUsage* flow processor now excludes system-supplied variables like
+  ``flow_dir`` and ``flow_id`` from the check.
+* *adams-dl4j:* 
+
+  * Added icon for *DL4JModelReader* transformer.
+  * *RecordReaderDataSetIteratorConfigurator* now allows using 0 as minimum for the 
+    0-based indices.
+
+* *adams-weka:* The *WekaFileReader* transformer now handles filenames without extension
+  as long as there is a custom loader defined.
+
+
+**Changes**
+
+* The *Display* and *HistoryPanel* sinks now have options for line-wrap and wrap-style-word.
+* The *GridView* standalone and the *DisplayPanelGrid* sink now allow the user to 
+  change the grid layout at runtime.
+* *adams-ml-app:* 
+
+  * added example flows/scripts for configuring deeplearning4j networks
+    using Groovy and Jython.
+  * added *adams-imaging* dependency to have basic image processing capability
+
+* *adams-spreadsheet*: batch import of spreadsheets now output a more detailed error
+  message in case of ``BatchUpdateException`` exceptions.
+* *adams-weka:* Added a popup menu to the dataset table of the Investigator's 
+  Preprocess panel and added the *Clear* action to the menu for removing all datasets 
+  at once.
+* Dependency changes
+
+  * Weka 3.9.0 (with patched FilteredClassifier)
+  * Apache CXF 3.1.9
+  * LIRE 1.0b2
+  * deeplearning4j 0.7.2
+  * CUDA 8.0 libraries for deeplearning4j
+  * ImageJ 1.51h
+  * BoofCV 0.26
+
+* *adams-dl4j:*
+
+  * *DL4JDatasetIterator* source now has option to output full dataset instead of batches.
+
+* *adams-spectral-2dim:*
+
+  * Added regexp option to *CALSpectrumLoader* Weka file loader to allow loading of only 
+    specific reference value(s).
+
+
+**Additions**
+
+* Added *ConditionalSequence* control actor, the conditional version of the default
+  *Sequence* actor.
+* *adams-imaging:* With the updated version of LIRE, additional feature generators
+  are now available:
+
+  * JointHistogram
+  * LocalBinaryPatternsAndOpponent
+  * RankAndOpponent
+  * SimpleCentrist
+  * SpatialPyramidAutoColorCorrelogram
+  * SpatialPyramidCEDD
+  * SpatialPyramidCentrist
+  * SpatialPyramidCentrist
+  * SpatialPyramidFCTH
+  * SpatialPyramidJCD
+  * SpatialPyramidLocalBinaryPatterns
+
+* *adams-dl4j:*
+
+  * Added *DL4JModelParamsToSpreadSheet* conversion for extracting the parameters.
+  * Added *DL4JModelParamsToSpreadString* conversion for extracting the parameters
+    as simple string.
+  * Added *ImageScaler* dataset preprocessor.
+  * Added *DL4JCrossValidationSplit* transformer to generate sequence of train/test 
+    set containers.
+  * The *DL4JCrossValidationEvaluator* transformer performs cross-validation on 
+    a referenced model using the incoming dataset.
+  * The *SpreadSheetRecordReaderConfigurator* allows to read any spreadsheet that
+    ADAMS can read. However, textual cells get converted to NULLs and date/time 
+    ones to their Java epoch equivalent.
+  * The *DL4JDatasetAppend* transformer combines multiple datasets into a single 
+    dataset, one after the other
+
+* *adams-rats*:
+
+  * Added the *Storage* and *Variable* rat inputs, for getting access to the specified
+    storage item/variable.
+
+* *adams-spreadsheet:*
+
+  * Added *SpreadSheetToNumeric* conversion for turning non-numeric cells in a spreadsheet
+    into numeric ones.
+  * Added *Unique values* column action to the SpreadSheetTable column popup menu to 
+    display the unique values of the selected column.
+
+* *adams-spectral-2dim*:
+
+  * Condition for checking whether spectrum already in database: *HasSpectrum*.
+  * Spectra are now rendered in the Breakpoint and can be exported as well.
+
