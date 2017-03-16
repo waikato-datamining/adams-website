@@ -1,0 +1,79 @@
+.. title: Mailing list 2017/03/15
+.. slug: mailing-list-2017-03-15
+.. date: 2017-03-15 09:31:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The following came through on the ADAMS user mailing list:
+
+    Peter, what is your procedure when building ADAMS flows? How do create such 
+    novel flows fast? Is there any intuitive steps that help when designing 
+    flows in ADAMS to build flows smoothly?
+
+I thought, you might be interested in that, too.
+
+Here is my reply:
+
+    Being the main author of ADAMS, it is easy for me to remember what
+    actors I've developed and what they do. ;-)
+
+    But here are some strategies:
+
+    **1. Break down the problem**
+
+    Like with any other programming language, you need to break down a
+    problem into smaller steps.
+
+    E.g., evaluating a Weka model can be broken down into:
+
+    * *load dataset* -- FileSupplier/SelectFile + WekaFileReader
+    * *set correct class attribute* -- WekaClassSelector
+    * *evaluate* -- WekaCrossValidationEvaluator + CallableActors at start of flow with the classifier you want to use
+    * *display results* --  WekaEvaluationSummary + Display
+
+    **2. Start with a small flow and grow it**
+
+    I never set out to write a massive flow from the get go, I always work
+    on little bits (maybe in separate flows) and then combine them,
+    tweak/adapt them. Rearranging actors, encapsulating actors in other
+    control actors is much easier than in other workflow systems, since
+    you don't have to disconnect/reconnect the operators.
+
+    **3. Make use of variables and internal storage**
+
+    Variables and storage are extremely powerful tools. Variables can be
+    used for changing actor options on-the-fly or for generating path
+    names and other output. Storage is normally used when you want to
+    re-use the object several times in a flow, e.g., the same dataset or
+    evaluation object.
+
+    **NB:** For non-ADAMS objects (eg Weka classifiers), you can still change
+    parameters, but it is a bit more cumbersome. The UpdateProperties
+    control actor updates a property of the actor below it based on a
+    property path through the object hierarchy, using the value from the
+    associated variable. A property path is the concatenation of the
+    "property names", e.g., for the WekaFilter actor with a PLSFilter,
+    you'd use "filter.numComponents" to change the number of PLS
+    components to use. Arrays can be navigated as well.
+
+    **4. Use the debugger or output debugging information**
+
+    Set Breakpoint actors or simply step through the flow to see what the
+    value of the current token is, what values variables to storage items
+    have. Like any other debugger, this is the most powerful tool figuring
+    out what's going on within an application. A workflow is no different
+    there.
+    Outputting debugging or progress information is extremely useful, too.
+    Just "Tee" off the current token and display it in a Display actor.
+
+    **As a final word**, the example flows that come with ADAMS are relatively
+    small flows, demonstrating the usage of certain actors. The idea is to
+    copy/paste the relevant bits into our own flows to build great
+    applications. Even I quite often look up the usage of actors in my
+    example flows, especially if it is stuff that I've written several
+    years ago. ;-)
+

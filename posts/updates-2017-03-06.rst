@@ -1,0 +1,124 @@
+.. title: Updates 2017/03/06
+.. slug: updates-2017-03-06
+.. date: 2017-03-06 12:59:05 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The new year turned out to be extremely busy with loads of projects running parallel.
+Nonetheless, there are still a number of fixes and improvements happening.
+
+**Fixes**
+
+* The *HashSetInit* transformer now stores the hashset in storage when initializing from array.
+* The *EnterValue* source uses BaseString now for the message/initial-value options, which updates 
+  variable occurrences correctly.
+* *adams-weka:* The *Data* and *Instance* tab now get correctly updated when an undo
+  occurs.
+* *adams-webservice:* classes implementing the *AlternativeUrlSupporter* interface only 
+  attempt to instantiate the URL if provided parameter neither null nor empty now.
+* Added *auto-detect-data-type* flag to the *SetReportValue* transformers, previously on
+  by default, now turned off.
+* *adams-spreadsheet:* 
+
+  * The *ColumnSubset* row score scheme now uses the correct row-index
+    for applying the base row score algorithm; also uses more efficient views for the subset
+    instead of creating copies.
+  * Fixed *native* use of Object[] in *LookUpAdd* transformer.
+
+* *adams-rats:* The *Rat* and *RatControl* standalones now listen to flow state changes,
+  i.e., get notified correctly when pausing/resuming the flow.
+
+
+**Changes**
+
+* Added support for gzip-compressed report files (.csv and .report), including
+  display in Preview browser.
+* *SelectArraySubet* now has an option to allow search the list.
+* *Outsourced* dynamic class discovery to jclasslocator_ library.
+* The *storage* tab in the control panel of the *Breakpoint* now has a popup menu for
+  the table listing the storage items. It is now possible to display storage items in
+  multiple dialogs.
+* Filters now get the flow context set if they implement the *adams.flow.core.FlowContextHandler*
+  interface.
+* The *HashSetInit* standalone now allows initializing with string values.
+* The *HashSet* boolean condition now allows specifying of value to check rather than just using token.
+* Standalones now force a variable update in the *preExecute* method if any variables detected.
+* When debugging a flow, the copy of the debugged flow is no longer editable.
+* The *Storage* can be viewed in real-time in the Flow editor now as well, just like the variables
+  (in the menu: Run -> Storage).
+* Logging messages that appear in the application's *Console window* (main menu -> Program), are now
+  also logged to the project's home directory, e.g., `$HOME/.adams/log/console.log`.
+* The *SequencePlotter* now allows you to change the margins used on the axis as well, not just the
+  ranges.
+* *adams-spreadsheet:*
+
+  * *SpreadsSheetExplorer* now has an additional plot popup menu item for operating on the
+    containers visible in the current viewport.
+  * *SpreadSheetMerge* transformer now ensures that the specified column with the IDs 
+    has only unique IDs, throws an exception otherwise (in *strict* mode only).
+
+* *adams-spectral-dim*:
+
+  * *SpectrumExplorer* now has an additional plot popup menu item for operating on the
+    containers visible in the current viewport.
+
+* *adams-weka*:
+
+  * *InstanceExplorer* now has an additional plot popup menu item for operating on the
+    containers visible in the current viewport.
+  * *WekaInstancesMerge* transformer now ensures that the specified attribute with the IDs 
+    has only unique IDs, throws an exception otherwise (in *strict* mode only).
+  * Filters now get the flow context set if they implement the *adams.flow.core.FlowContextHandler*
+    interface.
+  * *Weka Investigator*
+
+    * If loading of a serialized model (re-evaluate model in *Classify* and *Cluster* tab)
+      fails, the error message displayed on the *Start* is now more expressive, e.g.,
+      stating that the file doesn't actually contain a serialized object.
+    * Added *Insert as dataset* action to the data tab's tables to allow inserting selected 
+      rows as a new dataset.
+
+* *adams-imaging:* 
+
+  * added option to image feature generators for specifying a custom prefix 
+    for the feature names, e.g., to avoid duplicate names when using the same feature generator 
+    twice but with different parameters.
+  * The *Histogram* feature generators can now group by channel rather than just by bin index.
+
+* *adams-imaging-boofcv*: reverted BoofCV back to 0.18 for the time being.
+* *adams-imaging-imagej:* The *Histogram* feature generator allows grouping of channels now.
+* *adams-ml*: *ActualVsPredictedPlot* now has option to supply a plot name, allowing multiple
+  data lots in the same plot.
+* *adams-rats:* The *RatControl* standalone now allows stopping/restarting of individual
+  *Rat* actors, not just pausing/resuming.
+
+
+**Additions**
+
+* Added *MergeReport* transformer for merging a report with one obtained from storage or a
+  callable source actor.
+* *adams-imaging:* added new *Histogram* feature generator that supports 
+  Gray, RGB, YUV, YIQ, HSV color models.
+* *adams-ml:* The *ConfusionMatrix* transformer generates confusion matrix in spreadsheet 
+  format from spreadsheet with actual/predicted labels.
+* *adams-spreadsheet:* added transformer for sorting spreadsheet columns called *SpreadSheetSortColumns*
+* *adams-weka*: 
+
+  * Added a file loader for ARFF files (*SimpleArffLoader*), to avoid file locking 
+    issues under Windows with the Weka one. Does not support incremental loading or relational attributes.
+  * Added better support for experiments, making use of classes developed for the MultiExperimenter GUI 
+    tool (including multi-core support):
+
+    * WekaNewExperiment (source)
+    * WekaExperimentFileReader (transformer)
+    * WekaExperimentExecution (transformer)
+    * WekaExperimentFileWriter (sink)
+
+Have a good week!
+
+.. _jclasslocator: https://github.com/Waikato/jclasslocator
+
