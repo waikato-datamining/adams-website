@@ -1,0 +1,123 @@
+.. title: Updates 2017/04/21
+.. slug: updates-2017-04-21
+.. date: 2017-04-21 17:11:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+With Easter out of the way, it is time for an update. A lot of incremental improvements
+as always, but noteworthy are the added *associator* support in the flow and Investigator,
+additional paintlets allowing for more sophisticated *plots*, and *websocket* support.
+
+**Fixes**
+
+* Debugged flows that open another tab with the fully expanded flow (e.g., when using
+  external actors) now show their variables correctly in the tree.
+* *adams-weka:* The *ByNumericValue* row finder no longer skips non-missing values.
+
+
+**Changes**
+
+* *DOMToString* conversion now allows specification of number of spaces for indentation.
+* JDBC URLs are now supported via *Favorites* in the GenericObjectEditor, e.g., used
+  in the *DatabaseConnection* standalone actor (JdbcUrl type). The same applies to 
+  BaseURL, BaseURI, BaseHostname, EmailAddress ByteFormatString, DateFormatString and
+  DecimalFormatString types.
+* The *SetVariable* standalone can initialize the specified variable now from an 
+  environment variable. Useful when overriding flow defaults when running a flow
+  from a script.
+* When starting a flow, two boolean variables now get automatically added regarding
+  the headless state of the execution: `is_headless`, `has_gui`
+* Rendering spreadsheets when debugging a flow now offers a search box as well.
+* *adams-latex:* Code generators now list in their help what packages they require.
+* *adams-meka:* upgraded to MEKA 1.9.1.
+* *adams-ml:* added ability to the *ActualVsPredictedPlot* sink to use meta-data color 
+  schemes for coloring in the data points based on meta-data.
+* *adams-net:* 
+  
+  * Upgraded *jsoup* dependency to 1.10.2
+  * The *HttpRequest* source now allows specification of request headers.
+
+* *adams-spreadsheet:* The *SpreadSheetSetCell* and *SpreadSheetSetHeaderCell* transformers
+  now forward the sheet/row even if the columns/rows were not found, to avoid accidental
+  stopping of processing of data.
+* *adams-webservice:* 
+
+  * The XML logging interceptors (in/out) now support pretty-printed XML
+    and optional output to a log file.
+  * Interceptor generators for SOAP messages now have an *enabled* flag to 
+    easily turn them on/off without having to replace them.
+
+
+**Additions**
+
+* Added *PrettyPrintXML* conversion to make pretty-printing of XML easier (combines
+  XMLToDOM and DOMToString).
+* Introduced the *MetaDataColorPaintlet* interface for paintlets (e.g., use in the 
+  *SequencePlotter* or *SimplePlot* sinks) that can extract the color to plot a sequence 
+  point in from its meta-data.
+* Added meta-paintlet *ByNamePaintlet* that only applies its base-paintlet if the ID 
+  of the sequence matches the specified regular expression.
+* Added meta-paintlet for drawing error data only if ID matches supplied regular 
+  expression: *ByNameErrorPaintlet*.
+* Enabled attaching of breakpoint to the selected actor while the flow is running
+  using the *Attach here...* sub-menuitem of the *Breakpoint* menu in the Flow editor.
+* Added support for *callable* database connections with the *CallableDatabaseConnection*
+  standalone. This standalone simply references an actual *DatabaseConnection* which
+  is listed below a *CallableActors* actor. This allows the centralization of database
+  connections in a flow and then simply referencing them where needed.
+* The *ListCallableActors* source actor outputs all the callable actors available within
+  this particular scope. Useful when iterating over predefined setups (eg Weka classifiers).
+* The *UpdateCallableDisplay* control actor forces a refresh of the specified callable 
+  display actor whenever a token passes through.
+* *adams-latex:*
+
+  * The *ListRequiredLatexPackages* flow processor outputs all the required packages 
+    found in a flow.
+  * Added the *MiniPage* code generator.
+
+* *adams-net:* 
+
+  * Added the *HttpRequest* transformer which uploads the incoming string payload.
+  * Added basic websocket support with *WebSocketServer* standalone and *WebSocketClient*
+    sink actors.
+
+* *adams-rats:* 
+
+  * Added Rat output for websockets called *WebsocketOutput*.
+  * Added a post-processing framework for webservice responses to the *Webservice* rat 
+    output. Allows handling of, e.g., error messages returned by the other end of the
+    webservice.
+
+* *adams-spreadsheet:* 
+
+  * The *ByNumericRange* row finder uses array of BaseInterval ranges, i.e., using 
+    mathematical intervals like `[-1.0;3.5)`.
+  * Added row finder for finding a row that comes closest to a supplied value: 
+    *ClosestNumericValue*.
+
+* *adams-weka:* 
+
+  * Added the *WekaBootstrapping* transformer which performs bootstrapping on 
+    incoming Evaluation objects/containers and outputs a spreadsheet with each row representing 
+    the statistics collected from a subsample run.
+  * The *ClassifierErrors* output if the Weka Investigator Classify tab now allows you to
+    color in the data points using meta-data in conjunction with a meta-data-color scheme.
+  * The *ByNumericRange* row finder uses array of BaseInterval ranges, i.e., using mathematical 
+    intervals like `[-1.0;3.5)`.
+  * Added basic associations support: *WekaAssociatorSetup* source and *WekaTrainAssociator* 
+    transformer.
+  * Added new pluggable metric for regression: *Bias* (mean(predicted) - mean(actual)),
+    *R^2* ("r squared") for convenience.
+  * Added the ability to perform *train/validate/test* evaluation to the classify tab
+    of the Weka Investigator. The *validation* output gets inserted as separate history
+    entry.
+  * Added a dedicated *Associate* tab to Weka Investigator for building associators 
+    like Apriori.
+
+Have a good weekend!
+
+Cheers, Peter
