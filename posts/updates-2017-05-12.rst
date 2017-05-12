@@ -8,7 +8,7 @@
 .. type: text
 .. author: FracPete
 
-Being busy with commercial ADAMS projects still provides ample of improvements
+Being busy with commercial ADAMS projects still result in ample number of improvements
 to the base ADAMS system. The last few weeks were no exception.
 
 **Fixes**
