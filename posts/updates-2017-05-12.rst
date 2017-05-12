@@ -1,0 +1,96 @@
+.. title: Updates 2017/05/12
+.. slug: updates-2017-05-12
+.. date: 2017-05-12 17:02:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Being busy with commercial ADAMS projects still provides ample of improvements
+to the base ADAMS system. The last few weeks were no exception.
+
+**Fixes**
+
+* The table model for spreadsheets now displays NaN, +/-Infinity as strings.
+* Spreadsheet writers that can use formatting now use 'NaN' and '+/-Infinity'
+  strings for these numbers.
+* Fixed the *forceVariables* method for *Tee/Trigger/LoadBalancer/WhileLoop*
+  and derived actors: internally used *Sequence* actor gets updated correctly now.
+* *adams-net:* *FTPSend* and *SFTPSend* now forward the successful filenames as the
+  documentation says.
+* *adams-dl4j:* fixed handling of regression problems.
+
+
+**Changes**
+
+* In order to make actor names unique, they now get appended by * (x)* with x being 
+  a number starting from 2
+* The *SetVariable* standalone/transformer can interpret the variable value now
+  as boolean, string or mathematical expression, making it easier to compute new values.
+* Added ability to use custom dirs/jars for *JDeps* control actor instead of the 
+  application's classpath.
+* The *CallableActorScreenshot* control can forward screenshot as *BufferedImageContainer* 
+  now as well, not just storing it in a file.
+* The *actorFile* property can contain now programmatically set variables like ``flow_dir``, 
+  enabling the *include external actor* derived actors to make use of a variable as well 
+  (relative to the main flow). Instead of attaching a variable to the property, you have to
+  use *mixed* notation: ``@{flow_dir}/some.flow``.
+* Added *equal frequency* calculation to the *ArrayHistogram* statistic.
+* The *RandomNumberGenerator* source can output arrays now.
+* With the *ArrayHistogramRanges* transformer it is possible to output the interval ranges
+  that the *ArrayHistogram* statistic generates (easier than iterating through the header
+  names of the generated spreadsheet).
+* Added support for *restorable actors*, ones that can write/read their state to/from disk 
+  during execution; currently supported by: EnterValue, EnterManyValues, SelectDirectory, 
+  SelectFile.
+* *adams-spreadsheet:* 
+
+  * *SpreadSheetStatistic* now supports column names in locations.
+  * *SpreadSheetExtractArray* can output strings now as well, instead of just the 
+    native cell object type.
+
+* *adams-weka:* 
+
+  * *WekaInstancesStatistic* now supports attribute names in locations.
+  * The *WekaGeneticAlgorithm* transformer can be initialized from a *WekaGeneticAlgorithmInitializationContainer*
+    container now, containing algorithm and training data.
+
+* *adams-spectral-2dim* got renamed to *adams-spectral-2dim-core*.
+
+
+**Additions**
+
+* Added *HasClass* boolean condition that checks whether the specified class is
+  available on the classpath.
+* Added *StringExpression* source and transformer for evaluation string processing 
+  expressions, like ``left(upper("Hello World!"), 5)``.
+* Added meta-marker paintlet *ByNameMarkerPaintlet* that matches the name of the 
+  sequence against the supplied regular expression to determine whether to paint 
+  the markers or not.
+* With the *ArrayHistogramRanges* transformer it is possible to output the interval ranges
+  that the *ArrayHistogram* statistic generates (easier than iterating through the header
+  names of the generated spreadsheet).
+* *adams-pdf:* added *MetaHeadline* PDF proclet to insert headline and then apply 
+  a base-proclet.
+* *adams-spreadsheet:* the *SpreadSheetHistogramRanges* transformer is the equivalent
+  of *ArrayHistogramRanges* but for SpreadSheet objects.
+* *adams-weka:* 
+
+  * The *WekaInstancesHistogramRanges* transformer is the equivalent
+    of *ArrayHistogramRanges* but for Instances objects.
+  * Added support for using test data to the *WekaGeneticAlgorithm* transformer, but 
+    only Hermione takes advantage of it.
+  * Added convenience transformer *WekaGeneticAlgorithmInitializer* to generate a
+    *WekaGeneticAlgorithmInitializationContainer* container for priming a genetic algorithm.
+
+* Added some modules to the *adams-spectral-base* framwork:
+
+  * *adams-spectral-2dim-handheld* contains support for some handheld NIR scanners, 
+    like the SCiO (https://www.consumerphysics.com/myscio/scio/).
+  * *adams-spectral-2dim-webservice* adds webservice capability
+  * *adams-spectral-2dim-rats* adds RATS support
+
+Have a great weekend!
+
