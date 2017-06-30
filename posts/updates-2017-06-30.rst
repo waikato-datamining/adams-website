@@ -1,0 +1,108 @@
+.. title: Updates 2017/06/30
+.. slug: updates-2017-06-30
+.. date: 2017-06-30 17:37:01 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of effort has gone into deeplearning4j the last few weeks: upgraded to the latest
+version, support for random network generation (how doesn't want to avoid hyper
+parameter fiddling???) and instructions for using Intel's MKL libraries for speeding
+up model building. 
+
+Filters can be serialized from the Weka Investigator now as well and re-used with
+the filter called *SerializedFilter*.
+
+**Fixes**
+
+* The *FoorLopp* source now skips the consistency tests if a variable is attached 
+  to at least one of the properties: lower/upper/step
+* Downgraded MySQL the driver to 5.1.42, after receiving
+  *java.sql.SQLNonTransientConnectionException: CLIENT_PLUGIN_AUTH is required*
+  exceptions when using 6.0.6 of the JDBC driver.
+* removed double quotes from default executable of *JDeps* and *JMap* control actors.
+* *adams-dl4j:* 
+
+  * The *DL4JModelToJson* and *DL4JModelToYaml* conversions now 
+    distinguish between Model and MultiLayerNetwork objects, to retrieve the correct
+    configurations to convert.
+  * The *DL4JModelWriter* sink ensures now that MultiLayerNetwork has been initialized
+    to avoid errors.
+
+* *adams-event:* fixed forcing of variables in *Cron* standalone actor.
+* *adams-net:* 
+
+  * *JavaMailSendEmail* - using the *javax.activation.DataHandler* class with 
+    a URL didn't close the stream of attachements, resulting in locked files on Windows.
+  * re-using existing sessions now: *FTPConnection*, *SMBConnection*, *SSHConnection*
+
+
+**Changes**
+
+* The *Exec* source  can output stdout and stderr at the same time, ignore
+  process errors and supports a working directory for the process.
+* *Boolean/Mathematical/StringExpression*: added "str(...)" method for
+  converting objects/numbers into strings: str(expr) = any object's toString()
+  method; str(expr,numdec) = any number is output with at most numdec decimals
+  after the decimal point (trailing 0s get chopped off); str(expr,decformat) =
+  applies the format to the number using java.text.DecimalFormat
+* *SelectFile* and *SelectDirectory* now support output with forward slashes.
+
+* *adams-dl4j*: 
+
+  * Upgraded deeplearning4j to 0.8.0
+  * *DL4JTrainModel* now as a monitor variable for resetting the model, allowing
+    for training sequentially on multiple datasets.
+  * Added instructions for using Intel MKL libraries to speed up processing.
+  * Moved the *InMemoryStatsListenerConfigurator* to the new *adams-dl4j-insight*
+    module.
+
+* *adams-weka:*
+
+  * The *Weka Investigator* now allows filters to be serialized in the pre-process panel.
+  * The *PrincipalComponentsJ* filter now has the option ``-simple-attribute-names``, which  
+    generates attributes like PCA_1...n instead of compiling them from the other attribute names.
+
+
+**Additions**
+
+* Added simple GUI tool for performing *XSLT* (XML, XSL and Output panel), available from
+  the main menu under *Maintenance*.
+* *adams-dl4j:* 
+
+  * Added the *CallableActorScoreListenerConfigurator* iteration listener, which 
+    forwards the iteration count/score pair to a callable actor (eg for plotting).
+  * Added conversion for turning DL4J datasets into spreadsheets: *DL4JDataSetToSpreadSheet*
+  * Added conversion for converting spreadsheets into DL4J DataSets: *SpreadSheetToDL4JDataSet*
+  * Added fake configurator, as it only retrieves model from storage: *FromStorage*
+  * *DL4JModelGenerator* source generates model(s) using the specified generator scheme.
+  * Added previews in the *Preview browser* for DL4J models in JSON and YAML
+  * Conversions for recreating models from JSON and YAML: *DL4JJsonToModel* and *DL4JYamlToModel*
+  * Conversion for creating actual model from configurator: *DL4JConfiguratorToModel*
+
+* New module: *adams-dl4j-insight* for providing insight in model building, which is not
+  necessary when deploying models (avoiding bloat).
+
+* *adams-dl4j-weka:* added conversions *WekaInstancesToDL4JDataSet* and 
+  *WekaInstanceToDL4JINDArray*, using Mark Hall's code from the Weka package for DL4J.
+
+* *adams-imaging:* added the *RandomBoundingBox* left-click processor.
+
+* *adams-spreadsheet:* 
+
+  * added simple spreadsheet filtering framework via the 
+    *SpreadSheetFilter* transformer and the filter class hierarchy it uses.
+    Initial filters: Normalize, Standardize.
+  * The *SpreadSheetInsertColumnPosition* conversion inserts column position in string 
+    (eg BG), replacing the specified placeholder
+
+* *adams-weka*: 
+
+  * The *WekaFilter* spreadsheet filter allows to apply any Weka
+    filter to a spreadsheet.
+  * *weka.filters.SerializedFilter* is a meta-filter that applies a serialized, trained 
+    filter to the data (no further training required).
+

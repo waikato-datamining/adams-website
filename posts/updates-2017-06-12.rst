@@ -1,0 +1,104 @@
+.. title: Updates 2017/06/12
+.. slug: updates-2017-06-12
+.. date: 2017-06-12 13:51:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of work has been done on better integration of the deeplearning4j framework.
+Support for rsync within the flow was added as well, e.g., for syncing local files 
+with ones on a cloud server.
+
+**Fixes**
+
+* *adams-dl4j:* 
+
+  * *DL4JCrossValidationEvaluator* and *DL4JTrainTestSetEvaluator* now storing
+    the model rather than the configurator in the container that they are forwarding.
+  * *DL4JDatasetIterator* now fits preprocessor first if an instance of *DataNormalization*.
+
+* *adams-weka:* When changing the model file in the *Investigator's* classify/cluster tab 
+  now correctly resets any previously loaded model.
+
+
+**Changes**
+
+* Using now processoutput4j library (https://github.com/fracpete/processoutput4j) for capturing 
+  the output from processes launched from within Java.
+* The following sources now have an additional conversion option to directly convert their
+  output to a different type: *Variable*, *VariablesArray*, *CombineVariables*, *StorageValue*,
+  *StorageValuesArray*, *CombineStorage*, *StringConstants*.
+* The *IncVariable* and *IncStorageValue* transformers can output the incremented value now
+  instead of forwarding the input token.
+* *MessageDigest* can operate on arrays now as well, computing a single digest over all of them.
+* Upgraded lanterna to 3.0.0-rc1 (used for terminal-based user interfaces).
+* Added option to the *CsvSpreadSheetReader* to drop rows with too few/many cells: 
+  -skip-differing-rows
+* *adams-dl4j:* 
+
+  * added support for mini-batches to *DL4JCrossValidationEvaluator*,
+    *DL4JTrainModel* and *DL4JTrainTestSetEvaluator*.
+  * added support for listeners when training a model
+  * added deeplearning4j-ui_2.10 dependency, to monitor training progress using
+    *InMemoryStatsListenerConfigurator*
+  * *DL4JTrainModel/DL4JTrainTestEvaluation/DL4JCrossValidationEvaluator* now store the 
+    final epoch number in the container (model/evaluation).
+  * *DL4JTrainModel* allows incremental training now, outputting the model every X epochs 
+    (output interval).
+
+* *adams-rats:* added accepted/generated types of Rat input/output to *additional information* 
+  output displayed in the help screen.
+* *adams-spreadsheet:* 
+ 
+  * *SpreadSheetSubset* now supports R-like matrix subset expressions *,3:9* 
+    instead of specifying row and col ranges.
+  * *SpreadSheetSplitColumn* now uses the header for the generated columns if it can be split 
+    into the same number of elements.
+
+* *adams-weka:* 
+
+  * The *SpreadSheetToWekaInstances* conversion can enforce STRING attributes
+    now by using -1 as *maxLabels*.
+  * The *PartitionedMultiFilter2* (and therefore *MetaPartitionedMultiFilter*) now filters 
+    the data only once during the first batch, resulting in speed improvements.
+
+
+**Additions**
+
+* With the *adams.logging.Logging* console application, you can connect to an ADAMS instance
+  that is, for instance, running as a daemon/service, listening to its logging output.
+  The logging.sh/logging.bat scripts start the listening application (just outputs the logging
+  to stdout).
+* New boolean conditions for checking boolean flags: *StorageFlagSet* and *VariableFlagSet*.
+* Convenience transformer for setting a boolean flag in storage: *SetStorageFlag*.
+* Added new menu item *Full expansion* to the Flow editor for creating a fully expanded flow
+  (i.e., pulls in all external actors).
+* Added *FileTailer* transformer for monitoring text files ala *tail -f* on Unix systems.
+* Added most of the functionality of the Remote Control Center GUI to the terminal-based 
+  interface (can be started up with *adams.terminal.Main*).
+* Added *RightPad* conversion for padding strings on the right-hand side.
+* New module *adams-rsync* for rsync support:
+
+  * RSync - offers all (!) rsync options
+  * Rsync4jRsyncBinary - outputs the rsync binary used by rsync4j library
+  * Rsync4jSshBinary - outputs the ssh binary used by rsync4j library
+  * SimpleRSync - commonly used rsync options
+
+* *adams-dl4j:* 
+
+  * added *NormalizerMinMaxScaler* and *NormalizerStandardize* dataset pre-processors 
+    for scaling numeric attributes.
+  * added *SimpleRegressionMultiLayerNetwork* as an example for performing regression.
+
+* *adams-twitter:* 
+
+  * upgraded twitter4j to 4.0.6
+  * Added *TwitterUser* transformer for retrieving information about a user.
+
+* *adams-visualstats:* added MOA-based CUSUM (cumulative sum) and Page-Hinkley test 
+  control charts.
+* *adams-weka:* added Kennard-Stone filter.
+
