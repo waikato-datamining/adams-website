@@ -1,0 +1,67 @@
+.. title: Updates 2017/07/21
+.. slug: updates-2017-07-21
+.. date: 2017-07-21 17:15:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The new semester started last week, so I was busy with my students. Development has mainly
+happened around *deeplearning4j* and prediction support for Microsoft's deeplearning library 
+*CNTK*.
+
+**Fixes**
+
+* *LoadBalancer:* fixed losing of outer variables; uses a Flow control actor now internally 
+  for better encapsulation.
+
+
+**Changes**
+
+* Added support for outputting relative paths with the *FileSystemSearch* source: 
+  LocalDirectorySearch, LocalDirectorySearchWithComparator, LocalDirectorySearchWithCustomSort, 
+  LocalFileSearch
+* Panels managed by the *DisplayPanelManager* get re-used via their unique ID now properly (eg 
+  when using a variable), not just when mergable. Allows out of order updates of sequence plots 
+  now.
+* The *Min* and *Max* transformers can return 1-based indices now.
+* Added support for *ADAMS_LIBRARY_PATH* environment variable to *adams.core.management.Launcher*: 
+  its content gets supplied to the JVM via *-Djava.library.path* (used for native libraries like 
+  CNTK, MKL).
+* *adams-dl4j:* 
+
+  * Added ability to *DL4JTrainModel* transformer for testing the model on a test 
+    set (split off the training data) and output the best model found so far, with associated 
+    statistic(s).
+  * Added support for criteria to stop training to *DL4JTrainModel* rather than just having
+    fixed number of epochs.
+
+* *adams-weka:* The *WekaFilter* transformer can make use of storage and source actor now for 
+  obtaining the actual filter to use, not just serialized file or the filter specification.
+
+
+**Additions**
+
+* Added the *ArrayNormalize* array statistic, which normalizes an array to sum up to 1.0.
+* *adams-cntk:* 
+
+  * added support for applying CNTK models: *CNTKModelApplier*.
+  * added spreadsheet writer for CNTK text file format: *CNTKSpreadSheetWriter*
+  * added image feature generator: *DefaultCNTK*
+
+* *adams-cntk-weka:* Added pseudo-classifier that uses a pre-built model: *functions.CNTKPrebuiltModel*
+* *adams-dl4j:* Added transformer for randomizing dataset: *DL4JRandomizeDataset*
+* *adams-imaging:* 
+
+  * Added *ScaleReportObjects* transformer for scaling objects defined in reports.
+  * Added example flow for training an OpenCV Haar cascade from annotated images:
+    *adams-imaging-opencv_train_haar.flow*
+
+* *adams-imaging-openimaj:* added generic object detector class hierarchy, to be used by
+  *adams.flow.transformer.locateobjects.OpenIMAJObjectDetector*
+* *adams-spreadsheet:* added class hierarchy for processors that work on the selected 
+  rows in a spreadsheet table, e.g., copying files using the filename from the specified
+  column. Functionality available through *SpreadSheetDisplay* sink.
+
