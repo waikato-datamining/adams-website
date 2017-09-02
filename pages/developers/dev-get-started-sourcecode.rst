@@ -14,40 +14,15 @@
 Obtaining the source code
 =========================
 
-The ADAMS source code is hosted in the following subversion repository:
+The ADAMS source code is hosted in the following github repository:
 
-`https://svn.cms.waikato.ac.nz/svn/adams/base/trunk/ <base_>`_
+`https://github.com/Waikato/adams-base <base_>`_
 
 You can check out the code ("trunk") in the console with the following command:
 
 .. code:: bash
 
-   svn checkout https://svn.cms.waikato.ac.nz/svn/adams/base/trunk adams
-
-Anonymous access
-----------------
-
-The subversion repository allows *public* or *anonymous* read access. 
-When performing a checkout, subversion will usually use your user name to 
-perform the checkout and ask for a password for this user (in the example 
-below, this is *fracpete*). Simply hit *Enter* and when prompted for user
-name, use *anonymous* with an empty password.
-
-.. code::
-
-   mymachine:~/tmp>svn checkout https://svn.cms.waikato.ac.nz/svn/adams/base/trunk adams
-   Authentication realm: <https://svn.cms.waikato.ac.nz:443> Subversion repository
-   Password for 'fracpete': 
-   
-   Authentication realm: <https://svn.cms.waikato.ac.nz:443> Subversion repository
-   Username: anonymous
-   Password for 'anonymous': 
-   
-   A    adams/adams-twitter
-   A    adams/adams-twitter/LICENSE.txt
-   A    adams/adams-twitter/src
-   A    adams/adams-twitter/src/test
-   ...
+   git clone https://github.com/Waikato/adams-base.git
 
 
 Other modules
@@ -57,23 +32,23 @@ Further modules are available:
 
 * **addons** (less common used):
 
-  `https://svn.cms.waikato.ac.nz/svn/adams/addons/trunk/ <addons_>`_
+  `https://github.com/Waikato/adams-addons <addons_>`_
 
 * **incubator** (experimental):
 
-  `https://svn.cms.waikato.ac.nz/svn/adams/incubator/trunk/ <incubator_>`_
+  `https://github.com/Waikato/adams-incubator <incubator_>`_
 
 * **spectral-base** (spectral data processing):
 
-  `https://svn.cms.waikato.ac.nz/svn/adams/spectral-base/trunk/ <spectral-base_>`_
+  `https://github.com/Waikato/adams-spectral-base <spectral-base_>`_
 
 * **applications** (domain-specific applications):
 
-  `https://svn.cms.waikato.ac.nz/svn/adams/applications/trunk/ <applications_>`_
+  `https://github.com/Waikato/adams-applications <applications_>`_
 
 * **libraries** (module-specific additional libraries):
 
-  `https://svn.cms.waikato.ac.nz/svn/adams/libraries/trunk/ <libraries_>`_
+  `https://github.com/Waikato/adams-libraries <libraries_>`_
 
 
 Compiling the source code
@@ -177,12 +152,12 @@ tag to your ``settings.xml`` file and replace the ``USER`` and
    </proxy>
 
 
-.. _base: https://svn.cms.waikato.ac.nz/svn/adams/base/trunk/
-.. _addons: https://svn.cms.waikato.ac.nz/svn/adams/addons/trunk/
-.. _incubator: https://svn.cms.waikato.ac.nz/svn/adams/incubator/trunk/
-.. _spectral-base: https://svn.cms.waikato.ac.nz/svn/adams/spectral-base/trunk/
-.. _applications: https://svn.cms.waikato.ac.nz/svn/adams/applications/trunk/
-.. _libraries: https://svn.cms.waikato.ac.nz/svn/adams/libraries/trunk/
+.. _base: https://github.com/Waikato/adams-base
+.. _addons: https://github.com/Waikato/adams-addons
+.. _incubator: https://github.com/Waikato/adams-incubator
+.. _spectral-base: https://github.com/Waikato/adams-spectral-base
+.. _applications: https://github.com/Waikato/adams-applications
+.. _libraries: https://github.com/Waikato/adams-libraries
 .. _Maven: http://maven.apache.org/
 .. _settings.xml: https://adams.cms.waikato.ac.nz/resources/settings.xml
 .. _encryption: http://maven.apache.org/guides/mini/guide-encryption.html
