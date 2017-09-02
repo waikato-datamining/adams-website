@@ -2,4 +2,7 @@
 *.baK
 *.swp
 new.rst
-
+.*db
+*.pyc
+cache/
+output/
