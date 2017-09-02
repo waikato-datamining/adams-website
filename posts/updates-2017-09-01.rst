@@ -1,0 +1,121 @@
+.. title: Updates 2017/09/01
+.. slug: updates-2017-09-01
+.. date: 2017-09-01 17:29:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Been working on an image processing project again, so more work done in related modules.
+Added some common statistics to the Weka module.
+
+**Fixes**
+
+* fixed *Variables.extractNames(expr)* (used by the *CheckVariableUsage* actor processor 
+  and the *green tick* in the Flow editor's toolbar): no longer ends up in endless loop 
+  if invalid variable names are used in a string expression
+* The *filter* field of the *BaseFileChooser* now only works on files, not directories
+* The image overlays, left-click-listeners and selection listeners in the *ImageViewer* 
+  sink now get cleared whenever a token arrives (otherwise get multiplied in case of 
+  *Inspect* control actor)
+* The *PromptUser* boolean flow condition now expands variables in the message string
+  as well.
+* Removed the cleanUp call in the doExecute method of the AbstractFilter transformer, to avoid 
+  problems with trainable filters.
+* Improved unique name generation in Flow editor: when copying *Actor (2)* it will now
+  generate *Actor (3)* instead of *Actor (2) (2)*.
+* *adams-ml:* The *ConfusionMatrix* transformer now always generates a square matrix, 
+  taking all the labels (actual/predicted) into account.
+* *adams-weka:* The Weka package manager is working again, after backporting some changes
+  to the modified Weka 3.9.0 version that is currently in use.
+* *adams-imaging:* *MergeObjectLocations* now correctly performs a merge if there aren't 
+  any objects in the current report.
+
+
+**Changes**
+
+* Updated *jclasslocator* to make ADAMS work with Java 9 (for automatic class discovery).
+* Updated *jeneric-cmdline*.
+* *adams-weka:* 
+
+  * The *Predictions* table for classification and the *Cluster assignments* table 
+    for clustering in the Weka Investigator are now searchable.
+  * The *Preprocess* tab in the Weka Investigator now automatically selects the last 
+    opened/filtered dataset.
+  * The *WekaFilter* transformer now stores the input data in the *WekaFilterContainer* 
+    (when outputting containers) as well.
+  * *WekaCrossValidationEvaluator*, *WekaTrainTestSetEvaluator* and *WekaTestSetEvaluator*
+    now store the test data in the container as well (if possible).
+  * *WekaPredictionsToInstances* and *WekaPredictionsToSpreadSheet* can output the 
+    test data along side the measures now (if possible).
+
+* *adams-cntk:* now uses CNTK 2.1
+* *adams-dl4j:* upgraded deeplearning4j to 0.9.1
+* *adams-imaging:* The *ImageReader* transformer now can load the meta-data directly (optional).
+
+
+**Additions**
+
+* Added support to the *adams.flow.FlowRunner* class for installing custom JVM 
+  shutdown hooks, like executing a remote command.
+* *adams-imaging:* added channels splitters for HSV, YUV and YIQ color models, acting
+  as BufferedImageTransformer plugins: SplitChannelsHSV, SplitChannelsYUV, SplitChannelsYIQ.
+* *adams-weka:* 
+
+  * Added actor for nearest neighbor search: *WekaNearestNeighborSearch*.
+  * Added SDR (Standard Deviation of Residuals) statistic to evaluation output.
+  * Added RPD (Ratio of Performance to Deviation) statistic to evaluation output.
+  * Added RowSum filter for replacing all attributes (except class) with sum of
+    numeric attributes in a row.
+
+* *adams-spectral-2dim-core:* 
+
+  * reader for Nicolet SPA spectral data files: *SPASpectrumReader*.
+  * trainable batch spectrum filter for multiplicative scatter correction (MSC): 
+    *MultiplicativeScatterCorrection*
+  * The *ApplyMultiplicativeScatterCorrection* amplitude transform scheme allows
+    the application of MSC using slopes and intercepts stored in the report.
+  * added *SegmentedDownSample* Weka filter in conjunction with its 
+    *SegmentedDownSampleNthPoints* Hermione handler.
+  * added spectrum writer outputting spectra as images, using the amplitude to 
+    determine color of pixels in image: *IntensityImageSpectrumWriter*
+
+* *adams-cntk:* added *CNTKModelGenerator* source for outputting CNTK model
+  blocks using the specified model generator.
+
+* *adams-basic-app:* stripped down version sporting CSV spreadsheet support
+  and Groovy scripting.
+
+* *adams-imaging:* 
+
+  * added *CountObjectsInRegion* transformer for counting
+    objects in report that fall within the defined region, e.g., when processing
+    annotated objects in images.
+  * added *ObjectLocationsFromReport* preview to the *Preview browser*, which
+    displays an image with an object locations overlay, using locations obtained
+    from a report (simple format) with the same name as the image.
+  * added *ImageObjectFilter* which utilizes the new object finder class hierarchy 
+    for filtering objects in the report attached to an image.
+  * added conversions for handling rectangles: *StringToRectangle*, *RectangleToString*,
+    *RectangleCenter*
+  * added feature generator that uses a image transformer as filter before applying the
+    base generator: *FilteredBufferedImageFeatureGenerator*
+  * added convenience actors for handling image objects: *GetImageObjectIndices*, 
+    *ImageObjectInfo*, *RemoveImageObject*.
+  * added image overlay for displaying object locations as circle/ellipse: 
+    *ObjectCentersOverlayFromReport*.
+  * added preview to Preview browser using ObjectCentersOverlayFromReport: 
+    *ObjectCentersFromReport*.
+
+* *adams-imaging-boofcv:*
+
+  * added feature generator that uses a image transformer as filter before applying the
+    base generator: *FilteredBufferedImageFeatureGenerator*
+
+* *adams-imaging-imagej:*
+    
+  * added feature generator that uses a image transformer as filter before applying the
+    base generator: *FilteredBufferedImageFeatureGenerator*
+
