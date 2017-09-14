@@ -13,7 +13,7 @@ that needs addressing.
 
 .. raw:: html
 
-   <script src="/assets/js/jquery.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <span id="snapshotimport"></span>
    <script>$("#snapshotimport").load("../../snapshots/adams/snapshots.html #index");</script>
 
