@@ -1,0 +1,71 @@
+.. title: Updates 2017/09/15
+.. slug: updates-2017-09-15
+.. date: 2017-09-15 16:35:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The most notable change is that external actors now can have a *file change monitor*
+defined, which can trigger reloads of the external flow next time it gets executed.
+Useful for flows running in the cloud, which need to reload settings stored in external
+flows.
+
+**Fixes**
+
+* The *ImageViewer* now clears selection listeners, left click listeners and image overlays
+  when displaying an image.
+* Fixed suggestions for actor templates in the Flow editor. *EndlessLoop* template is now the 
+  default one.
+* The *MultiPaintlet* for sequences now lets the base paintlets set the correct stroke 
+  themselves.
+* *adams-imaging:* The *MultiImageOverlay* now use allows to select the base overlays again. 
+* *adams-spectral-2dim-handheld:* The *ScioLabExportSpectrumReader* now handles the updated
+  column names in the CSV export files (eg "spectrum_0 + 740" instead of "spectrum_740.0").
+* *adams-webservice:* The *XMLLoggingInInterceptor* now handles multi-part messages when
+  pretty-printing the message itself.
+
+
+**Changes**
+
+* Added a file change monitor to the external actors (*ExternalStandalone/Source/Transformer/Sink*), 
+  reloading the external flow at the next execution if the monitor triggered. The first execution
+  of the actor is used for initializing the monitor.
+* Added *on-the-fly* flag for external actors using flows that get generated at runtime (eg by a script).
+* Added support for BUSINESSDAY in date/time expressions (BaseDate, BaseDateTime, BaseDateTimeMsec)
+  and in *ExtractDateTimeField* conversion.
+* Most interactive actors now allow the selection of callable actor to use as parent component 
+  (e.g., for relative location); it is also possible to use the enclosing window (frame/dialog) 
+  as parent component rather than the callable actor (eg when the actor is inside a GridView/TabView).
+* *adams-imaging:*
+
+  * The *Image processor* visualization now applies the same flow to all the tabs. 
+    Adding loading, saving of flow snippets. Zoom for all original/processed can 
+    be selected from the menu.
+
+* *adams-latex:* The *LatexSpreadSheetWriter* can output the header now in bold face.
+* *adams-rats:* 
+
+  * The *FileLister* rat input can output files as array now as well.
+  * The generator used by *LabRat* now returns an array of *Rat* actors.
+
+
+**Additions**
+
+* Added simple, single file change monitors, accessible through the *FileChanged* transformer.
+* Added transformer for updating the 'last modified' timestamp of files: *Touch*
+* Added *PromptUser* actor template.
+* *adams-spectral-2dim-core:* 
+
+  * added spectrum reader for MPS XRF files.
+  * simple spreadsheet writer that outputs spectra with the specified spreadsheet writer:
+    *SpreadSheetSpectrumWriter*
+  * added several preview handlers for spectra
+
+* *adams-rats:* added generic scripting support for rat generators for *LabRat*, via *Scripted*
+  generator.
+* *adams-spreadsheet:* added *SpreadSheetSelectSubset* interactive actor that allows the
+  user to select a subset from a spreadsheet.
+
