@@ -16,13 +16,13 @@ Obtaining the source code
 
 The ADAMS source code is hosted in the following github repository:
 
-`https://github.com/Waikato/adams-base <base_>`_
+`https://github.com/waikato-datamining/adams-base <base_>`_
 
 You can check out the code ("trunk") in the console with the following command:
 
 .. code:: bash
 
-   git clone https://github.com/Waikato/adams-base.git
+   git clone https://github.com/waikato-datamining/adams-base.git
 
 
 Other modules
@@ -32,23 +32,23 @@ Further modules are available:
 
 * **addons** (less common used):
 
-  `https://github.com/Waikato/adams-addons <addons_>`_
+  `https://github.com/waikato-datamining/adams-addons <addons_>`_
 
 * **incubator** (experimental):
 
-  `https://github.com/Waikato/adams-incubator <incubator_>`_
+  `https://github.com/waikato-datamining/adams-incubator <incubator_>`_
 
 * **spectral-base** (spectral data processing):
 
-  `https://github.com/Waikato/adams-spectral-base <spectral-base_>`_
+  `https://github.com/waikato-datamining/adams-spectral-base <spectral-base_>`_
 
 * **applications** (domain-specific applications):
 
-  `https://github.com/Waikato/adams-applications <applications_>`_
+  `https://github.com/waikato-datamining/adams-applications <applications_>`_
 
 * **libraries** (module-specific additional libraries):
 
-  `https://github.com/Waikato/adams-libraries <libraries_>`_
+  `https://github.com/waikato-datamining/adams-libraries <libraries_>`_
 
 
 Compiling the source code
@@ -152,12 +152,12 @@ tag to your ``settings.xml`` file and replace the ``USER`` and
    </proxy>
 
 
-.. _base: https://github.com/Waikato/adams-base
-.. _addons: https://github.com/Waikato/adams-addons
-.. _incubator: https://github.com/Waikato/adams-incubator
-.. _spectral-base: https://github.com/Waikato/adams-spectral-base
-.. _applications: https://github.com/Waikato/adams-applications
-.. _libraries: https://github.com/Waikato/adams-libraries
+.. _base: https://github.com/waikato-datamining/adams-base
+.. _addons: https://github.com/waikato-datamining/adams-addons
+.. _incubator: https://github.com/waikato-datamining/adams-incubator
+.. _spectral-base: https://github.com/waikato-datamining/adams-spectral-base
+.. _applications: https://github.com/waikato-datamining/adams-applications
+.. _libraries: https://github.com/waikato-datamining/adams-libraries
 .. _Maven: http://maven.apache.org/
 .. _settings.xml: https://adams.cms.waikato.ac.nz/resources/settings.xml
 .. _encryption: http://maven.apache.org/guides/mini/guide-encryption.html
