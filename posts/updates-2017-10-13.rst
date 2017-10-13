@@ -1,0 +1,75 @@
+.. title: Updates 2017/10/13
+.. slug: updates-2017-10-13
+.. date: 2017-10-13 17:01:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+It is the end of semester and I'm busy marking from my students and working on some 
+commercial projects. However, there was still time to fix and improve things. The 
+modules that received the most attention are centered around Microsoft's deep learning 
+framework CNTK (https://cntk.ai/).
+
+**Fixes**
+
+* The *LocalScopeTransformer* now outputs the name of the last active actor in the
+  error message instead of the first one's, in case the last active actor is not
+  an actual transformer.
+* If you should encounter a problem on MySQL trying to create a table with a
+  timestamp column that uses as *DEFAULT '0000-00-00 00:00:00'*, then remove
+  the *NO_ZERO_DATE* directive from the *sql_mode* option in your my.cnf/my.ini.
+  E.g., use the following: 
+  *sql_mode=IGNORE_SPACE,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION*
+* *adams-weka:* The *SpreadSheetSaver* Weka converter no longer loses the 
+  configured writer (setOptions now calls the super method first, as it calls resetOptions).
+* *adams-cntk-weka:* The *CNTKPrebuiltModel* classifier now handles the flexible structure of 
+  CNTK regression models better.
+
+
+**Changes**
+
+* Upgraded lanterna (terminal applications) to 3.0.0.
+* Bumped up CNTK to 2.2.
+* The *Preview browser* now uses simple file monitoring to update the display 
+  (using the *LastModified* monitor).
+* Spreadsheet writers are now stoppable (at least the ones that write the data incrementally).
+* Introduced *StopRestrictor* interface for better stopping of flow or parts of flow, affecting
+  the *Stop* actor, interactive actors and *LocalScopeTransformer/LocalScopeTrigger*.
+* Added *has(sym)* operator that checks whether a certain symbol is present, affecting
+  BooleanExpression, MathematicalExpression and ReportMathExpression.
+* The *Revert* menu item in the Flow editor now detects if a file was modified on disk.
+* The *ProgressBar* sink now has an optonal *title* option for displaying a title string
+  within the panel itself, which is useful when displaying multiple progress bars at the 
+  same time.
+
+
+**Additions**
+
+* *OptionProducer* transformer for turning objects into option strings using the
+  specified OptionProducer scheme.
+* The *CloseCallableDisplay* control actor allows closing of frames of callable actors.
+* Added the *Command* source for executing an external command: it is similar to the 
+  *Exec* source, but outputs stdout and/or stderr as continuous stream instead of waiting 
+  for the process to finish before outputting them.
+* *adams-meta:*
+
+  * Added *NewFlow* for generating a flow using a template.
+  * *FlowFileReader* reads a flow from disk and *FlowFileWriter* writes it to disk.
+  * *FlowDisplay* simply displays the incoming flow as tree (like the flow editor).
+
+* *adams-cntk:*
+
+  * Added a preference panel for CNTK, at this stage only for specifying the binary.
+  * The *CNTKSetup* standalone allows overriding the global settings (ie binary)
+    for CNTK within a flow.
+  * With the *CNTKBrainScriptExec* flow it is possible to execute a brainscript
+    and display the output. With the usual string processing facilities in ADAMS, 
+    you can also plot the performance of the network per epoch, e.g., plotting the RMSE.
+  * Added reader for CNTK text files: *CNTKSpreadSheetReader*
+  * Added *CNTKModelReader* and *CNTKModelInfo* for reading a model and outputting 
+    information about a model.
+
+Have a great Friday 13th! ;-)
