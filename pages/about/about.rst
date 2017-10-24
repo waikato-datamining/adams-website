@@ -1,6 +1,6 @@
 .. title: About
 .. slug: about
-.. date: 2015-12-18 14:50:32 UTC+13:00
+.. date: 2017-10-25 10:40:32 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -25,14 +25,14 @@ Features
 .. csv-table::
   :header: "Feature","Available"
 
-  "Machine learning/data mining","WEKA_, WEKA webservice, MOA_, MEKA_, deeplearning4j_, parameter optimization, experiment generation on-the-fly, setup generators, time series"
+  "Machine learning/data mining","WEKA_, WEKA webservice, MOA_, MEKA_, deeplearning4j_, CNTK_, parameter optimization, experiment generation on-the-fly, setup generators, time series"
   "Data processing","WEKA_, `R-Project <R_>`_, XML, XSLT, XPath, HTML, JSON"
   "Streaming","MOA_, Twitter (record/replay)"
   "Spreadsheets","MS Excel (r/w), ODF_ (r/w), CSV (r/w), Gnumeric_ (r/w), fixed column (r/w)"
-  "Databases","`MS Access <MSAccess_>`_, MySQL_, SQLite_, PostgreSQL_, HSQL_, MSSQL_, Sybase_, JDBC_"
+  "Databases","MySQL_, SQLite_, PostgreSQL_, HSQL_, MSSQL_, Sybase_, JDBC_, `MS Access <MSAccess_>`_"
   "Imaging","ImageJ_, JAI_, BoofCV_, OpenIMAJ_, ImageMagick_, Gnuplot_, LIRE_, OCR (tesseract_), Barcodes (Zxing_)"
-  "Graphics output","BMP, JPG, PNG, TIF, PDF, RAW (dcraw_, ufraw_)"
-  "Visualization","Scatter and line plots, Control charts, Images, GIS (OpenStreetMap_)"
+  "Graphics support","BMP, JPG, PNG, TIF, PDF, RAW (dcraw_, ufraw_)"
+  "Visualization","Scatter and line plots, Control charts, Images, video, webcams, GIS (OpenStreetMap_)"
   "Scripting","Groovy_, Jython_"
   "Documentation","DocBook_, HTML"
   "Web","HTTP, FTP, SFTP, SSH, Email, `Webservices <CXF_>`_"
@@ -42,6 +42,7 @@ Features
 .. _MOA: http://moa.cms.waikato.ac.nz/
 .. _MEKA: http://meka.sourceforge.net/
 .. _deeplearning4j: https://deeplearning4j.org/
+.. _CNTK: https://cntk.ai/
 .. _R: http://www.r-project.org/
 .. _ODF: http://en.wikipedia.org/wiki/OpenDocument
 .. _Gnumeric: http://www.gnumeric.org/
