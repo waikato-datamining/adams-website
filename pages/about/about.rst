@@ -35,7 +35,7 @@ Features
   "Visualization","Scatter and line plots, Control charts, Images, video, webcams, GIS (OpenStreetMap_)"
   "Scripting","Groovy_, Jython_"
   "Documentation","DocBook_, HTML"
-  "Web","HTTP, FTP, SFTP, SSH, Email, `Webservices <CXF_>`_"
+  "Web","HTTP, FTP, SFTP, SSH, Email, `Webservices <CXF_>`_, rsync_"
   "Other","de/-compression (tar, zip, bzip2, gzip, lzma), Java code generation"
 
 .. _WEKA: http://www.cs.waikato.ac.nz/ml/weka/ 
@@ -71,6 +71,7 @@ Features
 .. _Jython: http://jython.org/
 .. _DocBook: http://www.docbook.org/
 .. _CXF: http://cxf.apache.org/
+.. _rsync: https://github.com/fracpete/rsync4j
 
 
 Example flow
