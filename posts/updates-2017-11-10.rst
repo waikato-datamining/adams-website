@@ -1,0 +1,112 @@
+.. title: Updates 2017/11/10
+.. slug: updates-2017-11-10
+.. date: 2017-11-10 17:12:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Currently, I'm working mainly on a commercial project that involves meta-flows,
+i.e., flows that use their parametrization to generate flows on the fly that do 
+the actual work, aka worker-flows. Hence there being many tweaks and changes 
+based around this approach, e.g., making it easier to load models into memory 
+and use them directly from there.
+
+**Fixes**
+
+* The *TryCatch* control actor now works again as expected within *Rat*, 
+  *LocalScopeTransformer* and *LocalScopeTrigger* actors. It also now
+  properly stops its try and catch branches.
+* Fixed rendering of arrays in the *Preview browser*, now each element has 
+  its own renderer determined. Necessary for mixed object arrays.
+  The *PlainText* handler no longer crashes if it cannot read a file, one
+  with binary content.
+* The *BaseDirectoryChooser* dialog now correctly retrieves the currently
+  selected directory for adding bookmarks. Also displaying a text field
+  with the currently selected directory, enabling fast copy/paste.
+
+
+**Changes**
+
+* All help screens in the GUI have been centralized into a separate *Help*
+  frame, which keeps a history of the screens.
+* Remote commands can be sent and received now in JSON as well, using
+  the *JsonProcessor* instead of the *DefaultProcessor*.
+* The *Serialize* transformer and *Deserialize* sink now take advantage of the 
+  object writer/reader class hierarchies for more flexibility in output/input
+  formats.
+* Updated processoutput4j to 0.0.6
+* The *Command* source actor now has a *timeOut* option, which kills the process
+  once exceeded.
+* *adams-event:* added template support for cron schedules: adams/core/base/CronSchedule.props
+* *adams-weka:*
+
+  * The attribute index is now displayed in the table header of the *WekaInstancesDisplay* 
+    sink and the object renderer at debugging time.
+  * Added support for updating properties via variables to:
+    *WekaAssociatorSetup*, *WekaClassifierSetup*, *WekaClustererSetup*,
+    *WekaDataGenerator*, *WekaFilter*, *WekaStreamFilter*
+  * simplified model loading, centralizing it in the adams.flow.core.AbstractModelLoader 
+    class, now offering loading from file, source actor and internal storage:
+    *WekaFilter*, *WekaClassifying*, *WekaClustering*
+  * The evaluations of classifiers in the *Weka Investigator* no longer require class
+    values to be present on data sets other than the training set. This allows to 
+    simply make predictions then.
+
+* *adams-moa:* simplified model loading, centralizing it in the adams.flow.core.AbstractModelLoader 
+  class, now offering loading from file, source actor and internal storage:
+  *MOAClassifying*, *MOAClustering*, *MOARegressing*
+
+* *adams-meka:* simplified model loading, centralizing it in the adams.flow.core.AbstractModelLoader 
+  class, now offering loading from file, source actor and internal storage:
+  *MekaClassifying*
+
+* *adams-spectral-2dim-core*: 
+
+  * The *Cleaner* transformer now adds the actual cleaner to
+    the output container now as well.
+  * The *PostProcessor* transformer can output a container now, which contains
+    the input and output data, as well as the actual processor in use.
+  * The spetrum's wave-numbers can be used as suffix now instead of the amplitude indices
+    (affecting only the *SimpleInstanceGenerator*).
+  * renamed *IntensityImageSpectrumWriter* to *SpectrumImageWriter*, uses new class hierarchy 
+    for image generators: *adams.data.spectrumimage.AbstractSpectrumImageGenerator*
+
+* *adams-rsync:* 
+
+  * updated rsync4j to 3.1.2-5.
+  * added *maxTime* option to *RSync* and *SimpleRSync* sources, which kills
+    the rsync process once exceeded.
+
+* *adams-cntk-weka:* The *CNTKSaver* converter now turns a nominal class attribute 
+   into CNTK's 1-hot encoding format (aka unsupervised NominalToBinary).
+
+* *adams-imaging:* The *ImageAnnotator* transformer now allows the manual selection
+  of objects via a selection processor.
+
+
+**Additions**
+
+* Added reader/writer for objects implementing *adams.core.SerializableObject* 
+* The object export in the debug's object tree or the Flow editor's debug
+  view now allows you to export any serializable object as well.
+* Added *OutlierDetector* transformer to directly tap into detection messages 
+  returned by detection scheme.
+* Added the *SetManyVariables* standalone and transformer, which allow to 
+  update multiple variables at the same time.
+* The *DeserializeToStorage* standalone simplifies loading serialized models 
+  into storage.
+* *adams-cntk:*
+
+  * Added handler for CNTK models to the *Preview browser*
+
+* *adams-cntk-weka:*
+
+  * Added Weka loader for CNTK text files: *CNTKLoader*
+  * Added Weka saver for CNTK text file format: *CNTKSaver*
+  * Added classifier for building a CNTK using a Brainscript file
+    and using the final model for making predictions: *functions.CNTKBrainscriptModel*
+
+Have a good weekend!
