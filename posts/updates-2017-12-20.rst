@@ -1,0 +1,137 @@
+.. title: new
+.. slug: new
+.. date: 2017-12-20 10:00:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Last updates post before I'm getting stuck in making a new release...
+
+
+A lot of things have happened in the image processing space again and a neat new
+feature in spreadsheet and instances tables (Spreadheet viewer, Weka Investigator)
+is being able to set filter strings or regular expressions per table column. This
+is column specific filtering, whereas the search box filters across the whole 
+table.
+
+**Fixes**
+
+* The compact format for saving flows no longer stores the default actors along-side 
+  (in some cases).
+* The *Preview browser* now transfers the search terms as well when opening a new 
+  window.
+* Date-based chooser panels: setting the current date value now before displaying the 
+  dialog and automatically disposing the dialog once closed.
+* *adams-net:* *SimpleApacheSendEmail* can handle attachments now.
+* *adams-spreadsheet:* In the *LookUpUpdate* rules, variables can contain "." now as well; 
+  fixed replacing of '' around variables (replaced [] instead).
+* *adams-weka:* 
+
+  * fixed rendering of missing values when sorting the data in the data 
+    tab of the *Weka Investigator*,
+  * The evaluation statistics Bias, RPD, R^2 and SDR are now skipping missing value predictions.
+
+* *adams-rats:* The *FileLister* input now has a flag to turn on reporting of moving errors.
+* *adams-video:* The *FixedIntervalBufferedImageSampler* image sampler now handles the
+  offset correctly when set to "-Inf".
+
+
+**Changes**
+
+* Upgraded snake yaml to 1.19.
+* Menu items can have their category (ie the menu that they appear in) now reassigned 
+  via the *Main.props* file: ``Category-<classname>=<menu name>``
+* Added the following programmatic variables to the flows: project_name, project_home,
+  project_modules.
+* The *Continue* control actor got renamed to *Block*, which is a bit more intuitive
+  in the flow environment (though it works like the *continue* control statement in 
+  Java).
+* Added placeholders for TODAY, TOMORROW, YESTERDAY (using the start of day) to
+  BaseDate, BaseDateTime and BaseDateTimeMsec.
+* *LocalScopeTransformer* can now finish the processing of data before stopping
+  (*atomic execution*).
+* The *SequencePlotter* plot popup menu now has a *Hits* submenu, which allows you
+  to perform operations on the sequences that the mouse is hovering over.
+* The *Flow editor* has a new window operation for moving the current flow tab to 
+  a new editor window.
+* added *MATH_EXPRESSION_ROUND* enum to the *SetVariable* and *SetManyVariables* 
+  actors, which rounds the result to a long.
+* Any ADAMS panel with axis now allows copy/paste of axis range (in *Range* dialog),
+  to speed up transfer of settings.
+* *adams-spreadsheet:* 
+
+  * The *LookUpUpdate* parser no longer transfers back local variables (ie ones 
+    starting with an underscore).
+  * Added "CONNECTION" meta-data type for outputting URL, database, user, password
+    to the *DatabaseMetaData* source.
+  * Added support for supplying a filter (simple string or regexp) per column.
+
+* *adams-imaging:*
+
+  * *GetImageObjectIndices* is more flexible now, by using an object finder for
+    locating the objects of interest.
+  * The *ImageObjectFilter* now allows you to apply an object filter to the images 
+    that the object finder located.
+  * *ScaleReportObjects* has been deprecated, instead you can use the *ImageObjectFilter*
+    in conjunction with the *Scale* object filter.
+  * The generators of the *SubImages* BufferedImage transformer now limit the objects
+    in a sub-image to the ones that fall into that region.
+  * *ImageObjectInfo* transformer now accepts *LocatedObject* objects as well
+    (eg as output by *GetImageObjects*).
+  * upgraded zxing to 3.3.1 (used for barcode detection/generation)
+
+* *adams-rats:* The *Rat* standalone can now finish the processing of data before 
+  stopping (*atomic execution*).
+
+* *adams-spectral-2dim-core:* 
+
+  * The *Rebase* spectrum filter can change the step size 
+    between wave numbers now as well.
+  * The plot popup menu of the spectrum panel now has a *Hits* submenu, which allows you
+    to perform operations on the spectra that the mouse is hovering over.
+
+* *adams-weka:* Added support for supplying a filter (simple string or regexp) per column
+  to table displaying Instances.
+
+
+**Additions**
+
+* Added boolean condition for matching strings with a regular expression:
+  *RegExp*.
+
+* *adams-imaging:* 
+
+  * added new class hierarchy for filtering objects stored in reports
+    (e.g., annotations).
+  * With the *ChangeImageObjectPrefix* transformer, you can replace the
+    prefix of objects in the image's report. Allows to combine annotations
+    and predictions in one report, using separate overlays when displaying
+    the image.
+  * *GetImageObjects* outputs all the objects located by the specified finder.
+  * *GetImageObjects* outputs objects of type LocatedObject identified by the 
+    specified finder scheme, instead of their indices like 
+    *GetImageObjectIndices* does. Allows for querying meta-data etc via the
+    *ImageObjectInfo* transformer.
+  * *ImageObjectOverlap* computes the overlap of objects between two reports.
+  * Added the following operations for the *Draw* transformer:
+    ObjectCentersFromReport, ObjectLocationsFromReport
+  * The *ImageObjectIndexOffset* transformer changes the offset of the objects 
+    in the report by the specified amount. Useful when merging multiple reports.
+  * *MultiQRCode* barcode decoder allows detection of multiple QR codes in a
+    single image.
+  * The *DownSample* BufferedImageTransformer is a simple scheme for downsizing
+    images.
+  * Added the erode/dilate morphology operations.
+  
+* *adams-spectral-2dim-core*:
+
+  * The *PredictionCheck* transformer allows the validaton of the evaluations in an 
+    EvaluationContainer, e.g., checking whether they are within a predefined range.
+  * spectrum filter for adding the output of a prebuilt Weka filter to the spectrum's 
+    report: *WekaFilterToReport*.
+
+Stay tuned for the release!
+
