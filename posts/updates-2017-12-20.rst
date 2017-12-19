@@ -1,5 +1,5 @@
-.. title: new
-.. slug: new
+.. title: Updates 2017/12/20
+.. slug: updates-2017-12-20
 .. date: 2017-12-20 10:00:07 UTC+13:00
 .. tags: 
 .. category: 
