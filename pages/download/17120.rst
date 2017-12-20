@@ -18,7 +18,7 @@ Downloads
   modules (`zip <mlapp_>`__)
 * **adams-spectral-app** -- contains module for handling spectra (2-dimensional spectra
   like NIR, MIR, XRF), spreadsheet modules and Weka module (`zip <spectralapp_>`__)
-* **adams-deeplearning-spectral-app** -- same as *adams-spectral-app** but with deep learning modules
+* **adams-deeplearning-spectral-app** -- same as *adams-spectral-app* but with deep learning modules (`zip <dlspectralapp_>`__)
 * **adams-annotator** -- application for annotating videos with meta-data, e.g., for
   monitoring rodent behavior in lab environments (`zip <annotator_>`__)
 * additional libraries
@@ -31,7 +31,7 @@ Downloads
 .. _addons: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-addons-all-17.12.0-bin.zip/download
 .. _mlapp: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-ml-app-17.12.0-bin.zip/download
 .. _spectralapp: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-spectral-app-17.12.0-bin.zip/download
-.. _dlspectralapp: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-deeplearnig-spectral-app-17.12.0-bin.zip/download
+.. _dlspectralapp: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-deeplearning-spectral-app-17.12.0-bin.zip/download
 .. _annotator: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-annotator-17.12.0-bin.zip/download
 .. _dl4jcuda75: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-dl4j-cuda-7.5-libs-17.12.0-bin.zip/download
 .. _dl4jcuda80: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-dl4j-cuda-7.5-libs-17.12.0-bin.zip/download
