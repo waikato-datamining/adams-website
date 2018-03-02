@@ -1,6 +1,6 @@
 .. title: Updates 2018/03/02
 .. slug: updates-2018-03-02
-.. date: 2018-03-0 17:00:07 UTC+13:00
+.. date: 2018-03-02 17:00:07 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
