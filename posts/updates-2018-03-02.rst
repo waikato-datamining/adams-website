@@ -1,0 +1,85 @@
+.. title: Updates 2018/03/02
+.. slug: updates-2018-03-02
+.. date: 2018-03-0 17:00:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A few changes in terms of modules occurred: all *-stable* modules have been renamed 
+to *-lts* (long term support) and moved to the new *adams-lts* repository 
+(https://github.com/waikato-datamining/adams-lts). Furthermore, experimental
+support for the MongoDB NoSQL database has been added.
+
+**Fixes**
+
+* The *CheckActorReferenceUsage* flow processor now skips actors that are disabled,
+  in other words, a disabled callable actor won't get moaned about if not used.
+* Added missing setting of variable *BASEDIR* in the following batch files:
+  daemon.bat, exec.bat, logging.bat
+* Updating of properties, e.g., with the *UpdateProperty* transformer, now handles
+  arrays properly: the value string is interpreted as blank-separated list and the
+  array constructed from those elements.
+* The dialog size of showInputDialog method (e.g., when renaming an actor) is now 
+  adjusting a bit more to the input.
+* The flow used by *System performance* (from the *Help* menu) is now working
+  again properly.
+* *adams-weka* and *adams-weka-lts*: introduced custom aggregation of Evaluation 
+  objects (Relative absolute error and Root relative squared error will differ a bit
+  due to different handling of training priors - still buggy in Weka ATM),
+  affecting *WekaAggregateEvaluations*, *WekaCrossValidationExecution*, *RemoveOutliers*
+  and *WekaSpreadSheetToPredictions*.
+* *adams-rats:* The *FileLister* rat input now empties the queue when returning an array.
+* *adams-spreadsheet:* The parser for the expression used by *SpreadSheetQuery* handles 
+  negative numbers now correctly.
+
+
+**Changes**
+
+* Updated the section in the manual on how to install an ADAMS flow as daemon (Linux, systemd)
+  and service (Windows, NSSM).
+* Added methods 'replaceext' (replacing file extension) and 'ext' (extracting file extension) 
+  to parsers *BooleanExpression*, *MathematicalExpression* and *StringExpression*.
+* Added help menu items in the Flow editor for: variables, boolean/math/string expressions
+* Combined help display of GenericObjectEditor and Class help.
+* *adams-spreadsheet:* The formula of conversions *SpreadSheetAddFormulaColumn* 
+  and *SpreadSheetAddFormulaRow* can contain variables now that get expanded before 
+  inserting it into the spreadsheet.
+* *adams-rats:* The *ChangeRatState* control actor no longer checks whether the specified 
+  Rat actors are present if a variable is attached to the "rats" property (the one listing 
+  the names).
+* *adams-weka* and *adams-weka-lts*: 
+
+  * added mxexpression-weka-package dependency, offering filter and classifier that use 
+    mathematical expression to update target attribute or make prediction, using the 
+    mXparser library (https://sourceforge.net/projects/mxparser/).
+  * Class help in the GUI is now in HTML; help in GenericObjectEditor is now showing full help.
+  * The *WekaCrossValidationEvaluator* now has an option (*finalModel*) to build a
+    model on the full dataset. Automatically implies that a container is being output.
+
+
+**Additions**
+
+* The *GroupByRegExp* transformer allows generating groups of strings from array 
+  using a regular expression and a grouping expression, e.g., "(.*)-RGB.*" as regexp 
+  and "$1" for grouping them.
+* Added some of Eric Eaton's Java utility classes located at:
+  http://www.seas.upenn.edu/~eeaton/software/Utils/Utils.zip
+* Added conversions *MathExpression* and *StringExpression* for better efficiency 
+  when processing spreadsheets (using *SpreadSheetConvertCells* instead of 
+  *SpreadSheetTransformCells*).
+* The *File monitor* tool allows you to monitor files that get appended, like log
+  files, outputting all the new data added to the files.
+* *adams-spectral-2dim-core:*
+
+  * The *NewSpectrum* source allows the creation of a new spectrum.
+  * With *GetSpectrumAmplitude* the amplitude of the specified wave number can be retrieved.
+  * *SetSpectrumAmplitude* allows you to set the amplitude of the specified wave number
+    or simply add a new spetrum point.
+
+* Added module *adams-mongodb* for basic MongoDB support.
+* *adams-weka* and *adams-weka-lts*: added ability to upload currently best setup in 
+  classifier-based genetic algorithms via a setup upload scheme, e.g., in a MySQL database.
+
