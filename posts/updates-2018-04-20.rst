@@ -1,0 +1,98 @@
+.. title: Updates 2018/04/20
+.. slug: updates-2018-04-20
+.. date: 2018-04-12 16:47:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Spent a lot of time trying to get things working with Java 9. The usual backwards
+compatibility mantra got a serious beating with Java 9. ADAMS now compiles with
+Java 9, but I still recommend to stick with Java 8 for a while.
+
+Futhermore, there is now a separate module for *ffmpeg* called *adams-ffmpeg*, 
+rather than being tucked away in the *adams-video* module. In addition to that,
+I added an experimental module for audio processing called *adams-audio*.
+
+**Fixes**
+
+* Now compiles with Java 9.
+* Auto-registering of flows now registers after the flow ID has been initialized
+  rather than with 0.
+* *adams-imaging:* 
+
+  * The draw operations *ObjectCentersFromReport* and *ObjectLocationsFromReport*
+    now use the user-specified font.
+  * The image overlays *ObjectCentersOverlayFromReport* and *ObjectLocationsOverlayFromReport*
+    now use the user-specified font.
+
+
+**Changes**
+
+* Upgraded sizeofag to 1.0.2.
+* Upgraded jclasslocator to 0.0.10.
+* Removed archetype module.
+* Added keyboard shortcuts to the *Flow editor* for bringing up the actor tree to search for 
+  an actor to insert, skips the GOE dialog: Ctrl+J (here), Ctrl+Alt+J (after), Ctrl+Shift+J (beneath)
+* *adams-spectral-2dim-core:* The *Evaluator* transformer now allows to turn off 
+   cloning of container storing the evaluation results.
+* *adams-webservices:* updated Apache CXF to 3.2.4 to make it compile with Java 9 
+  (10 doesn't work yet, but the upcoming 3.2.5 release has a fix for that).
+* *adams-meka:* Upgraded to MEKA 1.9.2.
+* *adams-imaging:*
+
+  * The draw operations *ObjectCentersFromReport* and *ObjectLocationsFromReport*
+    now offer x/y offsets for the label.
+  * The image overlays *ObjectCentersOverlayFromReport* and *ObjectLocationsOverlayFromReport*
+    now offer x/y offsets for the label.
+  * *ImageObjectInfo* now allows to output the *INDEX_STRING* and *INDEX_INT* as well.
+
+
+**Additions**
+
+* Added support for publish/subscribe: *InitPublishSubscribe* standalone for 
+  initializing pub/sub data structure in storage and the *Publish* sink 
+  for broadcasting the data to all the subscribers of the specified pub/sub
+  data structure.
+* Added platform specific *file-in-use* checks: *Windows* and *NonWindows*
+  (*Default* combines both).
+* Added the *JsonObjectToMap* conversion to turn a JSON object into a
+  simple map.
+* Added the *ExtractSimpleContainerContent* conversion to retrieve the content
+  of simple containers.
+* Added the *Go to* menu item to the Flow editor popup menu, which allows you
+  to jump to the reference actor (eg a callable actor).
+
+* *adams-rats:* 
+  
+  * added support for using sockets for sending and receiving data, 
+    aptly named *Socket* for input and output (adams-rats-sockets.flow).
+  * added support for publish/subscribe with *Subscribe* rat input and
+    *Publish* rat output. Simpler and more efficient than queues for
+    notifying multiple Rat actors at once.
+  * added Django web application for remote control of Rat actors that
+    are available through the RatControl actor, using a REST webservice
+    for communication.
+
+* *adams-weka:* The *SocketFacade* meta-classifier communicates via sockets 
+  with a prediction scheme, can be used to interface with any programming 
+  language as long as communication occurs via sockets.
+
+* *adams-imaging:*
+
+  * added *BasicStatistics* feature generator (for buffered images).
+
+* *adams-audio:* new module for some basic audio processing of WAV files,
+  generating spectrograms (as image or tabular data).
+* added separate *adams-ffmpeg* module, to make ffmpeg functionality available 
+  in *adams-audio* and *adams-video*.
+
+* *adams-ml:* added basic framework for calculating summary statistics with the
+  *SummaryStatistics* transformer.
+
+* *adams-spectral-2dim-core:* added the *SimpleSpectralInstanceGenerator* instances
+  generator, which does not output a class attribute in the generated Weka Instances
+  object.
+
