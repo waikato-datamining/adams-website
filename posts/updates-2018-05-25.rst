@@ -1,0 +1,84 @@
+.. title: Updates 2018/05/25
+.. slug: updates-2018-05-25
+.. date: 2018-05-25 17:06:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of work went into the *3-way data* module, as well as proper
+support for polygons in the image annotation framework. The *audio*
+module also got a bit of love.
+
+Furthermore, some user interfaces got switched from multi-tab
+to multi-page ones, freeing up vertical screen real estate (most 
+people of have wides-screen monitors!).
+
+**Fixes**
+
+* External actors that use a file monitor can once again use variables
+  in the file name for the external flow.
+* The flow panel and flow tree now get focused better, to enable a 
+  smoother keyboard interaction.
+* *adams-imaging:* The *ImageAnnotator* now uses a scrollpane to display 
+  more buttons than fit on screen.
+* *adams-weka* and *adams-weka-lts*: the *MultiSearch* meta-classifier
+  now allows you to select the search algorithm for the parameter space.
+
+
+**Changes**
+
+* *CsvSpreadSheetWriter* now allows an empty quote character, which will
+  suppress any quoting.
+* Switched the following applications from multi-tab interface to a multi-page 
+  one in order to manage more tabs/pages at the same time without decreasing
+  the vertical screen real estate (these pages can be detached/reattached):
+
+  * *Flow editor*
+  * *adams-imaging:* *Image processor*
+  * *adams-heatmap:* *Heatmap viewer*
+  * *adams-spreadsheet:* *Spreadsheet file viewer*
+
+
+**Additions**
+
+* The implicit variable *flow_filename_restore* contains a file name based
+  on the full file name of the flow, but with the *.props* extension. To be
+  used for interactive actors like *EnterManyValues* to restore the entered 
+  values.
+* Added *Favorite actor* (here, after, beneath) keyboard actions 
+  (Ctrl+E, Ctrl+Alt+E, Ctrl+Shift+E).
+* *adams-spectral-2dim-core:* added meta spectrum reader that reads spectra 
+  from zip files: *ZippedSpectrumReader*.
+* *adams-spectral-3way-core*:
+
+  * added heatmap viewer for 3-day data, like 3D fluorescent spectra (EEM)
+  * added experimental support for building and applying the multi-way
+    algorithms available from: https://github.com/waikato-datamining/multiway-algorithms
+  * added lots of conversion to and fro tensors, 3-way data and spreadsheets
+
+* *adams-audio:*
+
+  * With the *AudioRecorder* source it is possible to record audio from
+    a microphone.
+  * The *WaveToAmplitudes* conversion extracts amplitudes from Wave object, 
+    absolute or normalized
+  * Added *Resample* wave filter for using different sample rate.
+  * Added *Cut* wave filter for cutting out a portion of a wave.
+  * Added sink for playing back audio files: *AudioPlayback*
+
+* *adams-compress:* added support for *xz* compression via *Xz/UnXz*
+  transformers and *XzTextFileReader*.
+
+* *adams-imaging:* 
+
+  * Added the *Grayscale* buffered image transformer with customizable 
+    lumiance parameters via a class hierarchy (supporting BT 601, 709 and 2020).
+  * The *Rotate* object filter rotates objects by the specified angle.
+  * ViaAnnotations transformer generates annotations for VIA (VGG Image Annotator 
+    - http://www.robots.ox.ac.uk/~vgg/software/via/)
+  * Added support for polygon annotations via the *PolygonPainter* 
+    (default is RectanglePainter).
+
