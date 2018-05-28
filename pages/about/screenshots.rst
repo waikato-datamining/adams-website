@@ -30,3 +30,5 @@
    /galleries/screenshots/timeseries-forecast.png
    /galleries/screenshots/timeseries-input.png
    /galleries/screenshots/timeseries-setup.png
+   /galleries/screenshots/spectrum_explorer.png
+   /galleries/screenshots/spectral_pca.png
