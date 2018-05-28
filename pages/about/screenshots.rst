@@ -18,7 +18,6 @@
    /galleries/screenshots/weka_investigator.png
    /galleries/screenshots/filecommander.png
    /galleries/screenshots/lanterna-terminal.png
-   /galleries/screenshots/imagej-arff-generation-dataset.png
    /galleries/screenshots/imageviewer1.png
    /galleries/screenshots/instance-compare.png
    /galleries/screenshots/instance-explorer_view.png
