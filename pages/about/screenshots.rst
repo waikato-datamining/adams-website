@@ -15,7 +15,7 @@
    /galleries/screenshots/advanced-learning_curve-incremental-output.png
    /galleries/screenshots/dataset-compatibility.png
    /galleries/screenshots/diff-files.png
-   /galleries/screenshots/explorerext-workspaces.png
+   /galleries/screenshots/weka_investigator.png
    /galleries/screenshots/filecommander.png
    /galleries/screenshots/lanterna-terminal.png
    /galleries/screenshots/imagej-arff-generation-dataset.png
