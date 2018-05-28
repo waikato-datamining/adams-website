@@ -24,4 +24,5 @@ Contributors
 * `Joaquin Vanschoren <https://sites.google.com/site/jvanschoren/>`__
 * `Leo Xiong (adams-imaging) <https://leoxiong.com/>`__
 * Steven Brown (adams-video)
+* Steven Lang (multi-way)
 
