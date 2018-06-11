@@ -38,7 +38,7 @@ Features
   "Scripting","Groovy_, Jython_, Python_"
   "Documentation","DocBook_, HTML"
   "Web","HTTP, FTP, SFTP, SSH, Email, `Webservices <CXF_>`_, rsync_"
-  "Other","de/-compression (tar, zip, bzip2, gzip, lzma, xz), Java code generation"
+  "Other","de/-compression (tar, zip, bzip2, gzip, lzma, xz, zstd), Java code generation"
 
 .. _WEKA: http://www.cs.waikato.ac.nz/ml/weka/ 
 .. _MOA: http://moa.cms.waikato.ac.nz/
