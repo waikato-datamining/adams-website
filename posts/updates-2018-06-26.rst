@@ -1,0 +1,75 @@
+.. title: Updates 2018/06/26
+.. slug: updates-2018-06-26
+.. date: 2018-06-26 16:51:01 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Finished some major refactoring related to loading and saving flows. Well,
+actually replacing an ugly hack from two years ago with a clean implementation.
+Properly decoupling user interface and readers/writers for flows. That and
+some further optimizations in the Flow editor resulted in nice speed improvements:
+a flow with 38,000 actors now loads in about 3 seconds on my laptop. BTW this is
+the largest flow that I have generated so far!
+
+Further CPU profiling also revealed some other code locations which could be optimized,
+improving startup time of flows.
+
+**Fixes**
+
+* The *Preview browser* now properly updates the display when selecting a 
+  different handler for serialized object.
+* *SetManyVariables* standalone and transformer now use a list internally,
+  which improves performance of the *addVariablePair* method when setting
+  hundreds of variables.
+* User interface improvements in the Flow editor that relate to long running 
+  background tasks, they no longer block the interface. 
+* General Flow editor improvements to speed things up with flows that have
+  10s of thousands of actors.
+* The *Switch* and *IfThenElse* actor now clean up the current token once
+  execution finishes, to avoid unnecessary memory usage.
+
+
+**Changes**
+
+* The *Image viewer* now uses a multi-page instead of multi-tab interface as well.
+* Copy/paste of flow nodes now uses a custom DataFlavour on the clipboard to speed 
+  up checks whether pasting is available; added "Copy (plain text)" for old approach.
+* Switched to sizeofag 1.0.4. This enabled the *Inspect memory* sub menu in the
+  Flow editor, displaying the memory consumption of the selected actor (detailed per 
+  class or just overall size).
+* An alternative *visualvm* executable can be specified now by the user through preferences 
+  (or the *JVisualVM.props* properties file). JVisualVM got dropped from JDKs starting
+  with Java 9. The project is now maintained separately and you can download it from 
+  here: https://visualvm.github.io/
+* *adams-rsync:* upgraded rsync4j to 3.1.2-10.
+* *adams-rats:* a *Rat* actor can free up memory now with the *wrapUpAfterExecution*
+  flag, which is available in conjunction with *performLazySetup*.
+* *adams-weka* and *adams-weka-lts*: upgraded to matrix-algorithms 0.0.4.
+* *adams-webservice:* upgraded Apache CXF to 3.2.5.
+
+
+**Additions**
+
+* Added simple source actor for just keep the flow running: *Idle*. This is
+  useful when using an event-based flow (eg using Rat actors) rather than a 
+  data driven one.
+* The *ForceFlush* control actor enforces actors implementing *FlushSupporter*
+  (currently *DumpFile* and *WekaInstanceDumper*) to flush their buffers.
+* With the *ArrayToChunks* transformer you can split an array into sub-arrays
+  of a specified length.
+* *adams-weka* and *adams-weka-lts*: meta-classifier that can use a fallback 
+  model for making predictions: *Fallback*
+* *adams-rats:* the *ExecuteRats* control actor allows execution of *Rat* actors 
+  in `MANUAL` mode whenever a token passes through.
+* *adams-compress:* added support for Zstd de/compression library 
+  (https://en.wikipedia.org/wiki/Zstd).
+* *adams-spectral-2dim-core:* added the *MaxWaves* outlier detector for enforcing 
+  an upper limit on wave numbers.
+* *adams-spectral-3way-core*: added support for feature generation through the
+  *ThreeWayDataFeatureGenerator* transformer and its associated class hierarchy
+  of feature generators.
+
