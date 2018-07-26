@@ -1,0 +1,108 @@
+.. title: Updates 2018/07/26
+.. slug: updates-2018-07-26
+.. date: 2018-07-26 17:10:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The last few weeks I have been busy preparing the migration of a large, commercial ADAMS-based
+application for processing spectral data to a newer version. This new version uses
+*Rats* instead of cronjobs to improve processing speed of data and making predictions.
+Due to these flows now containing several 10,000 actors, a lot of speed improvements
+were necessary to make them easier to view and edit in the Flow editor. That introduced also
+a number of bugs (a lot of rewriting happened behind the scenes), but it has stabilized
+a lot now.
+
+**Fixes**
+
+* The *undo* is now fixed in the Flow editor, with the flow no longer disappearing when
+  performing an undo operation. Due to changes of the underlying data structure introduced
+  the last couple of weeks, for speeding up the read/write of flows from/to disk.
+* Using now nested lists for copying/pasting actors on the clipboard for better performance, 
+  also using a faster check whether nodes are on clipboard for pasting.
+* The popup menu in the GOE failed on *java.io.File* objects due to a wrong cast to *PlaceholderFile*,
+  which got fixed.
+* The GOE could end in an endless loop, firing property events that hammered the Swing thread, 
+  resulting in a lock up of the user interface. Removing an unnecessary call for firing property
+  events, the lock up disappeared.
+* Reading of flows in the old nested format now works again.
+* File choosers that allow the *editing of options* of the selected file type (reader/writer)
+  now ensure that the selected filter and the last handler used are of the same class when 
+  showing the dialog, resetting the last handler if that's not the case. Otherwise, cases can 
+  occur where the selected filter is not presented in the GenericObjectEditor.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *WekaFilter* transformer no longer re-initializes the filter if loading from 
+    disk/actor/storage and *initializeOnce* is checked.
+  * The *CrossValidationFoldGenerator* classes now report back the actual number of folds
+    in use (eg when using -1 for LOO, this depends on the data), which in turn makes
+    the *WekaCrossValidationExecution* work properly when using *GroupedCrossValidationFoldGenerator*
+    in conjunction with LOO.
+  * search methods that implement RankedOutputSearch (eg PrincipalComponents) now 
+    output the attribute importance from the ranking instead of the attribute index
+
+* *adams-rats:* 
+
+  * The *Rat* actor now disables the *performLazySetup* option if the sub-flow contains 
+    at least one Breakpoint actor (debugging doesn't work in conjunction with lazy setup).
+  * The *Subscribe* rat input now ignores any notifications if the Rat actor is paused.
+  * The *RatControl* actor how has optional support for bulk actions, ie checked Rat 
+    actors can be paused/resumed/stopped/started.
+
+* *adams-spectral-2dim-core:* fixed selection of instance generator when exporting visible 
+  spectra in the *Spectrum Explorer*: it is now possible to select from a class hierarchy
+
+
+**Changes**
+
+* Introduced the *adams.flow.processor.ActorProcessor* interface, replacing the usage of the
+  *AbstractActorProcessor* class.
+* The *DeserializeToStorage* standalone now accepts pairs of storage name / file name to 
+  reduce the number of actors necessary when loading lots of models. Storage name and/or
+  file name can be variables as well.
+* The *Flow editor* now prompts whether to perform checks before saving a when it is 
+  considered large (default is 200 actors); occurs on a per-flow basis and can be reverted
+  by simply checking/unchecking the checkbox in the menu.
+* Actors that implement the *AtomicExecution* interface (eg *Tee* or *Branch*) now allow
+  the user to specify a timeout after which the sub-flow gets stopped nonetheless
+  (when *finishedBeforeStopping* is set).
+* Upgraded lanterna to 3.0.1 (for providing an ncurses-like terminal interface).
+* *adams-spreadsheet:* The *SpreadSheetSetCell* transformer can use a *cell finder* now to
+  locate the cells to update with the specified value as well (eg for updating all cells
+  with missing values or a value less than a certain minimum).
+* *adams-weka* and *adams-weka-lts*: switched to updated Weka versions (3.9.2-fork-0.0.2 and 
+  3.9.0-fork-0.0.5 respectively) that include patch for MyHeap usage in 
+  *weka.core.neighboursearch.LinearNNSearch*, avoiding the *the number of elements cannot 
+  exceed the initially set maximum limit* exception.
+
+
+**Additions**
+
+* added *Clear clipboard* to menu of Flow editor
+* added *MapToReport* conversion
+* Added the *ListObjectCommandlines* actor processor for listing object command-lines of a
+  specific class.
+* Added actor processor for updating the number of threads used by classes: *ChangeNumThreads*
+* *adams-spreadsheet:* 
+
+  * The *SpreadSheetCellSelector* transformer lets you select cells in a spreadsheet to forward
+    in the flow.
+  * The *SpreadSheetRandomSystematicSample* transformer picks a random systematic sample of
+    rows from the incoming spreadsheet.
+  * added *Clear clipboard* to menu of Spreadsheet file viewer
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *PredictionTrend* output generator for the classification
+    tab of the Weka Investigator plots actual and predicted values in a single plot, sorted by
+    actual. This allows spotting of trends.
+  * Added *NIPALS* and *SparsePLS*
+
+* *adams-meta:* The *ProcessorActor* transformer allows you to process an incoming flow with
+  a specific actor processor (eg listing variables or command-lines).
+* *adams-spectral-2dim-core:* added instance generator based solely on report fields and with 
+  dedicated class field: *FieldInstanceGeneratorWithClass*
+
