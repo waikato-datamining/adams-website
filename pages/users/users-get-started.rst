@@ -1,6 +1,6 @@
 .. title: Get Started
 .. slug: users-get-started
-.. date: 2015-12-18 14:46:52 UTC+13:00
+.. date: 2018-09-06 15:46:52 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -54,10 +54,10 @@ an actor and adding it *beneath*, *here* or *after*:
 
 .. thumbnail:: ../../images/actorsuggestions-combobox.png
 
-You can always bring up the complete range of possible actors by clicking on
-the **class tree** button. The popup allows you to perform a search within the
-(class) names of the actors. While typing the search string the view gets
-updated and only the actors that match the search string are being displayed.
+On the left-hand side, you always see the complete range of possible actors.
+You can also search within the (class) names of the actors. While typing the
+search string, the view gets updated and only the actors that match the
+search string are being displayed.
 
 .. thumbnail:: ../../images/actorsuggestions-search.png
 
@@ -102,10 +102,10 @@ Command-line execution
 ======================
 
 Though the flow editor is mainly used for designing and executing flows, you
-are by no means restricted to it. ADAMS was designed from the get go to be
-executed in a server environment, i.e., through command-line invocation. The
+are by no means restricted to it. ADAMS was designed from the start to be
+executed in a server/headless environment, i.e., through command-line invocation. The
 following command-lines are using the *bash* shell. Windows users need to change
-*run* to *run.bat* and *forward slashes* to *backslashes*.
+*exec.sh* to *exec.bat* and *forward slashes* to *backslashes*.
 
 The class responsible to executing flows from the command-line is:
 
@@ -114,14 +114,14 @@ The class responsible to executing flows from the command-line is:
 You can use the launcher (used in the *run* and *run.bat* scripts) to execute a
 flow as follows:
 
-``./bin/run -main adams.flow.FlowRunner -file /path/to/your.flow``
+``./bin/exec.sh -main adams.flow.FlowRunner -input /path/to/your.flow``
 
 If the default memory allocation is now enough or too much, use the ``-memory``
 option to define the `heap size
 <http://en.wikipedia.org/wiki/Java_virtual_machine#Heap>`_ explicitly, e.g.,
 256 MB:
 
-``./bin/run -main adams.flow.FlowRunner -memory 256m -file /path/to/your.flow``
+``./bin/exec.sh -main adams.flow.FlowRunner -memory 256m -input /path/to/your.flow``
 
 The following options are specific to the ``FlowRunner`` class:
 
@@ -132,7 +132,12 @@ The following options are specific to the ``FlowRunner`` class:
 
 This command-line executes a flow that performs a 10-fold cross-validation and instead of showing the result in a Display actor, it simply outputs it in the console:
 
-``./bin/run -main adams.flow.FlowRunner -memory 256m -clean-up -headless -file ./flows/adams-weka-crossvalidate_classifier.flow``
+``./bin/exec.sh -main adams.flow.FlowRunner -memory 256m -clean-up -headless -input ./flows/adams-weka-crossvalidate_classifier.flow``
+
+The manual (adams-core-manual.pdf) has more information on how to run flows
+via Linux's systemd (section *Linux servers*) or as a Windows service (section
+*Windows servers*).
+
 
 Examples
 ========
