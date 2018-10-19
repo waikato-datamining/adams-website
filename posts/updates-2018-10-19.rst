@@ -119,8 +119,8 @@ little changes and fixes.
   SavitzkyGolay, PLS, MultiStream, MultiBatch.
 * *adams-weka* and *adams-weka-lts*: added *OuterProductAnalysis* filter 
   (Fabricio S.Terra, Raphael A.Viscarra Rossel, Jose A.M.Dematte (2019). 
-   Spectral fusion by Outer Product Analysis (OPA) to improve predictions 
-   of soil organic C. Geoderma. 335:35-46. URL https://doi.org/10.1016/j.geoderma.2018.08.005.).
+  Spectral fusion by Outer Product Analysis (OPA) to improve predictions 
+  of soil organic C. Geoderma. 335:35-46. URL https://doi.org/10.1016/j.geoderma.2018.08.005.).
 * *adams-spectral-2dim-core:* 
 
   * Added new AbstractMultiSpectrumFilter schemes: *Add* and *Subtract*.
