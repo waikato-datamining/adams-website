@@ -1,0 +1,131 @@
+.. title: Updates 2018/10/19
+.. slug: updates-2018-10-19
+.. date: 2018-10-19 16:07:01 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Quite a bit of work underneath the hood has happened, UI improvements relating
+to the Flow editor, improved previewing for spectral data types and lots of
+little changes and fixes.
+
+**Fixes**
+
+* The *ListStructureModifyingActors* actor processor now skips disabled actors
+  (used when debugging).
+* GOE editors that handle actor references like callable actors now skip any
+  actors that are disabled.
+* Rearranged the Flow editor tree popup menu a bit to streamline usage: 
+  combined external actor operations; moved less commonly used operations down.
+* Added support for Flow editor tree popup menu extensions, ie menu items that 
+  get inserted after/before an existing menu item (*Tree.PopupMenuExtensions* in
+  *FlowEditor.props* settings file).
+* The *FileInfoHandler* of the *Preview Browser* switched to using java.nio.file.Files.XXX 
+  methods (due to bug in java.io.File.XXX methods, see https://bugs.java.com/bugdatabase/view_bug.do?bug_id=6203387);
+  added owner, posix permissions, regular file, symbolic link to the output.
+* Recent refactoring of the generic plot panel and its axes, resulted in 
+  invalid formattters getting assigned. This resulted in the *Memory monitor* 
+  x axis showing the *HH:mm* plus the Java Epoch.
+* BOMs (byte order marks; used by UTF variants) are now handled properly by the 
+  CsvSpreadSheetReader, the generic loading of text files and the various
+  TextFileReader schemes.
+* *adams-imaging:* 
+
+  * Annotating objects is no longer generating negative heights
+    or widths when not starting selection rectangle in top-right corner.
+  * The *Objects* sub-image algorithm now ensures that the sub-image dimensions
+    do not exceed the original image.
+
+* *adams-ml:* The *ConfusionMatrix* transformer now handles unclassified 
+  predictions (aka missing values).
+* *adams-spreadsheet:* 
+
+  * *SpreadSheetDisplay* now adheres to the useOptimalColumnWidth flag.
+  * *Spreadsheet file viewer*: now hides rows with missing values when
+    applying filters; *Copy column* now copies only the visible cell 
+    values instead of all.
+  * The *SpreadSheetMerge* transformer now removes duplicate unique columns
+    correctly (failed to remove correct ones if no prefix/ID was used), 
+    when using the *keepOnlySingleUniqueID* flag.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * *WekaPredictionsToSpreadSheet* (also used in generating the confusion 
+    matrix view in the Investigator) now ensures that labels are treated as 
+    strings now, to avoid numeric conversions for labels like '00' or '07'.
+  * *WekaPredictionsToSpreadSheet*, *WekaPredictionsToInstances* and the 
+    *Investigator* now correctly align the original instances with the 
+    predictions of cross-validation when using a grouped split generator.
+
+* *adams-spectral-2dim-core:* The *OpusSpectrumReaderExt* now applies the
+  scaling factor for Y defined in the file when reading the amplitudes.
+
+
+**Changes**
+
+* Switched from Swing widgets to ADAMS ones: JButton, JCheckBox, JComboBox,
+  JTextArea, JTextField, JTextPane. This makes it easier to introduce 
+  additional functionality in the top-level class.
+* The *Command* and *Exec* sources and the *Exec* sink now support setting of 
+  custom environment variables.
+* Added option for conversion to be applied to values, to have better control 
+  over types for hashset-handlers: *HashSetInit* (standalone/transformer),
+  *HashSetAdd* (transformer), *HashSet* (boolean condition).
+* The parsers for *BooleanExpression*, *MathematicalExpression* and *StringExpression*
+  now allow expression variables (not to be confused with flow variables) to
+  be strings consisting of alphanumeric chars and "_" (but must start with uppercase 
+  letter to distinguish them from built-in functions), as well as enclosing via single
+  quotes instead of just "[]".
+* Report tables are now using a case-insensitive sort on the field names.
+* The *NewReport* source now uses BaseClassname instead of String for the report 
+  classname.
+* *BaseClassname* now has its own GOE editor, which allows you to search for 
+  classes.
+* The *GenericArrayEditor* now allows the sorting (asc/desc) of the elements.
+* The *SetContainerValue* control actor now allows storage of non-standard, 
+  additional meta-data via the *force* flag.
+* *adams-rats:* The *Exec* input and output now support setting of custom 
+  environment variables.
+* *adams-spreadsheet*: The *LookUpUpdate* parser now allows enclosing of expression
+  variables in "[]" as well, aligning it with the other parsers.
+* *adams-spectral-3way-core:* upgraded multiway-algorithms dependency to 0.0.7.
+* *adams-spectral-2dim-core:* 
+
+  * Added *-lenient* flag to the *InstanceGenerator* 
+    transformer to only log errors instead of returning them (and possibly stopping 
+    the flow).
+  * The spectrum preview in the *Preview browser* and the object renderer when 
+    debugging a flow now display spectrum and sample data via a tabbed pane, rather
+    than just the spectrum.
+
+* *adams-compress:* upgraded unrar dependency to 3.0.0
+* *adams-net:* 
+
+  * removed obsolete org.apache.httpcomponents/httpclient dependency
+  * upgraded tika-core dependency to 1.19.1
+
+
+**Additions**
+
+* Added the *PullUpActor* tree editor popup menu and keyboard action, which moves all
+  sub-actors of a mutable actor handler (like Tee or Trigger) up one level and removes 
+  the enclosing actor handler.
+* Added little test dialog for date formatting/parsing in *Developer* user mode in
+  the *Maintenance* menu.
+* *adams-ml:* added basic filter framework for spreadsheet-based datasets,
+  SavitzkyGolay, PLS, MultiStream, MultiBatch.
+* *adams-weka* and *adams-weka-lts*: added *OuterProductAnalysis* filter 
+  (Fabricio S.Terra, Raphael A.Viscarra Rossel, Jose A.M.Dematte (2019). 
+   Spectral fusion by Outer Product Analysis (OPA) to improve predictions 
+   of soil organic C. Geoderma. 335:35-46. URL https://doi.org/10.1016/j.geoderma.2018.08.005.).
+* *adams-spectral-2dim-core:* 
+
+  * Added new AbstractMultiSpectrumFilter schemes: *Add* and *Subtract*.
+  * Source for listing sample IDs of sample data with no associated spectra: 
+    *OrphanedSampleDataIdSupplier*
+  * Added handlers in the *Preview browser* for spectrum formats: ASCIIXY, CML, DPT, JCampDX,
+    JCampDX2, Json, MPS, Opus, OpusExt, Relab, SPA, SPC, SpecLib.
+
