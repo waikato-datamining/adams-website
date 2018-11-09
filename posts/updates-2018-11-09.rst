@@ -1,0 +1,88 @@
+.. title: Updates 2018-11-09
+.. slug: updates-2018-11-09
+.. date: 2018-11-09 21:17:07 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Not really a theme this time, some libraries got upgraded to fix security vulnerabilities,
+a general framework for file-based dataset generation (with CNTK Faster-RCNN a concrete 
+implementation), the Weka Investigator got two new tabs (Fast ICA, Data query) and
+other bits and bobs.
+
+**Fixes**
+
+* *adams-visualstats:* setting x/y index in the *scatter plot* no longer shifts the 
+  panel (getX/getY where overriding the methods of the JComponent class)
+* *adams-weka* and *adams-weka-lts*: The *WekaTrainClusterer* transformer now 
+  displays the selected post-processor correctly in its quick info.
+
+
+**Changes**
+
+* upgraded commons-compress dependency to 1.18 due to security vulnerability: 
+  https://nvd.nist.gov/vuln/detail/CVE-2018-11771
+* The *Copy* transformer now has option for specifying type of copy.
+* The *StringMatcher* transformer as a new flag *outputIndices* for outputting the 
+  1-based indices instead of the strings.
+* The *File commander* now has an extra column listing the file extension, to make
+  sorting by file type easier.
+* The *Preview browser* now offers a simple note-taking functionality: adding notes
+  via popup menu in files list; clearing/viewing/saving of notes via main menu.
+* *adams-pdf:* upgraded pdfbox to 2.0.12+ to fix https://nvd.nist.gov/vuln/detail/CVE-2018-11797
+* *adams-rsync:* upgraded rsync4j to 3.1.2-13 (OpenSSH 7.9 binaries for Windows)
+* *adams-weka:* 
+
+  * upgraded Weka to 3.9.3-fork-0.0.2
+  * upgraded matrix-algorithms to 0.0.12
+  * The *ClusterCenters* clusterer post-processor now allows computation of median
+    for numeric attributes and most common label for nominal ones.
+
+* *adams-weka-lts:* 
+
+  * upgraded Weka to 3.9.0-fork-0.0.7
+  * upgraded matrix-algorithms to 0.0.12
+  * The *ClusterCenters* clusterer post-processor now allows computation of median
+    for numeric attributes and most common label for nominal ones.
+
+* *adams-spectral-3way-core:*
+
+  * *SimpleXYZReader* and *SimpleXYZWriter* now support gzip compression
+  * feature generators are now more robust when trying to access incorrect report values.
+
+* *adams-spreadsheet:*
+
+  * *SpreadSheetAddFormulaColumn* now has a placeholder for the last row
+  * *SpreadSheetAddFormulaRow* now has a placeholder for the last column
+  * The expression language for *LookUpUpdate* now has has/remove methods for checking 
+    whether a variable is present and to remove it respectively.
+
+
+**Additions**
+
+* Added a transformer for reversing array order: *ArrayReverse*
+* *adams-imaging:* transformer for cleaning up overlapping images: *DeleteOverlappingImageObjects*
+* *adams-cntk:* added preview handler for CNTK FasterRCNN ROIs: *CNTKFasterRcnnRois*
+* *adams-weka* and *adams-weka-lts*: 
+
+  * added experimental FastICA (independent component analysis) support to the 
+    Investigator as new tab (ICA).
+  * added the *WekaClustererPostProcessor* transformer to allow for multiple
+    post-processing of a container output by a WekaTrainClusterer actor.
+  * added the following clusterer post-processors: *AddCluster* (adds the predicted cluster),
+    *ClusterCounts* (records how many instances get clustered in a certain cluster).
+  * added new tab to the *Weka Investigator* for sql-like queries: *Data query*
+
+* *adams-spectral-2dim-core:* added experimental FastICA support to the
+  SpectrumExplorer.
+* *adams-ml:* added simple framework for preparing/generating datasets from files,
+  using: *PrepareFileBasedDataset* and *GenerateFileBasedDataset*.
+* *adams-cntk:* added file-based dataset generator plugin *CNTKFasterRCNN*.
+* *adams-spectral-3way-core:* 
+
+  * added *Shift* filter, which allows shifting of x, y or z values.
+  * Upgraded multiway-algorithms dependency to 0.0.8
+
