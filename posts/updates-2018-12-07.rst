@@ -1,0 +1,107 @@
+.. title: Updates 2018/12/07
+.. slug: updates-2018-12-07
+.. date: 2018-12-07 17:04:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A fair amount of work was going on in the Weka-related modules, with
+a new *Compare* tab getting introduced to the *Weka Investigator* and 
+a number of new filters. The content handlers in the *Preview browser*
+can be customized now, provided they have customizable options.
+
+**Fixes**
+
+* When swapping *SetVariable* transformer with standalone (and vice versa), 
+  the transfer for variable of variableValue now works. Also added transfer for 
+  expandValue, valueType properties.
+* String content on the clipboard is now only parsed in the Flow editor when 
+  performing an actual paste. This is to avoid lengthy wait times when switching 
+  between flows or generating popup menu when the clipboard content is large.
+* Pasting from clipboard in file or directory chooser panels now updates the history as well.
+* *adams-rats:* meta ratinput/output schemes now call the base initReception/Transmission 
+  methods; the *Cron* input scheme now installs the cronjob in the initReception method 
+  (to avoid race conditions), *DeQueue* configures queue in initReception, *Socket* 
+  sets up server socket in initReception, *Subscribe* configures subscription in initReception.
+* Updating a value using a field with a different data type as currently stored in a report 
+  didn't update the field itself, the old key was kept instead. Problematic when
+  updating reference data for spectra, attempting to fix the data type of values.
+* *adams-spreadsheet:* fixed the quick info of the *SpreadSheetAddRowID* conversion.
+* *adams-spectral-2dim-core:* the *Preview browser* now handles simple spectrum files (.spec)
+  again.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * fixed setting of *numZeroes* in *RemoveWithZeroes* filter.
+  * the *WekaFileChooser* now lists all loaders/savers again
+
+* *adams-net:* fixed generation of output file name in *SFTPGet* transformer.
+* *adams-rats:* bulk actions now only get applied to checked ones, not all; 
+  checking/unchecking RatControl panel now uncheckings the RatsControl panel.
+
+
+**Changes**
+
+* *NumericStringCompare*, as used by the *Sort* transformer, now providers better error 
+  messages when regexp replacement fails.
+* Content handlers in the *Preview browser* can be customized now (only some offer cutomizable options)
+* The *Flow editor* now has an *Actors* help menu item, which brings up class help just
+  for actors. Additional copy operations got movied into *Copy...* sub-menu to keep menu cleaner, 
+  also added the *Copy acto name* action to sub-menu.
+* *adams-spreadsheet:* The spreadsheet table now has menu items in the header popup menu
+  for setting column width/widths manually.
+* *adams-spectral-3way-core:* added option to the *SimpleEEMReader* to denormalize the 
+  amplitudes using the stored normalization factor.
+* *adams-python:* *PythonEnvironment* now allows updating the PYTHONPATH environment
+  variable (append, prepend, replace).
+* *adams-imaging:* 
+
+  * The *Grid* scheme of the *SubImages* BufferedImageTransformer algorithm
+    now offers options for overlaps on x and y axis, to avoid cutting through objects 
+    of interest.
+  * Renamed transformer *ImageReader* to *ImageFileReader* and sink *ImageWriter* to 
+    *ImageFileWriter* to make them consistent with other actors that read/write files.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * added *dataset-weights-weka-package 2015.6.16* dependency
+  * *SimpleArffLoader* and *SimpleArffSaver* now handle instance weights
+  * The *Weka Investigator* now has a popup menu on tabs (right-click) and also allows 
+    saving/loading of parameters of individual tabs. *Data* tab can display extra
+    column with instance weights now. Closing tabs no longer prompts a dialog, as
+    closing can be undone now (via *Tab* menu).
+
+
+**Additions**
+
+* Added *InList* boolean condition for checking whether incoming string is in list 
+  of strings.
+* The *CollectionToArray* transformar turns any collection (eg java.util.List or 
+  java.util.Set) into an array.
+* The *StorageCollectionInsert* transformer updates a collection object in storage 
+  with the object(s) passing through.
+* The *Find in files* interface allows you to search for files in a directory
+  that contain a certain search string. Search text can be either a simple string
+  or a regular expression.
+* *adams-ml:* added the *CrossValidation* scheme to the file-based dataset generation
+  for generating cross-validation folds.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *WeightsBasedResample* filter (package weka.filters.unsupervised.instance) 
+    allows you to resample a dataset using its weights.
+  * The *AccumulatedLWLWeights* filter (package weka.filters.unsupervised.instance)
+    generates weights for dataset using LWL-based approach, accumulating them
+    and normalizing them to [0;1].
+  * The *RemoveWithWeights* filter (package weka.filters.unsupervised.instance)
+    removes instances outside the specified range.
+  * The new *Compare* tab in the *Weka Investigator* allows you to compare two
+    datasets via a common ID attribute (string or nominal): lists common
+    IDs and ones that are only in first or second dataset, visual comparison
+    of internal numeric values in separate tab (mainly aimed at spectral data).
+
+* *adams-imaging:* added simple framework for generating negative regions (regions 
+  without annotations) using annotated images as input for automating negative 
+  region generation: *NegativeRegions* transformer and class hierarchy of schemes.
+
