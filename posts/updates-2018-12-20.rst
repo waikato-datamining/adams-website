@@ -1,0 +1,34 @@
+.. title: Updates 2018/12/20
+.. slug: updates-2018-12-20
+.. date: 2018-12-20 19:49:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Just a short list of updates, due to upcoming release. Main new feature is an
+SQL workbench for running SELECT, UPDATE, DELETE queries from within ADAMS.
+
+**Fixes**
+
+* *adams-rest:* added missing Maven dependencies to make it work with Java 9+.
+
+
+**Changes**
+
+* Added button to the control panel for debugging flows, to highlight the current 
+  actor in the editor window.
+* *adams-weka:* upgraded Weka dependency to 3.9.3-fork-0.0.3, fixes duplicate 
+  output in console for LogBack and log4j
+* *adams-weka-lts:* upgraded Weka dependency to 3.9.0-fork-0.0.8, fixes duplicate 
+  output in console for LogBack and log4j
+
+
+**Additions**
+
+* *adams-weka* and *adams-weka-lts*: added menu item for Weka's *SimpleCLI*
+* *adams-spreadsheet:* added *SQL Workbench* for running SQL queries on
+  SQL databases.
+
