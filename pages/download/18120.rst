@@ -1,0 +1,75 @@
+.. title: 18.12.0
+.. slug: 18-12-0
+.. date: 2018-12-20 21:13:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+Downloads
+=========
+
+* **adams-basic-app** -- minimalistic application with Weka, Groovy, spreadsheet, visualstats (`zip <basic_>`__)
+* **adams-base-all** -- contains all basic modules (`zip <base_>`__)
+* **adams-addons-all** -- contains all basic modules and addons modules 
+  (`zip <addons_>`__)
+* **adams-ml-app** -- contains machine learning, scripting and spreadsheet 
+  modules (`zip <mlapp_>`__)
+* **adams-spectral-app** -- contains module for handling spectra (2-dimensional spectra
+  like NIR, MIR, XRF and 3-way data like EEM fluorescence spectra) spreadsheet modules 
+  and Weka module (`zip <spectralapp_>`__)
+* **adams-deeplearning-spectral-app** -- same as *adams-spectral-app* but with deep learning modules (`zip <dlspectralapp_>`__)
+* **adams-annotator** -- application for annotating videos with meta-data, e.g., for
+  monitoring rodent behavior in lab environments (`zip <annotator_>`__)
+* additional libraries
+  
+  * CUDA 8.0 support for multiway-algorithms (`zip <mwcuda80_>`__)
+
+.. _basic: https://sourceforge.net/projects/theadamsflow/files/18.12.0/adams-basic-app-18.12.0-bin.zip/download
+.. _base: https://sourceforge.net/projects/theadamsflow/files/18.12.0/adams-base-all-18.12.0-bin.zip/download
+.. _addons: https://sourceforge.net/projects/theadamsflow/files/18.12.0/adams-addons-all-18.12.0-bin.zip/download
+.. _mlapp: https://sourceforge.net/projects/theadamsflow/files/18.12.0/adams-ml-app-18.12.0-bin.zip/download
+.. _spectralapp: https://sourceforge.net/projects/theadamsflow/files/18.12.0/adams-spectral-app-18.12.0-bin.zip/download
+.. _dlspectralapp: https://sourceforge.net/projects/theadamsflow/files/18.12.0/adams-deeplearning-spectral-app-18.12.0-bin.zip/download
+.. _annotator: https://sourceforge.net/projects/theadamsflow/files/18.12.0/adams-annotator-18.12.0-bin.zip/download
+.. _mwcuda80: https://sourceforge.net/projects/theadamsflow/files/18.12.0/multiway-algorithms-cuda-8.0-libs-18.12.0-bin.zip/download
+
+
+Highlights
+==========
+
+* Over 70 new actors, nearly 20 new conversions
+* Removed **deeplearning4j** module (not stable enough, constant API changes)
+* Removed Java support for Microsoft's **CNTK** deep learning framework 
+  (too specific to one version of CNTK)
+* New modules: **python**, **mongo-db**, **rest**, **3-way data**, **audio**, 
+  **ffmpeg**, **tensorflow**
+* Forked **adams-weka** into **adams-weka-lts** to provide our commercial
+  clients with a stable Weka API (affects only the spectral applications)
+* New tabs in the **WEKA Investigator**: Compare, Data query, ICA
+* Now compiles and works under Java 9+
+* **SQL Workbench** tool for running SELECT, UPDATE, DELETE queries
+* **Find in files** tool for locating files that contain text (simple substring
+  or regular expression matching)
+* Image annotations can be bounding boxes or polygons now
+* File-based cross-validation, train/test splits, to be used for 
+  generating deeplearning datasets
+* More variants of partial least squares added
+* lots of speed improvements when working with large flows,
+  i.e., flows with several 10,000 actors (load/save/undo/redo)
+* Publish/subscribe framework for sending notifications (used within RATS)
+* Support for xz and zstd compression
+* Switched some tools from multi-tab to multi-page, in order to save vertical
+  space and make better use of widescreen monitors
+* Added support for undo for tab- or multi-page-based tools
+
+
+Launching ADAMS
+===============
+
+Unzip the archive and execute the appropriate shell/batch script from a terminal:
+
+* Linux/Unix/OSX: ``bin/run``
+* Windows: ``bin/run.bat``
+

@@ -135,14 +135,8 @@ NAVIGATION_LINKS = {
           ("/rss.xml", "RSS feed"),
           ), "Blog"),
         ((
-          ("/event/kuching-2015", "Kuching 2015"),
-          ("/event/bigmine-2015", "BigMine 2015"),
-          ("/event/ernz-2014", "eResearch 2014"),
-          ), "Events"),
-        ((
           ("/download/release", "Release"),
           ("/download/snapshot", "Snapshot"),
-          ("/download/roll-your-own", "\"Roll your own\""),
           ), "Download"),
         ((
           ("/users/users-get-started", "Get started"),
