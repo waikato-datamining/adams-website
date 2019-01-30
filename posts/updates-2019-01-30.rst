@@ -1,0 +1,108 @@
+.. title: Updates 2019/01/30
+.. slug: updates-2019-01-30
+.. date: 2019-01-30 15:10:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of minor UI improvements and dependency refreshments happened since the release 
+in December last year. New in the flow is EXIF tag support and communication with 
+Python processes across the network using Pyro4 (Python Remote Object, https://github.com/irmen/Pyro4).
+
+**Fixes**
+
+* Multi page panes are now showing border again when focused, to make it easier to
+  see which widget has the focus.
+* The *Preview browser* did not maintain correctly its internal list of content handlers,
+  resulting in apparently random preview handlers getting selected.
+* The *SQL Workbench* now disables the user interface while a query is being executed.
+* Chooser panels (eg for dates, files or colors) now change the font color to RED if
+  the entered value is not in a valid format and will revert to the default value 
+  when opening the dialog via the *...* button. The *Use default* menu item was added
+  to allow the user to revert back to the default value.
+* *EnterManyValues* now shows the tool tip of the underlying component if there was
+  no explicit help string entered.
+* The sources *EnterValue*, *EnterManyValues*, *SelectDirectory* and *SelectFile*
+  now honor any information recovered from restoring files during non-interactive
+  and/or headless operation.
+* *adams-weka* and *adams-weka-lts*: the transformers *WekaFilter*, *WekaClassifying*
+  and *WekaClustering* are now threadsafe when using the internally used Weka object
+  (previously, when using a shared model in storage in concurrent situations, it could
+  end up in an unsuable state).
+* *adams-net:* upgraded tika-core to 1.20 due to https://nvd.nist.gov/vuln/detail/CVE-2018-17197
+* *adams-ml:* The *CrossValidation* scheme for preparing file-based datasets now
+  generates correct leave-one-out datasets.
+* *adams-groovy:* Upgraded Groovy to 2.5.5 to make the Groovy Console work with Java versions
+  9 and later.
+* *adams-video:* fixed user interface issues in *VLCjPlayer* and *Annotator*
+
+
+**Changes**
+
+* Retired the obsolete *NamedSetup* framework.
+* The *Find in files* tool now has all its operations in a button with a drop-down list, using
+  a class hierarchy. New actions are: *Copy to...* and *Move to...*. The *View...* action
+  now uses the Preview browser.
+* How graphical actors are being displays is now handled by a class hierarchy, replacing
+  the *displayInEditor* option. The default scheme (appropriately named *Default*) just 
+  displaying it on top of all windows. With *DisplayInEditor*, the window gets displayed 
+  in Flow editor window. *NoDisplay* suppresses the display completely and *Background* 
+  displays behind all other windows. The *ChangeDisplayType* actor processor allows you
+  to change the type(s) to a new one.
+* The menu item *MakeInteractive* of the Flow editor tree popup allows one to turn one 
+  or more *SetVariable* standalones into an interactive sub-flow (Trigger/EnterManyValues/MapToVariables).
+* The *DefaultValueDefinition* used by *EnterManyValues* now offers an option to output
+  paths (file or directory) with forward slashes.
+* All value definitions, as used by *EnterManyValues* can be now disabled/enabled, which
+  makes it easier to maintain testing/production ones side by side.
+* The *LocalScopeTransformer* and *LocalScopeTrigger* control actors now add the 
+  programmatic variables to their local scope when using *EMPTY* for variable propagation: 
+  flow_filename_long, flow_filename_short, flow_filename_restore, flow_dir, flow_id, 
+  is_headless, has_gui, project_name, project_home, project_modules
+* The *JsonFileReader* can now enforce output type (OBJECT or ARRAY) if know beforehand, 
+  default is ANY (no enforcement)
+* Added ability to flag a flow as *active* and manage that one through the *Active* 
+  menu and the buttons in the toolbar that have the little *A* in the bottom right corner. 
+  This is useful when editing external flows, as the switching back to the main flow 
+  is now no longer necessary.
+* The pause/resume and stop buttons are now also available through a debug flow perspective.
+* Removed the Run/Debug flow notification area actions.
+* *adams-spreadsheet:* the sinks *JFreeChartFileWriter* and *JFreeChartPlot* now allow
+  the selection of shapes for the data point markers, the background color is now white 
+  (aligned with other ADAMS plots) and the plot color can be selected as well.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *WekaEvaluationSummary* transformer now has options for custom titles for summary, 
+    confusion matrix and class details.
+  * Updated Weka dependencies to 3.9.3-fork-0.0.4 and 3.9.0-fork-0.0.9 respectively
+    (fixes duplicate output when using Logback or log4j; AbstractClassifier.forName
+    no longer casts to AbstractClassifier, but Classifier).
+      
+* *adams-jython:* upgraded Jython to 2.7.1b3.
+
+
+
+**Additions**
+
+* *adams-imaging:* 
+
+  * added image reader/writer using the Apache Commons Imaging library, added preview handlers
+    for images and meta-data using this library as well. This will eventually replace the
+    Sanselan-based classes.
+  * The *ExifTagOperation* transformer allows you to work on the EXIF data in files, e.g.,
+    read/write/remove fields or check for fields. The *HasExifTag* boolean condition checks
+    whether the specified tag is present.
+
+* *adams-python:* 
+
+  * added *Pyro4* (https://github.com/irmen/Pyro4, https://github.com/irmen/Pyrolite) support: 
+    PyroNameServer, PyroStandalone, PyroSource, PyroTransformer, PyroSink
+  * added *PythonVenvExec* source for executing any executable in a virtualenv's bin/Scripts 
+    directory.
+
+* *adams-maps:* added *GPSDistance* conversion for computing distance (in meters) between
+  two GPS points.
+
