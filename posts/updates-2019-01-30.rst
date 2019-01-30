@@ -26,7 +26,7 @@ Python processes across the network using Pyro4 (Python Remote Object, https://g
 * *EnterManyValues* now shows the tool tip of the underlying component if there was
   no explicit help string entered.
 * The sources *EnterValue*, *EnterManyValues*, *SelectDirectory* and *SelectFile*
-  now honor any information recovered from restoring files during non-interactive
+  now honor any information recovered from restoration files during non-interactive
   and/or headless operation.
 * *adams-weka* and *adams-weka-lts*: the transformers *WekaFilter*, *WekaClassifying*
   and *WekaClustering* are now threadsafe when using the internally used Weka object
