@@ -1,0 +1,133 @@
+.. title: Updates 2019/03/15
+.. slug: updates-2019-03-15
+.. date: 2019-03-15 10:39:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Fixed a bunch of little bugs and also worked on many minor improvements in the user interface.
+
+A new Weka classifier got added: XGBoost, though currently only available for Linux/Mac.
+
+The database backend within ADAMS has been further abstracted and now allows 
+mirroring (ie replicating the queries on another server). Useful when trying to use
+a backup database server.
+
+**Fixes**
+
+* Pasting of actors no longer generates long name suffixes consisting of *(x) (y) (z) ...*
+* *EnterManyValues:* date types now get inserted with their string representation into a map.
+* Histoy lists, like used in the Weka Investigator, now prompt the user when selecting 
+  *Remove all* from the popup menu, whether they really want to remove X entries.
+* The generates() method of the *StringConstants* source now outputs the class that the 
+  selected conversion generates (proper compatibility check).
+* The *Close/cleanup* and *Remove graphical output* actions in the Flow editor now close 
+  any Debug views as well.
+* Row plots in spreadsheet tables (eg Spreadsheet file viewer) no longer sub-sample 
+  points if the same number of points was selected.
+* Fixed incorrect path handling when placeholders present: *Command*, *Exec*, 
+  *Java*, *SimpleStringReplace*, *StringInsert*, *StringReplace*.
+* *Command* source now launches the commands again.
+* *adams-python*: fixed incorrect path handling when placeholders present: 
+  *PipExec*, *PythonExec*, *PythonVenvExec*.
+* *adams-spreadsheet*: 
+
+  * fixed incorrect path handling when placeholders present: 
+    *SpreadSheetInsertColumn*, *SpreadSheetInsertRow*, *SpreadSheetReplaceCellValue*.
+  * entering multiple values through the GenericArrayEditor now works again in the 
+    *Spreadsheet file viewer* (Java decided to place the dialog behind all other windows).
+
+* *adams-rats*: fixed incorrect path handling when placeholders present:
+  *Exec* (rat input and output).
+* *adams-weka* and *adams-weka-lts*: Row plots in instances tables (eg Weka Investigator) 
+  no longer sub-sample points if the same number of points  was selected.
+
+
+**Changes**
+
+* Changed the *Compare actors* menu item in the Flow editor's tree popup menu into 
+  a sub-menu with *Just actors* (original functionality) and *Sub-flows* (additional) 
+  as menu items.
+* Added support for unordered ranges: *adams.core.UnorderedRange*
+* External actor files are now being monitored and reloaded/reexpanded if necessary 
+  through the GenericObjectEditor.
+* The *ArrayProcess* control actor now has an optional variable for storing the index 
+  of the current element being processed (1-based index).
+* Added *FILE_FORWARD_SLASHES* variable type, which generates a filename with forward 
+  slashes. Affects transformers/standalones: *SetVariable*, *SetManyVariables*.
+* The *Switch* control now has a *lenient* option, which drops the requirement of the
+  token having a payload (eg the *Start* source generates a null token, simply to kick
+  off things).
+* Removed module *adams-phmm4weka*.
+* *adams-spreadsheet:* 
+
+  * Added support for unordered ranges: *adams.data.spreadsheet.SpreadSheetUnorderedColumnRange*
+  * The *SpreadSheetReorderColumns* transformer now uses SpreadSheetUnorderedColumnRange
+    for its *order* option.
+  * The *SpreadSheetJoinColumns* conversion now uses SpreadSheetUnorderedColumnRange
+    for its *columns* option, allowing for out-of-order joins.
+  * Disabled *Spreadsheet Explorer* in the menu for the time being.
+  * Added support for overlaying a diagonal in the scatter plot (via a second data series):
+    enable *addDiagonalSeries* in the *DefaultXY* dataset. Affects *JFreeChartPlot*
+    and *JFreeChartFileWriter*.
+  * Added *History* button to the *Query* tab.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added support for unordered attribute ranges: *adams.data.weka.WekaUnorderedAttributeRange*
+  * The *Weka Investigator* now allows moving its tabs (like Preprocessing and Classify) via 
+    the *Move tab to* submenu in the tab's popup menu.
+
+* *adams-spectral-2dim-core:* 
+
+  * added ability to *Update Sample data* dialog to work off sample IDs obtained from a spreadsheet.
+  * SpectrumT and SampleDataT are no longer directly accessed, but through facades,
+    which allows swapping out of backend (e.g., introduce mirroring).
+
+* *adams-rats:* 
+
+  * The *RatControl* actor now has a *Console* button in the user interface,
+    which allows the display of the last X lines that occurred in the console.
+  * The type of log object generated from errors and sent to the *log* actor 
+    (if available) is now defined via the AbstractLogObjectGenerator class hierarchy.
+
+* *adams-cntk-weka* and *adams-cntk-weka-lts*: moved CNTKPyroProxy classifier from into 
+  new module adams-python-weka(-lts) and renamed it to PyroProxy, as it is framework-agnostic.
+* *adams-pdf:* The *PDF Viewer* switched from multi-tab layout to multi-page.
+
+
+
+**Additions**
+
+* Added the *DeleteVariable* and *DeleteStorageValue* standalones.
+* Added the *Configure option handler* tool (developer mode) that allows configuring any
+  option handler.
+* *adams-weka* and *adams-weka-lts*: i
+
+  * added the *GraphSource* serialized object preview handler for weka.core.Drawable objects, 
+    which outputs the graph source code (dot or XML BIF).
+  * added the *GraphSource* output for the Investigator's Classify/Cluster tabs, which outputs the
+    graph source (dot or XML BIF) for weka.core.Drawable classifiers/clusterers.
+  * added *WekaDatasetsMerge* transformer, an alternative to *WekaInstancesMerge* for merging
+    multiple Weka Instances objects into one (side-by-side). This transformer can be selected in
+    the *Weka Investigator* now as well for merging datasets (Preprocess panel, data table actions).
+  * The *XGBoost* classifier got added (using https://github.com/dmlc/xgboost) - currently only
+    for Linux/Mac.
+  * The *Weka Multi-Experimenter* now has a table-based results panel as well.
+
+* *adams-spectral-2dim-core:* 
+
+  * added *List Sample data* dialog which lists all sample data for the selected spectra in a single table.
+  * added *Delete Sample data* dialog which allows removal of specified sample data values from the 
+    selected spectra.
+  * no longer storing *Dummy report* flag in sample data table.
+
+* *adams-spreadsheet*: 
+
+  * spreadsheet tables now allow sorting on multiple columns using via the
+    *Sort...* menu item of the table's popup menu.
+  * added query panel for meta-data to the SQL Workbench tool
+
