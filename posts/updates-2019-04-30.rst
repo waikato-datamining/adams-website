@@ -1,0 +1,130 @@
+.. title: Updates 2019/04/30
+.. slug: updates-2019-04-30
+.. date: 2019-04-30 15:26:00 UTC+12:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Well, I didn't quite manage to get this post out the door before going on holiday
+over Easter. Collection handling is much improved in the flow, a new tool for
+handling spreadsheets, the *Spreadsheet processor*, has been added, a new merge
+transformer for spreadsheets added (*SpreadSheetMethodMerge*), and lots of little 
+fixes and improvements.
+
+**Fixes**
+
+* Added the *-close-connection* option to the *DatabaseConnection* standalone, 
+  which closes the connection one the flow wraps up. This is required for SQLite 
+  to release the database file properly. Otherwise ADAMS has to be restarted.
+* Errors and warnings that occur when processing the first line in the compact flow 
+  format are now being propagated properly, i.e., displayed in the user interface.
+  External actors cano now report these errors again.
+* Pasting actors in the *Flow editor* now updates the display again to show the 
+  modified state.
+* The *Debug* execution listener in the flow now ensures that it is visible when 
+  a breakpoint is triggered.
+* The *Find usages* action from the Flow editor's popup menu now also finds nested 
+  variables and storage names. It also allows jumping to actors now that are in
+  external flows, which don't have a root Flow actor and therefore miss a UI 
+  parent component context.
+* *adams-imaging:* The *additionalObject* option of the *ImageObjectOverlap*
+  transformer now works when no label key was provided.
+* *adams-spreadsheet:* charts used by the *Spreadsheet file viewer* now plot
+  all the data points with differing X/Y pairs, not just with differing X.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *Multi-Experimenter* now handles the split generators correctly in the user
+    interface, the train/test split experiment now works again, some minor user
+    interface bugs fixed.
+  * *Hermione* now stops the run if there are no optimization handlers defined,
+    e.g., when loading invalid classnames.
+  * In the *Preprocess* tab of the *Weka Investigator*, you can now filter the 
+    attribute names using the provided filter text field.
+
+
+**Changes**
+
+* added *flow_start_timestamp* programmatic variable
+* upgraded RSyntaxTextArea dependency to 2.6.1
+* upgraded matrix-algorithms dependency to 0.0.15
+* removed the *Quick edit* tab in the Flow editor, due to strange lockups in the 
+  GenericObjectEditor.
+* The *ReportHandler* in the *Preview browser* now allows the report file reader
+  to be configured, to display a wider range of report file formats.
+* *adams-spreadsheet*:
+
+  * The *DefaultXY* JFreeChart dataset now allows X to be empty, uses row index 
+    for X in this case.
+  * The *SpreadSheetDisplay* now accepts objects implementing the *SpreadSheetSupporter*
+    interface as well.
+
+* *adams-weka* and *adams-weka-lts*:
+
+  * The *Instance* tab in the *Weka Investigator* now allows the selection of an 
+    attribute to use for coloring instances (each unique value represents a color).
+  * On the *Preprocess* tab in the *Weka Investigator*, you can now select the
+    menu item *Use selected as class* from the split button of the attribute 
+    selection panel. *Batch-filtering* now only works if the datasets are actually
+    compatible. The table listing the attribute names now also lists their types
+    in a separate column.
+  * Any GOE panel handling Weka classifiers now has an additional popup menu item
+    called *Enclose*, which allows you to enclose the current classifier within
+    a *SingleClassifierEnhancer* scheme (eg FilteredClassifier).
+
+* *adams-heatmap:* 
+
+  * The *Heatmap* class now implements *SpreadSheetSupporter*; 
+  * The *HeatmapToSpreadSheet* conversion now simply calls the *toSpreadSheet()* method.
+
+
+**Additions**
+
+* Added the *ProgrammaticTokenListener* transformer for hooking into flow with non-flow code,
+  allowing the listening to the data flowing through, e.g., for updating Swing user
+  interface components.
+* Added the *ArrayCovariance* array statistic.
+* Added jshell-scripting dependency and JShell menu item (you need to switch to Developer mode).
+  In order to execute a script it needs to be saved first.
+* Added *ArrayToCollection* transformer for turning an array into a collection.
+* Added *CollectionAppend* transformer to append a collection in storage with the one passing through.
+* Added *CollectionProcess* control actor for processing collections similar to *ArrayProcess*.
+* *adams-imaging:* 
+
+  * added the *ColorProvider* transformer which outputs a Color object
+    whenever a token passes through.
+  * added *PngIsComplete* file in use check scheme (looks for IEND end of file marker).
+
+* *adams-spreadsheet:* 
+
+  * The *SpreadSheetMethodMerge* transformer allows merging of
+    spreadsheets via a class hierarchy of merge algorithms, similar to the 
+    *SpreadSheetMerge* transformer.
+  * The *Spreadsheet processor* tool allows you to easily load spreadsheet data
+    (file, database, clipboard), process it (query, flow) and output it 
+    (file, chart, clipboard). It also allows you to save configurations to easily 
+    re-use processing in certain scenarios.
+
+* *adams-pdf:* The *PDFGenerate* transformer allows PDF generation using specified 
+  generator scheme. Similar to *PDFCreate*, but depending on the generator, is not
+  limited to processing files.
+* *adams-heatmap:* added conversions for computing correlation and covariance 
+  between columns of a spreadsheet: *ColumnCorrelationToHeatmap* and *ColumnCovarianceToHeatmap*.
+* *adams-weka* and *adams-weka-lts*:
+
+  * The *Classify* tab of the *Weka Investigator* now has tree visualization output and GraphML 
+    output using the JGraphT library.
+  * Added *MSLE* (mean squared logarithmic error) evaluation metric.
+  * Added *MSLE* to *Hermione* as measure to be used for evaluation.
+  * Added evaluation post-processors to remove worst predictions: *RemoveWorst* (using percentage),
+    *RemoveWorstStdDev* (based on mean and stdev of actual class values).
+
+* *adams-spectral-2dim-core:* 
+
+  * added the *DeleteDbSampleDataValue* transformer for removing specific fields from the 
+    database for a sample ID.
+  * added the *SampleDataValueDbWriter* transformer for writing specific sample data fields
+    to the database.
+

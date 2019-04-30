@@ -26,6 +26,7 @@
    /galleries/screenshots/previewbrowser-default.png
    /galleries/screenshots/previewbrowser-graph.png
    /galleries/screenshots/previewbrowser-tree.png
+   /galleries/screenshots/spreadsheet-processor.png
    /galleries/screenshots/timeseries-forecast.png
    /galleries/screenshots/timeseries-input.png
    /galleries/screenshots/timeseries-setup.png
