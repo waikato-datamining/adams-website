@@ -1,6 +1,6 @@
 .. title: Get Started - Requirements
 .. slug: dev-get-started-requirements
-.. date: 2017-09-15 16:46:52 UTC+13:00
+.. date: 2019-04-30 15:49:00 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -10,7 +10,7 @@
 
 The requirements for ADAMS are as follows:
 
-* Java_ 1.8
+* Java_ 1.8+
 * Maven_ 3.0+
 * TexLive_ 2010+ for compiling the LaTeX manuals (use MacTex_ for Mac OSX)
 
