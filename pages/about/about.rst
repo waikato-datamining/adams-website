@@ -33,7 +33,7 @@ Features
   "Imaging","ImageJ_, JAI_, BoofCV_, OpenIMAJ_, ImageMagick_, Gnuplot_, LIRE_, OCR (tesseract_), Barcodes (Zxing_)"
   "Graphics support","BMP, JPG, PNG, TIF, PDF, RAW (dcraw_, ufraw_)"
   "Audio","WAV, record, playback, spectrograms"
-  "Spectral data","AniML, CAL, CML, DPT, JCampDX, MPS, NIR, Opus, Relab, SPA, SPC, SpecLib, spreadsheet-based"
+  "Spectral data","AniML, CAL, CML, DPT, EEM, JCampDX, MPS, NIR, Opus, Relab, SPA, SPC, SpecLib, spreadsheet-based"
   "Visualization","Scatter and line plots, Control charts, Images, video, webcams, GIS (OpenStreetMap_)"
   "Scripting","Groovy_, Jython_, Python_"
   "Documentation","DocBook_, HTML"
