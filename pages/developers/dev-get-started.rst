@@ -19,5 +19,5 @@ Please choose one of the sections:
 
 The latest Javadoc generated from the source code is available from here:
 
-* `Javadoc <link://lug/dev-javadoc>`_
+* `Javadoc <link://slug/dev-javadoc>`_
 

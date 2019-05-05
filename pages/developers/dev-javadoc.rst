@@ -8,12 +8,6 @@
 .. type: text
 .. author: FracPete
 
-.. contents::
-
-
-Javadoc
-=======
-
 The nightly builds also generate Javadoc in aggregated form for the repositories
 `adams-base <https://github.com/waikato-datamining/adams-base>`__, 
 `adams-addons <https://github.com/waikato-datamining/adams-addons>`__ 
@@ -22,4 +16,4 @@ following locations:
 
 * `adams-base <https://adams.cms.waikato.ac.nz/javadoc/adams-base/>`__
 * `adams-addons <https://adams.cms.waikato.ac.nz/javadoc/adams-addons/>`__
-* `adams-lts <https://adams.cms.waikato.ac.nz/javadoc/adams-base/>`__
+* `adams-lts <https://adams.cms.waikato.ac.nz/javadoc/adams-lts/>`__
