@@ -145,6 +145,7 @@ NAVIGATION_LINKS = {
           ), "Users"),
         ((
           ("/developers/dev-get-started", "Get started"),
+          ("/developers/dev-javadoc", "Javadoc"),
           ("https://adams.cms.waikato.ac.nz/jenkins/", "Jenkins"),
           ("https://adams.cms.waikato.ac.nz/nexus/", "Nexus"),
           ("/developers/dev-forum", "Forum"),

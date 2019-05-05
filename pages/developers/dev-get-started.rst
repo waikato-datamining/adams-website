@@ -1,6 +1,6 @@
 .. title: Get Started
 .. slug: dev-get-started
-.. date: 2015-12-18 14:46:52 UTC+13:00
+.. date: 2019-05-05 18:26:52 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -16,4 +16,8 @@ Please choose one of the sections:
 * `Eclipse <link://slug/dev-get-started-eclipse>`_
 * `Continuous integration <link://slug/dev-get-started-ci>`_
 * `Extending <link://slug/dev-get-started-extending>`_
+
+The latest Javadoc generated from the source code is available from here:
+
+* `Javadoc <link://lug/dev-javadoc>`_
 
