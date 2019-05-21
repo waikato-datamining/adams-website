@@ -10,6 +10,7 @@
 
 .. slides::
 
+   /galleries/floweditor/0.2.0.png
    /galleries/floweditor/0.4.0.png
    /galleries/floweditor/0.4.6.png
    /galleries/floweditor/0.4.12.png
