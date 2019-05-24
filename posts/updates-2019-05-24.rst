@@ -1,0 +1,96 @@
+.. title: Updates 2019/05/24
+.. slug: updates-2019-05-24
+.. date: 2019-05-24 16:43:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A big push towards support for distributing jobs from anywhere within ADAMS that 
+make use of the *JobRunner* interface has been happened in the last few weeks. Thanks to 
+the new module offering RabbitMQ functionality (*adams-rabbitmq*, https://www.rabbitmq.com/), 
+it is now possible to send jobs to a job queue on a RabbitMQ server and slave machines 
+running flows for processing jobs can poll this job queue. Since the RabbitMQ
+server does not need to know about any slaves, it makes it easy for scaling up,
+by simply adding more slaves that pull jobs off the queue. Encrypting the communication
+via SSL/TLS is posible as well.
+
+Furthermore, (experimental) SSL/TLS support is now available in the *adams-rest* 
+module thanks to the new *adams-security* module. 
+
+And finally, it is now possible to monitor the memory consumption from within 
+a flow and send out notifications (eg emails) in case the available free memory 
+gets low over prolonged periods of time (*MemoryMonitor* standalone). This is 
+something that background flows should make use of.
+
+**Fixes**
+
+* Pasting a flow from the clipboard as new flow now works again. Now handles plain text nested format,
+  command-line and nodes format.
+* Graphical flow components (like interactive actors such as SelectArraySubset) now work again when
+  execute via the *active flow* functionality, but not being visible.
+* The *JVisualVM* menu item under *Help* (displayed in Developer user mode or higher)
+  now checks whether the JVisualVM binary is actually present (no longer bundled with JDK after Java 8).
+* *adams-weka* and *adams-weka-lts*: *ClassificationViaRegressionD* classifuer now sets the class value 
+  to missing at prediction time before pushing through the filter, as MakeIndicator is taking the class 
+  value into account generating an exception if the value is invalid.
+
+
+**Changes**
+
+* Upgraded jclasslocator dependency to 0.0.13
+* Upgraded java-utils dependency to 0.0.2
+* Upgraded MySQL JDBC driver to 8.0.16
+* Positions and sizes of the main tool frames are now recorded and restored.
+* The *FindInFiles* tool can search compressed files now as well (as long as the 
+  module adams-compress is present).
+* The *SetMapValue* now offers a built-in conversion for converting the value into
+  the appropriate type, if necessary (eg string into integer).
+* The *MemoryUsage* source now also outputs init and max for heap and non-heap.
+* *JMap* and *JDeps* now support inline variables in the *additional options* parameter.
+* *adams-rest:* 
+
+  * experimental SSL/TLS support (only tested on self-signed certificates so far).
+  * expanded all the missing sections in the manual.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *Weka Investigator* now allows the definition of a JobRunner instead of #threads 
+    to allow for remote execution, eg via RabbitMQ. #threads can be configured within
+    the *LocalJobRunner* (the default setting).
+
+
+**Additions**
+
+* Javadoc for all classes is now available at: `Javadoc <link://slug/dev-javadoc>`_
+* The *FindInFile* transformer allows to search for a text string in files, using
+  the same functionality as the *FindInFiles* tool.
+* The *ColorPerRegExpGroup* meta-data color scheme, allows coloring based on a 
+  group string extracted from a label using a regular expression (eg parts of a sample ID).
+* Added enclose/pull up menu items in the GenericObjectEditor's popup menu for
+  boolean conditions, conversions, spreadsheet row/column finders.
+* Added simple class hierarchy for sending notifications via *SendNotification* sink.
+* The *MemoryMonitor* standalone sends out a notification if the heap usage exceeds
+  the specified threshold, making use of the new notification scheme class hierarchy.
+* Added support for generating heapdumps from within ADAMS, via main menu or 
+  through the *HeapDump* control actor.
+* The *CollectionSubset* transformer allows you to generate a subset collection,
+  with only the elements from the specified indices.
+* Added a multi-page action to the Flow editor for comparing two flows with each other.
+* *adams-meta:* added actor for executing the actor passing through: *ExecuteActor*.
+* *adams-security:* new module for providing security related support, like
+  SSL context.
+* *adams-rabbitmq:* new module for making use of the RabbitMQ message broker 
+  (https://www.rabbitmq.com/). Also includes a job runner for distributing jobs and
+  actors for executing sub-flows remotely.
+* *adams-rabbitmq-rats:* new module for adding RabbitMQ consume/publish functionality
+  to the RATS framework.
+* *adams-weka* and *adams-weka-lts*: Added enclose/pull up menu items in the 
+  GenericObjectEditor's popup menu for row/column finders working on Instances.
+* *adams-spreadsheet:* The *Spreadsheet processor* now has a *Passthrough* processor, 
+  if nothing needs to be done to the data and a *Database* target for storing the 
+  processed data back in a database table.
+
