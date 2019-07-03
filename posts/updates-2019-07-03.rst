@@ -1,0 +1,69 @@
+.. title: Updates 2019/07/03
+.. slug: updates-2019/07/03
+.. date: 2019-07-03 16:49:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Been spending a lot of time lately on sorting out Debian package generation for
+Maven projects. The .deb packages available for download now make it 
+easier to install ADAMS on Debian systems (and derivatives like Ubuntu). This
+includes installing them inside Docker containers. The MySQL JDBC driver is back to
+the old version due to a problem introduce with 6.x (my bug report is linked below).
+
+**Fixes**
+
+* *adams-weka* and *adams-weka-lts*: The number of threads defined in the JobRunner used
+  for cross-validation in the *Classify* tab of the *Weka Investigator* is no longer
+  getting ignored.
+* *adams-rats:* fixed a race condition in the *FileLister* rat input scheme when used
+  inside a *Cron* one, which occurred when the Cron was triggering faster than the 
+  file listing was moving the files, resulting in multiple outputs.
+
+
+**Changes**
+
+* reverted MySQL driver back to 5.1.42, due to driver listing columns from table from 
+  any database that the database user has access to - file a bug report with MySQL
+  regarding this https://bugs.mysql.com/bug.php?id=95717
+* upgraded processoutput4j to 0.0.10
+* upgraded jclasslocator to 0.0.14
+* obsolete *provenance* support has been completely removed.
+* The new *ListSelectionValueDefinition* class, to be used with the *EnterManyValues* source,
+  is targed at pre-defined lists with a pre-selected default value (rather than just using
+  the first list item as the DefaultValueDefinition only offers).
+* The *SequentialDirectory*, as used by the *Sequence* control actor (and therefore by a
+  lot of other actors internally) has seen speed improvements for large sequences that 
+  contain multiple disabled/skipped actors. Code for storing output from last active
+  actor in such a sequence has been optimized as well. In some cases, this reduced the
+  actor execution overheads by 20 percent. NB: these overheads may be trivial to the
+  other operations executed in the sequence itself. In order for this to work properly,
+  variable support has been disabled for the *skip* option of actors.
+* introduced *lenient* flag in *AbstractDataContainerDbReader* which only outputs warnings 
+  instead of generating errors when containers cannot be loaded from DB.
+* Class names (ADAMS and JDK ones) are now better hyperlinked in the GUI help frame.
+* *adams-video:* updated vljc dependency to 3.12.1 (VLC player works again on Linux Mint 19.1).
+
+
+**Additions**
+
+* The *ArrayBinning* statistic applies selected binning algorithm/postprocessing.
+* added module *adams-scripts-debian* for generic scripts to be used in debian packages
+* *adams-applications:* after forking the abandoned debian-maven project (http://debian-maven.sf.net/ 
+  to https://github.com/fracpete/debian-maven-plugin) and reworking the code base extensively, 
+  support for generating .deb install packages for Debian was added.
+  and Ubuntu, using *deb:package* maven target.
+* *adams-meta:* The *CurrentFlow* source outputs the flow itself, with optional expansion 
+  of variables using their current state. Useful when trying to store the state of a flow
+  at a certain time or when auto-generating flows.
+* *adams-spreadsheet:*
+
+  * With the *MakeJFreeChartDataset* transformer, you can generate datasets for JFreeChart
+    plots or file writers.
+  * The *StorageJFreeChartDataset* transformer allows you to add data series to an existing
+    JFreeChart dataset in storage, e.g., when combining plots from multiple spreadsheets.
+
