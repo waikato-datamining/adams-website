@@ -29,7 +29,7 @@ here in New Zealand.
 Recently, we embarked on better integrating deeplearning frameworks, such as `Keras <https://keras.io/>`__.
 These frameworks can (in theory) now be used as a regular Weka classifier thanks to
 the `Pyro4 <https://github.com/irmen/Pyro4>`__ library which we use for exchanging data. 
-You only need to implement the Pyhton side of things for parsing the data and making use
+You only need to implement the Python side of things for parsing the data and making use
 of it (predictions and/or training). This opens up doors for models that work better on 
 certain domains, like data fusion, and still being able to integrate them with all the 
 functionality within ADAMS.
