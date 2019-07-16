@@ -1,6 +1,6 @@
 .. title: Screenshots
 .. slug: screenshots
-.. date: 2015-12-18 14:50:53 UTC+13:00
+.. date: 2019-07-17 10:43:53 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -26,9 +26,12 @@
    /galleries/screenshots/previewbrowser-default.png
    /galleries/screenshots/previewbrowser-graph.png
    /galleries/screenshots/previewbrowser-tree.png
+   /galleries/screenshots/spreadsheet_file_viewer.png
    /galleries/screenshots/spreadsheet-processor.png
+   /galleries/screenshots/sqlworkbench.png
    /galleries/screenshots/timeseries-forecast.png
    /galleries/screenshots/timeseries-input.png
    /galleries/screenshots/timeseries-setup.png
    /galleries/screenshots/spectrum_explorer.png
    /galleries/screenshots/spectral_pca.png
+   /galleries/screenshots/3way_heatmap_viewer.png
