@@ -1,0 +1,104 @@
+.. title: Updates 2019/08/02
+.. slug: updates-2019-08-02
+.. date: 2019-08-02 16:49:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+For once, there were mainly changes and additions and no fixes. In terms of
+changes, these were mainly to improve usability, but MOA has finally been updated
+to the latest release. As for additions, the ability to generate word clouds is noteworthy.
+
+**Changes**
+
+* The help dialog in the GenericObjectEditor now shows the help for the current
+  object configuration, rather than from the object with default options.
+* The *SimplePlot* and *SequencePlotter* sinks accept arrays of SequencePlotContainer 
+  objects now as well (for more efficient plotting).
+* The Flow editor now allows the following operations on all selected flows
+  to be executed at once: validate/run/stop/clear graphical output.
+  When applying actor processors to a flow that generate graphical output
+  (eg finding actors, listing variable occurrences), then these no longer show
+  up in a separate dialog but as a tab on the right hand side.
+* The *ExecuteJobs* transformer has now the ability to override the number of
+  threads used by the incoming JobRunner instance (but only if that one implements 
+  ThreadLimiter, of course).
+* The *SpreadSheetTable* (eg used by the Spreadsheet file viewer) now allows the
+  plotting of multiple rows.
+* Added the *envVarOptional* flag to the *SetVariable* standalone: if *false* it will 
+  generate an error if the env var is not present. An empty env var will now generate 
+  an error if *overrideWithEnvVar* is set to *true*.
+* Reworked the database connection dialog (from the main menu) to allow connecting to 
+  multiple databases without having to disconnect active one first. Also added buttons
+  for creating a new connection and removing an existing one.
+* Plots (like Weka's error plots, sequence plots, etc) now allow the user to copy/paste
+  the ranges between windows to align them easily.
+* *adams-moa:* MOA was upgraded to 2019.05.0 (thanks to Corey)
+* *adams-compress:* The following transformer can handle byte arrays now as well:
+  Bzip2/UnBzip2, GZIP/GUNZIP, Lzf/UnLzf, Lzma/UnLzma, Xz/UnXz, Zstd/UnZstd.
+* *adams-rabbitmq:* *BasicAuthConnectionFactory* and *GuestConnectionFactory*
+  now have an option for specifying the virtualhost on the RabbitMQ server.
+* *adams-spectral-2dim-core:* upgraded jcamp-dx dependency to 0.9.6.
+* *adams-spreadsheet:* 
+
+  * The *SpreadSheetPlotGenerator* transformer can output arrays of plot containers 
+    now as well (for more efficient plotting).
+  * The row statistics now offer an option to specify the range of columns to operate on.
+  * The popup plugins for table rows now allow the user to specify the subset of columns
+    to operate on (eg including only subset of columns in SimplePlot/JFreeChart/Histogram).
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * if the *WekaFileWriter* sink is configured to use the relation name as file 
+    name and the provided filename points to dir, then relation name is simply 
+    appended to that directory.
+  * The *InstancesTable* (eg used by the Weka Investigator) now allows plotting
+    of multiple rows.
+  * The popup plugins for table rows now allow the user to specify the subset of attributes
+    to operate on (eg including only subset of columns in SimplePlot/JFreeChart/Histogram).
+
+
+**Additions**
+
+* The *ArrayNormalizeRange* array statistic scales the values to the specified 
+  lower/upper bound.
+* The *ArrayStandardize* array statistic transforms the values to have a mean of
+  0 and a stddev of 1.
+* The conversion *StringToByteArray* turns as string into a byte array using the
+  specified encoding and the *ByteArrayToString* turns it back into a string,
+  also using the specified encoding.
+* *adams-applications:* added the *.*-exec* script to the Debian packages, which
+  allows the execution of any class or flow from the command-line.
+* *adams-ml:* added a handler in the *Preview browser* that can generate
+  actual vs predicted plots from CSV files.
+* *adams-net:* The *HttpPostFile* transformer allows you to upload a file to
+  a specified URL using HTTP POST as "multipart/form-data".
+* *adams-nlp:* added basic support for generating word clouds using the kumo 
+  library https://github.com/kennycason/kumo.
+* *adams-spreadsheet:* 
+
+  * added the *SpreadSheetSupporterToSpreadSheet* conversion which turns any 
+    object implementing SpreadSheetSupporter into a spreadsheet.
+  * The *ArrayStatistic* plugin for the InstancesTable allows you to compute
+    statistics for the selected rows.
+
+* *adams-spectral-2dim-core:* added optional cross-hair tracker, can be 
+  enabled/disabled through the plot's popup menu.
+* *adams-spectral-3way-core:* added rudimentary *FitsLibsReader* for reading
+  LIBS (https://en.wikipedia.org/wiki/Laser-induced_breakdown_spectroscopy) 
+  spectra in FITS format (https://fits.gsfc.nasa.gov/).
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The split generators *BinnedNumericClassRandomSplitGenerator* and  
+    *BinnedNumericClassCrossValidationFoldGenerator* take the class distribution 
+    into account by using a binning algorithm to generate similar distributed 
+    train/test splits. *Grouped* versions are available as well.
+  * Added the *ResidualsVsPredictor* and *ResidualsVsFitted* output generators
+    for classification to the *Weka Investigator*.
+  * The *ArrayStatistic* plugin for the InstancesTable allows you to compute
+    statistics for the selected rows.
+
