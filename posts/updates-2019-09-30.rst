@@ -1,6 +1,6 @@
 .. title: Updates 2019/09/30
 .. slug: updates-2019-09-30
-.. date: 2019-09-30 11:25:00 UTC+12:00
+.. date: 2019-09-30 11:25:00 UTC+13:00
 .. tags: 
 .. status: 
 .. category: 
