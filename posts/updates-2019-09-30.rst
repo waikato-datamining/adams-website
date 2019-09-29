@@ -1,0 +1,164 @@
+.. title: Updates 2019/09/30
+.. slug: updates-2019-09-30
+.. date: 2019-09-30 11:25:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Didn't get around to posting it last Friday, as I ran out of time.
+
+Notably are the refactoring underneath the hood, slimming down the *adams-core* module by
+moving out support for additional databases to *adams-db*, math-stuff to *adams-math*, 
+XML processing to *adams-xml*, YAML support to *adams-yaml* and JSON handling to *adams-json*.
+Furthermore, the *adams-rats* module is now a meta-module, with the actual functionality split into
+*adams-rats-core* , *adams-rats-net*, *adams-rats-rest* and *adams-rats-webservice*. This
+allows for slimmer applications, e.g., when a simple REST service is required, there is
+no need to pull in SOAP related dependencies. These changes were triggered by generating a
+smaller standalone application for the data exchange server, which is to be used in conjunction
+with RabbitMQ (DEX is used for storing the actual payloads of the RabbitMQ messages).
+
+Most HTTP-related queries are now handled using the *requests4j* library 
+(https://github.com/fracpete/requests4j).
+
+**Fixes**
+
+* The *customColumnHeaders* option of the *CsvSpreadSheetReader* now works also without 
+  having to check the *noHeader* option.
+* *adams-net:* *HttpPostFile* now uses correct CRLF in POST rather than just LF, 
+  according to specifications.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * When the *WekaFilter* transformer initializes the actual filter, the error 
+    message no longer gets discarded; it is also possible to update properties 
+    with variables that access an array of the underlying filter.
+  * The *Associate*, *Attribute selection*, *Classify* and *Cluster* tab in 
+    the *Weka Investigator* can once again get copied (deserialization of output 
+    generators was failing).
+  * The *SimpleArffLoader* now supports attribute weights, fixed instance weights handling.
+
+
+**Changes**
+
+* In the *Debug control panel*, it is now possible to hide programmatic variables in the 
+  *Variables* tab, by checking the *Show user-only vars* checkbox.
+* The *AddActorHere/After/Beneath* keyboard actions of the Flow editor now allow you to 
+  specify whether you want to edit this actor in a GOE window and if that is the case
+  whether you want to see the class tree of actors.
+* Added methods *contains(str, find)* and *replaceall(str, find, replace)* to the
+  BooleanExpression, MathematicalExpression and StringExpression parsers.
+* Report fields now allow inline editing in the GenericObjectEditor.
+* Large tables now render faster in general, by not enforcing to calulate the optimal
+  width anymore.
+* Errors/warnings encountered during loading a flow are now displayed in the notification 
+  area rather than in separate dialogs.
+* Moved markdown support from *adams-core* to *adams-html*.
+* Removed *JShell* support (not really practical).
+* Moved terminal-based application support (using lanterna) into *adams-terminal* module.
+* Moved math-related libraries and functions into *adams-math* module.
+* Moved XML, XSLT, XPath related actors and code into *adams-xml* module.
+* Moved YAML related actors and code into *adams-yaml* module.
+* *adams-rats:* split into *adams-rats-core*, *adams-rats-net*, *adams-rats-rest* and
+  *adams-rats-webservice* to be able to build more lightweight applications.
+* *adams-rsync:* upgraded rsync4j to 3.1.2-16
+* *adams-html:* 
+
+  * added requests4j library as dependency
+  * removed JSoup dependecy
+
+* *adams-net:* 
+
+  * upgraded tika-core to 1.22 to address https://nvd.nist.gov/vuln/detail/CVE-2019-10094 
+    and https://nvd.nist.gov/vuln/detail/CVE-2019-10088
+  * upgraded jsch to 0.1.55
+  * added requests4j library as dependency
+  * removed JSoup dependecy
+
+* *adams-spectral-2dim-core:* 
+
+  * The *Spectrum Explorer* now allows the user to create a new window or to duplicate the 
+    current one. It now also allows to stop the execution of the current action via 
+    *Scripts - Stop execution*.
+  * The *SpectrumPaintlet* now has the option *paintAll* to force drawing all points.
+
+* *adams-spreadsheet:* 
+
+  * the header and cell popup menu items for the spreadsheet table have been reworked to work 
+    more consistently across visible/selected rows.
+  * The *SpreadSheetColumnIterator* can now output 1-based indices instead of names and also 
+    output the items as an array rather than one-by-one.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * the header and cell popup menu items for the instances table have been reworked to work 
+    more consistently across visible/selected rows.
+  * *WekaInstancesInfo* now allows outputting the name of the class attribute via *CLASS_ATTRIBUTE_NAME*
+  * Blacklisted the ArffViewer and SqlViewer menu items.
+  * Added support for per-fold output in *Classify* tab of the *Weka Investigator*
+  * The *Weka Investigator* now allows changing attribute and instance weights.
+  * upgraded version of datasets-weights-weka-package to 2019.9.13
+  * removed cat swarm optimization support (CSO), since not working properly
+
+
+**Additions**
+
+* The Flow editor received new keyboard actions: *ActionQuickSearch* (search for available menu items 
+  or tree popup actions for current context, invoked by *Ctrl+Space*), 
+  *QuickSearchActorHere/After/Beneath* (similar to SearchActorHere/After/Beneath, but uses list rather than tree).
+* Added a simpler, faster CSV spreadsheet reader which only supports text and doubles called 
+  *FastCsvSpreadSheetReader*, which is aimed at reading very large CSV files quickly.
+* Created the *adams.core.TimeIt* class for timing code executions. Its static methods generate
+  timings for *Runnable* instances.
+* The *InformationDialog* sink allows displaying a simple message to the user.
+* With the *adams.core.option.ApplyActorProducer*, it is possible to generate Java code from actors
+  that can be incorporated as methods in other projects.
+* Allowing export of sub-flows with the *Export...* menu item available from flow tree popup menu
+  (eg generating Java code using the *ApplyActorProducer*).
+* *adams-meta:* the *SpecifiedActor* source outputs the actor identified by actor path in flow,
+  useful when storing an actor setup in a file for reference (variables can be expanded).
+* *adams-net:* 
+
+  * added *FTPDelete* and *SFTPDelete* transformers
+  * added conversions for base64 operations: *Base64ToByteArray*, *Base64ToString*,
+    *ByteArrayToBase64*, *StringToBase64*.
+
+* *adams-rabbitmq:*
+
+  * added support for a simple REST webservice that allows data exchange via tokens:
+    *adams.flow.rest.dex.DataExchange* and *adams.flow.rest.dex.DataExchangeServer*.
+  * added standalone for defining a data exchange server connection context: 
+    *DataExchangeServerConnection*.
+  * added transformers for performing upload/download/remove operations on a 
+    data exchange server: *DataExchangeServerDownload*, *DataExchangeServerRemove*, 
+    *DataExchangeServerUpload*.
+  * added (send/receive) converter for sending payloads via a data exchange server
+    (which can take advantage of a *DataExchangeServerConnection* available through 
+    the flow context):
+    *DataExchangeServerBasedConverter*.
+
+* *adams-rest:* added conversion *JsonToObject* and *ObjectToJson* for easy conversions of Java objects 
+  from/to JSON using Jackson's data-binding functionality (https://github.com/FasterXML/jackson-databind).
+* *adams-spectral-2dim-core:* 
+
+  * The *ExtractIdAndTypeSpectrumReader* spectrum reader allows you to post-process the sample 
+    ID and type using the specified ID and group extractors (eg using the filename from the report).
+  * The *Median* multi-spectrum filter computes the median from the spectral points.
+
+* *adams-spectral-3way-core:* The *ExtractIdAndTypeThreeWayDataReader* 3-way data reader
+  allows you to post-process the sample ID and type using the specified ID and group
+  extractors.
+* *adams-spreadsheet:* 
+
+  * The content of individual spreadsheet cells can now be displayed via the *View cell* 
+    menu item or with the new *Cell content* viewer tab.
+  * With the new *Column stats* tab it is possible to calculate some statistics on the
+    fly from the currently selected column and rows (default is *sum*).
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * the content of individual instances cells can now be displayed via the *View cell* menu item.
+  * added dependency for the *data-dumper-weka-package*
+
