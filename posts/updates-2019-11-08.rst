@@ -1,0 +1,112 @@
+.. title: new
+.. slug: new
+.. date: 2019-11-08 14:22:00 UTC+12:00
+.. tags: 
+.. status:
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Lots of minor changes and fixes happened over the last few weeks. But the most 
+notable one is the generation of Debian and Redhat installer packages. These
+make it easier to install ADAMS on servers or in Docker images. Also, with the
+adams-maven-plugin it is now possible to compile flows into Java code during
+the build process.
+
+**Fixes**
+
+* The use of databases other than MySQL in case the adams-db module is present now
+  uses auto-detection again for determining the backend (using the JDBC URL). This
+  avoids having to explicitly configure a *DbBackend.props* file.
+* The *LocalScopeTransformer* and *LocalScopeTrigger* actors now only clean up local
+  variables and storage data structures if not using shared resources.
+* The *forceVariables* method in the *AbstractActor* (ancestor for pretty much all actosr) 
+  no longer calls cleanUp of current Variables instance: this caused havoc when dynamically 
+  instantiating sub-flows at runtime, linking them into the existing flow to have access 
+  to variables and storage, as they could remove the outer flow's variables altogether.
+* *adams-net:* The *Base64ToString* conversion now applies the selected decoding type.
+* *adams-imaging:* 
+
+  * The *BinaryCrop* cropping algorithm now works for objects of any shape, by finding 
+    the rectangle encompassing the center object.
+  * The *NegativeRegions* transformer now sets the supplied object type.
+  * The *MinDimensions* negative regions meta-algorithm no longer removes two objects
+    at a time when logging is enabled.
+
+* *adams-json:* retrieving an array via *$.expr* no longer results in the elements
+  being forwarded one-by-one, but as a JSONArray object (JSONArray also implements 
+  the List interface, which got interpreted incorrectly; *$.expr* can return more 
+  than one value).
+* *adams-addons-all:* now has a dependency on *adams-tensorflow* as well.
+
+
+**Changes**
+
+* Flows that had errors when loading, the string " (incomplete)" is now appended to 
+  the filename, to mark them as such. Previously, the filename got lost and a simple
+  "FlowXYZ" was used.
+* The *TextFileReader* now accepts *InputStream* objects as well.
+* upgraded java-utils dependency to 0.0.3
+* upgraded commons-compress dependency to 1.19 to address CVE-2019-12402 
+  (https://nvd.nist.gov/vuln/detail/CVE-2019-12402)
+* The *PromptUser* template now allows configuring the restoration of settings as well.
+* The *adams.core.logging.FileHandler* logging output handler now makes use of the 
+  *ADAMS_LOGFILE_PREFIX* environment variable to inject a prefix into the log file
+  (eg, "console.log" becomes "testing-console.log" with "ADAMS_LOGFILE_PREFIX=testing-").
+  This allows multiple log outputs from multiple ADAMS services on the same server.
+* The *Preview browser* now offers a search panel when viewing spreadsheets and
+  no longer outputs exceptions in the console in case custom preview handlers cannot
+  be instantiated (eg when switching from one ADAMS application to another).
+* The *ImageAnnotator* transformer now maintains last selected label, window position 
+  and size between invocations.
+* *adams-json:* 
+
+  * upgraded jsonpath dependency to 2.4.0
+  * The *StringToJson* conversion how has an output type option for casting 
+    the JSON object (any, array, object).
+
+* *adams-ml:* The *ActualVsPredictedPlot* now exposes the overlays for the plot, allowing
+  to add other ones in addition to the diagonal (StraightLineOverlay), like LinearRegressionOverlay.
+* *adams-weka:* upgraded multisearch-weka-package dependency to 2019.10.4
+* *adams-weka* and *adams-weka-lts*: The *ActualVsPredictedPlot* now exposes the overlays for the plot, allowing
+  to add other ones in addition to the diagonal (StraightLineOverlay), like LinearRegressionOverlay.
+* *adams-meta:* The *FlowFileReader* now accepts *InputStream* and *Reader*
+  objects as well (must be closed separately).
+* *adams-rsync:* The *RSync* and *SimpleRSync* sources now output the output (stdout/stderr) 
+   as it occurs rather than all of it after the rsync process finishes.
+* *adams-spreadsheet:* The *SpreadSheetFileReader* now accepts *InputStream* and *Reader*
+  objects as well (must be closed separately).
+* All ADAMS applications are now available as Debian and RPM packages as well.
+
+
+**Additions**
+
+* Added support for InputStream/Reader instance generation via the 
+  *InputStreamGenerator/ReaderGenerator* sources and the *CloseInputStream/CloseReader*
+  sink. This allows loading files from the classpath, e.g., files that are packaged
+  within the jars of an application.
+* Added *BooleanToString* and *StringToBoolean* conversions.
+* With the *ForwardSlashSwitch* actor processor, it is now possible to switch all
+  *ForwardSlashSupporter* objects in one go.
+* *adams-rest:* 
+
+  * added RESTPlugin support for processing text and JSON with a callable 
+    transformer template ("pipeline"): *CallableJsonPipeline*, *CallableTextPipeline*.
+  * added RESTplugin for just calling callable transformer with JSON or text: 
+    *CallableJsonTransformer* and *CallableTextTransformer*.
+
+* *adams-maven-plugin:* a Maven plugin that allows compilation of flows into Java code
+  as part of the Maven build process.
+* *adams-spectral-2dim-core*: added the *Export spectra...* plugin to the SpreadSheet and 
+  Instances tables to allow export of selected rows as spectral files.
+* *adams-weka* and *adams-weka-lts*:
+
+  * added the conversion *MapToWekaInstance* and *WekaInstanceToMap* to provide an easy
+    way to convert Weka Instance objects to JSON and vice versa.
+  * introduced a class hierarchy for building a final model after a cross-validation run 
+    of a classifier in the Weka Investigator.
+  * added filter for extracting a range of instances from a dataset in the specified 
+    order: *KeepRange*.
+
