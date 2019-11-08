@@ -1,6 +1,6 @@
 .. title: Updates 2019/11/08
 .. slug: updates-2019-11-08
-.. date: 2019-11-08 14:22:00 UTC+12:00
+.. date: 2019-11-08 14:22:00 UTC+13:00
 .. tags: 
 .. status:
 .. category: 
