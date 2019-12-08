@@ -1,0 +1,101 @@
+.. title: Updates 2019/12/09
+.. slug: updates-2019-12-09
+.. date: 2019-12-09 11:10:00 UTC+12:00
+.. tags: 
+.. status:
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The main thing to be aware of is that workflows are now a lot stricter about variables: actors
+now check before first execution if all variables attached to them are present. The SetVariable
+actors and any actor updating storage items check every time when executed whether the
+variables attached to the variable/storage name are present.
+
+
+**Fixes**
+
+* *adams-ml:* 
+
+  * The *SimpleArffSpreadSheetWriter* now handles dates correctly. Long values get treated separately 
+    from doubles as well, to avoid loss of information (e.g., when loading Tweet IDs).
+  * The *SimpleArffSpreadSheetReader* now tests for long values as well when reading numeric attributes,
+    to avoid loss of information.
+
+* *adams-weka* and *adams-weka-lts*:
+
+  * The *SimpleArffLoader* now handles quoted attribute names correctly, unquoting them properly.
+
+
+**Changes**
+
+* In order to avoid strange behavior due to typos in variable names, the *preExecute* method of 
+  an actor now checks whether all variables used by it are valid (ie present). The check only 
+  gets executed when the *isExectuted()* methods returns false (usually the first time the 
+  actor is being executed). Since this can affect a number of flows, you can turn on lenient
+  checking by setting the environment variable *INVALID_VARIABLES_LENIENT* to *true*.
+* switched to 1.0.20 of debian-maven-plugin
+* switched to 0.1.2 of requests4j
+* The *SelectArraySubset* transformer now has buttons for selection all items, no items or
+  inverting the selection.
+* *adams-applications*: Dynamic class discovery has been turned off for applications. Instead,
+  these applications use class/package hierarchies generated at build time. You can turn on
+  dynamic class discovery again easily by adding an empty *ClassLister.class* file in the
+  classpath of the application, e.g., in the same directory that contains the *bin* sub-directory.
+* Added checks to *SetVariable* actors and relevant classes implementing
+  *StorageUpdater* (like *SetStorageValue*) that ensure that a variable attached to 
+  variable/storage name option actually exists, to avoid accidentally storing values under 
+  the default name (avoids hard to track errors).
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *Build model* of the Classify and Cluster tab in the *Weka Investigator* now
+    allows the data to be randomized beforehand.
+  * The *Train/test set*, *Train/test split*, *Train/validate/test set* and *Reevaluate model*
+    evaluation tasks in the Classify tab of the *Weka Investigator* now take advantage
+    of models supporting batch prediction.
+  * Added the "-id-test" option to the *RemoveTestInstances* Weka filter to allow differing 
+    indices between current dataset and test set (eg if the test set is just a list of IDs).
+
+
+**Additions**
+
+* added conversions for converting primitive arrays (eg float[]) to/from byte arrays (IEEE754):
+  *ByteArrayToPrimitiveArray* and *PrimitiveArrayToByteArray*.
+* Added the *adams-groovy-rest* module for writing REST plugins in Groovy.
+* The actor processor *ListActorUsage* lists all occurrences of the specified actor class.
+* Added *Actor locations* to the *Find usage* submenu in the Flow editor tree popup, listing 
+  all occurrences of the currently selected actor class.
+* *adams-imaging:*
+
+  * added reader for object locations stored in spreadsheets: *ObjectLocationsSpreadSheetReader*
+
+* *adams-ml:*
+
+  * added *GroupedTrainTestSplit*, *GroupedCrossValidation*, *TrainValidateTestSplit* and 
+    *GroupedTrainValidateTestSplit* dataset preparation schemes for the *PrepareFileBasedDataset* 
+    transformer.
+
+* *adams-spreadsheet:* 
+  
+  * Added dummy *AllFinder* for locating all columns and rows.
+
+* *adams-spectral-2dim-core:*
+
+  * The *Oscillating* outlier detector can be used to detect spectra that look like an
+    oscillating signal.
+  * The *SpectrumToArray* conversion turns either the wave numbers or the amplitudes of
+    the spectrum into a float array.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added the *LogClassRegressor* meta-classifier, which only logs the class attribute,
+    opposed to the *LogTargetRegressor* which also logs any other numeric attribute.
+  * Added dummy *AllFinder* for locating all columns and rows.
+  * The *WekaEnsembleGenerator* allows the creation of ensembles in the flow: e.g.,
+    with the *VotedModels* generator, an array for Weka classifiers can be turned into
+    a Vote meta-classifier, bypassing the training of the Vote classifier itself.
+    The *MultipleClassifiersCombinerModels* generator allows you to use any classifier
+    derived from MultipleClassifiersCombiner.
+
