@@ -557,7 +557,7 @@ REDIRECTIONS = [
 # in a `nikola deploy` command as you like.
 DEPLOY_COMMANDS = {
     'default': [
-        "rsync -rav --delete output/ --exclude mantisBT --exclude events --exclude old --exclude releases --exclude snapshots --exclude jdk --exclude cloud fracpete@adams-web.cms.waikato.ac.nz:/var/www/html",
+        "rsync -rav --delete output/ --exclude mantisBT --exclude events --exclude old --exclude releases --exclude snapshots --exclude jdk --exclude cloud --exclude javadoc --exclude actors fracpete@adams-web.cms.waikato.ac.nz:/var/www/html",
     ]
 }
 
