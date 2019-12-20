@@ -1,0 +1,60 @@
+.. title: Updates 2019/12/20
+.. slug: updates-2019-12-20
+.. date: 2019-12-20 17:08:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Last update before the Xmas break. Unfortunately, other projects got in the way and I 
+didn't quite get around to making a release. Oh well, this will happen in the new year. :-)
+
+**Fixes**
+
+* *adams-imaging:* The *CallableActorScreenshot* control actor now works properly again when 
+  just outputting a BufferedImageContainer.
+* *adams-rats:* *Rat* can have variables again that get set at runtime.
+* *adams-spreadsheet:* The *SpreadSheetReorderColumns* transformer now leaves the cell types
+  intact.
+* *adams-spectral-2dim-core:* the *exportVisibleSpectra* method of the SpectrumPanel is now 
+  more robust (accessible through the *Export visible spectra* popup menu item).
+* *adams-weka* and *adams-weka-lts*: 
+
+  * static class listing now works with the Weka class hierarchies as well.
+  * the *Copy cell* of the InstancesTable (as used in the Data tab of the Weka Investigator)
+    now copies the correct content.
+
+
+**Changes**
+
+* Renderers in the object tree view of the debug panel in the Flow editor now cache their
+  view whenever possible, to keep views more consistent between tokens.
+* *adams-spreadsheet:* The renderer for spreadsheets in the Flow debugger now only displays 
+  a maximum of 100 rows by default, with a button to display the rest if there are more.
+  This avoids very large spreadsheets to bring the system to its knees.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The renderer for Instances in the Flow debugger now only displays a maximum of 100
+    rows by default, with a button to display the rest if there are more. Speeds up
+    rendering and with that debugging.
+  * The random split action available from the data table of the *Weka Investigator* 
+    now remembers the last entered values and also allows the user to select the type 
+    of splitter to use.
+
+
+**Additions**
+
+* Added a class hierarchy for text renderers for specific object types (adams.data.textrenderer.TextRenderer).
+  These renderers can be used in the flow with the *TextRenderer* transformer. The tokens in
+  the flow now uses these to render their payloads as well, to avoid very large text outputs in
+  the flow debugger.
+* *adams-weka* and *adams-weka-lts*:
+
+  * added the *WekaSplitGenerator* for applying any available split generator, not limited to
+    splitters for random or cross-validation splits.
+  * added the *MultiLevelSplitGenerator* for splitting datasets on multiple string/nominal 
+    attributes subsequently.
+
