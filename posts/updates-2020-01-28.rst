@@ -1,0 +1,41 @@
+.. title: Updates 2020/01/28
+.. slug: updates-2020-01-28
+.. date: 2020-01-28 09:30:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Minor update post before the 20.1.1 bugfix release (which includes these changes)...
+
+**Fixes**
+
+* The enum editor in the GenericObjectEditor now allows entering multiple values as text.
+* *adams-addons-all:* The static class discovery now works properly.
+* *adams-weka* and *adams-weka-lts*: Re-enabled the residual plot plugins in the Weka Investigator.
+* *adams-imaging:* The *SelectObjects* image plugin (used for annotating images) now rejects 
+  selected objects that have either width or height equal to zero (which can occur easily when 
+  using a stylus).
+
+
+**Changes**
+
+* *Object editor:* added a button with drop-down menu to the PropertySheet panel for quick access 
+  to variable actions, rather than right-clicking on label; also functions as indicator whether 
+  variable is attached by changing color.
+* *adams-tensorflow:* switched from wai.tfrecords to wai.annotations library for generating TFRecords.
+* *adams-weka:* upgraded Weka to 3.9.4-fork-0.0.1
+* *adams-weka* and *adams-weka-lts*: The split action in the *Weka Investigator* has been generalized
+  and now allows the use of any split generator available.
+
+
+**Additions**
+
+* *adams-spectral-2dim-core:* The *ArrayToSpectrum* conversion converts a float array of amplitudes
+  back into a Spectrum object.
+* *adams-weka* and *adams-weka-lts*: Added the *Discard predictions* menu item to the result history
+  of the Classify tab in the Weka Investigator.
+

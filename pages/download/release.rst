@@ -1,6 +1,6 @@
 .. title: Release
 .. slug: release
-.. date: 2020-01-08 16:57:17 UTC+13:00
+.. date: 2020-01-28 10:57:17 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -16,6 +16,7 @@ Below are all releases of ADAMS listed. The files themselves are hosted on
 2020
 ====
 
+* `20.1.1 <link://slug/20-1-1>`_ - released 2020-01-28
 * `20.1.0 <link://slug/20-1-0>`_ - released 2020-01-08
 
 2018
