@@ -1,6 +1,6 @@
 .. title: Screenshots
 .. slug: screenshots
-.. date: 2019-07-17 10:43:53 UTC+12:00
+.. date: 2020-02-21 15:43:53 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -35,3 +35,4 @@
    /galleries/screenshots/spectrum_explorer.png
    /galleries/screenshots/spectral_pca.png
    /galleries/screenshots/3way_heatmap_viewer.png
+   /galleries/screenshots/floweditor-debugging1_inspectionpanel.png
