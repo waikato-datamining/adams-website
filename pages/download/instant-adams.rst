@@ -1,6 +1,6 @@
 .. title: Instant ADAMS
 .. slug: instant-adams
-.. date: 2020-03-02 10:00:0 UTC+13:00
+.. date: 2020-03-03 12:02:0 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -20,7 +20,7 @@ tool can be used. This command-line tool allows you to build a cross-platform AD
 application by simply specifying what modules you want to have and what version (e.g., 
 daily build or from a release).
 
-Using version 0.1.1 of the tool, the following Linux command-line generates an ADAMS application
+Using `version 0.1.2 <https://github.com/waikato-datamining/instant-adams/releases/download/instant-adams-0.1.2/instant-adams-0.1.2-spring-boot.jar>`__ of the tool, the following Linux command-line generates an ADAMS application
 that consists of the modules for Weka, Groovy and Excel (`-M`). Any modules that these ones depend
 on get automatically pulled in, i.e., you will never have to specify `adams-core`. As version,
 it uses the daily build for March 2020 (`20.3.0-SNAPSHOT`). For a release, you would use, e.g., `20.1.1`.
@@ -30,7 +30,7 @@ The command will generate start up scripts for Linux/Mac and Windows in the `bin
 
 .. code::
 
-   java -jar instant-adams-0.1.1-spring-boot.jar \
+   java -jar instant-adams-0.1.2-spring-boot.jar \
      -C \
      -M adams-weka,adams-groovy,adams-excel \
      -V 20.3.0-SNAPSHOT \
@@ -41,19 +41,19 @@ The same command for Windows:
 
 .. code::
 
-   java -jar instant-adams-0.1.1-spring-boot.jar ^
+   java -jar instant-adams-0.1.2-spring-boot.jar ^
      -C ^
      -M adams-weka,adams-groovy,adams-excel ^
      -V 20.3.0-SNAPSHOT ^
      -o .\out ^
      -v -Xmx1g
 
-This tool also allows you to generate Debian and Redhat packages, making it easy to deploy custom ADAMS 
-applications within Docker containers.
+This tool also allows you to generate Debian and Redhat packages, making it
+easy to deploy custom ADAMS applications within Docker containers.
 
 
 **Notes:** 
 
-* The command gets issued from the same directory that contains the `instant-adams-0.1.1-spring-boot.jar`
-  library.
+* The command gets issued from the same directory that contains the
+  `instant-adams-0.1.2-spring-boot.jar` library.
 * Use `-h` or `--help` to see the full list of options.
