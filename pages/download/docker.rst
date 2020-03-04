@@ -63,7 +63,7 @@ Custom images
 -------------
 
 However, these pre-built base images may not suit your needs, as they may
-be to large or lacking functionality that you need. If you want to 
+be too large or lacking functionality that you need. If you want to 
 containerize a single worker flow, then you can have a look at the
 *adamsflow2docker* library:
 
