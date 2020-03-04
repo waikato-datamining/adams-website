@@ -138,6 +138,7 @@ NAVIGATION_LINKS = {
           ("/download/release", "Release"),
           ("/download/snapshot", "Snapshot"),
           ("/download/instant-adams", "Instant ADAMS"),
+          ("/download/docker", "Docker"),
           ), "Download"),
         ((
           ("/users/users-get-started", "Get started"),
