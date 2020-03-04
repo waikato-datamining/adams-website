@@ -10,7 +10,7 @@
 
 `Docker <https://www.docker.com/>`__ is a great way of deploying applications
 for processing data, running webservices, etc., all nicely containerized.
-Java applications can be packaged with Docker as well and ADAMS is no exceptions.
+Java applications can be packaged with Docker as well and ADAMS is no exception.
 
 Pre-built images
 ----------------
