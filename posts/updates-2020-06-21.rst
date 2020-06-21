@@ -1,0 +1,136 @@
+.. title: Updates 2020/06/21
+.. slug: updates-2020-06-21
+.. date: 2020-06-21 15:10:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Over last few months, I was working mainly on image processing projects, which
+explains the large amount of imaging related additions and changes. One other
+big change was happening underneath the hood, abstracting class loading and
+deep copies, in order to get Weka package support working again (Weka's isolating 
+classloader doesn't make it easy integrating Weka in other applications).
+
+**Fixes**
+
+* Added the *ArrayRSquared* array statistic.
+* The *ConfirmationDialog* transformer no longer blocks the Flow editor window, i.e.,
+  it is now possible to stop the flow via the Flow editor's menu.
+* The control actors *CloseCallableDisplay* and *CallableActorScreenshot* now allow
+  selecting top-level *GridView* and *TabView* instances as well.
+* Validating a flow now sets all the programmatic variables (like 'flow_dir') beforehand
+  (if possible) to ensure correct execution.
+* The GOE editor for *BaseClassname* now lists all classes, including non-ADAMS 
+  and abstract ones, but excluding anonymous ones.
+* *adams-imaging:* 
+
+  * Keeping of all objects did not work properly in the *ImageObjectFilter* 
+    transformer, as indices could change due to filtering, resulting in an inconsistent 
+    mix of values in the report.
+  * Fixed the *compare with itself* comparison of the *DetermineOverlappingObjects*
+    transformer.
+  * The logging of interactions is now properly filtered by the interaction loggers 
+    used by the *ImageAnnotator*.
+  * fixed collecting of matches in *AreaRatio* and *IntersectOverUnionRatio* object
+    overlap schemes: the order of objects could leave out matches as the currently 
+    highest value was used as threshold rather than the user-supplied threshold.
+
+* *adams-weka* and *adams-weka-lts*: The R^2 now uses the same approach like R for
+  calculating the statistic.
+* *adams-ml:* The *INTERSECT* mode of *MultiOutlierDetector* now works correctly 
+  (used by RemoveOutliers control actor).
+
+
+**Changes**
+
+* The *Flow* control actor now has a *read-only* flag. When checked, it will prompt 
+  the user wether to continue with editing, just viewing or cancelling the operation
+  altogether.
+* The *ConfirmationDialog* now allows specifying a custom *cancel* token as well.
+* Upgraded *java-cup* to 11b-20160615 and switched from *exec-maven-plugin* to 
+  *parsergen-maven-plugin* for compiling java-cup/jflex parsers.
+* The *MapToVariables* transformer can suppress non-primitive objects getting
+  turned into variables with the *skipNonPrimitive* option.
+* The *SetVariable* transformer now allows forwarding the current variable value
+  instead of the input token with the *outputValue* option. Useful when constructing
+  file names on the fly via variable expansion.
+* major class instantiation overhaul to add support for Weka packages again: 
+  *adams.core.classmanager.ClassManager* and the concrete *CustomClassManager*
+  classes (ADAMS and Weka) are now responsible for instantiating a class from 
+  a classname and for generating deep copies of objects
+* The *EnterValue* source now can specify how large (cols/rows) the text box is,
+  e.g., for entering multi-line text.
+* *adams-imaging:* 
+   
+  * The *CompareObjectLocations* transformer now has the ability to 
+    forward screenshots of comparison to a queue and run in non-interactive mode.
+  * The *STARTING_WITH* option for loading associated meta-data with the 
+    *ImageFileReader* now skips all the files that have an extension that the
+    image reader itself manages.
+  * The preview handlers *ObjectLocationsFromReport* and *ObjectLocationsFromSpreadsheet*
+    can remove overlapping objects now as well.
+  * upgraded Apache's commons-imaging to 1.0-alpha1
+  * removed Apache Sanselan 
+
+* *adams-spreadsheet:* 
+
+  * The *LookUpAdd* transformer now has an optional conversion for the value 
+    being stored in the look-up table.
+  * The *SpreadSheetInfo* transformer can output the unique values across the sheet
+    now as well (*SHEET_VALUES*).
+
+* *adams-visualstats:* The *Histogram* and *ScatterDisplay* sinks can export the plot
+  data now as CSV files.
+* *adams-weka* and *adams-weka-lts*: The *WekaAttributeSelection* transformer now 
+  reduces/transforms the test set from a *WekaTrainTestSetContainer* as well (if not 
+  performing cross-valication) and stores the result in the outgoing container.
+* *adams-net:* upgraded requests4j library to 0.1.7
+* *adams-rsync:* upgraded rysnc4j library to 3.1.3-1
+* *adams-ml-app:* added *adams-nlp* module as dependency
+
+
+**Additions**
+
+* The *DirectorySupplier* source allows selecting/outputting of multiple directories, 
+  analog to the *FileSupplier* source.
+* The *FilterMap* can be used for filtering Map objects using the specified filter.
+* Added inspection handlers for java.util.Map and java.util.List to the Flow debugger.
+* The *EnterManyValues* source allows users now to select enumeration values via the
+  *EnumValueDefinition* class.
+* *adams-imaging:* 
+
+  * added the following object filters: *AttachMetaData* (attaches single meta-data 
+    key-value pair to all located objects), *MakeSquare* (turns the bounding box into
+    a square one), *RemovePolygons* (removes polygon information from objects, eg for 
+    enforcing bounding box display).
+  * The *ClipBoundingBoxes* image object filter fixes bounding boxes that *stick out of*
+    the image boundaries (or removes them completely if width/height are zero).
+  * The *TransformMetaData* image object filter allows you to pass meta-data through
+    callable actors, e.g., for cleaning up.
+  * The *RenameLabels* image object filter allows you to quickly rename labels, e.g.,
+    for collapsing multiple categories into a single one.
+  * Added *CocoAnnotationsReportReader* and *CocoAnnotationsHandler* (Preview browser),
+    which supercede their *Detectron* counter parts. The report reader is optimized for
+    speed and the Preview browser handler caches the JSON files it read (and monitors,
+    if these should change), allowing for rapid browsing of directories with lots of 
+    images and multiple JSON files.
+  * The *GrayOrIndexedColorizer* BufferedImage transformer and the *GrayOrIndexedImageHandler*
+    allow overriding the unique colors in the image with custom ones using the 
+    supplied color provider (eg when viewing PNGs used for image segmentation).
+  * The *AnnotationsAndPredictions* draw operations allows overlaying annotations 
+    and predictions using reports from storage, simplifying the combining.
+  * added support for reading PNGs as spreadsheet (eg for reading indexed PNG files)
+    using the *PNGSpreadSheetReader*.
+  * The *ImageContainerToSpreadSheet* conversion turns any image into a spreadsheet
+    of its (A)RGB values.
+  * Added the *KeepHighestMetaDataValue* scheme for removing overlapping objects
+    (eg for post-processing predictions) - used in conjunction with the 
+    *RemoveOverlappingImageObjects* transformer.
+
+* *adams-ml:* Added the *MeanAbsoluteError* outlier detector (used by the RemoveOutliers 
+  control actor).
+
