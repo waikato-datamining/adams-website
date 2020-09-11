@@ -1,0 +1,87 @@
+.. title: Updates 2020/09/11
+.. slug: updates-2020-09-11
+.. date: 2020-09-11 16:55:00 UTC+13:00
+.. tags: 
+.. status: draft
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Lately, it has been quieter than usual with the updates on the ADAMS front.
+However, that doesn't mean development has stopped. Quite the opposite. At the
+moment, most of the work goes into our `User-friendly Deep Learning <https://waikato-ufdl.github.io/>`__
+framework. It consists of a Python API backend, Python/Java API clients and
+ADAMS workflows (in additional modules outside the usual ADAMS repos).
+
+**Fixes**
+
+* The *SelectObjects* source actor now handles enums as well (couldn't 
+  instantiate them from strings if attached as variable).
+* using patched version of jide-oss now (3.6.18.1). to avoid problems under OSX
+* The *ArrayToChunks* transformer no longer misses to output the last chunk 
+  (under certain circumstances).
+* The *ExternalFlow* standalone actor now updates the programmatic variables 
+  for the external flows before executing them.
+* *adams-imaging:* The *SimpleCrop* cropping algorithm now ensures that the
+  coordinates are within the bounds of the image.
+
+
+**Changes**
+
+* The *EnterValue* source can now display vertical buttons as well when
+  presenting multiple values.
+* When using the PlainText renderer for actor annotations in the Flow
+  editor, the sub-string *TODO* will automatically switch the color to
+  RED (default is BLUE).
+* The *Convert* transformer now displays any additional information that 
+  the conversion provides as well.
+* In the Flow editor, the actor path is now displayed in the right section 
+  of the statusbar, independent of other status messages.
+* The *BooleanExpression* and *MathematicalExpression* parsers now support 
+  random number generation via rand/randint (seeded and unseeded) methods.
+* The *ExternalFlow* standalone can execute flows in headless and non-interactive 
+  modes now.
+* *adams-audio:* The *AudioPlayback* sink can playback MP3 now.
+* *adams-net:* upgraded requests4j to 0.1.9
+* *adams-imaging:* The *ImageObjectInfo* transformer now has the ability 
+  to forward the bitmap stored in the LocatedObject (if any) by using BITMAP 
+  as info type.
+* *adams-pdf:* The *PDFCreate* transformer can stop during PDF generation now
+  if the flow gets stopped - useful for large PDFs.
+* *adams-spreadsheet:* 
+
+  * The *SpreadSheetSelectSubset* transformer now allows double-clicking a 
+    single row to select it and close the dialog.i Also added option for 
+    multi-selection (default) or single-selection.
+  * The *SpreadSheetDisplay* sink now offers previews for the selected rows.
+
+
+**Additions**
+
+* The *SimpleMenu* flow template generates (vertical) button-based menu using
+  the supplied strings as captions for the buttons
+* The *FileProcessingWithProgressBar* flow template generates a Trigger with a
+  FileSystemSearch that updates the user on the progress of the files being
+  processed with a ProgressBar.
+* The *FileBrowser* sink displays a file or directory with the system's file browser.
+* The *FileValueDefinition* plugin for the *EnterManyValues* source allows better
+  control over how to select files (extensions, all files filter). The *DirectoryValueDefinition* 
+  allows customizing the title of the dialog.
+* The *HasVariableValue* boolean condition is a simple way of checking a variable
+  against a specific string value.
+* The new *Attached variables* tab in the Flow editor allows one to see all the
+  variables attached to the selected actor and their current values in a table.
+* *adams-imaging:* 
+  * The *ImageLabeler* transformer can be used for image classification labeling tasks.
+  * The following algorithms for generating negative regions have been added:
+    *MaxDimensions* (for limiting the upper size of regions), *RandomRegions* (generates 
+    randomly placed and sized regions).
+  * The *ColorCounts* BufferedImage feature generator counts the occurrences of every
+    single color in an image and outputs them alongside the hex value of the color.
+
+* *adams-audio:* The *MP3ToWave* sink converts an MP3 file to a WAV one.
+* *adams-spectral-2dim-core:* Added the *WaveNumberExpression* filter for modifying a 
+  spectrum's wave numbers via a mathematical expression.
+
