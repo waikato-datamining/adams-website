@@ -2,7 +2,7 @@
 .. slug: updates-2020-09-11
 .. date: 2020-09-11 16:55:00 UTC+13:00
 .. tags: 
-.. status: draft
+.. status:
 .. category: 
 .. link: 
 .. description: 
@@ -44,7 +44,7 @@ ADAMS workflows (in additional modules outside the usual ADAMS repos).
 * The *ExternalFlow* standalone can execute flows in headless and non-interactive 
   modes now.
 * *adams-audio:* The *AudioPlayback* sink can playback MP3 now.
-* *adams-net:* upgraded requests4j to 0.1.9
+* *adams-net:* upgraded requests4j to 0.2.0
 * *adams-imaging:* The *ImageObjectInfo* transformer now has the ability 
   to forward the bitmap stored in the LocatedObject (if any) by using BITMAP 
   as info type.
@@ -74,6 +74,7 @@ ADAMS workflows (in additional modules outside the usual ADAMS repos).
 * The new *Attached variables* tab in the Flow editor allows one to see all the
   variables attached to the selected actor and their current values in a table.
 * *adams-imaging:* 
+
   * The *ImageLabeler* transformer can be used for image classification labeling tasks.
   * The following algorithms for generating negative regions have been added:
     *MaxDimensions* (for limiting the upper size of regions), *RandomRegions* (generates 
