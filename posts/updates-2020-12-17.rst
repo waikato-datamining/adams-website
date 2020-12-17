@@ -1,0 +1,126 @@
+.. title: Updates 2020/12/17
+.. slug: updates-2020-12-17
+.. date: 2020-12-17 14:01:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Bunch of tweaks/fixes and, thanks to working on an image segmentation project, also
+quite a few additions related to image processing. The Preprocess panel in the
+Weka Investigator got more user friendly, allowing you to convert some attribute
+types as well as reordering attributes without using a filter (well, filters are 
+used behind the scene to achieve it).
+
+**Fixes**
+
+* The *debug view* of a flow with external actors is no longer displayed in a separate
+  page, but by using a splitview of the same panel (debug=top, actualflow=bottom). This
+  fixes the display problem when debugging flows with external actors.
+* The history available through the right-click menu of chooser panels for files and dirs
+  now disambigues the captions of its menu items by prefixing them with parent dir(s).
+* In the *Debug* panel of the Flow editor, once the inspection dialog has been closed, 
+  it no longer pops up when selecting another storage item.
+* The *DirectoryValueDefinition* and *FileValueDefinition* used by *EnterManyValues*
+  now apply the file chooser title option.
+* *adams-meta:* The *ProcessActor* transformer now forwards the original actor in case
+  the *ModifyingProcessor* did not actually modify the actor.
+* *adams-weka:* The PCA tab no longer changes the class attribute of the chosen dataset,
+  but works with a copy of the dataset instead.
+
+
+**Changes**
+
+* Added the rounding type *RINT* and added support for rounding at a specified decimal,
+  available in Round and MathExpression conversions/actors.
+* *adams-json:* 
+
+  * The transformers *GetJsonKeys*, *GetJsonValue* and *SetJsonValue* now accept 
+    strings (representing JSON) as input as well.
+  * The *JsonToReport* conversion now allows specifying a prefix for the field names.
+  * Upgraded gson dependency to 2.8.6
+
+* *adams-net*: Upgraded requests4j to 0.2.1
+* *adams-spreadsheet:* The *SpreadSheetSelectSubset* transformer can now preview the select
+  row(s) with a chosen preview generator.
+* *adams-scripts:* improved checks on Windows for Java executable and error messages are 
+  now more helpful (command-prompt window doesn't just disappear anymore).
+* *adams-meka*: upgraded to 1.9.3
+* *adams-ml:* The *ActualVsPredictedPlot* now allows the user to specify a custom paintlet
+  (e.g., the new MetaDataValuePaintlet).
+* *adams-weka:* 
+
+  * Classifier errors in the Weka Investigator now support using custom paintlets.
+  * Upgraded Weka to 3.9.4-fork-0.0.3 to take advantage of the ConverterFileChooser upgrades
+
+* *adams-weka-lts:*
+
+  * Upgraded Weka to 3.9.0-fork-0.0.11 to take advantage of the ConverterFileChooser upgrades
+
+* *adams-imaging:* The *PNGImageReader* now uses a color provider to replace the colors
+  of PNGs with a palette (the reader does not have access to the color palette itself, unfortunately).
+
+
+**Additions**
+
+* The *ArrayToReport* conversion turns any array into a Report object, using the array
+  index, suffix and prefix to generate field names.
+* The *MetaDataValuePaintlet* paints a meta-data value (with circle as fallback if value 
+  not present) at the position of the data point (centered).
+* Added colors providers for color blindness (8, 12, 15 and 24 colors), which can be used
+  in plots. They providers are based on palettes from http://mkweb.bcgsc.ca/colorblind/palettes.mhtml
+* The *RelativeDir* transformer turns paths into relative ones by removing the specified path prefix.
+* The *IterateFilesWithProgressBar* flow template generates a sub-flow that iterates files from a
+  directory that matched the provided regular expression. Uses a ProgressBar for providing feedback
+  to the user.
+* *adams-imaging:* 
+
+  * Added *PNGImageReader* for reading PNG images using the pngj library.
+  * Added basic support for image segmentation annotations: *ImageSegmentationFileReader*,
+    *ImageSegmentationAnnotator* and *ImageSegmentationFileWriter*. The flow
+    *adams-imaging-image_segmentation_annotation.flow* uses these actors.
+  * The *GrayOrIndexedImageWriter* image writer turns gray or ones with an indexed palette
+    into color ones using the specified color provider. Useful for making image segmentation
+    images *human-viewable*.
+  * The *ReplaceColor* BufferedImage transformer plugin allows swapping out colors in an image.
+  * The *ReplacePredominantColor* BufferedImage transformer allows replacing the dominant color
+    (e.g., the background) with another color.
+  * The *ImageObjectAnnotator* transformer supersedes the *ImageAnnotator* actor, with a more
+    flexible architecture underneath the and undo/redo support.
+  * The preview plugin *ColorDistributionHandler* displays a table with pixel counts per color 
+    for an image.
+  * With the *ImageSegmentationContainerOperation* transformer operations on segmentation
+    containers like comparing predictions with annotations are now possible.
+  * The *ObjectAnnotationsToImageSegmentationLayers* conversion generates image segmentation
+    layers from object shape annotations, using the labels of the object as layer name.
+
+* *adams-spectral-2dmin-core:* Added the filters for updating a spectrum's report based on 
+  on other report values: ConditionalReportField, ReportFieldFromStringValue, 
+  ReportFieldFromStringValueWithLookup.
+* *adams-spreadsheet:* 
+
+  * Added support for JFreeChart bar charts.
+  * Added support for reordering rows in a spreadsheet using *SpreadSheetReorderRows*.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *FromPredictions* evaluation plugin for classification (in the Weka
+    Investigator) allows you to load a spreadsheet and generate the usual outputs
+    available from a regular evaluation run.
+  * The *Scatter plot* tab in the Weka Investigator allows you to plot
+    two attributes from a dataset against each other using various paintlets.
+  * The *Reorder attributes*, *Checked to date*, *Checked to nominal* and *Checked to string* 
+    actions got added to the drop down list of actions of *Attributes* box in the Preprocess tab.
+  * The *AnyToString* filter turns any attribute into a string one.
+  * The *StringToDate* filter turns string attributes into date ones, using the specified 
+    parse format (eg "yyyy-MM-dd HH:mm:ss").
+
+* *adams-visualstats:* The *ScatterPaintletMetaDataValue* paintlet for scatter plots
+  (like PCA/PLS in Weka Investigator) allows the plotting of a meta-data value
+  as string rather than using Xs or circles (uses circle as fallback if value not present).
+
+Have a great Xmas break!
+
