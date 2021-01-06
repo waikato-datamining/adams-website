@@ -1,0 +1,43 @@
+.. title: Updates 2021/01/07
+.. slug: updates-2021-01-07
+.. date: 2021-01-07 09:35:00 UTC+13:00
+.. tags: 
+.. status:
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The new Weka release prompted an update and some other changes that occurred during the
+crazy busy period before Xmas.
+
+**Fixes**
+
+* *adams-spreadsheet:* fixed a memory leak when generating and displaying lots of spreadsheets
+  with the *SpreadSheetDisplay* sink.
+* *adams-weka* and *adams-weka-lts*: the attribute summary panel now displays min/max/mean/stdev
+  for date attributes using the attribute's date format rather than as number of milli-seconds.
+
+
+**Changes**
+
+* The *ReportFileReader* transformer can output reports as an array now.
+* Any variables in the extension option of the *ReplaceFileExtension* conversion get
+  automatically expanded now.
+* *adams-spectral-2dim-core:* The *SampleDataFileReader* can output the sample data
+  objects now as an array as well.
+* *adams-weka:* upgraded Weka to 3.9.5-fork-0.0.2
+* *adams-weka-lts:* upgraded Weka to 3.9.0-fork-0.0.12
+* *adams-meka:* upgraded to Meka 1.9.4
+
+
+**Additions**
+
+* The *Preview browser* now has additional actions for local files: open, delete, print.
+* The *CombineArrays* and *CombineCollections* sources make it easy to combine multiple
+  arrays/collections in storage to be combined into a single one.
+* The *FileNameCompare* comparator, which can be used with the *Sort* transformer,
+  compares file-like objects, using only the name-part, ignored the path altogether.
+  This allows interleaving files from multiple directories using their name alone.
+
