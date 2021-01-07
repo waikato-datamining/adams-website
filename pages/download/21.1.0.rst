@@ -47,12 +47,12 @@ Highlights
 
 Covid-19 and a bigger focus on deep learning related projects (e.g., `UFDL <https://github.com/waikato-ufdl>`__) slowed down ADAMS core development a bit this year. Some highlights:
 
-  * 15 new actors and 5 new conversions
-  * revamped interface for annotating object in images
-  * new interface for annotating images for image segmentation
-  * docker images available at: `https://hub.docker.com/u/theadamsflow <https://hub.docker.com/u/theadamsflow>`__
-  * flows can be turned into docker images: `https://adams.cms.waikato.ac.nz/download/docker/ <https://adams.cms.waikato.ac.nz/download/docker/>`__
-  * generating ADAMS applications on-the-fly with *Instant ADAMS*: `https://adams.cms.waikato.ac.nz/download/instant-adams/ <https://adams.cms.waikato.ac.nz/download/instant-adams/>`__
+* 15 new actors and 5 new conversions
+* revamped interface for annotating object in images
+* new interface for annotating images for image segmentation
+* docker images available at: `https://hub.docker.com/u/theadamsflow <https://hub.docker.com/u/theadamsflow>`__
+* flows can be turned into docker images: `https://adams.cms.waikato.ac.nz/download/docker/ <https://adams.cms.waikato.ac.nz/download/docker/>`__
+* generating ADAMS applications on-the-fly with *Instant ADAMS*: `https://adams.cms.waikato.ac.nz/download/instant-adams/ <https://adams.cms.waikato.ac.nz/download/instant-adams/>`__
 
 
 Launching ADAMS
