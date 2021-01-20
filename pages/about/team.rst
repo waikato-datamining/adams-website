@@ -25,5 +25,5 @@ Contributors
 * `Joaquin Vanschoren <https://joaquinvanschoren.github.io/home/>`__
 * `Leo Xiong (adams-imaging) <https://leoxiong.com/>`__
 * Steven Brown (adams-video)
-* Hisham Abdel Qader, developer
+* Hisham Abdel Qader
 
