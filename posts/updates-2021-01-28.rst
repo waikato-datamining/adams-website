@@ -1,0 +1,51 @@
+.. title: Updates 2021/01/28
+.. slug: updates-2021-01-28
+.. date: 2021-01-28 17:27:00 UTC+13:00
+.. tags: 
+.. status:
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Since I'll be out of the office the next few weeks, just a quick update on
+what has happened since the last post:
+
+**Fixes**
+
+* Restricted stopping is now working as expected in conjunction with 
+  *LocalScopeTransformer* and *LocalScopeTrigger*.
+* *adams-event:* The (internal) schedulers are now per flow rather than global, 
+  i.e., the same flow can be run in parallel and stopped without affecting 
+  the other instance.
+
+
+**Changes**
+
+* Switched to using Java 11 for builds, but source and target version are 
+  still Java 8 for the time being.
+* The *LineByLineTextReader* now has a -max-lines option to limit the number 
+  of lines read.
+* *adams-webservice:* upgraded Apache CXF to 3.3.9
+* *adams-excel:* upgraded Apache POI to 3.17
+* *adams-event:* updated quartz-scheduler to 2.3.2
+* *adams-imaging:* The *ObjectCentersOverlayFromReport*, *ObjectLocationsOverlayFromReport*
+  and *ObjectLocationsOverlayFromSpreadSheet* overlays (and corresponding plugins for
+  the Preview browser) now allow varying the color of the shape as well. This is
+  useful when displaying mostly one type of object in the image.
+
+
+**Additions**
+
+* The *ZipArrays* source actor allows the row-based iteration through arrays
+  of the same length that are available in storage (like Python's *zip* operation).
+* *adams-weka* and *adams-weka-lts*: added *FFT* filter (unsupervised, attribute).
+* Added *adams-matlab* module for reading/writing binary Matlab .mat files.
+* *adams-imaging:* 
+
+  * The *ApplyMask* multi-image operation applies an image mask to another image 
+    (pixels in image get set to black if mask pixel is black).
+  * The *ObjectAnnotationsMask* BufferedImage transformer applies the object
+    annotations in an image's report to the image and sets all other pixels to 
+
