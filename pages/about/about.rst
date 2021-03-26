@@ -28,7 +28,7 @@ Features
   "Machine learning/data mining","WEKA_, WEKA webservice, MOA_, MEKA_, MEKA webservice, CNTK_, parameter optimization, experiment generation on-the-fly, setup generators, time series"
   "Data processing","WEKA_, `R-Project <R_>`_, XML, XSLT, XPath, HTML, JSON"
   "Streaming","MOA_, Twitter (record/replay)"
-  "Spreadsheets","MS Excel (r/w), ODF_ (r/w), CSV (r/w), Gnumeric_ (r/w), fixed column (r/w)"
+  "Spreadsheets","MS Excel (r/w), ODF_ (r/w), CSV (r/w), Gnumeric_ (r/w), fixed column (r/w), Matlab_ (r/w)"
   "Databases","MySQL_, SQLite_, PostgreSQL_, HSQL_, MSSQL_, Sybase_, JDBC_, `MS Access <MSAccess_>`_, MongoDB_"
   "Imaging","ImageJ_, JAI_, BoofCV_, OpenIMAJ_, ImageMagick_, Gnuplot_, LIRE_, OCR (tesseract_), Barcodes (Zxing_)"
   "Graphics support","BMP, JPG, PNG, TIF, PDF, RAW (dcraw_, ufraw_)"
@@ -47,6 +47,7 @@ Features
 .. _R: http://www.r-project.org/
 .. _ODF: http://en.wikipedia.org/wiki/OpenDocument
 .. _Gnumeric: http://www.gnumeric.org/
+.. _Matlab: https://www.mathworks.com/help/pdf_doc/matlab/matfile_format.pdf
 .. _Twitter: http://twitter4j.org/
 .. _MSAccess: http://jackcess.sourceforge.net/
 .. _MySQL: http://www.mysql.com/
