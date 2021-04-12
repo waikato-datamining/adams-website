@@ -1,0 +1,81 @@
+.. title: Updates 2021/04/12
+.. slug: updates-2021-04-12
+.. date: 2021-04-12 12:21:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+More work was done on the adams-matlab moduke and on image annotation support.
+
+**Fixes**
+
+* The *SelectArraySubset* transformer now updates its JList correctly when getting
+  subsequently called, not just the first time round.
+* Very long cell values in tables (> 1000 characters) now get excluded from 
+  calculating the optimal column width to avoid slow calculation and extremely 
+  wide tables.
+* *adams-meta:* The *InactiveStandalone/Source/Transformer/Sink* actors now copy
+  the actors provided to the constructors rather than just using the reference.
+* *adams-spreadsheet:* Formulas in spreadsheets now resolve values of cell references
+  to their native value, not just trying to convert it to double.
+* *adams-weka* and *adams-weka-lts*: 
+  
+  * The *WekaAttributeSelection* transformer no longer puts the ranked order of 
+    attributes back into sorted order.
+  * Changing the attribute weights in an Instances table now gets applied to the
+    correct column when displaying the instance weights column.
+  * Exporting the output to PDF no longer duplicates the content of text files
+    (due to two exporters available).
+  * The *Data generator* source in the Weka Investigator works again.
+  * String and relational values no longer get rendered as HTML as this turned
+    out to be too slow when displaying a table.
+
+
+**Changes**
+
+* *adams-weka:* upgraded multisearch-weka-package to 2021.2.17
+* *adams-spreadsheet:* deprecated SpreadSheetCommonIDs, SpreadSheetDifference in favor of MultiSpreadSheetOperation
+* *adams-timeseries:* upgraded timeseriesForecasting Weka package to 1.1.27
+* *adams-matlab:* the *Mat5SpreadSheetReader* can now retrieve arrays from struct objects as well
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Attribute weights now get displayed in the header row when showing weights.
+  * The *Revert* action in the Weka Investigator now monitors files for changes (last modified timestamp)
+    and gets enabled when either the file on disk got changed or it has been modified in the
+    Investigator itself.
+  * The *SimpleArffLoader* and *SimpleArffSaver* now allow the user to specify the file encoding.
+
+
+**Additions**
+
+* The *MapToStorageValues* transformer transfers a map object into internal storage.
+* *adams-imaging:* 
+  
+  * The *ConfusionMatrix* plugin for the *ImageSegmentationContainerOperation*
+    transformer generates a confusion matrix of the annotated pixels versus predicted ones
+    and the *CountPixels* one simply outputs a spreasdheet with counts per layer (of non-black pixels).
+  * The *IndexedPNGImageHandler* for the Preview browser allows overriding the colors of 
+    PNG files that use an indexed color palette, e.g., when output by image segmentation
+    models.
+  * The *BlueChannelImageHandler* (using the new *BlueChannelColorizer* image transformer 
+    under the hood), interprets the values in the blue channel of an image as color indices
+    and applies the colors from the supplied color provider accordingly.
+
+* *adams-spreadsheet:* added the *MultiSpreadSheetOperation* transformer which applies the
+  specified operation to the incoming spreadsheet array (CommonIDs, Sum, Difference, Merge).
+* The *HasProperty* boolean condition can be used to check whether objects have a certain 
+  property name, e.g., when updating object values via the UpdateProperty transformer.
+* *adams-matlab:* 
+
+  * The *MatlabStructToMap* conversion turns a Matlab struct object into a map (field/array relation).
+  * The *IsMatlabStruct* boolean condition checks whether the token represents a Matlab struct object.
+  * The *MatlabStructInfo* transformer allows outputting information on a Matlab struct object.
+  * With the flow *adams-matlab-inspect_file.flow* you can inspect .mat files interactively.
+
+* *adams-weka* and *adams-weka-lts*: The *Text directory* source in the Weka Investigator 
+  allows the loading of directories with plain text documents as datasets.
+
