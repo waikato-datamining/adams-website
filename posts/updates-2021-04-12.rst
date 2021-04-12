@@ -9,7 +9,7 @@
 .. type: text
 .. author: FracPete
 
-More work was done on the adams-matlab moduke and on image annotation support.
+More work was done on the adams-matlab module and on image annotation support.
 
 **Fixes**
 
