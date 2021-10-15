@@ -20,9 +20,6 @@ stage and without a user interface for the time being.
 
 **Fixes**
 
-* *adams-compress:* Addded the boolean conditions for byte arrays to check for
-  compression formats: IsBzip2Compressed, IsGzipCompressed, IsRarCompressed,
-  IsXzCompressed, IsZipCompressed, IsZstCompressed.
 * *adams-spreadsheet:* 
 
   * The *FixedTabularSpreadSheetReader* no longer skips the first line.
@@ -71,6 +68,9 @@ stage and without a user interface for the time being.
 * Added the *ArraySubsetGeneration* transformer which has its own plugin
   hierarchy.
 * Added the *adams-db-mysql8* module for accessing MySQL 8 servers
+* *adams-compress:* Addded the boolean conditions for byte arrays to check for
+  compression formats: IsBzip2Compressed, IsGzipCompressed, IsRarCompressed,
+  IsXzCompressed, IsZipCompressed, IsZstCompressed.
 * *adams-spreadsheet:*
 
   * Added column finder *ByExactName*.
