@@ -6,3 +6,5 @@ new.rst
 *.pyc
 cache/
 output/
+venv/
+plugins/
