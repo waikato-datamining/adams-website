@@ -1,0 +1,112 @@
+.. title: Updates 2021-10-15
+.. slug: updates-2021-10-15
+.. date: 2021-10-15 14:00:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+This time, it took a bit longer compiling this list of updates. First the 2-year old 
+SSD in my laptop died and then parts of NZ went in and out of COVID-19 lockdown several 
+times. And not to forget, I've been busy working remotely on a bunch of projects, with 
+quite a bit more Python/Docker these days. As an aside, I laid the foundations for a 
+Python-based and ADAMS-inspired workflow engine called *shallowflow* 
+(https://github.com/waikato-datamining/shallowflow). But that is still at a very early 
+stage and without a user interface for the time being.
+
+
+**Fixes**
+
+* *adams-compress:* Addded the boolean conditions for byte arrays to check for
+  compression formats: IsBzip2Compressed, IsGzipCompressed, IsRarCompressed,
+  IsXzCompressed, IsZipCompressed, IsZstCompressed.
+* *adams-spreadsheet:* 
+
+  * The *FixedTabularSpreadSheetReader* no longer skips the first line.
+  * Formulas now work with Long values as well, not just Double values.
+
+
+**Changes**
+
+* *ArraySubset* is now superseded by the more flexible *ArraySubsetGeneration*
+  transformer.
+* The *Preview browser* now has support for favorite content handlers, which allows
+  one to quickly switch between different views for the same file.
+* *adams-meka:* Upgraded Meka to 3.9.5
+* *adams-r:* Upgraded RSyntaxArea to 3.1.2
+* *adams-pdf:* Upgraded pdfbox to 2.0.24
+* *adams-jython*: Upgraded Jython to 2.7.2
+* *adams-rsync*: Upgraded rsync4j to 3.2.3-7
+* *adams-weka* and *adams-weka-lts*: Upgraded xgboost4j to xgboost4j_2.12/1.4.1
+* *adams-spectral-2dim-core:* *KennardStone* now has an *invert* flag
+* *adams-weka* and *adams-weka-lts*:
+
+  * *KennardStone* unsupervised instance filter now has an *invert* flag
+  * The *SavitzkyGolay* and *SavitzkyGolay* filters now have a *-keep-attribute-names* 
+    flag.
+  * When selecting multiple attributes in the *Weka Investigator's* Preprocess panel,
+    the Attribute summary and visualization sections now show the data for each
+    selected attribute, not just one.
+  * Entries in the history panels of the *Weka Investigator* can be renamed now.
+
+* The obsolete modules *adams-cntk*, *adams-cntk-weka* and *adams-cntk-weka-lts* 
+  have been removed.
+* *adams-spreadsheet:* added more string functions to the *LookUpUpdate* parser: 
+  substr, left, mid, right, rept, concatenate, lower[case], upper[case], trim, 
+  matches, len[gth], find, contains, replace, replaceall, substitute, str
+
+
+**Additions**
+
+* Added a generic framework for generating indexed splits runs from datasets,
+  with concrete implementations for data structures (spreadsheets, Weka Instances).
+  This framework allows to generate splits from datasets, like cross-validation
+  or grouped cross-validation, but not the actual data, only the row indices.
+  That way model performances from different frameworks can be compared directly.
+* Added *MultiMapOperation* transformer, which allows operations such as:
+  CommonKeys and Merge.
+* Added the *ArraySubsetGeneration* transformer which has its own plugin
+  hierarchy.
+* Added the *adams-db-mysql8* module for accessing MySQL 8 servers
+* *adams-spreadsheet:*
+
+  * Added column finder *ByExactName*.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added *Detrend* unsupervised attribute filter (Mean, RangeBased).
+  * Add the *AverageSilhouetteCoefficient* and *MultiClustererPostProcessor* 
+    clusterer post-processors.
+  * Added attribute finder *ByExactName*.
+  * Added unsupervised attribute filter *MultiplicativeScatterCorrection*.
+  * The *Weka Investigator* can now generate and apply indexed splits.
+  * The *WekaCrossValidationEvaluator* transformer now cleans up internal
+    data structures after finishing to conserve memory.
+
+* *adams-ml:* Add the *MeanAbsoluteError* summary statistic plugin.
+* *adams-spectral-2dim-core:* 
+
+  * added *Detrend* spectrum filter (Mean, RangeBased).
+  * added the *SpectrumPaintletNumericField* paintlet that uses a numeric field 
+    in the report that stores the color index of a color gradient generator.
+  * added the *SpectrumPaintletStringField* paintlet that uses string extracted
+    via regexp from a string field to determine color from color provider.
+  * added the *UnscramblerSpectrumReader* for Unscrambler files.
+  * The *Evaluator* transformer now has an option to discard the evaluator instance
+    after training (e.g., when only wanting to output a trained instance).
+
+* *adams-r:* added better support for R using Renjin (https://renjin.org/).
+* *adams-redis:* new module with some basic support for the Redis in-memory database.
+* *adams-rats-redis:* new module with some basic support for the Redis in-memory database.
+* *adams-imaging:* 
+
+  * Added *OpexObjectLocationsReader* and *OpexObjectLocationsWriter* for
+    reading the opex JSON object annotations (https://github.com/WaikatoLink2020/objdet-predictions-exchange-format).
+  * Added *PascalVOCObjectLocationsReader* for reading Pascal VOC XML annotations.
+
+* *adams-tensorflow:* Added the plugin *TfliteModelMakerCSV* for generating file-based
+  datasets.
+
