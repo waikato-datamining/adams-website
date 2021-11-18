@@ -25,25 +25,24 @@ Features
 .. csv-table::
   :header: "Feature","Available"
 
-  "Machine learning/data mining","WEKA_, WEKA webservice, MOA_, MEKA_, MEKA webservice, CNTK_, parameter optimization, experiment generation on-the-fly, setup generators, time series"
+  "Machine learning/data mining","WEKA_, MOA_, MEKA_, parameter optimization, experiment generation on-the-fly, setup generators, time series"
   "Data processing","WEKA_, `R-Project <R_>`_, XML, XSLT, XPath, HTML, JSON"
   "Streaming","MOA_, Twitter (record/replay)"
   "Spreadsheets","MS Excel (r/w), ODF_ (r/w), CSV (r/w), Gnumeric_ (r/w), fixed column (r/w), Matlab_ (r/w)"
-  "Databases","MySQL_, SQLite_, PostgreSQL_, HSQL_, MSSQL_, Sybase_, JDBC_, `MS Access <MSAccess_>`_, MongoDB_"
-  "Imaging","ImageJ_, JAI_, BoofCV_, OpenIMAJ_, ImageMagick_, Gnuplot_, LIRE_, OCR (tesseract_), Barcodes (Zxing_)"
-  "Graphics support","BMP, JPG, PNG, TIF, PDF, RAW (dcraw_, ufraw_)"
+  "Databases","MySQL_, SQLite_, PostgreSQL_, HSQL_, MSSQL_, Sybase_, JDBC_, `MS Access <MSAccess_>`_"
+  "Imaging","JAI_, BoofCV_, Gnuplot_, LIRE_, OCR (tesseract_), Barcodes (Zxing_)"
+  "Graphics support","BMP, JPG, PNG, TIF, PDF"
   "Audio","WAV, record, playback, spectrograms"
   "Spectral data","AniML, CAL, CML, DPT, EEM, JCampDX, MPS, NIR, Opus, Relab, SPA, SPC, SpecLib, spreadsheet-based"
   "Visualization","Scatter and line plots, Control charts, Images, video, webcams, GIS (OpenStreetMap_)"
   "Scripting","Groovy_, Jython_, Python_"
-  "Documentation","DocBook_, HTML"
+  "Documentation","HTML"
   "Web","HTTP, FTP, SFTP, SSH, Email, `Webservices <CXF_>`_, rsync_"
   "Other","de/-compression (tar, zip, bzip2, gzip, lzma, xz, zstd), Java code generation"
 
 .. _WEKA: http://www.cs.waikato.ac.nz/ml/weka/ 
 .. _MOA: http://moa.cms.waikato.ac.nz/
 .. _MEKA: http://meka.sourceforge.net/
-.. _CNTK: https://cntk.ai/
 .. _R: http://www.r-project.org/
 .. _ODF: http://en.wikipedia.org/wiki/OpenDocument
 .. _Gnumeric: http://www.gnumeric.org/
@@ -57,23 +56,16 @@ Features
 .. _Sybase: https://en.wikipedia.org/wiki/Adaptive_Server_Enterprise
 .. _SQLite: https://sqlite.org/
 .. _JDBC: https://en.wikipedia.org/wiki/Java_Database_Connectivity
-.. _MongoDB: https://www.mongodb.com/
-.. _ImageJ: http://imagej.nih.gov/ij/
 .. _JAI: http://en.wikipedia.org/wiki/Java_Advanced_Imaging
 .. _BoofCV: http://boofcv.org/
-.. _ImageMagick: http://www.imagemagick.org/
-.. _OpenIMAJ: http://openimaj.org/
 .. _Gnuplot: http://gnuplot.info/
 .. _LIRE: http://code.google.com/p/lire/
 .. _tesseract: https://code.google.com/p/tesseract-ocr/
 .. _Zxing: https://github.com/zxing/zxing
-.. _dcraw: http://www.cybercom.net/~dcoffin/dcraw/
-.. _ufraw: http://ufraw.sourceforge.net/index.html
 .. _OpenStreetMap: http://www.openstreetmap.org/
 .. _Groovy: http://groovy.codehaus.org/
 .. _Jython: http://jython.org/
 .. _Python: http://python.org/
-.. _DocBook: http://www.docbook.org/
 .. _CXF: http://cxf.apache.org/
 .. _rsync: https://github.com/fracpete/rsync4j
 
