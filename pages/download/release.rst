@@ -16,6 +16,7 @@ Below are all releases of ADAMS listed. The files themselves are hosted on
 2021
 ====
 
+* `21.12.0 <link://slug/21-12-0>`_ - released 2021-12-02
 * `21.1.0 <link://slug/21-1-0>`_ - released 2021-01-07
 
 2020

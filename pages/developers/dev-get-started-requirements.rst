@@ -10,7 +10,7 @@
 
 The requirements for ADAMS are as follows:
 
-* Java_ 1.8+
+* Java_ 1.8+ (Java 11 recommended)
 * Maven_ 3.0+
 * TexLive_ 2010+ for compiling the LaTeX manuals (use MacTex_ for Mac OSX)
 

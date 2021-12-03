@@ -16,7 +16,7 @@
         <h1>Welcome to ADAMS!</h1>
         <br/>
         <p>The Advanced Data mining And Machine learning System (ADAMS) is a flexible workflow engine aimed at quickly building and maintaining data-driven, reactive workflows, easily integrated into business processes, released under <a href="http://www.gnu.org/licenses/gpl-3.0.txt" target="_blank">GPLv3</a>.</p>
-        <div style="float: left; "><p>Current version: <a href="/download/21-1-0/">21.1.0</a> (January 7, 2021)</p></div>
+        <div style="float: left; "><p>Current version: <a href="/download/21-12-0/">21.12.0</a> (December 2, 2021)</p></div>
         <div style="float: right; ">
           <a href="https://twitter.com/TheAdamsFlow" target="_blank"><img src="/images/twitter.png" height="32"/></a>
           <span style="padding: 15px"/>
@@ -43,7 +43,7 @@
         <!-- Download -->
         <div class="col-md-6">
           <h2>Download</h2>
-          <p>Written in Java, ADAMS runs on any platform that supports <a href="http://www.oracle.com/technetwork/java/javase/" target="_blank">Java 1.8+</a> 64-bit. Download, unzip and off you go! You can either download a <strong>release</strong> (usually considered stable) or a <strong>snapshot</strong> (if you want to get the latest updates). You can also generate your own custom, <strong>instant ADAMS</strong> application.</p>
+          <p>Written in Java, ADAMS runs on any platform that supports <a href="http://www.oracle.com/technetwork/java/javase/" target="_blank">Java 11+</a> 64-bit. Download, unzip and off you go! You can either download a <strong>release</strong> (usually considered stable) or a <strong>snapshot</strong> (if you want to get the latest updates). You can also generate your own custom, <strong>instant ADAMS</strong> application.</p>
           <p><a class="btn btn-default" href="/download/release" role="button">Release »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/snapshot" role="button">Snapshot »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/instant-adams" role="button">Instant »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/docker" role="button">Docker »</a></p>
         </div>
         <!-- Get started -->
