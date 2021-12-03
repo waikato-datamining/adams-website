@@ -1,0 +1,90 @@
+.. title: Updates 2021/12/02
+.. slug: updates-2021-12-02
+.. date: 2021-12-02 15:54:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The lead up to the Weka Conference on November 26th (https://events.waikato.ac.nz/events/2021-international-weka-user-conference/) 
+resulted in a lot of minor bug fixes and improvements. I've also started retiring some
+of the modules that are no longer being used/useful.
+
+
+**Fixes**
+
+* Fixed issue of the Flow editor locking up (occasionally) when debugging flows; 
+  the cause was a race condition of two debugging control panels getting generated, 
+  with the incorrect one replacing the other one.
+* Fixed duplicate class cache initialization, resulting in faster start-up time.
+* Position and size of applications launched from main menu now get properly 
+  recorded when closing the applications.
+* Reduced startup time of applications that use file choosers, avoiding unnecessary
+  clipboard lookups.
+* *adams-imaging:* 
+
+  * The object annotator now uses the correct zoom when initially displaying the image.
+  * Image segmentation annotation no longer has the *darkening* bug when adding layers.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Convert to Date/Nominal/String in the *Weka Investigator's* Preprocess panel 
+    now works with numeric attribute names as well.
+  * The *SimpleArffSaver* and *SpreadSheetSaver* converters no longer use
+    resetOptions() to initialize their options with default values.
+  * The *WekaCrossValidationEvaluator* now stops execution properly and cleans up 
+    without causing NullPointerException.
+
+
+**Changes**
+
+* moved discontinued modules into *adams-discontinued* repo 
+  (https://github.com/waikato-datamining/adams-discontinued):
+
+  * adams-cntk
+  * adams-cntk-weka
+  * adams-image-webservice
+  * adams-imaging-imagemagick
+  * adams-imaging-opemimaj
+  * adams-jooq
+  * adams-meka-webservice
+  * adams-mongodb
+  * adams-weka-nd4j
+  * adams-weka-nd4j-lts
+  * adams-weka-webservice
+
+* The GenericObjectEditor now displays the help within the same dialog/frame to 
+  avoid help window disappearing behind other windows when opened from a modal
+  dialog/frame. The drop-down button/menu next to the classname now has a 
+  *Use default* menu which reverts the current settings back to the default ones.
+* *adams-webservice:* upgraded CXF to 3.4.5, xercesimpl to 2.12.1, jaxb to 3.0.2
+* *adams-bootstrapp:* upgraded bootstrapp to 0.1.11
+* *adams-net:* upgraded tika-core to 1.27, requests4j to 0.2.2
+* *adams-moa:* upgraded MOA to 2021.07.0
+* *adams-core:* 
+
+  * upgraded jclasslocator to 0.0.19
+  * jfilechooser-bookmarks updated to 0.1.8 for better clipboard handling
+  * removed DocBookProducer for generating DocBook XML from setups (not feasible for large flows)
+
+* *adams-weka* and *adams-weka-lts*: The *WekaPredictionsToInstances* and
+  *WekaPredictionsToSpreadSheet* transformers now handle attribute names in the 
+  test attributes option.
+
+* *adams-redis* and *adams-rats-redis*: switched to the lettuce.io Redis Java client
+
+
+**Additions**
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *LeaveOneOutByValueGenerator* split generator generates pairs using the unique 
+    values from a specified attribute, with each unique value being in the test set and 
+    the remainder in the training set.
+  * The *MultiRowProcessor* instance filter identifies rows with a row selection scheme
+    and then processes them with a row processing scheme, e.g., for averaging multiple
+    scans of the sample.
+
