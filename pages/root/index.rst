@@ -43,7 +43,7 @@
         <!-- Download -->
         <div class="col-md-6">
           <h2>Download</h2>
-          <p>Written in Java, ADAMS runs on any platform that supports <a href="http://www.oracle.com/technetwork/java/javase/" target="_blank">Java 11+</a> 64-bit. Download, unzip and off you go! You can either download a <strong>release</strong> (usually considered stable) or a <strong>snapshot</strong> (if you want to get the latest updates). You can also generate your own custom, <strong>instant ADAMS</strong> application.</p>
+          <p>Written in Java, ADAMS runs on any platform that supports <a href="https://adoptopenjdk.net/" target="_blank">Java 11+</a> 64-bit. Download, unzip and off you go! You can either download a <strong>release</strong> (usually considered stable) or a <strong>snapshot</strong> (if you want to get the latest updates). You can also generate your own custom, <strong>instant ADAMS</strong> application.</p>
           <p><a class="btn btn-default" href="/download/release" role="button">Release »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/snapshot" role="button">Snapshot »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/instant-adams" role="button">Instant »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/docker" role="button">Docker »</a></p>
         </div>
         <!-- Get started -->
