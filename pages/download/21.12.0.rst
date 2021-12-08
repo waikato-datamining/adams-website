@@ -1,6 +1,6 @@
 .. title: 21.12.0
 .. slug: 21-12-0
-.. date: 2021-12-03 15:30:00 UTC+13:00
+.. date: 2021-12-09 09:35:00 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -15,6 +15,8 @@ Downloads
 * **adams-addons-all** -- contains all basic modules and addons modules (`zip <zip_addons_>`__, `deb <deb_addons_>`__, `rpm <rpm_addons_>`__)
 * **adams-ml-app** -- contains machine learning, scripting and spreadsheet 
   modules (`zip <zip_mlapp_>`__, `deb <deb_mlapp_>`__, `rpm <rpm_mlapp_>`__)
+* **adams-annotator** -- contains modules for image/video processing, image annotating, PDF handling, scripting, Weka support and spreadsheet 
+  modules (`zip <zip_annotator_>`__, `deb <deb_annotator_>`__, `rpm <rpm_annotator_>`__)
 * **adams-spectral-app** -- contains module for handling spectra (2-dimensional spectra
   like NIR, MIR, XRF and 3-way data like EEM fluorescence spectra) spreadsheet modules 
   and Weka module (`zip <zip_spectralapp_>`__, `deb <deb_spectralapp_>`__, `rpm <rpm_spectralapp_>`__)
@@ -35,6 +37,9 @@ Downloads
 .. _zip_mlapp: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-ml-app-21.12.0-bin.zip/download
 .. _deb_mlapp: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-ml-app_21.12.0-1_all.deb/download
 .. _rpm_mlapp: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-ml-app-21.12.0-1.noarch.rpm/download
+.. _zip_annotator: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-annotator-21.12.0-bin.zip/download
+.. _deb_annotator: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-annotator_21.12.0-1_all.deb/download
+.. _rpm_annotator: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-annotator-21.12.0-1.noarch.rpm/download
 .. _zip_spectralapp: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-spectral-app-21.12.0-bin.zip/download
 .. _deb_spectralapp: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-spectral-app_21.12.0-1_all.deb/download
 .. _rpm_spectralapp: https://sourceforge.net/projects/theadamsflow/files/21.12.0/adams-spectral-app-21.12.0-1.noarch.rpm/download
