@@ -8,3 +8,5 @@ cache/
 output/
 venv/
 plugins/
+.idea/
+*.iml
