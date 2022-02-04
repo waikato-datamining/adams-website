@@ -1,0 +1,51 @@
+.. title: Updates 2022/02/04
+.. slug: updates-2022-02-04
+.. date: 2022-02-04 15:54:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of effort was going on behind the scenes to update or remove dependencies that were 
+affected by to the `log4j <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228>`__
+vulnerability.
+
+**Fixes**
+
+* The *Preview browser* now has an upper limit (defined in its props file) for how
+  many previews will get cached, to avoid unnecessary memory being gobbeled up.
+* Leaving files in the GenericObjectEditor now falls back on "." (or the current working directory)
+  rather than resulting in a parse error.
+* *adams-imaging:* The following plugins of the *RemoveOverlappingImageObjects* transformer
+  no longer add duplicate objects to the result under certain circumstances: 
+  KeepHighestMetaDataValue, RemoveLargerRectangle, RemoveSmallerRectangle.
+* *adams-ml*: The SimpleArffSpreadSheetReader/Writer now correctly quote/unquote attribute names.
+
+
+**Changes**
+
+* *adams-core* and *adams-maven-plugin*: updated logback-core/logback-classic to 1.2.10 (to address log4j)
+* *adams-compress:* upgraded junrar to 7.4.1 to address https://github.com/advisories/GHSA-m6cj-93v6-cvr5
+* *adams-excel*: removed unused openxml4j dependency to avoid old version of log4j being pulled in
+* *adams-imaging:* the *ImageSegmentationAnnotator* now allows the application of filters to the layers (as a whole)
+* *adams-rest*: updated jackson-databind from 2.9.8 to 2.9.10.8
+* *adams-spectral-3way-core*: upgraded multiway-algorithms to 0.0.9
+* *adams-spreadsheet:* added *COLUMN_VALUES* which returns all cell values in verbatim order.
+* *adams-video:* removed unused org.openimaj:video-processing dependency as it pulls in old version of log4j
+* *adams-weka:* updated Weka to 3.9.6-fork-0.0.1
+* *adams-xml:* updated xstream to 1.4.19 to address https://x-stream.github.io/CVE-2021-43859.html
+
+
+**Additions**
+
+* *adams-imaging:* 
+
+  * The *Size* object finder allows filtering by size (width, height or both) using lower and upper bounds.
+  * Added I/O support for the YOLO object annotation format (YoloAnnotationsReportReader, 
+    YoloAnnotationsReportWriter) and in the preview browser (YoloAnnotationsHandler).
+  * Added the *AddDefaultLabel* object filter, which sets a default label for annotations if
+    currently none set (to be used with ImageObjectFilter transformer).
+
