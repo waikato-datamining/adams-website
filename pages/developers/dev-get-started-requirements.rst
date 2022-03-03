@@ -1,6 +1,6 @@
 .. title: Get Started - Requirements
 .. slug: dev-get-started-requirements
-.. date: 2022-03-04 10:03:00 UTC+12:00
+.. date: 2022-03-04 10:03:00 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
