@@ -1,6 +1,6 @@
 .. title: Get Started - Source code
 .. slug: dev-get-started-sourcecode
-.. date: 2022-03-04 10:03:00 UTC+13:00
+.. date: 2022-03-04 10:13:00 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -14,11 +14,11 @@
 Obtaining the source code
 =========================
 
-The ADAMS source code is hosted in the following github repository:
+The ADAMS source code is available from repositories hosted here:
 
-`https://github.com/waikato-datamining/adams-base <base_>`_
+`https://github.com/waikato-datamining <https://github.com/waikato-datamining>`__
 
-You can check out the code ("trunk") in the console with the following command:
+You can check out the code of the **base** modules in the console with the following command:
 
 .. code:: bash
 
