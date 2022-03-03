@@ -1,6 +1,6 @@
 .. title: Get Started - Source code
 .. slug: dev-get-started-sourcecode
-.. date: 2015-12-18 14:46:52 UTC+13:00
+.. date: 2022-03-04 10:03:00 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -33,10 +33,6 @@ Further modules are available:
 * **addons** (less common used):
 
   `https://github.com/waikato-datamining/adams-addons <addons_>`_
-
-* **incubator** (experimental):
-
-  `https://github.com/waikato-datamining/adams-incubator <incubator_>`_
 
 * **spectral-base** (spectral data processing):
 
@@ -154,7 +150,6 @@ tag to your ``settings.xml`` file and replace the ``USER`` and
 
 .. _base: https://github.com/waikato-datamining/adams-base
 .. _addons: https://github.com/waikato-datamining/adams-addons
-.. _incubator: https://github.com/waikato-datamining/adams-incubator
 .. _spectral-base: https://github.com/waikato-datamining/adams-spectral-base
 .. _applications: https://github.com/waikato-datamining/adams-applications
 .. _libraries: https://github.com/waikato-datamining/adams-libraries
