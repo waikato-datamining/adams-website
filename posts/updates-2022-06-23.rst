@@ -1,0 +1,101 @@
+.. title: Updates 2022/06/23
+.. slug: updates-2022-06-23
+.. date: 2022-06-23 16:29:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+It's been quiet for too long in terms of updates... A lot of little things have happened, with
+dependencies getting upgraded to address security issues, a lot of things happening in the
+image annotation space, support for JDBC BLOB/CLOB reading/writing and handlers for the Preview
+browser for audio files.
+
+**Fixes**
+
+* The *Pull up* operation in the Flow editor now ensures that the actor names in the parent node
+  are unique.
+* *adams-weka* and *adams-weka-lts*: The XGBoost classifier now handles classification properly, 
+  improved speed at prediction time.
+* *adams-imaging:* 
+
+  * *IndividualImageSegmentationLayerReader* now reads layers as ARGB rather than RGB.
+  * *IndividualImageSegmentationLayerWriter* now writes proper binary PNG files for the individual layers.
+  * The *BlueChannelImageSegmentationWriter* no longer overwrites the JPG base image.
+  * The *Eraser* image segmentation tool now works properly when zoomed in or out.
+  * The *ImageSegmentationContainer* can be copied now, due to implementing its own getClone() method to
+    handle BufferedImage objects properly (can't be serialized).
+
+
+**Changes**
+
+* The GenericObjectEditor now displays options and help in two separate tabs rather than a split pane,
+  which previously could make it look too squashed. Resizing its window when switching classes has 
+  also been minimized.
+* The *ReportField* transformer is now derived from AbstractArrayProvider and can output the fields as array.
+* *adams-compress:* upgraded zip4j to 2.9.1
+* *adams-imaging:* 
+
+  * upgraded metadata-extractor to 2.17.0 (CVE-2022-24613, CVE-2022-24613, CVE-2022-24614)
+  * The *ImageObjectAnnotator* now offers annotation checks to ensure that only valid annotations 
+    can be accepted.
+  * The preview browser handlers *BlueChannelImageHandler*, *GrayOrIndexedImageHandler* and *TrimapImageHandler* 
+    allow the user now to select an image reader.
+  * The *ImageSegmentationContainerFilter* transformer now implements *InPlaceProcessing* and creates a copy of
+    the container by default.
+
+* *adams-net:*
+  
+  * The *SMTPConnection* standalone now allows the specification of the protocols to use (eg TLSv1.2).
+  * The *Email* preferences now allow user to specify SMTP protocols to use.
+  * Upgraded javax.mail to 1.5.6
+  * Upgraded commons-mail to 1.5
+  * Upgraded commons-net to 3.8.0
+
+* *adams-meka:* Upgraded Meka to 1.9.6
+* *adams-pdf:* Upgraded itextpdf to 5.5.13.3
+* *adams-rest:* Upgraded jackson-databind to 2.13.2.1 to address CVE-2020-36518
+* *adams-rsync:* Upgraded rsync4j to 3.2.3-9
+* *adams-weka* and *adams-weka-lts*: upgraded xgboost4j to 1.5.2
+
+
+**Additions**
+
+* The tree popup menu in the *Flow editor* now has a sub menu for adding the most common actors
+  based on the user's usage.
+* The *FromFileHandler* Preview browser handler simply points to a text file containing a setup
+  (command-line or nested format) of the actual preview handler to use. Useful for maintaining
+  and sharing a range of preview setups.
+* The *ByteArrayToJavaObject* and *JavaObjectToByteArray* allow deserializing/serializing
+  arbitrary objects from/to byte arrays.
+* The *LargeObjectDbReader* source and the *LargeObjectDbWriter* sink allow reading/writing of 
+  BLOB/CLOB entities.
+* *adams-imaging:* 
+
+  * Added the *LocatedObjectsToReport* conversion, which turns arrays of image objects back into 
+    a Report object, to be attached to an image.
+  * Added a plugin architecture for object annotation overlays, which makes it easier to create
+    more customizable overlays: ObjectAnnotations (Image viewer), ObjectAnnotationsHandler 
+    (Preview browser), ObjectAnnotationsFromReport (Draw transformer), ObjectAnnotations (object overlay).
+  * The *ImageObjectToVariables* transformer turns the properties of the LocatedObject passing
+    through into variables (eg, x/y/width/height).
+  * The *SetImageObjectMetaData* transformer allows setting/updating meta-data of individual image
+    objects (of type LocatedObject).
+  * The *SimpleImageSegmentationAnnotationsHandler* plugin for the Preview browser allows the overlay
+    of annotations from PNG files over the actual JPG image.
+  * The *ImageSegmentationAnnotationsHandler* generates a more sophisticated interface with the
+    various image segmentation layers. Though it is slower than the simple handler, it supports
+    also the individual segmentation layers format.
+  * Added reader/writer pair for grayscale image segmentation PNG files.
+  * Added *Switch label* tool to image segmentation annotation interface, which changes the label 
+    from one to another (eg when accidentally mislabeling).
+  * Added the *Draw* and *MergeLayers* image segmentation container filters.
+
+* *adams-audio:* 
+
+  * The *AudioFileInfoHandler* in the Preview browser displays information on .mp3 and .wav files.
+  * The *AudioFilePlaybackHandler* allows playback of .mp3 and .wav files in the Preview browser.
+
