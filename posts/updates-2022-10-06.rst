@@ -1,0 +1,157 @@
+.. title: Updates 2022/10/06
+.. slug: updates-2022-10-06
+.. date: 2022-10-06 16:51:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Apart from retiring a bunch of unused modules, upgrading a range of dependencies, 
+I've switched the codebase to allow Java 11 syntax. Even though only switching to 11 
+for the code, the compiled binaries should work with OpenJDK 17 (the next 
+long-term-support version of OpenJDK).
+
+**Fixes**
+
+* The *MemoryMonitor* standalone now stops the monitoring when the flow stops.
+* The *ListVariableUsage* actor processor (used by *Find usages* in the Flow editor tree popup)
+  now lists boolean options as well.
+* *EnterManyValues* now restores time/date/datetime values correctly, the ListSelectionValueDefinition now
+  can have multi-selection enabled.
+* *adams-imaging:* The *PascalVOCObjectLocationsReader* report reader no longer fails with a 
+  NullPointerException if the *segmented* node is not present.
+* *adams-weka* and *adams-weka-lts*: The *WekaSpreadSheetToPredictions* transformer now handles
+  labels correctly that are only present in the *predicted* column.
+
+
+**Changes**
+
+* *adams-access:* upgraded jackcess to 4.0.2
+* *adams-compress:*
+
+  * upgraded compress-lzf to 1.1
+  * upgraded zip4j to 2.11.2
+  * upgraded junrar to 7.5.3
+  * upgraded xz to 1.9
+  * upgraded zstd-jni to 1.5.2-4
+
+* *adams-core:* 
+
+  * Upgraded mysql-connector-java to 5.1.49 to address ``Cannot connect: java.sql.SQLException: Unknown system variable 'query_cache_size'`` error
+  * Upgraded jclasslocator to 0.0.22 for speeding up classpath analysis
+  * The *CounterInit* standalone and transformer now support initializing strings with a specific value
+  * The *Preview browser* now allows *fixing* the preview handler, i.e., it does not get reloaded
+    from its .props file with the next file. This is useful when using two or more preview windows
+    with different handlers for the same file type/extension.
+  * The *HashSet* source now allows the user to specify a conversion for converting the hashset elements
+    into custom object types in the spreadsheet (default: string).
+  * The Flow editor now records what actor handlers are being used for enclosing other actors to offer
+    a *common* shortlist in the new, compact *Enclose* item of the tree popup menu.
+  * The *Make conditional* action in the Flow editor now uses ConditionalTrigger/SubProcess/Tee for 
+    sources/transformers/sinks that don't have a conditional equivalent.
+  * The *Expression* plot post-processor can handle plot containers without X values now.
+
+* *adams-db-mysql8:* Upgraded mysql-connector-java to 8.0.30
+* *adams-excel:* 
+
+  * Apache POI dependencies upgraded to 4.1.2
+  * The *ExcelSpreadSheetReader* can use names in the sheet range now, also improved the handling
+    of cell types (e.g., formulas and errors)
+  * The *ExcelSpreadSheetWriter* now allows customizing the formats of time, date and date/time
+    cells. Also handles boolean cells now.
+
+* *adams-groovy:* upgraded groovy-all dependency to 3.0.8
+* *adams-html:* upgraded jetty-server to 9.4.48.v20220622
+* *adams-imaging:* 
+
+  * The *IntersectOverUnionRatio* object overlap scheme can now either use bounding
+    boxes or polygons for the IoU calculation.
+  * The JAI *Resize* BufferedImage transformer now has a *forcePercentage* option to 
+    allow upscaling images.
+
+* *adams-jython:* upgraded jython-standalone to 2.7.3
+* *adams-matlab:* The *Mat5SpreadSheetReader* can use names in the sheet range now
+* *adams-math*: * The *LOWESS*, *SavitzkyGolay* and *SimpleSavitzkyGolay* plot post-processors can handle 
+  plot containers without X values now.
+* *adams-ml:* The *ConfusionMatrix* transformer can now enumerate the labels (in case of very long labels)
+  and outputs a second spreadsheet with the index/label relation.
+* *adams-net:* switched to *com.github.mwiede* fork of *jsch* library
+* *adams-odf:* The *ODFSpreadSheetReader* can use names in the sheet range now
+* *adams-pdf:* 
+
+  * The *SpreadSheet* PDF proclet allows customizing the table width, horizontal alignment
+    and relative column widths.
+  * upgraded pdfbox to 2.0.27
+
+* *adams-python:* moved Pyro4 related code into *adams-pyro4* module
+* *adams-random:* The transformers *ArrayFolds* and *ArraySubSample* now can turn off creating a 
+  deep copy of the elements before transferring them to the target array.
+* *adams-rats-django:* updated to work with Django 4.1.x and Python 3.8+
+* *adams-rest:* upgraded jackson-databind to 2.13.4 to address CVE-2022-42004
+* *adams-rsync:* upgraded rsync4j-windows64 to 3.2.3-10
+* *adams-spreadsheet:* 
+
+  * The *SpreadSheetDisplay* sink now allows to hide the column with the row index 
+    and use a simple header.
+  * The *GnumericSpreadSheetReader* can use names in the sheet range now
+  * The *NewSpreadSheet* source now can have the headers supplied via an array, which
+    takes precedence over the comma-separated list.
+
+* *adams-webservice:* upgraded Apache CXF to 3.5.3
+* *adams-yaml:* Upgraded snakeyaml to 1.32 to address CVE-2022-25857 and CVE-2022-38752
+
+
+**Additions**
+
+* *adams-core:* 
+
+  * The *ArrayDisplay* sink allows displaying array elements in tabs, horizontally, vertically or in a grid.
+  * Added the *MapVariableIterator* for iterating over key/value pairs of a map, storing key/value in
+    user-specified variables.
+  * Added the *Copy (commandline)* option to the Flow editor popup menu (*Copy...*) to allow pasting
+    in the GenericObjectEditor.
+  * Added the *StringToCharArray* and *CharArrayToString* conversions.
+
+* *adams-imaging:* 
+
+  * The *Regions* plugin for the *Subimages* buffered image transformer allows the user
+    to specify arbitrary rectangles (and their annotations) to be extracted.
+  * The *ImageObjectOverlapMatrix* transformer generates a matrix between overlapping annotations
+    and predictions, which can be turned into a confusion matrix.
+  * Additional (non-JAI) *Resize* BufferedImage transformer added for resizing images.
+  * The *MergeOverlaps* image object filter can combine multiple, overlapping objects into a 
+    single one.
+  * The *MergeOverlaps* overlapping object removal scheme combines overlapping objects rather
+    than removing them.
+  * The *DetermineOverlappingAreas* transformer computes areas of overlapping objects between 
+    annotations and predictions.
+
+* *adams-pdf:* 
+
+  * Added the *FixedText* PDF proclet that allows arbitrary text to be added (and variables
+    get expanded automatically) without having to load a file from disk.
+  * The *ConfusionMatrix* PDF proclet inserts a confusion matrix with better highlighting of
+    the diagonal and (optionally) the other cell values.
+
+* *adams-pyro5:* same as *adams-pyro4*, but uses the pyrolite library for communicating with Pyro5
+* *adams-spreadsheet:* 
+
+  * Added the conversions *SpreadSheetToRowArray* and *RowArrayToSpreadSheet* for managing
+    a spreadsheet as row array and apply existing array operators.
+
+
+**Retired modules**
+
+The following modules have been retired and moved to `https://github.com/waikato-datamining/adams-discontinued <https://github.com/waikato-datamining/adams-discontinued>`__:
+
+* *adams-cqengine:* module retired due to no downstream projects making use of it
+* *adams-groovy-webservice:* module retired due to com.github.groovy-wslite:groovy-wslite project being abandoned
+* *adams-osm:* display of maps in Swing not well supported
+* *adams-tensorflow:* module retired due to limited usefulness
+* *adams-deeplearning-spectral-app*: module retired (no added benefit since adams-tensorflow got retired)
+* *adams-twitter:* no real benefit of module
+* *adams-twitter-rats:* due to *adams-twitter* getting retired
+
