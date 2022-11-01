@@ -20,7 +20,7 @@
         <div style="float: right; ">
           <a href="https://twitter.com/TheAdamsFlow" target="_blank"><img src="/images/twitter.png" height="32"/></a>
           <span style="padding: 15px"/>
-          <a href="http://www.youtube.com/user/TheAdamsWorkflow" target="_blank"><img src="/images/youtube.png" height="32"/></a>
+          <a href="https://www.youtube.com/@TheAdamsWorkflow " target="_blank"><img src="/images/youtube.png" height="32"/></a>
         </div>
       </div>
     </div>
