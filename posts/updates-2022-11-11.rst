@@ -2,7 +2,7 @@
 .. slug: updates-2022-11-11
 .. date: 2022-11-11 16:53:00 UTC+13:00
 .. tags: 
-.. status: draft
+.. status: 
 .. category: 
 .. link: 
 .. description: 
