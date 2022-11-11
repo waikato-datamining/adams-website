@@ -1,0 +1,135 @@
+.. title: Updates 2022/11/11
+.. slug: updates-2022-11-11
+.. date: 2022-11-11 16:53:00 UTC+13:00
+.. tags: 
+.. status: draft
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+This time round we have a bigger update coming: further modules retired, added experimental module
+for initial OpenCV image processing support, the Matlab module got extended massively (now can create 
+structs/matrices and populate them, not just read them), a number of dependencies were upgraded
+and, works now properly under Java 17 and, last but not least, simplified switching of look'n'feel
+from the main menu (and added support for modern FlatLaf look'n'feel).
+
+
+**Fixes**
+
+* *adams-core:* 
+
+  * The documentation of the *DeleteFile* standalone now states that it only deletes files.
+  * The storage tab in the control panel in the Flow editor when reading a breakpoint now
+    keeps the last select item in the table. Therefore it updates that item whenever the
+    breakpoint is reached again.
+
+* *adams-matlab:* 
+
+  * The transformer *Mat5FileInfo* now sorts the output when enabled.
+  * The transformer *Mat5StructInfo* now queries the input token for the correct input type
+    and sorting works now as expected.
+
+* *adams-spreadsheet:* The *SpreadSheetDisplay* sink can be accessed via CallableActorScreenshot
+  when inside a DisplayPanelManager now as well.
+
+
+**Changes**
+
+* *adams-core:*
+
+  * Removed the following actors (which had been marked as deprecated for a long time):
+
+    * ConditionalStandalone
+    * ConditionalSource
+    * ConditionalTransformer
+    * ConditionalSink
+
+  * The package *adams.flow.condition.test*, which was only used by these actors, has been removed as well.
+  * The *SelectArraySubset* transformer now has an *initialSelection* range parameter with which you
+    can select which items get selected to start with and an *initialSearch* parameter (search must be allowed)
+    to immediately show only a subset.
+  * Now uses the simple-directtory-chooser library (https://github.com/waikato-datamining/simple-directory-chooser) 
+    for providing a way of selecting directories in the user interface.
+  * The GenericObjectEditor used by the Flow editor and in other locations are now remembering size and location.
+  * Simplified switching of Look'n'Feel (main menu: Program > Look'n'feel) and added support for 
+    FlatLaf (https://www.formdev.com/flatlaf/).
+  * The *HasSize* boolean condition now allows the specification of an upper bound as well.
+  * The control panel, when reaching a breakpoint, now allows the user to specify a rendering limit
+    (token and storage; underlying renderer must support that), to adjust how much data is being displayed.
+  * The *SelectDirectory* source actor now allows the selection of multiple directories.
+  * The *MapToString* conversion now outputs array values in a readable format.
+
+* *adams-db*: upgraded hsqldb to 2.7.1 to address CVE-2022-41853
+* *adams-heatmap:* removed deprecated filter *HeatmapCropToCentroid* (replaced by HeatmapCrop/CropToCentroid)
+* *adams-json:* upgraded gson to 2.8.9 to address CVE-2022-25647 
+* *adams-matlab:* 
+
+  * upgraded mfl-core to 0.5.11
+  * renamed *MatlabStructInfo* to *Mat5StructInfo* for consistency
+
+* *adams-meka:* upgraded meka to 1.9.7 (to work with Java 17)
+* *adams-moa:* upgraded MOA to 2022.10.17 (ADAMS-internal release of fork; minus deep learning classifiers/libraries)
+* *adams-pdf:* 
+
+  * The page ranges of the *PDFExtract* and *PDFRenderPages* transformers are now unordered (i.e., indices will not get sorted).
+  * Replaced the outdated Intarsys libraries with modern IcePDF (https://github.com/pcorless/icepdf).
+
+* *adams-rest:* upgraded jackson-databind to 2.14.0-rc1 to address CVE-2022-42003
+* *adams-spectral-3way-core:* upgraded multiway-algorithms to 0.0.13 and lombok to 1.18.24 to work with Java 17
+* *adams-spreadsheet:* 
+
+  * The *SpreadSheetRowBuffer* transformer now allows the user to specify a monitor variable
+    for resetting the buffer (row -> sheet).
+  * The *HasRows* boolean condition now allows the specification of an upper bound as well.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *WekaInstanceBuffer* transformer now allows the user to specify a monitor variable for resetting 
+    the buffer (instance -> instances).
+  * *WekaPredictionsToSpreadSheet* and *WekaPredictionsToInstances* now have *useOriginalIndices* on by 
+    default to avoid accidental misalignment when adding attributes from the test data.
+
+
+**Additions**
+
+* *adams-core:* 
+
+  * The *EnterManyValues* source can now query for arrays using the *ArrayValueDefinition* plugin.
+  * The *DeleteDir* standalone can delete sub-directories matching a regular expression or itself.
+  * The *HasLength* boolean condition can ensure a minimum/maximum length of an array.
+  * The *CollectionSize* transformer outputs the size (ie number of stored elements) of any collection.
+  * The *IsArm64* boolean condition checks whether the system architecture is Arm 64-bit.
+  * The *DistinctValueCellRenderingCustomizer* renderer uses different a background color for
+    each distinct value in the spreadsheet.
+  * The *ColorProviderBasedColorGradientGenerator* can be used for generating colors using a 
+    color provider (eg useful when generating images from matrices with unique values).
+
+* *adams-imaging:* added the *DoubleMatrixToBufferedImage* conversion, which turns a heatmap into an image.
+* *adams-matlab:*
+
+  * added the *Mat5ArrayInfo* transformer to obtain information on the incoming array (eg dimensions).
+  * added the *Mat5ArraySubset* transformer for obtaining arbitrary subsets (n-dimensional arrays) of arrays.
+  * added the *MatlabArrayToDoubleMatrix* conversion.
+  * added the *IsMatlabArray* boolean flow condition.
+  * added the *IsMatlabMatrix* boolean flow condition.
+  * added the *NewMat5Matrix* source actor for creating an empty matrix.
+  * added the *Mat5GetMatrixElement* transformer for retrieving a single element from a n-dimensional matrix.
+  * added the *Mat5SetMatrixElement* transformer for setting a single element in a n-dimensional matrix.
+  * added the *NewMat5Struct* source actor for creating an empty struct.
+  * added the *Mat5GetStructField* transformer for retrieving an array by name from a struct.
+  * added the *Mat5SetStructField* transformer for setting an array by name in a struct.
+
+* *adams-opencv:* new module for image processing using JavaCV's wrapper around OpenCV.
+
+
+**Retired modules**
+
+The following modules have been retired and moved to `https://github.com/waikato-datamining/adams-discontinued <https://github.com/waikato-datamining/adams-discontinued>`__:
+
+* *adams-dex-app:* due to retiring RabbitMQ modules
+* *adams-jython:* Jython hasn't progressed beyond Python 2.7 for many years
+* *adams-rabbitmq:* focus shifted, no longer required
+* *adams-rabbitmq-rats:* due to retiring adams-rabbitmq
+
