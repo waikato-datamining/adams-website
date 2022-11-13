@@ -111,9 +111,9 @@ from the main menu (and added support for modern FlatLaf look'n'feel).
 
   * added the *Mat5ArrayInfo* transformer to obtain information on the incoming array (eg dimensions).
   * added the *Mat5ArraySubset* transformer for obtaining arbitrary subsets (n-dimensional arrays) of arrays.
-  * added the *MatlabArrayToDoubleMatrix* conversion.
-  * added the *IsMatlabArray* boolean flow condition.
-  * added the *IsMatlabMatrix* boolean flow condition.
+  * added the *Mat5ArrayToDoubleMatrix* conversion.
+  * added the *IsMat5Array* boolean flow condition.
+  * added the *IsMat5Matrix* boolean flow condition.
   * added the *NewMat5Matrix* source actor for creating an empty matrix.
   * added the *Mat5GetMatrixElement* transformer for retrieving a single element from a n-dimensional matrix.
   * added the *Mat5SetMatrixElement* transformer for setting a single element in a n-dimensional matrix.
