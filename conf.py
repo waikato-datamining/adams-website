@@ -149,8 +149,8 @@ NAVIGATION_LINKS = {
           ("/developers/dev-get-started", "Get started"),
           ("/actors", "Actors"),
           ("/developers/dev-javadoc", "Javadoc"),
-          ("https://adams.cms.waikato.ac.nz/jenkins/", "Jenkins"),
-          ("https://adams.cms.waikato.ac.nz/nexus/", "Nexus"),
+          ("/jenkins/", "Jenkins"),
+          ("/nexus/", "Nexus"),
           ("/developers/dev-forum", "Forum"),
           ), "Developers"),
         ((
@@ -559,7 +559,7 @@ REDIRECTIONS = [
 # in a `nikola deploy` command as you like.
 DEPLOY_COMMANDS = {
     'default': [
-        "rsync -e \"ssh -i $HOME/.ssh/keys/adams\" -rav --delete output/ --exclude mantisBT --exclude events --exclude old --exclude releases --exclude snapshots --exclude jdk --exclude cloud --exclude javadoc --exclude actors fracpete@adams-web.cms.waikato.ac.nz:/var/www/html",
+        "rsync -e \"ssh -i $HOME/.ssh/keys/adams\" -rav --delete output/ --exclude mantisBT --exclude events --exclude old --exclude releases --exclude snapshots --exclude jdk --exclude cloud --exclude javadoc --exclude actors fracpete@adams-n.cms.waikato.ac.nz:/var/www/html",
     ]
 }
 
