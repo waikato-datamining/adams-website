@@ -7,13 +7,13 @@ Uses [Nikola](https://getnikola.com/), the static site generator.
 
 * virtual environment
 
-  ```commandline
+  ```bash
   virtualenv -p /usr/bin/python3 venv
   ```
 
 * install packages and plugins
 
-  ```commandline
+  ```bash
   ./venv/bin/pip install nikola micawber
   ./venv/bin/nikola plugin -i slides
   ```
@@ -22,12 +22,12 @@ Uses [Nikola](https://getnikola.com/), the static site generator.
 
 * build and serve (locally)
 
-  ```commandline
+  ```bash
   ./venv/bin/nikola clean && ./venv/bin/nikola build && ./venv/bin/nikola serve
   ```
 
 * deploy
 
-  ```commandline
+  ```bash
   ./venv/bin/nikola deploy
   ```
