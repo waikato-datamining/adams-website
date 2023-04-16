@@ -30,13 +30,13 @@
         <div class="col-md-6">
           <h2>Blog</h2>
           <p>Stay up-to-date with what is happening with ADAMS by reading our blog. Our blog covers not only events, but also updates regarding new functionality, bugfixes, changes and more.</p>
-          <p><a class="btn btn-default" href="/blog/" role="button">More »</a></p>
+          <p><a class="btn btn-primary" href="/blog/" role="button">More »</a></p>
         </div>
         <!-- About -->
         <div class="col-md-6">
           <h2>About</h2>
           <p>ADAMS offers a wide range of operators (called <em>actors</em>) that perform retrieval, processsing, mining and visualization of data. Instead of placing actors on a canvas and connecting them manually, actors connect implicitly in a tree structure instead.</p>
-          <p><a class="btn btn-default" href="/about/about" role="button">More »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/about/screenshots" role="button">Screenshots »</a></p>
+          <p><a class="btn btn-primary" href="/about/about" role="button">More »</a><span style="padding: 5px; "></span><a class="btn btn-primary" href="/about/screenshots" role="button">Screenshots »</a></p>
         </div>
       </div>
       <div class="row">
@@ -44,13 +44,13 @@
         <div class="col-md-6">
           <h2>Download</h2>
           <p>Written in Java, ADAMS runs on any platform that supports <a href="https://adoptopenjdk.net/" target="_blank">Java 11+</a> 64-bit. Download, unzip and off you go! You can either download a <strong>release</strong> (usually considered stable) or a <strong>snapshot</strong> (if you want to get the latest updates). You can also generate your own custom, <strong>instant ADAMS</strong> application.</p>
-          <p><a class="btn btn-default" href="/download/release" role="button">Release »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/snapshot" role="button">Snapshot »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/instant-adams" role="button">Instant »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/download/docker" role="button">Docker »</a></p>
+          <p><a class="btn btn-primary" href="/download/release" role="button">Release »</a><span style="padding: 5px; "></span><a class="btn btn-primary" href="/download/snapshot" role="button">Snapshot »</a><span style="padding: 5px; "></span><a class="btn btn-primary" href="/download/instant-adams" role="button">Instant »</a><span style="padding: 5px; "></span><a class="btn btn-primary" href="/download/docker" role="button">Docker »</a></p>
         </div>
         <!-- Get started -->
         <div class="col-md-6">
           <h2>Get started</h2>
           <p>Any complex piece of software takes some time getting used to. But don't worry, there are lots of example flows that show you how to use all the actors. ADAMS is a big plugin-framework, making it easy for developers adding new components.</p>
-          <p><a class="btn btn-default" href="/users/users-get-started" role="button">User »</a><span style="padding: 5px; "></span><a class="btn btn-default" href="/developers/dev-get-started" role="button">Developer »</a></p>
+          <p><a class="btn btn-primary" href="/users/users-get-started" role="button">User »</a><span style="padding: 5px; "></span><a class="btn btn-primary" href="/developers/dev-get-started" role="button">Developer »</a></p>
         </div>
       </div>
 
