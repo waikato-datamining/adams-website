@@ -13,7 +13,6 @@ Developers
 
 * `Peter Reutemann <http://www.cms.waikato.ac.nz/~fracpete/>`__, lead developer
 * Dale Fletcher, developer
-* Corey Sterling, developer
 
 
 Contributors
@@ -26,4 +25,5 @@ Contributors
 * `Leo Xiong (adams-imaging) <https://leoxiong.com/>`__
 * Steven Brown (adams-video)
 * Hisham Abdel Qader
+* Corey Sterling, developer
 
