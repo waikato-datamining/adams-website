@@ -1,5 +1,5 @@
-.. title: new
-.. slug: new
+.. title: Updates 2023/04/17
+.. slug: updates-2023-04-17
 .. date: 2023-04-17 11:48:00 UTC+12:00
 .. tags: 
 .. status: 
