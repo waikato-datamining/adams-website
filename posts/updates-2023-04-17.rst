@@ -9,7 +9,7 @@
 .. type: text
 .. author: FracPete
 
-Never seemed to get around posting all the changes that are happening... Most notably, there is
+Never seem to get around posting all the changes that are happening... Most notably, there is
 now a default new theme in ADAMS using the FlatLAF look and feel, a modern theme for Java Swing.
 A lot of work went into the imaging modules again, now with more flexibility in terms of
 how to annotate (polygons: tracing or clicking) and support for custom tools. The new *adams-imaging-ext*
