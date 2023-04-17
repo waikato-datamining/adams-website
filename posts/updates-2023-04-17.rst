@@ -1,0 +1,207 @@
+.. title: new
+.. slug: new
+.. date: 2023-04-17 11:48:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Never seemed to get around posting all the changes that are happening... Most notably, there is
+now a default new theme in ADAMS using the FlatLAF look and feel, a modern theme for Java Swing.
+A lot of work went into the imaging modules again, now with more flexibility in terms of
+how to annotate (polygons: tracing or clicking) and support for custom tools. The new *adams-imaging-ext*
+module incorporates deep-learning based tools that aid the user in annotating images
+(eg using pretrained models or DEXTR).
+
+
+**Fixes**
+
+* added support for anti-aliased text in GOE editors and text overlays for improved readability.
+* *adams-core:* 
+
+  * updated simple-directory-chooser to 0.0.3 to fix problem with clicking on
+    bookmarks not properly open directory tree.
+  * The notification area in the *Flow editor* no longer splits the error output on ":"
+    but on the top-level actor name, to avoid incorrect splits when colons are part of
+    the actor name.
+  * The storage panel of the Breakpoint control panel now updates correctly when the data changes.
+  * The *Go to* menu item in the tree popup menu of the Flow editor now works as expected when
+    there are more than two actor handlers present (going up in the tree).
+  * In the Flow editor, a copied single actor (with potential subtree) can now be pasted in the GOE 
+    again (the internal representation gets converted to a commandline on demand, which the GOE can
+    parse).
+  * The *SetTextRenderer* for turning Java Set-like data structures into text now starts the
+    numbering at 1 rather than at 2.
+  * Validating a flow in the *Flow editor* now captures more variables.
+  * Fixed several NullPointerExceptions relating to property change notifications when using the
+    FlatLAF look and feel.
+  * The *Parameters* tab in the Flow editor no longer shows options that are of type Actor.
+  * Added a renderer for *Set* objects, e.g., used when inspecting storage objects.
+
+* *adams-meta:* The getActors(Class) method of the *AbstractStandaloneGroup* class now returns all
+  actors of that class, not just the first one.
+* *adams-rats-core:* The stopExecution method of the *Cron* input Rat is now synchronized to avoid 
+  race conditions in stopping the scheduler.
+* *adams-redis:* The *RedisConnection* standalone now uses the specified host/port rather than just the
+  default ones.
+
+
+**Changes**
+
+* *adams-addons-all:* added *adams-docker* as dependency
+* *adams-annotator:* added *adams-docker* as dependency
+* *adams-compress:* upgraded zip4j to 2.11.3
+* *adams-core:*
+
+  * The *ImageHandler* in the Preview browser now allows the image reader to be selected by the user.
+  * The *Preview browser* now accepts setups from other content handlers in its options dialog when
+    pasting a setup. It also has menu items for adjusting the window to half (of the screen) width/height.
+  * The object inspection tree in the breakpoint view of the Flow editor now uses lazy expansion to 
+    speed up display of large (and deeply nested) objects.
+  * The *GenericObjectEditor* now displays log messages in the user interface as well, e.g., when
+    pasting of a setup via the "∨" button (top right corner) goes wrong.
+  * upgraded debian-maven-plugin to 1.0.22
+  * The *ProgressBar* sink now has the ability for displaying a button that stops flow.
+  * *DirectoryValueDefinition* and *FileValueDefinition* now can output absolute paths via the
+    *useAbsolutePath* option.
+  * The *Flow editor* now has menu items in the window menu for half (of the screen) width/height
+  * What options are being displayed in the GenericObjectEditor depends on the current user-mode
+    (Program -> User mode) and what minimum user mode has been defined for an option. E.g.,
+    the logging level is only displayed in EXPERT mode now. This allows *hiding* of options that
+    are not relevant for most users.
+  * The *DisplayPanelManager* sink now allows specifying the location of the divider between
+    entry names and the displayed entry.
+  * Upgraded to FlatLAF 3.0 and tweaked JTree parameters to improve appearance.
+  * using FlatLAFLight as default look'n'feel now.
+  * Submenus in the popup menu of the Flow editor actor tree no longer require a custom class,
+    instead a different definition in the FlowEditor.props file can be used (property: Tree.PopupMenu).
+
+* *adams-imaging:*
+
+  * The Preview browser handlers *ObjectAnnotationsHandler*, *ObjectCentersFromReport*, 
+    *ObjectLocationsFromReport* and *ObjectLocationsFromSpreadSheet* now allow the user to 
+    specify the image reader to use; also use a table rather than a list for displaying the 
+    located objects and now offer a search panel; the object panel can be detached into a 
+    separate frame as well.
+  * The *ObjectLocationsHandler* in the Preview browser now supports a panel with the object locations.
+  * The *YoloAnnotationsReportReader* and *YoloAnnotationsReportWriter* now support annotations
+    in polygon format as well (index plus normalized x/y polygon coordinates). 
+  * The *Draw* transformer now accepts plain BufferedImage objects as well.
+  * The *Image* plugin for the *Draw* transformer now allows specifying an alpha value for transparency
+    as well.
+  * The *OpexObjectLocationsReader/Writer* now support per object meta-data as well.
+  * Added support for tools in the *ImageObjectAnnotator* transformer interface. The 
+    *Annotator* tool lets you switch how you annotate objects (eg from bbox to polygon) while
+    annotating. With *Edit* existing annotations can be modified (resizing bboxes, moving/adding vertices)
+    and with *Move* annotations can be moved (dragged with mouse or moved via arrow keys).
+
+* *adams-json:* The *JsonObjectToMap* conversion can turn JSON arrays into lists now as well (via option).
+* *adams-matlab:* The *Mat5StructToMap* now handles structs with more elements than 1x1 correctly
+  and allows the user to specify the index of a specific element to retrieve.
+* *adams-ml-app:* added *adams-docker* as dependency
+* *adams-moa:* excluding slf4j-log4j12 from moa dependency now, to avoid duplicate logger class.
+* *adams-nlp:* excluding the outdated commons-lang3 dependency from com.kennycason:kumo-core and using
+  version 3.7 instead explicitly.
+* *adams-redis:* added support for authentication and experimental SSL parameters (useSSL, StartTLS, 
+  SSLVerifyMode) to the *RedisConnection* standalone.
+* *adams-rsync:* upgraded rsync4j to 3.2.7-1.
+* *adams-spectral-3way-core:* excluding log4j-slf4j-impl transitive dependency from multiway-algorithms
+  now to avoid duplicate logger class.
+* *adams-spreadsheet:* The *Spreadsheet viewer* now has a *Window* menu, offering to open a new viewer 
+  window or adjusting the current one to half width/height.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The operations *Merge*, *Randomize* and *RandomSubset* that are available in the table listing 
+    the datasets now keep their last settings.
+  * The *Investigator* now has a *Window* menu, offering to open a new Investigator window or adjusting
+    the current one to half (of the screen) width/height.
+
+* *adams-yaml:* upgraded snakeyaml to 1.33
+* *adams-xml:* upgraded xstream to 1.4.20 to address CVE-2022-40151 and CVE-2022-41966.
+
+
+**Additions**
+
+* *adams-audio:* The *SpeechPlaybackHandler* allows playback of WAV/MP3 files and displays the content
+  of the associated .txt file.
+* *adams-core:* 
+
+  * The *ObjectViewer* sink allows the user to inspect any object with ADAMS' built-in inspection capabilities.
+  * The *Flow editor* now has the *Parse error* item in the *Run* menu which allows to the user to paste
+    an error output (which contains actor names) from the console. This error then gets parsed and the user
+    can navigate to the actors (if possible).
+  * The *LastLineMatches* file use scheme simply checks whether the last line in a text file matches the
+    specified regular expression (useful under Linux).
+  * SelectDirectory/SelectFile/EnterValue actor can be "swapped" in the Flow editor with a EnterManyValues 
+    instance now.
+
+* *adams-docker:* basic support for executing docker commands. Linux/Mac only or WSL2, as it relies
+  on the docker command-line client for execution.
+
+* *adams-imaging:*
+
+  * The *ObjectAnnotationsHandler* now has an *OverlapRemoval* cleaner, e.g., for only keeping
+    predictions with the highest score.
+  * The *ImageClassificationHandler* overlays label (and optional score) onto an image that was
+    read with the specified report reader.
+  * The *ImageClassificationSpreadSheetReportReader* loads spreadsheets with image classification
+    predictions and stores the highest label and its score in the report.
+  * The *SimpleOverlay* image segmentation container operation turns base image and layers into
+    a combined image that can be used in reports or saved to disk; *CompareAnnotationWithPrediction*
+    generates images from annotation vs prediction, highlighting the overlappoing, missed and 
+    additional pixels.
+  * The *ImageSegmentationViewer* allows the viewing of ImageSegmentationContainer tokens, 
+    making it easy to toggle layers for better inspection.
+  * The *AnyImageToByteArray* and *BufferedImageToByteArray* conversions turn an image into a
+    byte array of a certain format (e.g., JPG or PNG).
+  * The *ByteArrayToBufferedImage* generates an image container from the incoming byte array
+    representing an image (e.g., JPG or PNG).
+  * The *PolygonPointAnnotator* allows the user to annotate polygons by left-clicking on each
+    vertex (ENTER accepts, ESCAPE discards).
+  * The *PolygonFill* tool allows you to define a polygon in the *ImageSegmentationAnnotator*
+    transformer that then gets filled with either foreground or background color. The polygon
+    gets defined by left-clicking on the individual vertices.
+  * Added meta-plotters for annotation outlines, labels and shapes that apply the sub-plotters 
+    subsequently.
+  * Added vertex outline plotters for object annotations (bbox and polygon).
+
+* *adams-imaging-ext:* 
+
+  * A new module with imaging tools that rely on external tools, like  deep learning frameworks 
+    that run in docker containers. 
+  * DEXTR (Deep Extreme Cut) can aid the human annotator in annotating shapes for image segmentation 
+    (via transformer *ImageSegmentationAnnotator*). 
+  * OPEX can obtain object detection predictions from an OPEX-emitting docker container 
+    (via transformer *ImageObjectAnnotator*).
+
+* *adams-json:* 
+
+  * With *ImageClassificationJsonReportReader* it is possible to read JSON files that
+    contain label/score pairs generated as predictions by image classification frameworks.
+  * The *JsonArrayToList* conversion turns a JSON array into a Java list.
+  * The *ListToJsonArray* conversion turns a Java list into a JSON array.
+
+* *adams-matlab:*
+
+  * The *DoubleMatrixToMat5Array* conversion turns a double matrix into a 2-dimensional Matlab array.
+  * The *MapToMat5Struct* conversion turns a Java map (nested maps, spreadsheets, Matlab arrays) 
+    into a Matlab struct object.
+  * The *Mat5ArrayToString* conversion generates a human-readable string from a Matlab matrix.
+  * The *StringToMat5Array* conversion parses a string like [1, 2; 3, 4] into a Matlab matrix.
+  * The *MultiMatrixOperation* transformer applies a matrix operation to the matrices passing through
+    and outputs the results.
+  * The *Mat5CharToString* conversion turns a Char object into a string.
+
+* *adams-spreadsheet:* The *AutoWidthTabularSpreadSheetReader/Writer* pair allows parsing/outputting 
+  of tabular text files with dynamic column widths. For reading, the column width is being determined 
+  based on the header row. For writing, the column width is adjusted to fit all content in the output.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * added the *Remove test set* action to the Investigator, which uses the RemoteTestInstances filter 
+    under the hood for removing instances of a test set from a source dataset (using a unique ID).
+  * added the Soerensen-Dice metric for nominal classes (https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient).
+
