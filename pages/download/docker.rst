@@ -67,14 +67,14 @@ variables (*ADAMS_...* and *WEKA_HOME*), pointing to the right directories and u
        -v `pwd`:/workspace \
        -it waikatodatamining/adams-ml-app:latest
 
-Once the container is up and running, we can grab a flow and its relevant data for execution.
-In the same directory from which you started the container, execute the following commands:
+Once the container is up and running, we can grab a flow and its relevant data for
+execution by running the following commands:
 
 .. code::
 
-   mkdir data
-   wget -O data/anneal.arff https://github.com/waikato-datamining/adams-base/raw/master/adams-weka/src/main/flows/data/anneal.arff
-   wget -O adams-weka-build_classifier.flow https://github.com/waikato-datamining/adams-base/raw/master/adams-weka/src/main/flows/adams-weka-build_classifier.flow
+   mkdir /workspace/data
+   wget -O /workspace/data/anneal.arff https://github.com/waikato-datamining/adams-base/raw/master/adams-weka/src/main/flows/data/anneal.arff
+   wget -O /workspace/adams-weka-build_classifier.flow https://github.com/waikato-datamining/adams-base/raw/master/adams-weka/src/main/flows/adams-weka-build_classifier.flow
 
 And now we can execute the flow as follows:
 
