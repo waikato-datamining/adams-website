@@ -83,13 +83,15 @@ And now we can execute the flow as follows:
    adams-ml-app-exec \
      -headless true \
      -clean-up true \
+     -force-exit true \
      -i /workspace/adams-weka-build_classifier.flow
 
 Since we are working in a *headless* environment, i.e., one without a user interface, all input/output
 occurs in the terminal.
 
-**NB:** When using webservices, you might have to add the `-force-exit true` option to the command-line to terminate
-any lingering threads once the flow has finished.
+**NB:** Webservices or some user-interface related operations can leave some lingering threads which prevent
+the flow from exiting properly. Therefore, we are using the `-force-exit true` option to terminate
+any potential lingering threads once the flow has finished.
 
 
 Local X-Server
@@ -137,17 +139,30 @@ Now we can execute the previous flow as follows and view the results graphically
    adams-ml-app-exec \
      -i /workspace/adams-weka-build_classifier.flow
 
+Since we wanted to view the results, we had to drop the `-clean-up true` and `-force-exit true` options,
+which will remove all graphical output otherwise. But this requires us now to kill the process by
+pressing *Cltr+C*.
 
 Of course, you can then start up the full ADAMS user interface from the console as well.
 This is done by using the `SNAPSHOT-gui` command. In case of the `adams-ml-app` snapshot,
 this would be `adams-ml-app-gui`.
 
 Once you have closed ADAMS in an interactive container (`-i`), you can exit
-the container with the *exit* (or just use *Ctrl+D*) command.
+the container with the *exit* command (or just use *Ctrl+D*).
 
-**NB:** These instructions assume that you have docker installed on your
-Linux machine. See the `MOA blog post <https://moa.cms.waikato.ac.nz/how-to-use-moa-in-docker/>`__
-for details on getting the X-Server working on Windows and Mac OSX.
+Windows
+-------
+
+The above instructions assume that you have docker installed on your Linux machine.
+If you are on Windows, you can run Docker and graphical X applications from `WSL2 <https://learn.microsoft.com/en-us/windows/wsl/install>`__
+as well, as long as you have a new enough Windows build (Windows 10 Build 19044+)
+and an up-to-date WSL2 installed:
+
+* `General requirements <https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps>`__
+* `Instructions for installing/running docker <https://www.data-mining.co.nz/applied-deep-learning/windows/>`__
+
+The `MOA blog post <https://moa.cms.waikato.ac.nz/how-to-use-moa-in-docker/>`__
+also has details on getting the X-Server working on Windows and Mac OSX.
 
 
 Custom images
