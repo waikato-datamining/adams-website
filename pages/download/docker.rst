@@ -108,7 +108,7 @@ Add the following two options to your docker command-line to pass through the X-
 .. code::
 
    -e "DISPLAY" \
-   -v "/tmp/.X11-unix:/tmp/.X11-unix"
+   -v "/tmp/.X11-unix:/tmp/.X11-unix" \
 
 Which gives us the following full command:
 
@@ -126,7 +126,7 @@ Which gives us the following full command:
        -e "ADAMS_PLACEHOLDERS=FLOWS=/workspace;EXAMPLE_FLOWS=/workspace" \
        -e WEKA_HOME=/workspace/wekafiles \
        -e "DISPLAY" \
-       -v "/tmp/.X11-unix:/tmp/.X11-unix"
+       -v "/tmp/.X11-unix:/tmp/.X11-unix" \
        -v `pwd`:/workspace \
        -it waikatodatamining/adams-ml-app:latest
 
