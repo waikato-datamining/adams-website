@@ -55,6 +55,7 @@ variables (*ADAMS_...* and *WEKA_HOME*), pointing to the right directories and u
 
    docker run \
        --rm \
+       --pull always \
        -u $(id -u):$(id -g) \
        -e USER=$USER \
        -e ADAMS_USERNAME=$USER \
