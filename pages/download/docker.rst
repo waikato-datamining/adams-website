@@ -83,7 +83,7 @@ And now we can execute the flow as follows:
    adams-ml-app-exec \
      -headless true \
      -clean-up true \
-     -i adams-weka-build_classifier.flow
+     -i /workspace/adams-weka-build_classifier.flow
 
 
 Local X-Server
