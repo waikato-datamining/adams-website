@@ -85,6 +85,12 @@ And now we can execute the flow as follows:
      -clean-up true \
      -i /workspace/adams-weka-build_classifier.flow
 
+Since we are working in a *headless* environment, i.e., one without a user interface, all input/output
+occurs in the terminal.
+
+**NB:** When using webservices, you might have to add the `-force-exit true` option to the command-line to terminate
+any lingering threads once the flow has finished.
+
 
 Local X-Server
 ==============
@@ -104,8 +110,37 @@ Add the following two options to your docker command-line to pass through the X-
    -e "DISPLAY" \
    -v "/tmp/.X11-unix:/tmp/.X11-unix"
 
-You can then start up the user interface from the console using `SNAPSHOT-gui`.
-In case of the `adams-ml-app` snapshot, this would be `adams-ml-app-gui`.
+Which gives us the following full command:
+
+.. code::
+
+   docker run \
+       --rm \
+       --pull always \
+       -u $(id -u):$(id -g) \
+       -e USER=$USER \
+       -e ADAMS_USERNAME=$USER \
+       -e ADAMS_USERDIR=/workspace \
+       -e ADAMS_USERHOME=/workspace \
+       -e ADAMS_HOME=/workspace/adams \
+       -e "ADAMS_PLACEHOLDERS=FLOWS=/workspace;EXAMPLE_FLOWS=/workspace" \
+       -e WEKA_HOME=/workspace/wekafiles \
+       -e "DISPLAY" \
+       -v "/tmp/.X11-unix:/tmp/.X11-unix"
+       -v `pwd`:/workspace \
+       -it waikatodatamining/adams-ml-app:latest
+
+Now we can execute the previous flow as follows and view the results graphically:
+
+.. code::
+
+   adams-ml-app-exec \
+     -i /workspace/adams-weka-build_classifier.flow
+
+
+Of course, you can then start up the full ADAMS user interface from the console as well.
+This is done by using the `SNAPSHOT-gui` command. In case of the `adams-ml-app` snapshot,
+this would be `adams-ml-app-gui`.
 
 Once you have closed ADAMS in an interactive container (`-i`), you can exit
 the container with the *exit* (or just use *Ctrl+D*) command.
