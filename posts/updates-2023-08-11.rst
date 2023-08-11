@@ -1,0 +1,159 @@
+.. title: Updates 2023/08/11
+.. slug: updates-2023-08-11
+.. date: 2023-08-11 15:30:00 UTC+12:00
+.. tags: updates
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of different changes have ocurred over the last few months. There are two
+that stand out. First, docker related: images now get published under the 
+*waikatodatamining* user; overhaul of how flows are used within docker images 
+and updated documentation on website accordingly. Second, some interactive sources
+like *EnterValue* or the boolean condition *PromptUser* can now be displayed as a
+panel in the notification area rather than as a separate dialog. That way, dialogs
+will stay with the particular flow editor panel, even when starting multiple flows
+at the same time (which is also a new feature).
+
+Full list of changes is below:
+
+**Fixes**
+
+* Swapping a *SelectFile* source with a *EnterManyValues* now transfers any extensions 
+  (or attached variable) as well.
+* When selecting *Save report* from a report table with the *Edit options* box ticked, 
+  the writer's options dialog will only get displayed once now.
+* Fixed source of memory leaks with the recent files handlers (handlers are now always 
+  set/get as shallow copies).
+* *AbstractTee*, *LoadBalancer*, *LocalScopeTransformer* and *WhileLoop* now set the skip
+  flag also in the underlying Sequence actor that manages their actors.
+* The *AbstractDataContainerFileWriter* (e.g., the SpectrumFileWriter is derived from that)
+  now ensures that the filename generated from the samepl ID is a valid filename.
+* *adams-weka* and *adams-weka-lts*: data loaded into the Weka Investigator now adhers
+  to the Investigator-wide undo state.
+* When in headless mode, entering values in the terminal via *EnterValue* and *EnterManyValues*
+  now makes use of provided initial values when simply pressing ENTER.
+* Added support for environment variables ADAMS_USERNAME, ADAMS_USERHOME, ADAMS_USERDIR 
+  to override system properties user.name, user.home and user.dir respectively. The
+  ADAMS_PLACEHOLDERS variables allows setting/overriding of placeholder definitions.
+  Values in ADAMS-managed properties files can be overridden as well (check the adams-core
+  manual for details, section *Environment variables*).
+* *adams-rats-core:* The *RatControl* now skips ConsolePanel calls when in headless mode.
+
+
+**Changes**
+
+* Improved clearing of graphical displays (via: File - Clear).
+* The *Downloads > Docker* documentation has been updated and expanded to fit the updated
+  Docker images.
+
+* *adams-core:* 
+
+  * The *AbstractDataContainerFileReader* transformer ancestor (e.g., for SpectrumFileReader)
+    now supports output of the containers as an array instead of just one-by-one.
+  * Added the ability to pause/resume or stop the flow from graphical actor dialogs via an 
+    optional flow control sub-menu. This is useful for flows that get launched with FlowRunner
+    and do not have the typical Flow editor interface. Requires EXPERT user mode.
+  * The *Statistics* menu item in the Flow editor now displays the results in the side panel
+    rather than in a separate dialog.
+  * The *Flow Editor* now has the additional *Run all* and *Stop all* menu items/toolbar buttons.
+  * The *Active* menu and toolbar buttons in the *Flow Editor* are now hidden if no flow set as active.
+  * The *FlowRunner* how has the -force-exit flag to properly exit the process in case 3rd-party 
+    library threads keep the application from exiting.
+  * The *PromptUser* boolean flow condition can run in headless mode now as well and also be displayed
+    in the notification area rather than as a dialog.
+  * The *EnterValue*, *EnterManyValues*, *SelectDirectory* and *SelectFile* sources can be displayed 
+    in the notification area as well, not just as dialog.
+  * added interfaces StringReportReader/Writer to allow them being used by the *ReportToString/StringToReport* 
+    conversions to perform conversions on the fly rather than via temp files.
+  * Added MSECS_LONG, SECONDS_LONG, JULIANDATE_LONG and SERIAL_DATETIME_LONG as date time types, 
+    affecting conversions ConvertDateTimeType, DateTimeTypeToString, ExtractDateTimeField, 
+    StringToDateTimeType and transformer DateTimeTypeDifference.
+  * The *MathExpression* transformer now accepts Byte/Short/Float/Number as well
+
+* *adams-db*: upgraded sqlite-jdbc to 3.41.2.2.
+* *adams-imaging:* 
+
+  * The *ImageInfo* transformer can output the image type and pixel depth now as well.
+  * The *Regions* sub-images generator now stores the region coordinates in the report 
+    of the sub-image as well ("Coordinates[S]").
+  * Object finders now have the *resetIndicesIfNecessary* flag that automatically 
+    resets the indices when there are missing or duplicate ones.
+
+* *adams-moa:* upgraded MOA to 2023.04.0.
+* *adams-net:* 
+
+  * The *DownloadContent* transformer and *DownloadFile* sink now stop active downloads 
+    when the flow is being stopped.
+  * Upgraded jsch dependency to 0.2.9
+  * The *SSHConnection* standalone now allows specifying a timeout (in milliseconds).
+
+* *adams-rsync:* Upgraded rsync4j to 3.2.7-2
+* *adams-weka* and *adams-weka-lts*: 
+
+  * When specifying an ID attribute with the *WekaInstanceViewer* sink then this
+    attribute gets automatically excluded from the plot (avoids distorting the graph).
+  * Weka Investigator: memory clean-up improvements.
+  * Upgraded Weka versions: weka==3.9.6-fork-0.0.2, weka-lts==3.9.0-fork-0.0.13
+
+* *Docker images* are now available from: https://hub.docker.com/u/waikatodatamining
+
+
+**Additions**
+
+* *adams-core:*
+
+  * Added the *FileComplete* boolean condition to allow checks whether a file is complete.
+  * The *BytesComplete* boolean condition applies the *file complete* check class hierarchy
+    to byte arrays.
+  * The *DeleteMapValue* transformer removes a key-value pair from a Java Map object.
+  * The *DeletePropertyValue* transformer removes a property from a Java Properties object.
+  * The *Flow editor* now has a *Recent* sub-menu in the *Edit* menu for recently used
+    actor processors.
+  * The *SimpleLogging* sink allows the formatted/timestamped output of objects received.
+  * The *FileIncomplete* file use plugin makes all the file complete checks available.
+  * Added unseeded number generators for doubles and integers: JavaRandomDoubleUnseeded, JavaRandomIntUnseeded.
+  * The *TextRenderer* conversion is the equivalent of the TextRenderer transformer.
+  * The *ArrayToVariables* transformer maps the elements of the incoming array to the
+    specified variables. Useful when mapping fixed-length arrays such as coordinates
+    onto variables.
+  * The *CurrentTime* source outputs the current time as either milli-seconds or nano-seconds.
+  * The *ObjectPreview* sink makes use of the *Preview browser's* handlers that can handle 
+    objects as well, not just files.
+  * Added the *JavaRandomByte/Unseeded* random number generators for generating a sequence of bytes.
+
+* *adams-imaging:*
+
+  * Added the *JPEG* and *PNG* file complete plugins.
+  * Added the *ByteArrayToImageContainer* and *ImageContainerToByteArray* conversions, which
+    use the specified image reader/writer to manage the byte array.
+  * Added the *ObjectAnnotationsReportHandler* for displaying the annoations over an empty
+    image (useful for just visualizing annotation files).
+
+* *adams-json:* 
+
+  * Added the *NewJsonStructure* source for creating empty JSON objects or arrays.
+  * Added the *DeleteJsonValue* transformer for removing key/value pairs from JSON objects.
+  * Added the *JSON* file complete check plugin.
+
+* *adams-net:*
+
+  * Added the *Html4Display* sink for displaying HTML 4 code (supports custom CSS rules).
+
+* *adams-spectral-2dim-core:*
+
+  * With the *FilteredSpetrumReader* and *FilteredSpectrumWriter* it is now possible to
+    apply a spectrum filter within a reader/writer. Useful when working outside flows,
+    like in the Spectrum Explorer (loading/saving spectra).
+
+* *adams-weka* and *adams-weka-lts*:
+
+  * The *SimpleDetrend* filter works like the *Detrend* one but does not require the attributes
+    to contain the wave number. Instead it just uses the positional index within the set of
+    specified attributes.
+
+* *adams-xml:* Added the *XML* file complete check plugin.
+
