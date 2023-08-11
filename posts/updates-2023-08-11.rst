@@ -9,7 +9,7 @@
 .. type: text
 .. author: FracPete
 
-A lot of different changes have ocurred over the last few months. There are two
+A lot of different changes have occurred over the last few months. There are two
 that stand out. First, docker related: images now get published under the 
 *waikatodatamining* user; overhaul of how flows are used within docker images 
 and updated documentation on website accordingly. Second, some interactive sources
