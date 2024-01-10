@@ -1,0 +1,75 @@
+.. title: Updates 2024/01/10
+.. slug: updates-2024-01-10
+.. date: 2024-01-10 16:00:00 UTC+12:00
+.. tags: 
+.. status:
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Happy New Year everyone!
+
+We have moved from Twitter/X to Mastodon: @TheAdamsFlow@mstdn.social.
+
+Mostly bug-fixes and addressing security vulnerabilities since the last update.
+Also, ADAMS is now more stable under the long-term support versions of OpenJDK
+17 and 21.
+
+
+**Fixes**
+
+* *adams-core:* 
+
+  * The *PolygonUtils.boundingBox* method now works correctly.
+  * The *Display* sink, when used in conjunction with the *Inspect* or *DisplayPanelManager*
+    actors, uses the font specified by the user now.
+  * The *StorageValuesArray* and *VariablesArray* source actors now properly collect errors
+    occurring when applying the conversion, making it possible in the Flow editor to jump to 
+    the actor.
+
+* *adams-imaging:* 
+
+  * The *PolygonPointAnnotator* now clears the points afte accepting an annotation.
+  * The flow *adams-imaging-annotate_objects.flow* now supports the following 
+    annotation formats: ADAMS .report, OPEX .json
+  * The *TesseractHelper* class now uses `--psm` instead of `-psm` for the page segmentation
+    parameter when assembling the command-line arguments.
+
+* *adams-json:* The *GetJsonValue* transformer now accepts JSON arrays again when 
+  using a proper JsonPath expression (i.e., one that starts with $).
+* *adams-scripts:* added necessary `--add-exports` options to make it work under Java 17 and 21.
+
+
+**Changes**
+
+* *adams-bootstrapp:* bootstrapp upgraded to 0.1.12
+* *adams-core:* 
+
+  * The expressions for boolean, mathematical, report math, string expressions 
+    and spreadsheet formulas now support the *startswith* and *endswith* string functions.
+  * upgraded flatlaf to 3.2.5
+  * upgraded jodd-core to 5.1.6
+  * removed JULIANDATE/JULIANDATE_LONG DateTimeType due to newer versions of jodd-core no longer supporting it 
+
+* *adams-gnuplot:* the scriptlets now support quick info output
+* *adams-json:* gson upgraded to 2.10.1
+* *adams-net:* 
+
+  * tika-core upgraded to 1.28.3 to address CVE-2022-30973.
+  * switched from javax.mail:1.5.6 to jakarta.mail:1.6.5
+  * ApacheSendMail is now deprecated (broken)
+  * upgraded jodd-mail to 5.1.6
+
+* *adams-opencv:* javacv upgraded to 1.5.9
+* *adams-rsync:* rsync4j upgraded to 3.2.7-5
+* *adams-pdf:* The *Headline* PDF proclet now expands variables in the headline automatically.
+
+
+**Additions**
+
+* *adams-core:* added the *GetListElement* transformer for obtaining a specific element from a list.
+* *adams-imaging-ext:* added the flow *adams-imaging-ext_run-sam-hq.flow* which allows 
+  using SAM-HQ (https://github.com/SysCV/sam-hq) via Redis for annotating images.
+
