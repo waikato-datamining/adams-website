@@ -1,6 +1,6 @@
 .. title: The Advanced Data mining and Machine learning System
 .. slug: index
-.. date: 2023-08-21 11:20:51 UTC+12:00
+.. date: 2024-01-10 16:30:51 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -16,7 +16,7 @@
         <h1>Welcome to ADAMS!</h1>
         <br/>
         <p>The Advanced Data mining And Machine learning System (ADAMS) is a flexible workflow engine aimed at quickly building and maintaining data-driven, reactive workflows, easily integrated into business processes, released under <a href="http://www.gnu.org/licenses/gpl-3.0.txt" target="_blank">GPLv3</a>.</p>
-        <div style="float: left; "><p>Current version: <a href="/download/21-12-0/">21.12.0</a> (December 2, 2021)</p></div>
+        <div style="float: left; "><p>Current version: <a href="/download/24-1-0/">24.1.0</a> (January 10, 2024)</p></div>
         <div style="float: right; ">
           <a href="https://mstdn.social/@TheAdamsFlow" target="_blank"><img src="/images/mastodon.png" height="32"/></a>
           <span style="padding: 15px"/>

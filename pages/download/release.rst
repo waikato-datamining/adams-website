@@ -1,6 +1,6 @@
 .. title: Release
 .. slug: release
-.. date: 2021-01-07 13:10:17 UTC+13:00
+.. date: 2024-01-10 16:30:17 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -12,6 +12,11 @@
 
 Below are all releases of ADAMS listed. The files themselves are hosted on
 `Sourceforge.net <http://sf.net/projects/theadamsflow/files/>`_.
+
+2024
+====
+
+* `24.1.0 <link://slug/24-1-0>`_ - released 2024-01-10
 
 2021
 ====

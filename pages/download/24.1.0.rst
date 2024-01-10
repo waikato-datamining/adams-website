@@ -1,0 +1,102 @@
+.. title: 24.1.0
+.. slug: 24-1-0
+.. date: 2024-01-10 16:30:00 UTC+13:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+Downloads
+=========
+
+* **adams-basic-app** -- minimalistic application with Groovy, spreadsheet (`zip <zip_basic_>`__, `deb <deb_basic_>`__, `rpm <rpm_basic_>`__)
+* **adams-base-all** -- contains all basic modules (`zip <zip_base_>`__, `deb <deb_base_>`__, `rpm <rpm_base_>`__)
+* **adams-addons-all** -- contains all basic modules and addons modules (`zip <zip_addons_>`__, `deb <deb_addons_>`__, `rpm <rpm_addons_>`__)
+* **adams-annotator** -- an image/video annotation application (`zip <zip_annotator_>`__, `deb <deb_annotator_>`__, `rpm <rpm_annotator_>`__)
+* **adams-ml-app** -- contains machine learning, scripting and spreadsheet
+  modules (`zip <zip_mlapp_>`__, `deb <deb_mlapp_>`__, `rpm <rpm_mlapp_>`__)
+* **adams-spectral-app** -- contains module for handling spectra (2-dimensional spectra
+  like NIR, MIR, XRF and 3-way data like EEM fluorescence spectra) spreadsheet modules 
+  and Weka module (`zip <zip_spectralapp_>`__, `deb <deb_spectralapp_>`__, `rpm <rpm_spectralapp_>`__)
+
+.. _zip_basic: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-basic-app-24.1.0-bin.zip/download
+.. _deb_basic: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-basic-app_24.1.0-1_all.deb/download
+.. _rpm_basic: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-basic-app-24.1.0-1.noarch.rpm/download
+.. _zip_base: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-base-all-24.1.0-bin.zip/download
+.. _deb_base: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-base-all_24.1.0-1_all.deb/download
+.. _rpm_base: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-base-all-24.1.0-1.noarch.rpm/download
+.. _zip_addons: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-addons-all-24.1.0-bin.zip/download
+.. _deb_addons: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-addons-all_24.1.0-1_all.deb/download
+.. _rpm_addons: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-addons-all-24.1.0-1.noarch.rpm/download
+.. _zip_annotator: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-annotator-24.1.0-bin.zip/download
+.. _deb_annotator: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-annotator_24.1.0-1_all.deb/download
+.. _rpm_annotator: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-annotator-24.1.0-1.noarch.rpm/download
+.. _zip_mlapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-ml-app-24.1.0-bin.zip/download
+.. _deb_mlapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-ml-app_24.1.0-1_all.deb/download
+.. _rpm_mlapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-ml-app-24.1.0-1.noarch.rpm/download
+.. _zip_spectralapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-spectral-app-24.1.0-bin.zip/download
+.. _deb_spectralapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-spectral-app_24.1.0-1_all.deb/download
+.. _rpm_spectralapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-spectral-app-24.1.0-1.noarch.rpm/download
+
+
+Highlights
+==========
+
+With continued focus on deep learning, development has been around improving interfaces for annotating images
+(object detection, instance segmentation, image segmentation) and removing obsolete code/modules.
+
+With the introduction of the `adams-docker` module, it is easy to integrate docker images in workflows.
+The `adams-imaging-ext` module contains some example flows that allow the user of
+`SAM <https://github.com/facebookresearch/segment-anything>`__, `DEXTR <https://github.com/scaelles/DEXTR-PyTorch>`__
+and other object detection algorithms to be used within the image annotation process, thanks to the newly added
+support for *tools* in these interfaces. Docker images for these frameworks are provided by us as well.
+
+A lot of work went into improving the Matlab and JSON support.
+
+RabbitMQ got dropped in favor of Redis as a message broker.
+
+Due to Twitter (the social media website now known as X) changing their terms and conditions of using their API,
+the support for it was dropped.
+
+OpenStreetMap support was dropped as well, due to third party libraries no longer being maintained.
+
+Basic integration of OpenCV via `JavaCV <https://github.com/bytedeco/javacv>`__ is now available through the adams-opencv module.
+
+Last but not least, the default look and feel for ADAMS is now based on `FlatLaf <https://www.formdev.com/flatlaf/>`__.
+The built-in, cross-platform Swing look and feel hasn't seen a refresh since Java 1.5, so about time to get something
+fresher looking out there.
+
+
+Retired modules:
+
+* adams-cqengine
+* adams-groovy-webservice
+* adams-jython
+* adams-osm
+* adams-rabbitmq
+* adams-rabbitmq-rats
+* adams-tensorflow
+* adams-twitter
+* adams-twitter-rats
+
+New modules:
+
+* adams-docker
+* adams-imaging-ext
+* adams-opencv
+* adams-pyro4
+* adams-pyro5
+
+
+Launching ADAMS
+===============
+
+Unzip the ZIP archive and execute the appropriate shell/batch script from a terminal:
+
+* Linux/Unix/OSX: ``bin/start_gui.sh``
+* Windows: ``bin/start_gui.bat``
+
+Linux users, when installing an Debian or RPM package, can start ADAMS either from their
+start menu or from the terminal (via ``adams-*-gui``).
+
