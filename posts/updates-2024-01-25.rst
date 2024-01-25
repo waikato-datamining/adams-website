@@ -1,6 +1,6 @@
 .. title: Updates 2024/01/25
 .. slug: updates-2024-01-25
-.. date: 2024-01-25 15:45:00 UTC+12:00
+.. date: 2024-01-25 15:45:00 UTC+13:00
 .. tags: 
 .. status:
 .. category: 
