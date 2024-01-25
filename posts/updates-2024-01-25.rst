@@ -1,0 +1,139 @@
+.. title: Updates 2024/01/25
+.. slug: updates-2024-01-25
+.. date: 2024-01-25 15:45:00 UTC+12:00
+.. tags: 
+.. status:
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+After the release a couple of weeks ago, I spent a considerable amount of time
+upgrading as many dependencies as possible to address known security vulnerabilities.
+
+Another major change is the switch to version 8.x of the MySQL JDBC driver by 
+default (you may need to add `?sessionVariables=sql_mode='ALLOW_INVALID_DATES'` to your
+connection string).
+
+Last, but not least, I've upgraded a range of actors to (optionally) make use of the new 
+*JobRunnerInstance* standalone actor which can be used for better managing resources (cores/memory) 
+when running heavily parallelized flows that, e.g., train classifiers or filter data. Going 
+through this *bottleneck*, it is easier to avoid starving the system of resources by limiting
+the number of jobs that can run in parallel.
+
+
+**Fixes**
+
+* *adams-core:* 
+
+  * The *BaseColorTextField* now updates the button's color correctly under the cross-platform
+    and FlatLaf look'n'feels.
+
+* *adams-imaging:*
+
+  * The *EvaluatePrediction* image segmentation operation now skips the percentage calculation
+    when the total number of annotated pixels for a layer is 0.
+
+
+**Changes**
+
+* *general* 
+
+  * upgraded postgresql to 42.7.1
+  * upgraded xercesimpl to 2.12.2
+  * upgraded requests4j to 0.2.5
+
+* *adams-access:* upgraded jackcess to 4.0.5
+* *adams-bootstrapp:* upgraded bootstrapp to 0.1.13
+* *adams-compress*:
+
+  * upgraded compress-lzf to 1.1.2
+  * upgraded zip4j to 2.11.5
+  * upgraded junrar to 7.5.5
+  * upgraded zstd-jni to 1.5.5-11
+
+* *adams-core:*
+
+  * The *ExecutionLog* flow execution listener now has the ability to specify what stages to log. 
+    Also outputs to stdout now if the log file is pointing to directory.
+  * The new *JobRunnerSupporter* interface is for actors that can execute the resource-intense
+    workload via a *JobRunnerInstance* standalone within their scope. Requires a *JobRunnerSetup*
+    standalone further up in the flow, defining how to execute the jobs.
+  * switched MySQL JDBC driver from 5.1.49 to 8.0.33
+  * upgraded FlatLaf look'n'feel to 3.3
+
+* *adams-groovy:* upgraded groovy-all to 3.0.20
+* *adams-html:* 
+
+  * upgraded jetty-server/-http to 9.4.51.v20230217
+  * upgraded nekohtml to 1.9.22
+
+* *adams-imaging:*
+
+  * using commons-codec 1.16.0 (and excluding dependency from lire)
+  * upgraded zxing to 3.5.1
+  * upgraded jts-core to 1.19.0
+
+* *adams-imaging-boofcv:* 
+
+  * upgraded boofcv to 1.1.2
+  * removed the HistogramBasedIntensityAdjustmentGray8 transformer
+
+* *adams-json:*
+
+  * upgraded json-path to 2.8.0
+  * upgraded json-smart to 2.5
+
+* *adams-math:* jsci now uses xercesimpl 2.12.2 (globally defined)
+* *adams-matlab:* upgraded mfl-core to 0.5.15
+* *adams-net:*
+
+  * upgraded jsch to 0.2.16
+  * upgraded tika-core to 1.28.5
+
+* *adams-pdf*:
+
+  * upgraded pdfbox to 2.0.30
+  * upgraded icepdf-core/-viewer to 7.1.3
+
+* *adams-pyro4:* upgraded pyrolite to 4.30
+* *adams-redis:* upgraded lettuce-core to 6.3.1.RELEASE
+* *adams-rest:* jaxws-rt now excludes woodstox-core dependency, instead of using 6.5.1 directly
+* *adams-spectral-2dim-core:* 
+
+  * added *sortOnSampleID* as option to the spectrum conditions.
+  * The following actors now implement the *JobRunnerSupporter* interface: Cleaner, Evaluator.
+
+* *adams-spreadsheet:* 
+
+  * upgraded jfreechart to 1.5.4, added jcommon 1.0.24
+  * The *SpreadSheetFilter* transformer now implements *JobRunnerSupporter*.
+
+* *adams-timeseries:* excluding commons-codec from timeseriesForecasting dependency, using 1.16.0 instead
+* *adams-video:* upgraded screencast4j to 0.1.5
+* *adams-webservice:*
+
+  * upgraded cxf to 3.6.2
+  * upgraded xjc to 3.3.2
+  
+* *adams-weka* and *adams-weka-lts*: The following actors now implement the *JobRunnerSupporter* interface:
+  WekaFilter, WekaTrainAssociator, WekaTrainClassifier, WekaTrainClusterer, WekaTestSetEvaluator,
+  WekaTrainTestSetEvaluator.
+
+* *adams-yaml:* upgraded snakeyaml to 2.2
+
+
+**Additions**
+
+* *adams-core:* The standalone *JobRunnerInstance* allows limiting resource intense jobs,
+  like model training and filtering data, via a bottleneck within the actors' scope. That
+  way heavily multi-threaded flows (e.g., nested Branch actors) won't starve the system
+  of resources, such as CPU cores and memory. Actors implementing the *JobRunnerSupporter*
+  interface can make use of that feature.
+
+
+**Retired modules**
+
+* *adams-db-mysql8:* removed as now superceded by 8.x dependency in adams-core module
+
