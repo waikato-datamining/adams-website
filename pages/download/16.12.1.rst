@@ -23,12 +23,12 @@ Downloads
   
   * CUDA support for deeplearning4j (`zip <dl4jcuda75_>`__)
 
-.. _base: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-base-all-16.12.1-bin.zip/download
-.. _addons: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-addons-all-16.12.1-bin.zip/download
-.. _mlapp: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-ml-app-16.12.1-bin.zip/download
-.. _spectralapp: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-spectral-app-16.12.1-bin.zip/download
-.. _annotator: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-annotator-16.12.1-bin.zip/download
-.. _dl4jcuda75: https://sourceforge.net/projects/theadamsflow/files/16.12.1/adams-dl4j-cuda-7.5-libs-16.12.1-bin.zip/download
+.. _base: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-16.12.1-bin.zip
+.. _addons: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-16.12.1-bin.zip
+.. _mlapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-ml-app-16.12.1-bin.zip
+.. _spectralapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-spectral-app-16.12.1-bin.zip
+.. _annotator: https://adams.cms.waikato.ac.nz/releases/adams/adams-annotator-16.12.1-bin.zip
+.. _dl4jcuda75: https://adams.cms.waikato.ac.nz/releases/adams/adams-dl4j-cuda-7.5-libs-16.12.1-bin.zip
 
 
 Highlights

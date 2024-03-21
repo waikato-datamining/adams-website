@@ -21,14 +21,14 @@ Downloads
   * Linux/Unix/Windows: `zip <addons-bin_>`__
   * Mac OSX: `app <addons-app_>`__, `doc <addons-doc_>`__, `flows <addons-flows_>`__
 
-.. _base-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-bin.zip/download
-.. _base-app: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-app.zip/download
-.. _base-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-doc.zip/download
-.. _base-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-base-all-0.4.7-flows.jar/download
-.. _addons-bin: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-bin.zip/download
-.. _addons-app: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-app.zip/download
-.. _addons-doc: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-doc.zip/download
-.. _addons-flows: http://sourceforge.net/projects/theadamsflow/files/0.4.7/adams-addons-all-0.4.7-flows.jar/download
+.. _base-bin: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-0.4.7-bin.zip
+.. _base-app: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-0.4.7-app.zip
+.. _base-doc: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-0.4.7-doc.zip
+.. _base-flows: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-0.4.7-flows.jar
+.. _addons-bin: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-0.4.7-bin.zip
+.. _addons-app: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-0.4.7-app.zip
+.. _addons-doc: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-0.4.7-doc.zip
+.. _addons-flows: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-0.4.7-flows.jar
 
 
 Highlights

@@ -10,8 +10,7 @@
 
 .. contents::
 
-Below are all releases of ADAMS listed. The files themselves are hosted on
-`Sourceforge.net <http://sf.net/projects/theadamsflow/files/>`_.
+Listed below are all releases of ADAMS.
 
 2024
 ====

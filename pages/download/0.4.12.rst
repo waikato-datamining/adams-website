@@ -13,8 +13,8 @@ Downloads
 * base (all platforms): `zip <base_>`_
 * base + addons (all platforms): `zip <addons_>`_
 
-.. _base: http://sourceforge.net/projects/theadamsflow/files/0.4.12/adams-base-all-0.4.12-bin.zip/download
-.. _addons: http://sourceforge.net/projects/theadamsflow/files/0.4.12/adams-addons-all-0.4.12-bin.zip/download
+.. _base: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-0.4.12-bin.zip
+.. _addons: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-0.4.12-bin.zip
 
 
 Highlights

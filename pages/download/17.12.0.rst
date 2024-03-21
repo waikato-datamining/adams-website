@@ -26,15 +26,15 @@ Downloads
   * CUDA 7.5 support for deeplearning4j (`zip <dl4jcuda75_>`__)
   * CUDA 8.0 support for deeplearning4j (`zip <dl4jcuda80_>`__)
 
-.. _basic: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-basic-app-17.12.0-bin.zip/download
-.. _base: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-base-all-17.12.0-bin.zip/download
-.. _addons: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-addons-all-17.12.0-bin.zip/download
-.. _mlapp: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-ml-app-17.12.0-bin.zip/download
-.. _spectralapp: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-spectral-app-17.12.0-bin.zip/download
-.. _dlspectralapp: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-deeplearning-spectral-app-17.12.0-bin.zip/download
-.. _annotator: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-annotator-17.12.0-bin.zip/download
-.. _dl4jcuda75: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-dl4j-cuda-7.5-libs-17.12.0-bin.zip/download
-.. _dl4jcuda80: https://sourceforge.net/projects/theadamsflow/files/17.12.0/adams-dl4j-cuda-7.5-libs-17.12.0-bin.zip/download
+.. _basic: https://adams.cms.waikato.ac.nz/releases/adams/adams-basic-app-17.12.0-bin.zip
+.. _base: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-17.12.0-bin.zip
+.. _addons: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-17.12.0-bin.zip
+.. _mlapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-ml-app-17.12.0-bin.zip
+.. _spectralapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-spectral-app-17.12.0-bin.zip
+.. _dlspectralapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-deeplearning-spectral-app-17.12.0-bin.zip
+.. _annotator: https://adams.cms.waikato.ac.nz/releases/adams/adams-annotator-17.12.0-bin.zip
+.. _dl4jcuda75: https://adams.cms.waikato.ac.nz/releases/adams/adams-dl4j-cuda-7.5-libs-17.12.0-bin.zip
+.. _dl4jcuda80: https://adams.cms.waikato.ac.nz/releases/adams/adams-dl4j-cuda-7.5-libs-17.12.0-bin.zip
 
 
 Highlights

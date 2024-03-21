@@ -15,10 +15,10 @@ Downloads
 * Linux/Unix/Windows: `zip <bin_>`__
 * Mac OSX: `app <app_>`__, `doc <doc_>`__, `flows <flows_>`__
 
-.. _bin: http://sourceforge.net/projects/theadamsflow/files/0.4.0/adams-all-0.4.0-bin.zip/download
-.. _app: http://sourceforge.net/projects/theadamsflow/files/0.4.0/adams-all-0.4.0-app.zip/download
-.. _doc: http://sourceforge.net/projects/theadamsflow/files/0.4.0/adams-all-0.4.0-doc.zip/download
-.. _flows: http://sourceforge.net/projects/theadamsflow/files/0.4.0/adams-all-0.4.0-flows.jar/download
+.. _bin: https://adams.cms.waikato.ac.nz/releases/adams/adams-all-0.4.0-bin.zip
+.. _app: https://adams.cms.waikato.ac.nz/releases/adams/adams-all-0.4.0-app.zip
+.. _doc: https://adams.cms.waikato.ac.nz/releases/adams/adams-all-0.4.0-doc.zip
+.. _flows: https://adams.cms.waikato.ac.nz/releases/adams/adams-all-0.4.0-flows.jar
 
 Launching ADAMS
 ===============

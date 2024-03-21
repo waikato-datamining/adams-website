@@ -10,34 +10,21 @@
 Downloads
 =========
 
-* **adams-basic-app** -- minimalistic application with Groovy, spreadsheet (`zip <zip_basic_>`__, `deb <deb_basic_>`__, `rpm <rpm_basic_>`__)
-* **adams-base-all** -- contains all basic modules (`zip <zip_base_>`__, `deb <deb_base_>`__, `rpm <rpm_base_>`__)
-* **adams-addons-all** -- contains all basic modules and addons modules (`zip <zip_addons_>`__, `deb <deb_addons_>`__, `rpm <rpm_addons_>`__)
-* **adams-annotator** -- an image/video annotation application (`zip <zip_annotator_>`__, `deb <deb_annotator_>`__, `rpm <rpm_annotator_>`__)
-* **adams-ml-app** -- contains machine learning, scripting and spreadsheet
-  modules (`zip <zip_mlapp_>`__, `deb <deb_mlapp_>`__, `rpm <rpm_mlapp_>`__)
+* **adams-basic-app** -- minimalistic application with Groovy, spreadsheet (`zip <zip_basic_>`__)
+* **adams-base-all** -- contains all basic modules (`zip <zip_base_>`__)
+* **adams-addons-all** -- contains all basic modules and addons modules (`zip <zip_addons_>`__)
+* **adams-annotator** -- an image/video annotation application (`zip <zip_annotator_>`__)
+* **adams-ml-app** -- contains machine learning, scripting and spreadsheet modules (`zip <zip_mlapp_>`__)
 * **adams-spectral-app** -- contains module for handling spectra (2-dimensional spectra
   like NIR, MIR, XRF and 3-way data like EEM fluorescence spectra) spreadsheet modules 
-  and Weka module (`zip <zip_spectralapp_>`__, `deb <deb_spectralapp_>`__, `rpm <rpm_spectralapp_>`__)
+  and Weka module (`zip <zip_spectralapp_>`__)
 
-.. _zip_basic: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-basic-app-24.1.0-bin.zip/download
-.. _deb_basic: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-basic-app_24.1.0-1_all.deb/download
-.. _rpm_basic: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-basic-app-24.1.0-1.noarch.rpm/download
-.. _zip_base: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-base-all-24.1.0-bin.zip/download
-.. _deb_base: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-base-all_24.1.0-1_all.deb/download
-.. _rpm_base: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-base-all-24.1.0-1.noarch.rpm/download
-.. _zip_addons: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-addons-all-24.1.0-bin.zip/download
-.. _deb_addons: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-addons-all_24.1.0-1_all.deb/download
-.. _rpm_addons: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-addons-all-24.1.0-1.noarch.rpm/download
-.. _zip_annotator: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-annotator-24.1.0-bin.zip/download
-.. _deb_annotator: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-annotator_24.1.0-1_all.deb/download
-.. _rpm_annotator: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-annotator-24.1.0-1.noarch.rpm/download
-.. _zip_mlapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-ml-app-24.1.0-bin.zip/download
-.. _deb_mlapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-ml-app_24.1.0-1_all.deb/download
-.. _rpm_mlapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-ml-app-24.1.0-1.noarch.rpm/download
-.. _zip_spectralapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-spectral-app-24.1.0-bin.zip/download
-.. _deb_spectralapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-spectral-app_24.1.0-1_all.deb/download
-.. _rpm_spectralapp: https://sourceforge.net/projects/theadamsflow/files/24.1.0/adams-spectral-app-24.1.0-1.noarch.rpm/download
+.. _zip_basic: https://adams.cms.waikato.ac.nz/releases/adams/adams-basic-app-24.1.0-bin.zip
+.. _zip_base: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-24.1.0-bin.zip
+.. _zip_addons: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-24.1.0-bin.zip
+.. _zip_annotator: https://adams.cms.waikato.ac.nz/releases/adams/adams-annotator-24.1.0-bin.zip
+.. _zip_mlapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-ml-app-24.1.0-bin.zip
+.. _zip_spectralapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-spectral-app-24.1.0-bin.zip
 
 
 Highlights
@@ -68,7 +55,7 @@ The built-in, cross-platform Swing look and feel hasn't seen a refresh since Jav
 fresher looking out there.
 
 
-Retired modules:
+Retired modules (moved to `adams-discontinued <https://github.com/waikato-datamining/adams-discontinued>`__):
 
 * adams-cqengine
 * adams-groovy-webservice

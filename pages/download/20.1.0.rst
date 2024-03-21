@@ -10,36 +10,26 @@
 Downloads
 =========
 
-* **adams-basic-app** -- minimalistic application with Groovy, spreadsheet (`zip <zip_basic_>`__, `deb <deb_basic_>`__, `rpm <rpm_basic_>`__)
-* **adams-base-all** -- contains all basic modules (`zip <zip_base_>`__, `deb <deb_base_>`__, `rpm <rpm_base_>`__)
-* **adams-addons-all** -- contains all basic modules and addons modules (`zip <zip_addons_>`__, `deb <deb_addons_>`__, `rpm <rpm_addons_>`__)
+* **adams-basic-app** -- minimalistic application with Groovy, spreadsheet (`zip <zip_basic_>`__)
+* **adams-base-all** -- contains all basic modules (`zip <zip_base_>`__)
+* **adams-addons-all** -- contains all basic modules and addons modules (`zip <zip_addons_>`__)
 * **adams-ml-app** -- contains machine learning, scripting and spreadsheet 
-  modules (`zip <zip_mlapp_>`__, `deb <deb_mlapp_>`__, `rpm <rpm_mlapp_>`__)
+  modules (`zip <zip_mlapp_>`__)
 * **adams-spectral-app** -- contains module for handling spectra (2-dimensional spectra
   like NIR, MIR, XRF and 3-way data like EEM fluorescence spectra) spreadsheet modules 
-  and Weka module (`zip <zip_spectralapp_>`__, `deb <deb_spectralapp_>`__, `rpm <rpm_spectralapp_>`__)
+  and Weka module (`zip <zip_spectralapp_>`__)
 * additional libraries
   
   * CUDA 8.0 support for multiway-algorithms (`zip <mwcuda80_>`__)
   * CUDA 9.2 support for multiway-algorithms (`zip <mwcuda92_>`__)
 
-.. _zip_basic: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-basic-app-20.1.0-bin.zip/download
-.. _deb_basic: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-basic-app_20.1.0-1_all.deb/download
-.. _rpm_basic: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-basic-app-20.1.0-1.noarch.rpm/download
-.. _zip_base: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-base-all-20.1.0-bin.zip/download
-.. _deb_base: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-base-all_20.1.0-1_all.deb/download
-.. _rpm_base: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-base-all-20.1.0-1.noarch.rpm/download
-.. _zip_addons: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-addons-all-20.1.0-bin.zip/download
-.. _deb_addons: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-addons-all_20.1.0-1_all.deb/download
-.. _rpm_addons: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-addons-all-20.1.0-1.noarch.rpm/download
-.. _zip_mlapp: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-ml-app-20.1.0-bin.zip/download
-.. _deb_mlapp: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-ml-app_20.1.0-1_all.deb/download
-.. _rpm_mlapp: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-ml-app-20.1.0-1.noarch.rpm/download
-.. _zip_spectralapp: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-spectral-app-20.1.0-bin.zip/download
-.. _deb_spectralapp: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-spectral-app_20.1.0-1_all.deb/download
-.. _rpm_spectralapp: https://sourceforge.net/projects/theadamsflow/files/20.1.0/adams-spectral-app-20.1.0-1.noarch.rpm/download
-.. _mwcuda80: https://sourceforge.net/projects/theadamsflow/files/20.1.0/multiway-algorithms-cuda-8.0-libs-20.1.0-bin.zip/download
-.. _mwcuda92: https://sourceforge.net/projects/theadamsflow/files/20.1.0/multiway-algorithms-cuda-9.2-libs-20.1.0-bin.zip/download
+.. _zip_basic: https://adams.cms.waikato.ac.nz/releases/adams/adams-basic-app-20.1.0-bin.zip
+.. _zip_base: https://adams.cms.waikato.ac.nz/releases/adams/adams-base-all-20.1.0-bin.zip
+.. _zip_addons: https://adams.cms.waikato.ac.nz/releases/adams/adams-addons-all-20.1.0-bin.zip
+.. _zip_mlapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-ml-app-20.1.0-bin.zip
+.. _zip_spectralapp: https://adams.cms.waikato.ac.nz/releases/adams/adams-spectral-app-20.1.0-bin.zip
+.. _mwcuda80: https://adams.cms.waikato.ac.nz/releases/adams/multiway-algorithms-cuda-8.0-libs-20.1.0-bin.zip
+.. _mwcuda92: https://adams.cms.waikato.ac.nz/releases/adams/multiway-algorithms-cuda-9.2-libs-20.1.0-bin.zip
 
 
 Highlights
