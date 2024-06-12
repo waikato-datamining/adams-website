@@ -1,0 +1,122 @@
+.. title: Updates 2024/06/13
+.. slug: updates-2024-06-13
+.. date: 2024-06-13 09:10:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of library upgrades happened again. Most notably are the introduction of *quick actions*
+in the Flow editor that can be invoked via SHIFT+right-click or SHIFT+F10. These are actor-specific
+actions like changing the variable name/value of a SetVariable actor or editing the boolean condition
+of an actor. These quick actions avoid having to go through the full-blown GenericObjectEditor dialog,
+saving a few mouse clicks. The *ArrayProcessor* received experimental parallel execution support. Items added
+to queues can have a delay in msec added to them, making them available at the other only once the
+delay has passed.
+
+**Fixes**
+
+* *adams-core:* 
+
+  * The *Percentage* generator for the *ArraySubsetGenerator* transformer now 
+    works as expected; added ability to oversample as well.
+  * The *SQL.tableExists* method now works correctly with the newer MySQL JDBC driver
+    (limiting DB meta-data to a particular database does not seem to work anymore, as 
+    it iterates over ALL databases).
+  * Fixed the exception that occurred when selecting "Use default" from the popup menu 
+    in the GOE for an array property.
+
+* *adams-docker:* The management interfaces for Docker containers and images now gather the 
+  output from all commands rather than just the last one.
+* *adams-imaging:* The barcode encoders now use the correct x/y position (was off by 1).
+* *adams-ml:* The *ConfusionMatrix* transformer, when generating sums to calculate percentages, 
+  no longer throws an error when probabilities instead of counts are taken into account (ie 
+  a probability column was specified).
+
+
+**Changes**
+
+* *adams-core:*
+
+  * removed JVisualVM menu item from *Help* menu (user-mode: developer/debug) 
+    as it is no longer bundled with JDKs
+  * added "ADAMS home directory" menu item (user-mode: developer/debug)
+  * upgraded sizeofag to 1.1.0
+  * The *HashSet* source now allows customizing the column name of the generated spreadsheet
+  * upgraded commons-compress to 1.26.0
+  * upgraded commons-io to 2.15.1
+  * upgraded commons-codec to 1.16.1
+  * upgraded processoutput4j to 0.0.12
+  * *GetReportValue* can apply a conversion to the obtained report value now before forwarding it
+  * The Flow editor now offers actor-specific *quick actions* via the SHIFT+right-click popup menu
+    on a selected actor, e.g., renaming a variable name or changing the variable value. Using
+    SHIFT+F10. this menu can be displayed directly via keyboard.
+  * Reworked the notes support for files in the *Preview browser*, associating notes now with 
+    directory and file, allowing the user to edit the notes.
+  * The *Preview browser* now has a *Send to* sub-menu in the popup menu for the local files 
+    as well, not just from the main menu.
+  * *CallableX* actors no longer call the wrapUp()/cleanUp() methods of their referenced actor, as this
+    should happen already.
+  * Added experimental parallel execution support to the *ArrayProcess* control actor.
+  * Added support for delayed queues, i.e., possible retrieval of queue items can be 
+    delayed by a certain delta of msecs. The retrieval delay gets defined in the *EnQueue* sink.
+
+* *adams-compress*: added commons-codec depdendency
+
+* *adams-db:* 
+
+  * upgraded hdsqldb to 2.7.2
+  * upgraded sqlite-jdbc to 3.45.0.0
+  * upgraded mssql-jdbc to 12.4.2.jre11
+
+* *adams-docker:* The management interfaces for Docker containers and images allow pruning now as well.
+* *adams-imaging:* 
+
+  * The *YoloAnnotationsReportReader* now has the `-use-polygon-format` option to 
+    enforce reading the data in polygon format rather than auto-detecting it.
+  * The image segmentation panel now has the following buttons for controlling the visibility of 
+    layers: All, None, Invert
+  * The object annotations panel now has a button for toggling the visibility of the annotations.
+
+* *adams-json:* upgraded json-path to 2.9.0
+* *adams-maps:* upgraded postgis-jdbc to 2023.1.0
+* *adams-nlp:* 
+
+  * upgraded jsoup to 1.17.2
+  * The *EditDistance* transformer can process string arrays of length 2 now as well
+    rather than having to set the base string via a variable.
+
+* *adams-opencv:* upgraded javacv to 1.5.10
+* *adams-rats-core:* The *EnQueue* rat output now supports delayed queues with its retrieval delay option.
+* *adams-spectral-2dim-core:* 
+
+  * *GetSampleDataValue* can apply a conversion to the obtained report value now before forwarding it
+  * The *SpectrumDisplay* sink can accept arrays of spectra now, to speed up display of data
+
+* *adams-weka* and *adams-weka-lts*: The attribute summary panel used in the Preprocess tab of the 
+   Investigator (displaying histogram/bar chart) now allows the user to customize the colors. The
+   default color provider can be customized via the *Preprocess.AttributeSummaryColorProvider*
+   property in the *WekaInvestigatorSession.props* config file or the Preferences dialog.
+* *adams-weka-lts:* upgraded Weka to 3.9.0-fork-0.0.14 (updated package manager classes)
+
+
+**Additions**
+
+* *adams-core:* 
+
+  * added the *SimplePercentage* generator for the *ArraySubsetGeneration* transformer.
+  * added the *Copy file to...* action to the files list in the *Preview browser*.
+
+* *adams-imaging:* added the *EncodeBarcode* transformer that turns a string payload into the 
+  specified barcode, e.g., QR code.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The *RemoveWithLabels* filter allows removing instances with labels that match a regular expression.
+  * The *AlignDataset* filter aligns the dataset being filtered with an external dataset, e.g.,
+    making train/test sets compatible.
+  * In the GenericObjectEditor, it is now possible to enclose clusterers in SingleClustererEnhancers,
+    just like with classifiers. In addition, the opposite operation "pull up" has been added as well.
+
