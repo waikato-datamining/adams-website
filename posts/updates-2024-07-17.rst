@@ -1,0 +1,66 @@
+.. title: Updates 2024/07/17
+.. slug: updates-2024-07-17
+.. date: 2024-07-17 16:41:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+This time round, there have been a bunch of important bug-fixes and additions. The Weka Investigator
+can now perform repeated cross-validation, calculating statistics across the runs (the Experimenter
+does this per fold, the Investigator per full CV) and also a new tab for executing an experiment run
+on the current dataset and the chosen classifier.
+
+Last, but not least, ADAMS turned 15 today (first commit in 2009). :-)
+
+
+**Fixes**
+
+* *adams-pdf:* PDF fonts now properly parse the attributes in the font string 
+  (Arrays.binarySearch on unsorted array returned invalid index for Italic).
+* *adams-weka* and *adams-weka-lts*: 
+
+  * The Multi-Experimenter now sorts the results according to dataset/classifier order (dataset first).
+  * Leave-one-out cross-validation (LOOCV) now works correctly in the Multi-Experimenter.
+  * The *Rename...* action for renaming a column of an InstancesTable now uses the correct column index.
+  * Changed the R^2 calculation to https://en.wikipedia.org/wiki/Coefficient_of_determination#Definitions
+
+
+**Changes**
+
+* *adams-core:* 
+
+  * spreadsheet formulas can now use *median* as well
+  * upgraded commons-io to 2.16.1
+
+* *adams-imaging:* 
+
+  * upgraded opex4j to 0.0.3
+  * the *ObjectCentersFromReport* plugin in the Preview browser now allows changing the report reader
+  * object finders now have a *quiet* flag to suppress warnings about -1 indices
+
+* *adams-spreadsheet:*
+
+  * The *SpreadSheetAggregate* transformer now offers the 25th and 75th quartile as well.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * upgraded common-csv-weka-package to 2024.7.5
+
+
+**Additions**
+
+* *adams-imaging:*
+
+  * The image object filter *ObjectsInPolygon* finds annotations that fall within the specified polygon.
+  * The *CountObjectsInPolygon* transformer outputs the number of annotations that fall within the
+    specified polygon.
+
+* *adams-weka* and *adams-weka-lts*:
+
+  * Added support for repeated cross-validation to the *Weka Investigator*.
+  * Added an *Experiment* tab to the *Weka Investigator* for evaluating single classifier on selected dataset.
+
