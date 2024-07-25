@@ -61,6 +61,8 @@ Last, but not least, ADAMS turned 15 today (first commit in 2009). :-)
 
 * *adams-weka* and *adams-weka-lts*:
 
-  * Added support for repeated cross-validation to the *Weka Investigator*.
-  * Added an *Experiment* tab to the *Weka Investigator* for evaluating single classifier on selected dataset.
+  * Added support for repeated cross-validation to the *Weka Investigator*. 
+    See this video: https://youtu.be/ZlbynLCq8mc?si=HEkY0I_rQyaq6mD0
+  * Added an *Experiment* tab to the *Weka Investigator* for evaluating single classifier on selected dataset. 
+    See this video: https://youtu.be/bVid9WrpE0s?si=KJcyUT33RbGiVF89
 
