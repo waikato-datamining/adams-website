@@ -1,0 +1,100 @@
+.. title: Updates 2024/08/16
+.. slug: updates-2024-08-16
+.. date: 2024-08-16 16:32:00 UTC+12:00
+.. tags: 
+.. status:
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Quite a few changes this time round: a number of libraries have been upgraded to address
+security vulnerabilities (which may or may not apply), Weka's repeated cross-validation 
+which was recently added to the Weka Investigator is now available in the flow as well,
+module *adams-jep* was added to allow executing Python scripts from within flows, thanks
+to the *jep* project.
+
+**Fixes**
+
+* Fixed the title of the *File monitor* interface (was incorrectly *Flow runner*).
+* Runtime-only tabs in the Flow editor (e.g., from breakpoints) are no longer affected
+  by the enabling/disabling all actions.
+* *adams-core*: Screenshots in the manual have been updated to reflect the refreshed interfaces.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Removing multiple datasets from the *Weka Investigator* no longer causes exceptions 
+    trying to access the selected rows. 
+  * Reordering datasets in the *Weka Investigator* also no longer causes exceptions 
+    (due to automatic data structure cleanups).
+  * Screenshots in the manual have been updated to reflect the refreshed interfaces.
+
+
+**Changes**
+
+* Added *favorites* buttons to the generic object and array editor panels.
+* The *Favorites* menu has been reworked and it is now possible to add multiple named *temporary favorites*,
+  ones that only last the session. See also this video: https://youtu.be/zu_sNTUh9ZY?si=ZNK00GXsS1-A6TUH
+* The *tree button* for selecting a class from the class tree in the GenericObjectEditor has been removed,
+  as it has been superceded for a while now by the class tree that is shown in the left panel of the 
+  GenericObjectEditor.
+* Added the *Keep open* option to graphical output, i.e., the window will stay open even when the flow 
+  cleans up graphical output; the user needs to explicitly close the window. See the checkbox menu item
+  in the *File* menu of the window.
+* Upgraded MySQL JDBC driver to 9.0.0 to address CVE-2023-22102
+* Upgraded flatlaf look'n'feel to 3.4
+* *adams-access:* Upgraded jackcess to 4.0.7
+* *adams-boofcv:* Upgraded to 1.1.5
+* *adams-compress:*
+
+  * Using Apache commons compress library for LZMA now instead of lzma-java
+  * Added support for lzf, lzma and tar in the File commander
+  * Upgraded xz dependencty to 1.10
+  * Upgraded zstd-jni dependency to 1.5.6-4
+
+* *adams-db:* 
+
+  * Upgraded postgresql JDBC driver to 42.7.3 to address CVE-2024-1597
+  * Upgraded hsqldb to 2.7.3
+  * Upgraded sqlite-jdbc to 3.46.0.1
+  * Upgraded mssql-jdbc to 12.8.0.jre11
+
+* *adams-json:* 
+
+  * The JsonProducer option generator now only outputs the values that differ from 
+    their defaults values. This can be overridden by *setOutputFull(true)*.
+  * Upgraded json-smart to 2.5.1
+  * Upgraded gson to 2.11.0
+
+* *adams-moa:* upgraded MOA to 2024.07.0
+* *adams-net* and *adams-html*: upgraded requests4j to 0.2.6
+* *adams-pdf:* upgraded itextpdf to 5.5.13.4 to address CVE-2017-20151
+* *adams-rsync:* upgraded rsync4j to 3.3.0-1
+* *adams-scripts:* added *-venv PATH* option to exec.sh/.bat and launcher.sh/bat to 
+  activate a Python virtual environment
+* *adams-webservice-core:* upgraded CXF to 3.6.4 to address CVE-2024-28752
+* *adams-weka* and *adams-weka-lts*: 
+
+  * added *favorites* button for the output generators in the Weka Investigator.
+  * upgraded xgboost4j_2.12 to 2.1.0, requiring glibc 2.28 or later under Linux
+  * upgraded Weka to 3.9.6-fork-0.0.3 (non-LTS) and 3.9.0-fork-0.0.15 (LTS) to fix issue with
+    AbstractClassifier trying to access batchsize and numDecimalPlaces members when 
+    deserializing old models.
+
+
+**Additions**
+
+* *adams-compression:* Added the *TarExport* multi-object export plugin, in addition to the
+  existing *ZipExport* plugin. The export supports automatic compression based on the file
+  extension being used, e.g., gzip (.tar.gz) or bzip2 (.tar.bz2).
+* *adams-jep:* new module for running Python scripts via Jep (https://github.com/ninia/jep/)
+  from within ADAMS. Requires ADAMS to be started from the shell with the correct Python
+  environment. When running flows in parallel, the user needs to ensure that the variable
+  names do no interfere due to global scope.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added support for repeated cross-validation to the flow with the transformers 
+    *WekaRepeatedCrossValidationEvaluator* and *WekaRepeatedCrossValidationOutput*.
+  * Added support for the Weka Package Manager in the flow with the WekaPackageManagerAction
+    standalone/source/transformer actors and the WekaPackageToMap conversion.
+
