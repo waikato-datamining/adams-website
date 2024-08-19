@@ -90,7 +90,8 @@ to the *jep* project.
 * *adams-jep:* new module for running Python scripts via Jep (https://github.com/ninia/jep/)
   from within ADAMS. Requires ADAMS to be started from the shell with the correct Python
   environment. When running flows in parallel, the user needs to ensure that the variable
-  names do no interfere due to global scope.
+  names do no interfere due to global scope. Video demonstrating the use of jep:
+  https://www.youtube.com/watch?v=26WiGDN_-KA
 * *adams-weka* and *adams-weka-lts*: 
 
   * Added support for repeated cross-validation to the flow with the transformers 
