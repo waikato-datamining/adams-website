@@ -1,6 +1,6 @@
 .. title: Get Started - Eclipse
 .. slug: dev-get-started-eclipse
-.. date: 2015-12-18 14:46:52 UTC+13:00
+.. date: 2024-09-27 15:33:52 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -18,6 +18,15 @@ configuration with the following main class:
 .. code:: java
 
    adams.gui.Main
+
+For making it work with Java's modular framework, it is advised to specify the following JVM parameters:
+
+.. code::
+
+   --add-exports=java.base/jdk.internal.misc=ALL-UNNAMED
+   --add-exports=java.desktop/sun.awt.image=ALL-UNNAMED
+   --add-exports=java.desktop/com.sun.media.sound=ALL-UNNAMED
+   --add-exports=java.base/sun.nio.cs=ALL-UNNAMED
 
 All example flows use the placeholder ``${EXAMPLE_FLOWS}``, which is relative to
 the module's path. In order to execute the example flows from module

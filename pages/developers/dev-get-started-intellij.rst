@@ -1,6 +1,6 @@
 .. title: Get Started - IntelliJ IDEA
 .. slug: dev-get-started-intellij
-.. date: 2015-12-18 14:46:52 UTC+13:00
+.. date: 2024-09-27 15:33:52 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -109,6 +109,15 @@ that you want to use, eg 2GB:
 
 .. image:: ../../images/intellij-main.png
 
+For making it work with Java's modular framework, it is advised to specify the following JVM parameters:
+
+.. code::
+
+   --add-exports=java.base/jdk.internal.misc=ALL-UNNAMED
+   --add-exports=java.desktop/sun.awt.image=ALL-UNNAMED
+   --add-exports=java.desktop/com.sun.media.sound=ALL-UNNAMED
+   --add-exports=java.base/sun.nio.cs=ALL-UNNAMED
+
 
 Editor menu
 -----------
@@ -134,12 +143,6 @@ CXF <CXF_>`_), then you can use IDEA's External tools facility:
 
 Troubleshooting
 ---------------
-
-* Starting with version 2016.1, IntelliJ bundles its own JRE (based on OpenJDK).
-  However, the font rendering can some times leave much to be desired. The 
-  Oracle JDK/JRE performs better font rendering (e.g., on Linux) and you can 
-  point IntelliJ to the JDK/JRE it should use by simply setting the ``IDEA_JDK``
-  environment variable (`source <ideasdk_>`_).
 
 * For large projects like ADAMS you may have to increase the heapsize for the
   Maven Importer in your settings, as 512MB might not be enough, and despite
