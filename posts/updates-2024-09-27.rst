@@ -1,0 +1,127 @@
+.. title: Updates 2024/09/27
+.. slug: updates-2024-09-27
+.. date: 2024-09-27 14:42:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Apart from a lot fixes, changes and additions, a lot of work has gone into replacing deprecated
+code. Since Java has been changing more rapidly since Java 9, quite a lot of code needed tweaking.
+Subtle changes between Java versions (e.g., ordering in Properties) were breaking the regression
+unit tests. In some cases, I had to resort to Java-version specific test output to compare against. 
+But most importantly, ADAMS now successfully compiles, executes its tests and runs under the 
+following Java versions: 11 (LTS), 17 (LTS), 21 (LTS), 22 and 23. Code base and compiled output 
+are still targeting Java 11.
+
+**Fixes**
+
+* When enabled in the *Flow editor*, garbage collection is now run after the flow finished and when 
+  the flow is being cleaned up.
+* Fixed handling of mnemonics and accelerators for properties-based menu items (e.g., Spreadsheet file viewer).
+* Editing enums in the GenericArrayEditor now allows adding multiple enums via their text-representation
+  (fixed out of bounds exception).
+* Spreadsheet tables now apply numeric filters to numeric values correctly.
+* Debug view in the *Flow editor* no longer hides the notification area when a flow finishes.
+* The *Storage* debugging panel in the *Flow editor* had its *Edit* operation fixed.
+* The GOE editors for annotations, text and markdown now respect the *line wrap* state when
+  reopening the editor.
+* The GenericObjectEditor no longer updates the current value of a chooser panel while editing an object,
+  only when accepting the changes.
+* The FlowRunner now uses BackgroundScriptingEngineRegistry for stopping scripting engines.
+* *adams-imaging:* The *PolygonPointAnnotator* now plots a small circle or a line when there are only
+  one or two points selected before plotting a polygon.
+* *adams-compress:* The *GUNZIP*, *UnBzip2* and *UnTar* transformers now decompresses the data till they
+  reach the end-of-file, handling concatenated streams now correctly.
+* *adams-spectral-2dim-core:* improved performance of the *BulkSampleDataDbWriter* by fixing the underlying
+   SampleDataT code (auto-commit was always on regardless of parameter).
+* *adams-weka* and *adams-weka-lts*: Instances tables now apply numeric filters to numeric values correctly.
+
+
+**Changes**
+
+* Variables and storage in the *Flow editor* are now available for inspecting after flow execution 
+  (even when stopped) till the flow is being cleaned up.
+* The FlatLaf* look'n'feel themes now show scrollbars again.
+* The *ViewDataClickAction* of the SequencePlotter and SimplePlot sink now allows the user to
+  select the outline of a polygon and display the data points that fall within that polygon.
+  The polygon is defined (invisible unless the PolygonSelectionPaintlet overlay paintlet is specified) 
+  by SHIFT+left-click on vertices and SHIFT+right-click to finalize the polygon 
+  (CTRL+right-click discards any points).
+* The *WaitForFile* transformer now uses the *file use check* class hierarchy.
+* The *Storage* debugging panel in the *Flow editor* now can copy the name/cache to the clipboard
+  via the right-click popup menu, as well as editing and exporting.
+* The *LocalScopeTransformer* control actor has been renamed to *LocalScopeSubProcess* to better
+  align with the naming conventions.
+* The *DeleteFile* transformer now handles arrays of strings/files as well.
+* The *GenericObjectEditor* now has an improved undo mechanism: it is now possible to revert to
+  a previous object when switching between objects via the class tree.
+* *adams-groovy:* Upgraded groovy dependencies to 4.0.23 to work with Java 22
+
+* *adams-imaging:*
+
+  * The *ImageObjectInfo* transformer can output the rectangle/polygon area now and supports scaling.
+  * Upgraded commons-imaging to 1.0.0-alpha5
+  * The *ImageObjectFilter* can now work off a copy of the incoming report/report handler rather 
+    than modifying in-place (default).
+
+* *adams-spectral-2dim-core:* 
+
+  * The *RowWiseSpreadSheetSpectrumReader* spectrum reader has improved support for chunked 
+    spreadsheet readers now; added support for row filtering.
+  * The *RowWiseSpreadSheetSampleDataReader* now has support for row filtering.
+
+* *adams-spreadsheet:* 
+
+  * Added chunking support to *FastCsvSpreadSheetReader*
+  * Added support for running garbage collection in *Spreadsheet file viewer* when closing sheets/pages 
+    (File / GC on close).
+  * The *Unique values* column operation now opens a modeless text dialog, enabling multiple dialogs
+    to be open at the same time.
+  * Spreadsheet tables now limit the number of characters that are displayed in the title (default: 40)
+    to avoid overly wide columns. That can be adjusted with key "SpreadSheetTableMaxColumnNameChars" 
+    in GUIHelper.props.
+
+* *adams-visualstats:* The *ViewDataClickAction* of the Scatterplot sink now allows the user to
+  select the outline of a polygon and display the data points that fall within that polygon.
+  The polygon is defined by SHIFT+left-click on vertices and SHIFT+right-click to 
+  finalize the polygon (CTRL+right-click discards any points).
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Upgraded jgrapht-treevisualize-weka-package to 2024.8.19 to address CVE-2022-42889 introduced by commons-text:1.5
+
+
+**Additions**
+
+* The *BlockingSearch* search plugin for the *FileSystemSearch* waits till the specified
+  base search returns a non-empty results (or the specified timeout is reached).
+* The *ListClassUsage* actor processor generates a list of all occurrences of a class
+  (or derived classes, when enabled) in a flow.
+* The *LocalScopeTee* control actor works like the normal *Tee* actor but with local scope for
+  variables/storage.
+* The *LaunchTee* and *LaunchTrigger* control actors launch their respective sub-flows in
+  separate threads (no limit to number of threads), each with their own local scope. Can be
+  used for launching external processes, like Docker containers that keep running.
+* *adams-imaging:*
+
+  * Added support for generating sub images from predefined regions that have a label associated
+    with the *LabeledRegions* generator - plugin for the *SubImages* BufferedImageTransformer.
+
+* *adams-spectral-2dim-core:*
+
+  * Added the *MultiColumnSpreadSheetSampleDataReader* reader for sample data, which reads
+    reference data row-wise, using the specified column range.
+  * Added the *BulkSpectrumDbWriter* transformer to make bulk imports of spectra faster. The
+    recommended setting is to use a new connection and to turn auto-commit off, to dramatically
+    increase throughput.
+
+* *adams-spreadsheet:*
+
+  * The *Overlay* multi-spreadsheet operation combines multiple sheets into a single one by
+    overlaying non-empty cells at the same coordinates, with the last non-empty cell overwriting
+    any prior content.
+
+Have a good weekend!
