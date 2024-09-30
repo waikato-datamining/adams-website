@@ -156,8 +156,8 @@ NAVIGATION_LINKS = {
         ((
           ("/about/about", "About"),
           ("/about/citing", "Citing"),
-          ("/about/screenshots", "Screenshots"),
-          ("/about/floweditor", "Flow editor evolution"),
+          ("/galleries/screenshots", "Screenshots"),
+          ("/galleries/floweditor", "Flow editor evolution"),
           ("/about/publications", "Publications"),
           ("/about/team", "Team"),
           ("/about/consulting", "Consulting"),
