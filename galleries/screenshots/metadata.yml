@@ -1,0 +1,70 @@
+---
+name: 3way_heatmap_viewer.png
+caption: 3-way heatmap viewer
+---
+name: 4in1-output.png
+caption: 4-in-1 output
+---
+name: advanced-learning_curve-incremental-flow.png
+caption: Learning curve (incremental classifier) - flow
+---
+name: advanced-learning_curve-incremental-output.png
+caption: Learning curve (incremental classifier) - output
+---
+name: dataset-compatibility.png
+caption: Dataset compatibility
+---
+name: diff-files.png
+caption: Comparing files (diff)
+---
+name: explorerext-workspaces.png
+caption: ExplorerExt - workspaces
+---
+name: floweditor-debugging1_inspectionpanel.png
+caption: Flow Editor, debugging, inspection panel
+---
+name: instance-compare.png
+caption: Instance compare
+---
+name: jai-blur-output-blurred.png
+caption: JAI blur filter output
+---
+name: lanterna-terminal.png
+caption: Lanterna terminal
+---
+name: moa-stream-filtering_output.png
+caption: MOA stream filtering output
+---
+name: previewbrowser-default.png
+caption: Preview Browser (serialization, default view)
+---
+name: previewbrowser-graph.png
+caption: Preview Browser (serialization, graph view)
+---
+name: previewbrowser-tree.png
+caption: Preview Browser (serialization, tree view)
+---
+name: spectral_pca.png
+caption: Spectrum Explorer - PCA
+---
+name: spreadsheet-processor.png
+caption: Spreadsheet processor
+---
+name: spreadsheet_file_viewer.png
+caption: Spreadsheet file viewer
+---
+name: sqlworkbench.png
+caption: SQL Workbench
+---
+name: timeseries-setup.png
+caption: Timeseries (setup)
+---
+name: timeseries-input.png
+caption: Timeseries (input)
+---
+name: timeseries-forecast.png
+caption: Timeseries (forecast)
+---
+name: weka_investigator.png
+caption: Weka Investigator
+---

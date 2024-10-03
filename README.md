@@ -14,7 +14,7 @@ Uses [Nikola](https://getnikola.com/), the static site generator.
 * install packages and plugins
 
   ```bash
-  ./venv/bin/pip install nikola micawber
+  ./venv/bin/pip install nikola micawber ruamel.yaml
   ./venv/bin/nikola plugin -i slides
   ```
 
