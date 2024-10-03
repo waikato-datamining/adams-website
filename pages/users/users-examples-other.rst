@@ -18,14 +18,6 @@ concepts in ADAMS have changed over time. E.g., *global* actors are now called
 *SingleFileSupplier* and *MultiFileSupplier* got merged into the *FileSupplier*
 actor.
 
-WEKA webservice
----------------
-
-Using this webservice, any programming language can take advantage of WEKA as
-long as it supports SOAP
-
-.. media:: https://www.youtube.com/watch?v=90zhhvfzkWI
-
 
 Processing data with R
 ----------------------
