@@ -1,0 +1,5 @@
+/* https://stackoverflow.com/a/53359424/4698227 */
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
