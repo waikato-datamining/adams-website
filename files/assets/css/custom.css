@@ -1,5 +1,32 @@
 /* https://stackoverflow.com/a/53359424/4698227 */
 .carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
+.carousel-control-prev, .carousel-indicators {
     filter: invert(100%);
+}
+
+/* blog post */
+.entry-title {
+  font-size: 1.5rem;
+}
+.h-entry {
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  margin-bottom: 1rem;
+}
+
+/* pager buttons */
+ul.pager li a {
+  display: inline;
+  position: relative;
+  line-height: 1.5;
+  color: #fff;
+  border-radius: .25rem;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  padding: .375rem .75rem;
+}
+ul.pager li a:hover {
+  border: 1px solid ##0062cc;
+  background-color: ##0062cc;
+  text-decoration: none;
 }
