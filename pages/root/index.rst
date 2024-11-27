@@ -20,6 +20,8 @@
         <div style="float: right; ">
           <a href="https://mstdn.social/@TheAdamsFlow" target="_blank"><img src="/images/mastodon.png" height="32"/></a>
           <span style="padding: 15px"/>
+          <a href="https://bsky.app/profile/theadamsflow.bsky.social" target="_blank"><img src="/images/bluesky.png" height="32"/></a>
+          <span style="padding: 15px"/>
           <a href="https://www.youtube.com/@TheAdamsWorkflow " target="_blank"><img src="/images/youtube.png" height="32"/></a>
         </div>
       </div>
