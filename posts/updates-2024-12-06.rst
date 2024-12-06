@@ -1,5 +1,5 @@
-.. title: new
-.. slug: new
+.. title: Updates 2024/12/06
+.. slug: updates-2024-12-06
 .. date: 2024-12-06 16:43:00 UTC+13:00
 .. tags: 
 .. status: 
