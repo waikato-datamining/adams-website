@@ -1,0 +1,107 @@
+.. title: new
+.. slug: new
+.. date: 2024-12-06 16:43:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Wide range of fixes, changes and additions. Notably are the addition of basic
+git support in the Flow editor (to be enabled in the Preferences dialog) and
+support for the H2 SQL database (e.g., for adhoc, in-memory use). Also, Weka's
+evaluation can be interrupted now a bit better, e.g., between cross-validation
+folds and while evaluating a classifier. Some ADAMS-only classifiers received an
+overhaul to allow interrupting their build process as well. The adams-nlp
+module has been retired, due to security concerns of some of its third-party 
+libraries and the amount of work that would have been required to keep it going.
+
+**Fixes**
+
+* *adams-core:* 
+
+  * fixed race condition when clearing the buffer in the *DumpFile* sink 
+    (e.g, when initiated from a RatControl)
+  * image panels now zoom in/out on the mouse position when possible
+  * the list of connections in the database connections panel is now sorted
+  * the *Flow editor* now handles loading flows that do not exist better
+
+* *adams-groovy:* The Groovy conversion and actors handle variables attached to the 
+  *scriptFile* and *inlineScript* options now properly.
+* *adams-imaging:* The *ImageLabeler* no longer enforces the data type of the field 
+  to be STRING to address problem on not being able to enter value in the GOE, instead
+  the data type is checked in the setUp() method.
+* *adams-moa:* fixed race condition when clearning the buffer in the *MOAInstanceDumper* 
+  sink (e.g, when initiated from a RatControl)
+* *adams-rat-core:* clicking the stop button of a RatControl panel no longer locks the
+  UI, instead the stopping now works asynchronously, informing the user via status
+  messages in the RatControl panel.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * fixed race condition when clearing the buffer in the *WekaInstanceDumper* sink 
+    (e.g, when initiated from a RatControl)
+  * fixed serialization issue in the Weka Investigator when copying tabs
+
+
+**Changes**
+
+* Password fields now have a button to show/hide the password as well as a popup menu
+  for show/hide and copy/paste.
+* Process actors that generate graphical output can now be detached from the tabbed
+  pane on the right hand side in the Flow editor.
+* *adams-core:* 
+
+  * upgraded processoutput4j to 0.0.14
+  * upgraded mysql-connector-j to 9.1.0
+  * added instructions to the manual on how to configure SSL connections for MySQL
+
+* *adams-db:* added support for the H2 database (https://www.h2database.com/)
+* *adams-jep:* upgraded jep to 4.2.1
+* *adams-maps:* upgraded postgis-jdbc to 2024.1.0
+* *adams-ml:* The *RemoveOutliers* control actor now allows toggling of outliers that
+  fall within a polygon (SHIFT+left-click for vertices, SHIFT+right-click to finalize polygon)
+  and also undo/redo.
+* *adams-net:* retired the Telnet interface
+* *adams-pdf:* upgraded icepdf-core/icepdf-viewer to 7.2.1 to address GHSA-v435-xc8x-wvr9, 
+  GHSA-m44j-cfrm-g8qc, GHSA-8xfc-gm6g-vgpv and GHSA-4h8f-2wvx-gg5w
+* *adams-rsync:* upgraded rsync4j to 3.3.0-2
+* *adams-spectral-2dim-core:* 
+
+  * The *SpectrumDbReader* transformer now only outputs a warning message regarding missing 
+    container (ie didn't find spectrum in DB) in lenient mode when the silent flag is not set.
+  * The *PostProcessor* transformer now checks if its post-processor scheme can be stopped
+    when the actor receives the request to stop.
+  * The *Evaluator* transformer now checks if its evaluator scheme can be stopped when the
+    actor receives the request to stop.
+  * The *Cleaner* transformer now checks if its cleaner scheme can be stopped when the
+    actor receives the request to stop.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * introduced a variant of the Weka Evaluation class which can be interrupted more 
+    easily, e.g., during cross-validation and evaluation of a test set.
+  * disambiguating tab titles now in the *Weka Investigator* to avoid confusion in the logs
+
+* *adams-xml:* upgraded xstream to 1.4.21 to address CVE-2024-47072
+
+
+**Additions**
+
+* *adams-git:* new module with basic support for add/commit/pull/push in the *Flow editor*
+  (needs to be disabled first via the preferences dialog).
+* *adams-spectral-2dim-core:* added the *PredictionErrorIQR* post-processor algorithm that removes
+  rows from the data which prediction errors are above the upper threshold based
+  on the prediction IQR.
+* *adams-security:* added page *Trust store* in global preferences dialog for specifying a Java 
+  trust store, e.g., to be used when connecting via SSL to MySQL databases.
+* *adams-weka* and *adams-weka-lts*: The *LWLSynchroSplit* lazy classifier allows the 
+  search space to be differently filtered than the data that the base classifier is 
+  then trained on.
+
+
+**Retired**
+
+* *adams-nlp* module
+
