@@ -9,7 +9,7 @@
 .. type: text
 .. author: FracPete
 
-The videos from the `Weka User Conference <https://events.waikato.ac.nz/events/2021-international-weka-user-conference/>`__ from
+The videos from the `Weka User Conference <https://web.archive.org/web/20240224122728/https://events.waikato.ac.nz/events/2021-international-weka-user-conference/>`__ from
 last year in November are now finally available.
 
 .. raw:: html
