@@ -1,0 +1,139 @@
+.. title: Updates 2025/04/11
+.. slug: updates-2025-04-11
+.. date: 2025-04-11 14:56:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+The most exciting new feature is the tight integration of Meta's Segment Anything 2
+model for annotating images (object detection and image segmentation) thanks to the
+Deep Java Library project (DJL). You no longer have to launch a Docker image through 
+a separate flow in the background in order to take advantage of the model. See this 
+video for Segment Anything 2 in action: https://youtu.be/5ln2c2kgMAc
+
+**Fixes**
+
+* Reduced the default minimum width for views in GenericObjectEditor property sheet to 100 pixels 
+  to avoid having to resize the GOE dialog unnecessarily.
+* *adams-core:* 
+
+  * The *LocalJobRunner* now stops jobs from the end of the list when terminating, 
+    to avoid new jobs being launched.
+  * The *Block* control actor now only displays a grammar in its global info 
+    if one is available.
+  * *IncVariable* now synchronizes the retrieval/setting of updated variable values to
+    avoid race condition.
+  * The *MergeReport* transformer now allows the source/storage item to be a *ReportHandler*
+    as well.
+
+* *adams-imaging:* 
+
+  * The AreaRatio and IntersectOverUnionRatio overlap algorithms now correctly
+    initialize the matches; missing overlaps were (ironically) missed.
+  * The *CompareAnnotationWithPrediction* image segmentation operation now corretly 
+    limits the layers to the supplied ones (it was removing them instead).
+
+* *adams-pdf:* The *PDF viewer* works again.
+* *adams-weka* and *adams-weka-lts*: Added the *-fix-att-count* flag to savitzky-golay 
+  filters to keep backwards compatibility but also to provide ability to output the 
+  correct number of attributes (misses last one in unfixed version).
+
+
+**Changes**
+
+* Any multi-page pane (e.g., the list with flows in the Flow editor) now allows moving
+  items up/down using the keyboard: ALT+Up/Down.
+* The *GenericArrayEditor* now has a right-click popup menu for the list for copying 
+  command-lines to the clipboard.
+* *adams-core:* 
+
+  * The *LaunchTee* and *LaunchTrigger* control actors now allow limiting the number of threads running concurrently.
+  * The *Display* sink can limit the number of displayed lines now.
+  * Added the "bringToFront" option to the *Breakpoint* control actor to make the user aware of that a 
+    breakpoint was triggered (off by default)
+  * The *Time* flow execution listener can output the table to a CSV file now.
+  * The right-click popup menu in the *Flow editor* now offers to copy storage and variable names to the
+    clipboard under *Copy (more)*.
+  * *Actor processors* that generate graphical output in the *Flow editor* can be rerun now via the 
+    "Rerun" button at the bottom right of the output.
+  * upgraded mysql-connector-j to 9.2.0
+  * the *About* dialog now uses a searchable/sortable table to make it easier to navigate
+  * The *StringReplace* transformer now has the *useDotAll* option which allows matching
+    across multiple lines.
+  * The *TryCatch* control actor can leave the source actor's full name/error type out 
+    of the combined message.
+
+* *adams-event:* added the *SubProcessEvent* standalone and its class hierarchy for processing 
+  data from trigger events.
+* *adams-imaging:* The *ConfusionMatrix* image segmentation container operation now
+  allows specifying a custom name for the unlabeled pixels.
+* *adams-json:* upgraded json-smart to 2.5.2 to address CVE-2024-57699
+* *adams-pdf:* 
+
+  * upgraded icepdf to 7.2.2 and pdfbox to 3.0.3
+  * added tools menu to *PDF Viewer* for extracting: pages, text, images
+  * The *Image* PDF proclet now allows specifying the type of scaling to
+    apply: SCALE_TO_FIT (default) and SCALE_PERCENT.
+
+* *adams-redis:* upgraded lettuce-core to 6.5.5.RELEASE to address CVE-2025-25193
+* *adams-rsync:* upgraded rsync4j to 3.3.0-3
+* *adams-spreadsheet:* The *Spreadsheet file viewer* now can set optimal widths or
+  specific columns widths in a spreadsheet via the main menu (can also be applied
+  to all currently loaded spreadsheets).
+* *adams-applications:* The Debian packages and Docker images now use Java 17.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added the NUMBER_TOTAL evaluation statistic to retrieve the total number of 
+    instances used in the evaluation.
+  * Added support for prediction to the followng PLS algorithms: KernelPLS,
+    NIPALS, OPLS, PRM, SparsePLS, VCPLS.
+
+* *adams-spectral-2dim-core:* 
+
+  * The *FieldInstanceGenerator* now has the *prefix* option that gets applied 
+    to the attribute names.
+  * The *MultiSpectrumRemove* transformer is now deprecated, instead *MultiSpectrumOperation*
+    in conjunction with *Remove* should be used.
+
+* *adams-webservice-core:* upgraded cxf-core to 3.6.6 to address CVE-2025-23184
+
+
+**Additions**
+
+* *adams-core:* 
+
+  * Added the *JAIEximplicitImageWriter* which offers more control over format-specific output parameters.
+  * The *GetMapKeyValuePairs* outputs all key/value pairs of the map as Object arrays of length two.
+  * Added new post-processors for the *TryCatch* control actor: MultiErrorPostProcessor,
+    RemoveExceptionPrefix, RemoveStackTrace.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added a *Preview browser* plugin for displaying classifier evaluation summary text files as table.
+  * Added the *PLSRegressor* Weka classifier that can make use of a wider range of PLS algorithms
+    than *PLSClassifier*.
+
+* *adams-imaging:* 
+ 
+  * The Object annotation and Image segmentation interfaces now have an *Export*
+    tool that allows saving the current view as an image (png or jpg).
+  * Segment anything 2 support has been added to the Object annotation/Image segmentation
+    interfaces as *SAM2* tool. This tool does not require any running Docker images.
+  * Added the *SimplifyPolygons* object filter, which can reduce the number of points
+    used from model-generated polygons significantly.
+
+* *adams-imaging-djl:* New module utilizing the Deep Java Library, initially only for 
+  offering Segment Anything 2 annotating support in the *ImageSegmentationAnnotator* 
+  and *ImageObjectAnnotator* transformers.
+* *adams-jep-weka* and *adams-jep-weka-lts*: new modules that makes Python available in Weka
+  using the Jep library.
+* *adams-weka* and *adams-weka-lts*: added the *WekaInitializeScriptedClassifiers* to 
+  prepare ScriptedClassifier instances in storage for making predictions using this
+  actor as the flow context.
+* *adams-spectral-2dim-core:* added the *MultiSpectrumOperation* transformer that applies
+  the specified operation, removing spectra based on type or outliers.
+
