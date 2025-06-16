@@ -1,0 +1,132 @@
+.. title: Updates 2025/06/17
+.. slug: updates-2025-06-17
+.. date: 2025-06-17 08:55:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A bunch of never used modules got retired, but a new one got added as well:
+*adams-djl* integrates the Deep Java Library (DJL, https://djl.ai/) and
+*adams-djl-weka* makes the library within Weka (currently only as regressor).
+Lots of little bug fixes and improvements, as usual.
+
+
+**Fixes**
+
+* Reconnecting to a database now works more reliably.
+* Cancelling a GenericObjectEditor now restores back to the first undo point.
+* The *Documentation* help menu entry now uses absolute paths to open the
+  PDF files, to avoid placeholders in the path.
+* *adams-core*: 
+
+  * The *PromptUser* boolean condition, when displayed in the notification 
+    panel, now sets the "run" icon again after closing the notification area.
+  * The *Branch* control actor no longer incorrectly uses parallel execution 
+    in sequential mode (ie when 1 thread is requested).
+  * The *ProgressBar* no longer outputs the current token in the console
+    alongside the actual percentage.
+  * *Flow*, *LocalScopeSubProcess*, *LocalScopeTee* and *LocalScopeTrigger*
+    now use block instead of object synchronization when accessing variables 
+    and storage, to avoid GUI lockups when debugging a flow.
+
+* *adams-git:* The git settings helper now handles missing global user/email.
+* *adams-imaging:* The *ImageSegmentationAnnotator* transformer now correctly
+  displays the current image's name.
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Renamed duplicates classes by adding suffix 2 
+    (weka.classifiers.meta.WeightedInstancesHandlerWrapper and 
+    weka.filters.unsupervised.instance.RemoveDuplicates) to resolve serialization
+    issues.
+  * The *RemoveOutliers* filter no longer throws exception in multi-threaded mode 
+    when successfully finishing aggregation of evaluation data.
+
+
+**Changes**
+
+* *adams-core:* 
+
+  * The *SelectArraySubset* transformer now supports basic headless interaction,
+    allowing the user to select a range.
+  * The *executeOnError* and *executeOnFinish* properties of the *Flow* control
+    actor are now a class hierarchy rather than just a FlowFile, giving better
+    control over the actor being executed. The FromFile plugin is the equivalent 
+    of the previous functionality.
+  * The *Flow editor* now has keeps a history of actor paths that were entered
+    when locating an actor (via right-click popup on the input field). A similar
+    history is available when search for text in the flow.
+  * The *Flow editor* now maintains the view state (expanded/selected actors)
+    of the last 50 flows with a filename, restoring the state when reopening them.
+  * When the user changes names of variables/storage items in the *Flow editor* and 
+    then cancels the propagation, another prompt allows the user to ignore name 
+    changes from then on rather than going through the flow editor menu 
+    (the prompt to ignore name changes is only shown once per flow).
+  * The *Text editor* now keeps a simple history of search terms.
+  * switched to net.sf.trove4j:core 3.1.0
+  * added basic support for NANOSECS/NANOSECS_LONG for date/time handling/conversions
+  * The *FileValueDefinition*, as used by the *EnterManyValues* source, now allows 
+    selecting multiple files when the "multiSelect" property is checked.
+  * In the *Flow editor*, the *Run* menu items and toolbar buttons now double as 
+    "Restart" ones if the flow is already running.
+
+* *adams-db:* removed the JTDS MS SQL Server JDBC driver due to throwing an AbstractMethodError 
+  when calling net.sourceforge.jtds.jdbc.JtdsConnection.isValid(...) - ironically, this problem
+  occurred due to the recent changes to making reconnects more reliable.
+* *adams-excel:* Upgraded poi/poi-ooxml to 5.4.0 to address CVE-2025-31672
+* *adams-ml:* The *ActualVsPredictedPlot* now allows selecting of points via enclosing polygon
+  (SHIFT+left for vertex, SHIFT+right to close polygon)
+* *adams-visualstats:* The *Histogram* sink now accepts arrays of Flow/Long/Integer as well,
+  not just Double
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Removed WekaExcel and WekaODF dependencies, can be achieved via the SpreadSheetLoader 
+    and the Excel/ODFSpreadSheetLoader base reader.
+  * The *ClassifierErrors* and *Predictions* output generators in the *Weka Investigator*
+    now allow the removal of instances in the dataset the predictions originated from
+    (only works for cross-validation and explicitly loaded test sets). The help for
+    ClassifierErrors lists the combinations of mouse-clicks and keyboard modifiers.
+  * The *WekaPredictionsToInstances* and *WekaPredictionsToSpreadSheet* transformers
+    and the *Predictions* output generator in the Weka Investigator now allow 
+    computing the relative error (= (act-pred)/act).
+
+
+**Additions**
+
+* *adams-core:* 
+
+  * Added the *DatabaseConnectionValid* source actor, which outputs a boolean
+    depending on the state of the current database connection.
+  * Added the *FileChanged* boolean flow condition.
+  * Added conversions *OneBasedToZeroBased* and *ZeroBasedToOneBased* for converting
+    integer indices.
+
+* *adams-djl-weka:* integrates Deep Java Library (DJL) in Weka
+* *adams-git:* added git actions to the *File commander*
+* *adams-json:* added the *StringToObject* conversion which uses the Jackson ObjectMapper
+  to automatically map the JSON onto an object of the specified class.
+* *adams-ml:* the *RemoveOutliers* control actor now stores the indices of the outliers in
+  the generated container as well.
+* *adams-scripts:* Added the *create_desktop_entry.sh* script for quickly creating .desktop
+  entry files under Linux.
+* *adams-weka* and *adams-weka-lts*: 
+  
+  * Added ExcelLoader/ExcelSaver Weka converters for native reading/writing of MS Excel files.
+  * The *AdditiveRegressionUserDefined* meta-classifier works like AdditiveRegression but 
+    uses user-defined classifiers for iterating over rather than a predefined number of 
+    iterations using the same base classifier.
+
+**Retired modules**
+
+* adams-pyro4
+* adams-pyro5
+* adams-python-weka
+* adams-python-weka-lts
+
+Retired modules are available from here:
+
+https://github.com/waikato-datamining/adams-discontinued
+
