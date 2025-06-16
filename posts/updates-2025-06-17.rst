@@ -9,7 +9,7 @@
 .. type: text
 .. author: FracPete
 
-A bunch of never used modules got retired, but a new one got added as well:
+A bunch of never used modules got retired, but new ones got added as well:
 *adams-djl* integrates the Deep Java Library (DJL, https://djl.ai/) and
 *adams-djl-weka* makes the library within Weka (currently only as regressor).
 Lots of little bug fixes and improvements, as usual.
