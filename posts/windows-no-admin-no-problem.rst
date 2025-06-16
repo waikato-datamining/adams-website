@@ -21,12 +21,15 @@ get Java on your computer. You can simply download a JDK, decompress the archive
 variable to that directory. ADAMS automatically looks for the `JAVA_HOME` environment variable.
 
 JDKs can be downloaded from here:
+
 https://adoptium.net/temurin/releases/
 
 E.g., Java 11 for Windows 64bit (download the zip):
+
 https://adoptium.net/temurin/releases/?variant=openjdk11&os=windows&arch=x64&package=jdk&version=11
 
 Or Java 11 for Linux 64bit (download the tar.gz):
+
 https://adoptium.net/temurin/releases/?variant=openjdk11&os=linux&arch=x64&package=jdk&version=11
 
 Later LTS (long term support) versions like 17 or 21 should work as well, but you only need 11 as a minimum at the
