@@ -149,7 +149,6 @@ NAVIGATION_LINKS = {
           ("/developers/dev-get-started", "Get started"),
           ("/actors", "Actors"),
           ("/developers/dev-javadoc", "Javadoc"),
-          ("/jenkins/", "Jenkins"),
           ("/nexus/", "Nexus"),
           ("/developers/dev-forum", "Forum"),
           ), "Developers"),
@@ -160,7 +159,7 @@ NAVIGATION_LINKS = {
           ("/galleries/floweditor", "Flow editor evolution"),
           ("/about/publications", "Publications"),
           ("/about/team", "Team"),
-          ("/about/consulting", "Consulting"),
+          ("https://www.data-mining.co.nz/", "Consulting"),
           ), "About"),
     ),
 }
