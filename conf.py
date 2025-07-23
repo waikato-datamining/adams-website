@@ -544,6 +544,7 @@ INDEX_PATH = "blog"
 #
 # If you don't need any of these, just set to []
 REDIRECTIONS = [
+    ("/about/consulting/", "https://www.data-mining.co.nz/")
 ]
 
 # Presets of commands to execute to deploy. Can be anything, for
