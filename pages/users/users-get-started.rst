@@ -1,6 +1,6 @@
 .. title: Get Started
 .. slug: users-get-started
-.. date: 2018-09-06 15:46:52 UTC+13:00
+.. date: 2025-07-23 14:13:52 UTC+12:00
 .. tags: 
 .. category: 
 .. link: 
@@ -9,6 +9,20 @@
 .. author: FracPete
 
 .. contents::
+
+Installation
+============
+
+ADAMS only requires very minimal setup:
+
+* You need `Java 11 (JDK) or later <https://adoptium.net/temurin/releases/>`__ (if you don't have admin rights on Windows,
+  please see `this blog post <link://slug/windows-no-admin-no-problem>`__ to get set up).
+* Download either a `release <link://slug/release>`__ (less frequently updated) or a
+  `snapshot <link://slug/snapshot>`__ (daily builds from latest code).
+* Simply decompress the zip archive of ADAMS that you downloaded and launch ADAMS via the `bin\start_gui.bat` batch file or
+  `bin/start_gui.sh` shell script. Linux users that downloaded either the `.deb` or `.rpm` package, install it with
+  your distro's package manager and you should find shortcut in your start menu.
+
 
 First steps
 ===========
