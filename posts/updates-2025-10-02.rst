@@ -1,0 +1,190 @@
+.. title: Updates 2025/10/02
+.. slug: updates-2025-10-02
+.. date: 2025-10-02 13:13:00 UTC+13:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+Lots of little fixes and changes; some useful changes for reading/writing zipped spectrum 
+archives; added support for IMAP operations; added dropwizard as a fast, alternative framework
+for REST webservices.
+
+**Fixes**
+
+* The restarting of flows now works with interactive actors like object annotation
+  dialogs.
+* *adams-core:* 
+
+  * The *Map* inspection handler now represents null values as "-null-" in the UI.
+  * The *File commander* can copy directories recursively now as well (incl remote ones).
+  * *CloseCallableDisplay* now works on displays without a frame (eg within the editor's side pane)
+  * *ArrayToChunks* now backs up its state correctly (e.g., due to attached variables).
+
+* *adams-imaging:* The *SimpleOverlay* image segmentation operation now
+  ensures that the layer with the specified name exists.
+* *adams-spreadsheet:* The *SQL Workbench* now displays results from "SHOW ..." statements
+  as tables as well.
+* *adams-weka* and *adams-weka-lts*: The *ClassifierErrors* output generator now honors 
+  the *useCustomPaintlet* flag.
+
+
+**Changes**
+
+* Programmatically removed flags/properties now get ignored when parsing options, to
+  avoid confusing warnings when loading flows that certain options cannot be located.
+* When choosing *DisplayInEditor* for graphical actors, the *Displays* tab then shows
+  the dispolay panels grouped by flow title with the tabs at the top and the individual
+  displays via their name in the tabs at the bottom. Previously, the grouping happened
+  by display type, which made it hard to determine to which flow a display belonged.
+* Option.props/option.ReportModuleDifferences=false allows turning off warnings when 
+  loading nested format files with differing modules than current application.
+* upgraded maven-dependency-plugin to 3.8.1
+* *adams-bootstrapp:* upgraded bootstrapp to 0.1.14
+* *adams-core:* 
+
+  * upgraded rsyntaxtextarea dependency to 3.6.0
+  * upgraded org.slf4j:slf4j-api to 2.0.7
+  * upgraded argparse4j to 0.9.0
+  * upgraded commons-compress to 1.28.0
+  * upgraded commons-io to 2.20.0
+  * upgraded flatlaf to 3.6.1
+  * SQLStatement and SQL Workbench now use RSyntaxTextArea for better syntax highlighting
+  * The *ProgressBar* now only outputs something in headless mode if the generated text
+    is different to the last one generated.
+  * The *File commander* now has keyboard shortcuts for the operations (hover over the
+    buttons to see them). An explicit *Duplicate* operation was added, rather than
+    trying to achieve that with the *Copy* action.
+  * The transformers *ContainerToStorage* and *ContainerToVariables* now offer
+    explicit mapping of container names to storage/variable names.
+  * Added instructions to the manual for using WinSW (https://github.com/winsw/winsw) 
+    for managing Windows services.
+  * Added section on Syntax higlighting for .flow files to the manual (vim/Notepad++).
+  * Added support for *streamable* data container readers and writers, i.e., ones
+    that can use Input/OutputStream objects.
+
+* *adams-git:* upgraded jgit dependency to 6.10.1.202505221210-r
+* *adams-imaging:*
+
+  * The *ImageSegmentationAnnotator* can backup up the tool settings and tools 
+    support favorites now. Also features maximize/minimize window and stop flow buttons now.
+    The image can be dragged via SHIFT+left-click now.
+  * The *ImageObjectAnnotator* can backup up the tool settings and tools support 
+    favorites now. Also features maximize/minimize window and stop flow buttons now.
+    The image can be dragged via SHIFT+left-click now.
+  * The *ImageLabeler* can backup up the tool settings now and tools support
+    favorites now. Also features maximize/minimize window and stop flow buttons now.
+  * *ImageSegmentationAnnotationReader* classes can now load the annotations from an 
+    alternative directory, different to the one where the base image is located, 
+    allowing the base images being used with multiple different annotation/prediction dirs.
+
+* *adams-json:* upgraded jackson-databind to 2.19.2
+* *adams-net:* 
+
+  * switched from org.codelibs:jcifs to com.hierynomus:smbj for SAMBA support (Windows shares)
+  * retired FTP support
+
+* *adams-rats-net:* retired FTP support
+* *adams-rsync:* upgraded rsync4j to 3.3.0-5
+* *adams-spectral-2dim-core:* 
+
+  * Added a section on syntax highlighting for .spec files (vim/Notepad++).
+  * The *ZippedSpectrumReader* can make use of streamable spectrum readers now.
+  * Several spectrum readers and writers now support streaming.
+
+* *adams-video:* upgraded screencast4j to 0.1.6
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added support for per-fold output in the Classify tab of the *Weka Investigator* 
+    for the following output generators: GraphSource, LegacyGraphVisualizer, 
+    LegacyTreeVisualizer, ModelOutput, SourceCode, TreeGraphML, TreeVisualizer.
+  * Most cross-validation generators now record the original indices per fold, 
+    which are used in the *Weka Investigator* to display, e.g., additional attributes
+    on a per fold basis as in the *Predictions* output generator.
+
+* *adams-weka-lts:* upgraded Weka to 3.9.0-fork-0.0.16 to fix issue with serialization
+
+* *instant-adams:* upgraded bootstrapp to 0.1.14
+* ...
+
+
+**Additions**
+
+* *adams-compress:* The actors *NewArchive*, *AppendArchive* and *CloseArchive*
+  allow the incremental creation of archives, like zip or tar files.
+* *adams-core:* 
+ 
+  * Added the *ArrayCosineSimilarity* array statistic.
+  * Added the *ProgressConsole* sink, which works like the *ProgressBar* but simply
+    outputs the progress percentage in the console. Useful for when trying to avoid
+    too many popups.
+  * Added the *TimedSource* source actor for timing the sub-actors that generate
+    data.
+  * Added the *TriggerCallableStandalone* standalone for triggering other standalone 
+    actors (sends NullToken if they expect input).
+  * Added the *TraceExecutionTime* flow execution listener, which records the execution
+    time for every call while a flow is running in a CSV file.
+  * Added the *RestoreVariable* flow template that just generates a SetVariable
+    standalone setup to be used in conjunction with interactive actors like
+    SelectFile for storing their parameters in a .props file.
+  * Added conversions for data containers that take advantage of the new streamable
+    readers/writers for data containers: *ByteArrayToDataContainer*,
+    *StringToDataContainer*, *DataContainerToByteArray* and *DataContainerToString*.
+  * Added the *Density* meta-data color scheme, which generates colors based on
+    a color gradient and applies them according to the density of the bin.
+    See below for a screenshot from the Weka Investigator (*Classifier errors*).
+
+* *adams-heatmap:* Added the *ColumnCosineSimilarityToHeatmap* conversion.
+* *adams-imaging:* 
+
+   * Added the *Clear* tool for removing all annotations of the active label
+     in the Image segmentation annotation interface.
+   * Added an additional *Rotate* BufferedImage transformer plugin, which does
+     not rely on JAI functionality.
+   * Added the *PolygonVertexLengths* object filter for calculating the lengths
+     of polygon vertices.
+   * Added the *CompareAnnotationWithPredictionStats* image segmentation operation
+     for calculating a spreadsheet with the overlap/missed/additional counts/percentages,
+     IoU and Dice between annotation and prediction images.
+   * Added *DiceCoefficient* object overlap calculation.
+   * The *PolygonPointAnnotator* for annotating objects now uses cross-hairs as vertex
+     markers for better visibility.
+   * The *PolygonFill* tool for image segmentation annotations now uses cross-hairs as
+     vertex markers to improve usability.
+
+* *adams-json:* Added the *HasJsonValue* boolean condition.
+* *adams-net:* Added basic IMAP support: *IMAPConnection*, *IMAPOperation* (source/transformer), 
+  *SaveEmailAttachments*.
+* *adams-rats-net:* Added support for IMAP source operations with *IMAP* rat input.
+* *adams-rest-dw*: New module for REST webservices using Dropwizard 
+  (https://github.com/dropwizard/dropwizard).
+* *adams-spectral-2dim-core:* 
+
+  * Added the outlier removal schemes *CosineSimilarityBasedThreshold*
+    and *MeanSpectrumCosineSimilarityBasedThreshold*.
+  * The *ZippedSpectrumWriter* can write spectra to a zip file with a
+    base reader that supports streaming.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * Added the *ReplaceLinearRegression* actor processor, which replaces occurrences 
+    of LinearRegression with LinearRegressionJ (pure Java version).
+  * Added the *WekaClassifierModelReader* for reading serialized classifier setups,
+    which optional *warming up* of the model.
+  * Added *GroupedStacking* meta-classifier, which works like Stacking, but allows
+    custom cross-validation generators, e.g., for grouping instances. Due to slightly
+    different cross-validation generation, the results of GroupedStacking and Stacking
+    cannot be compared one-to-one.
+  * Added *WekaEvaluationRenderer* object renderer, for a quick textual inspection
+    of an Evaluation object (Preview browser or debugging in the Flow editor).
+
+
+Example density-based scatter plot (*classifier errors*) of the numeric dataset *fried*:
+
+.. image:: /images/density_scatterplot.png
+   :alt: Density-based scatter plot of the numeric dataset "fried"
+   :align: center
+
