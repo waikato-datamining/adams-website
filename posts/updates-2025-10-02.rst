@@ -108,7 +108,6 @@ for REST webservices.
 * *adams-weka-lts:* upgraded Weka to 3.9.0-fork-0.0.16 to fix issue with serialization
 
 * *instant-adams:* upgraded bootstrapp to 0.1.14
-* ...
 
 
 **Additions**
