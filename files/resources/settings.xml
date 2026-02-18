@@ -3,7 +3,7 @@
     <mirror>
       <id>nexus</id>
       <mirrorOf>central</mirrorOf>
-      <url>https://adams.cms.waikato.ac.nz/nexus/content/groups/public</url>
+      <url>https://adams.cms.waikato.ac.nz/nexus/repository/public</url>
     </mirror>
   </mirrors>
 
