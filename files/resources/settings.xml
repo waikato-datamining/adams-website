@@ -34,13 +34,13 @@
       <repositories>
         <repository>
           <id>adams-snapshots</id>
-          <url>https://adams.cms.waikato.ac.nz/nexus/content/repositories/adams-snapshots</url>
+          <url>https://adams.cms.waikato.ac.nz/nexus/repository/adams-snapshots</url>
           <releases><enabled>false</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </repository>
         <repository>
           <id>adams-releases</id>
-          <url>https://adams.cms.waikato.ac.nz/nexus/content/repositories/adams-releases</url>
+          <url>https://adams.cms.waikato.ac.nz/nexus/repository/adams-releases</url>
           <releases><enabled>true</enabled></releases>
           <snapshots><enabled>false</enabled></snapshots>
         </repository>
@@ -54,10 +54,10 @@
         <!-- you need to specify the directory. Below are some examples: -->
 
         <!-- windows -->
-        <!--latex.binariesPath>C:/texlive/2016/bin/win32/</latex.binariesPath-->
+        <!--latex.binariesPath>C:/texlive/2026/bin/</latex.binariesPath-->
         
         <!-- linux/mac -->
-        <!--latex.binariesPath>/some/where/texlive/2016/bin/x86_64-linux/</latex.binariesPath-->
+        <!--latex.binariesPath>/some/where/texlive/2026/bin/</latex.binariesPath-->
       </properties>
     </profile>
   </profiles>
