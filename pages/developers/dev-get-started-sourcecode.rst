@@ -1,6 +1,6 @@
 .. title: Get Started - Source code
 .. slug: dev-get-started-sourcecode
-.. date: 2022-03-04 10:13:00 UTC+13:00
+.. date: 2026-03-20 13:44:00 UTC+13:00
 .. tags: 
 .. category: 
 .. link: 
@@ -41,10 +41,6 @@ Further modules are available:
 * **applications** (domain-specific applications):
 
   `https://github.com/waikato-datamining/adams-applications <applications_>`_
-
-* **libraries** (module-specific additional libraries):
-
-  `https://github.com/waikato-datamining/adams-libraries <libraries_>`_
 
 
 Compiling the source code
@@ -98,13 +94,13 @@ the ``settings.xml`` file. For instance, if your LaTeX binaries are located in:
 
 .. code:: bat
 
-   C:\texlive\2016\bin\win32
+   C:\texlive\2026\bin\win64
 
 Then adapt the ``latex.binariesPath`` as follows:
 
 .. code:: xml
 
-   <latex.binariesPath>C:/texlive/2016/bin/win32/</latex.binariesPath>
+   <latex.binariesPath>C:/texlive/2026/bin/win64/</latex.binariesPath>
 
 
 
