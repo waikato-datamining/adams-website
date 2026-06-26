@@ -1,0 +1,195 @@
+.. title: Updates 2026/06/25
+.. slug: updates-2026-06-25
+.. date: 2026-06-25 17:17:00 UTC+12:00
+.. tags: 
+.. status: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: FracPete
+
+A lot of little fixes, changes and additions have happened. One very useful feature is the ability
+to create self-contained HTML plots in the Flow (*ActualVsPredictedProcessor* transformer) and 
+the Weka Investigator (*HTMLOutput* output generator).
+
+
+**Fixes**
+
+* *adams-core:* 
+
+  * SQLStatement objects now have their correct GOE editor associated again.
+  * The *remove* method of the *StorageQueueHandler* now returns the payload
+    of the queue item rather than the queue item, to allow the *DeQueue* 
+    source to forward the correct object.
+  * Maximizing/minimizing BaseDialog-derived dialogs now work better on
+    multi-monitor setups.
+  * The *Make timed* operation from the Flow editor popup menu now correctly
+    wraps actors that don't have a timed equivalent.
+
+
+**Changes**
+
+* *adams-core:* 
+
+  * The database connection dialog now allows the user to export the currently
+    selected connection to a .props file.
+  * The *FileChanged* boolean flow condition can generate a 'file changed' event
+    the first time the file is being checked.
+  * The database connection actors can obtain their password now from an environment variable as well.
+  * Introduced the environment variable *ADAMS_LOGGING_HANDLER* for defining the default logging handler
+  * The *FileHandler* and *RotatingFileHandler* log handlers now use a thread for writing the records
+    to disk to eliminate a performance bottleneck. The thread gets shut down with the *StopLogging*
+    builtin shutdown hook.
+  * Upgraded log4j to 2.25.3 to address CVE-2025-68161
+  * Upgraded rsyntaxtextarea to 3.6.1
+  * Upgraded mysql-connector-j to 9.6.0
+  * Upgraded simple-directory-chooser to 0.0.4
+  * Upgraded jeneric-cmdline to 0.0.7
+  * Upgraded flatlaf to 3.7.1
+  * The *Exec*/*Command* sources and *Exec* transformer now expand flow variables in the 
+    value part of environment variables automatically.
+  * The *Command* and *Exec* sources now allow storing the exit code in a variable.
+  * The *HashSetInit* standalone and transformer now allow specifying the initial 
+    capacity of the underlying set.
+  * The *Make timed* operation of the Flow editor popup menu now always makes the 
+    callable actor optional and uses the current actor's name as the prefix (plus ": ").
+
+* *adams-bootstrapp:* Upgraded bootstrapp to 0.1.15
+
+* *adams-db*:
+
+  * Upgraded postgresql to 42.7.10
+  * Upgraded hsqldb to 2.7.4
+  * Upgraded sqlite-jdbc to 3.53.0.0
+  * Upgraded h2 to 2.4.240
+  * Upgraded mssql-jdbc to 12.10.2.jre11
+
+* *adams-excel:*
+
+  * *ExcelSpreadSheetReader* and *FastExcelSpreadSheetReader* now have an option 
+    whether to fill in empty header cells or not.
+  * Upgraded Apache POI to 5.5.1
+  * Upgraded fastexcel-reader to 0.20.0
+
+* *adams-imaging:*
+
+  * The *Edit* object annotation tool now allows changing the size of the handles
+    for the vertices.
+  * The *PolygonPointAnnotator* now shows the *Unset* button in the labels again.
+
+* *adams-net:*
+
+  * These standalones allow obtaining the password from an environment variable now:
+    *IMAPConnection*, *SMBConnection*, *SMTPConnection*, *SSHConnection*
+  * The *HttpRequest* source and transformer now support redirects (default is no).
+  * The *HttpRequest* source/transformer and *HttpPostFile* transformer now allow
+    storing the status code and/or body directly in variables.
+  * Swapped the websocket library com.pusher:java-websocket:1.4.1 with org.java-websocket:Java-WebSocket:1.6.0
+
+* *adams-rats-core:*
+
+  * The *Exec* rat input and *Exec* rat output now expand flow variables in the
+    value part of environment variables automatically.
+
+* *adams-redis:*
+
+  * These standalones allow obtaining the password from an environment variable now:
+    *RedisConnection*
+
+* *adams-security:*
+
+  * These standalones allow obtaining the password from an environment variable now:
+    *KeyManager*, *TrustManager*
+
+* *adams-spreadsheet:*
+
+  * The *SpreadSheetVariableRowIterator* transformer can suppress variable notifications
+    now as well.
+  * The *LookUpInit* standalone and transformer now allow specifying the initial 
+    capacity of the underlying lookup table.
+
+* *adams-weka* and *adams-weka-lts*:
+
+  * The *Weka Dataset compatibility* tool now offers strict/lenient mode. The
+    latter only requires the attribute types to match, not the names.
+  * The *Weka Investigator* offers a strict/lenient mode for dataset compatibility
+    now as well.
+  * Added support for *lenient* dataset compatibility to transformers: 
+    *WekaInstanceBuffer*, *WekaInstanceDumper*, *WekaInstancesAppend*
+    and *WekaTrainTestSetEvaluator*.
+  * The *Weka Append Datasets* tool now allows lenient dataset compatibility.
+  * Added *Copy name* to the header popup menu of the InstancesTable class.
+  * The *WekaClassifying* transformer now stores the probability for the
+    predicted class label in *WekaPredictionContainer* as well:
+    Classification probability, Abstention classification probability.
+
+
+**Additions**
+
+* *adams-core*:
+
+  * added the *IsStringValue* and *IsAnyStringValue* boolean flow conditions
+    for fast checks (faster than evaluating *Expression*).
+  * added the *ChangeJobRunnerUsage* actor processor for updating the state
+    of *JobRunnerUser* and *JobRunnerSupporter* objects.
+  * added the *Sort sub-flow* menu item to the flow tree popup menu 
+    (as part of *More* sub-menu), which allows sorting all the actors in the
+    sub-flow below the selected actor; sorting is done on the name in 
+    case-insensitive fashion.
+  * added action "Rename" to the file list popup in the Preview browser.
+  * added the *DeleteManyVariables* standalone/transformer to delete
+    multiple variables in one go.
+  * added the *AbsolutePath* conversion to make it quicker to convert
+    a string into an absolute path, rather than using StringToFile and
+    FileToString in conjunction.
+  * added the *DeleteManyStorageValues* standalone/transformer to delete
+    multiple storage items in one go.
+  * added the *TimedStandalone* standalone actor for providing timings
+    for standalone actors as well.
+
+* *adams-git*:
+
+  * added the *GitRepo* standalone for specifying a git repo, *Git* source
+    and *Git* transformer actors for executing git operations.
+
+* *adams-imaging:*
+
+  * added the *FixedSizeBoundingBoxAnnotator* annotator which allows placing
+    a rectangle of certain width/height centered around the left mouse click
+    for rapid annotation of similar sized objects.
+  * added the *PascalVOCObjectLocationsWriter* report writer that generates
+    XML output in the Pascal VOC format.
+
+* *adams-ml:* 
+
+  * Added the *ActualVsPredictedProcessor* transformer and the associated
+    class hierarchy of processors that turn actual vs predicted data into
+    other output, e.g., HTML-based plots.
+
+* *adams-rest-openapi:* The OpenAPI functionality was moved into a separate
+  module to avoid unnecessary bloat in the *adams-rest* module.
+
+* *adams-rest-sse:* experimental module for offering Server-sent events
+  (SSE) via the *GenericServer* REST server: https://en.wikipedia.org/wiki/Server-sent_events
+
+* *adams-spectral-2dim-core:*
+
+  * added *FlowSpectrumReader* and *FlowSpectrumWriter* reader/writer for 
+    loading/saving spectra using flow fragments.
+  * added *AutoDetectSpectrumReader* which uses several base readers for
+    loading spectra from files. First reader that can handle a file
+    (based on its supported file extensions), will read the it.
+
+* *adams-weka* and *adams-weka-lts*: 
+
+  * added the *RemoveSampleIDs* batch filter that removes rows that have 
+    blacklisted sample IDs (loaded from a text file).
+  * added the *HTMLOutput* evaluation plugin to the Classifiers
+    tab in the *Weka Investigator*, which generates self-contained
+    HTML files using the specified processor, e.g., scatter plots
+    or kernel density plots.
+  * Added the *Unique values* menu item plugin to the InstancesTable class.
+  * Added the *WekaInstancesToInstancesView* conversion to make Weka Instances
+    objects available to spreadsheet processing components.
+
